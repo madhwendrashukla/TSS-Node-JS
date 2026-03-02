@@ -5,39 +5,7 @@ import { westernLineData } from '@/lib/data/western_line';
 import { eventsData } from '@/lib/data/events';
 import { pitchDecksData, PitchDeck } from '@/lib/data/pitchDecks';
 
-// ─── Shared Marquee wrapper ────────────────────────────────────────────
-function Marquee({ children, reverse = false, speed = 50 }: { children: React.ReactNode; reverse?: boolean; speed?: number }) {
-    return (
-        <div className="relative w-full overflow-hidden">
-            <div className="absolute left-0 top-0 h-full w-32 z-10 pointer-events-none bg-gradient-to-r from-bg-main to-transparent" />
-            <div className="absolute right-0 top-0 h-full w-32 z-10 pointer-events-none bg-gradient-to-l from-bg-main to-transparent" />
-            <div
-                className="marquee-track"
-                style={{ animationDuration: `${speed}s`, animationDirection: reverse ? 'reverse' : 'normal' }}
-            >
-                {children}
-                {children}
-            </div>
-            <style jsx>{`
-        .marquee-track {
-          display: flex;
-          width: max-content;
-          animation: marquee-scroll var(--duration, 50s) linear infinite;
-          will-change: transform;
-        }
-        .marquee-track:hover {
-          animation-play-state: paused;
-        }
-        @keyframes marquee-scroll {
-          0%   { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-      `}</style>
-        </div>
-    );
-}
-
-// ─── 1. Incubator Cards ───────────────────────────────────────────────
+import { InteractiveMarquee } from '../ui/InteractiveMarquee';
 function IncubatorCard({ item }: { item: typeof westernLineData[0] }) {
     return (
         <div className="flex flex-col flex-shrink-0 w-[340px] h-[280px] mx-3 glass-card rounded-2xl p-7 bg-[#0a0a0a]/60 border border-white/5 hover:border-accent-blue/30 hover:shadow-[0_0_30px_rgba(100,150,255,0.15)] hover:-translate-y-2 transition-all duration-300 ease-out cursor-default relative overflow-hidden group">
@@ -232,9 +200,9 @@ export function ToolsShowcase() {
                         Coworking spaces, accelerators & incubators across West, East, Central, and South Mumbai — compare equity, fees, and funding in one place.
                     </p>
                 </div>
-                <Marquee speed={Math.max(40, incubators.length * 4)}>
+                <InteractiveMarquee speed={Math.max(40, incubators.length * 4)}>
                     {incubators.map((item, i) => <IncubatorCard key={`inc-${i}`} item={item} />)}
-                </Marquee>
+                </InteractiveMarquee>
                 <div className="mt-14 text-center relative z-10">
                     <Link href="/tools/incubator-search/incubators" className="group inline-flex items-center text-accent-blue hover:text-white font-bold text-base transition duration-300">
                         Explore All Incubators <i className="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform"></i>
@@ -255,9 +223,9 @@ export function ToolsShowcase() {
                         Discover seed to growth-stage investors matched to your sector, stage, and check size.
                     </p>
                 </div>
-                <Marquee reverse speed={Math.max(40, INVESTORS.length * 4)}>
+                <InteractiveMarquee reverse speed={Math.max(40, INVESTORS.length * 4)}>
                     {INVESTORS.map((item, i) => <InvestorCard key={`inv-${i}`} item={item} />)}
-                </Marquee>
+                </InteractiveMarquee>
                 <div className="mt-14 text-center relative z-10">
                     <Link href="/tools/incubator-search/investors" className="group inline-flex items-center text-amber-400 hover:text-white font-bold text-base transition duration-300">
                         Find Your Investor <i className="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform"></i>
@@ -278,9 +246,9 @@ export function ToolsShowcase() {
                         Government-backed grants, DST schemes, and state-level funding programs — all curated for Indian founders.
                     </p>
                 </div>
-                <Marquee speed={Math.max(40, GRANTS.length * 4)}>
+                <InteractiveMarquee speed={Math.max(40, GRANTS.length * 4)}>
                     {GRANTS.map((item, i) => <GrantCard key={`grant-${i}`} item={item} />)}
-                </Marquee>
+                </InteractiveMarquee>
                 <div className="mt-14 text-center relative z-10">
                     <Link href="/tools/incubator-search/grants" className="group inline-flex items-center text-green-400 hover:text-white font-bold text-base transition duration-300">
                         Explore All Grants <i className="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform"></i>
@@ -301,9 +269,9 @@ export function ToolsShowcase() {
                         A curated monthly list of top B2B events, trade exhibitions, and startup summits across India.
                     </p>
                 </div>
-                <Marquee reverse speed={Math.max(40, events.length * 4)}>
+                <InteractiveMarquee reverse speed={Math.max(40, events.length * 4)}>
                     {events.map((item, i) => <EventCard key={`ev-${i}`} item={item} />)}
-                </Marquee>
+                </InteractiveMarquee>
                 <div className="mt-14 text-center relative z-10">
                     <Link href="/tools/founder-calendar" className="group inline-flex items-center text-accent-violet hover:text-white font-bold text-base transition duration-300">
                         View Events Calendar <i className="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform"></i>
@@ -324,9 +292,9 @@ export function ToolsShowcase() {
                         35+ verified funding stories from Razorpay, CRED, Zerodha, Meesho &amp; more — with the single key lesson from each raise.
                     </p>
                 </div>
-                <Marquee speed={Math.max(40, pitchDecks.length * 4)}>
+                <InteractiveMarquee speed={Math.max(40, pitchDecks.length * 4)}>
                     {pitchDecks.map((item, i) => <PitchDeckCard key={`pitch-${i}`} item={item} />)}
-                </Marquee>
+                </InteractiveMarquee>
                 <div className="mt-14 text-center relative z-10">
                     <Link href="/tools" className="group inline-flex items-center text-rose-400 hover:text-white font-bold text-base transition duration-300">
                         Explore Full Library <i className="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform"></i>

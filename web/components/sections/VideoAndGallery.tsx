@@ -16,47 +16,27 @@ const GALLERY_PHOTOS = [
     "/gallery/IMG_1380.JPG",
 ];
 
-// ─── Simple inline marquee ─────────────────────────────────────────────
+import { InteractiveMarquee } from '../ui/InteractiveMarquee';
+
 function PhotoMarquee({ photos, reverse = false }: { photos: string[]; reverse?: boolean }) {
     return (
-        <div className="relative overflow-hidden w-full">
-            <div className="absolute left-0 top-0 h-full w-40 z-10 pointer-events-none bg-gradient-to-r from-bg-main to-transparent" />
-            <div className="absolute right-0 top-0 h-full w-40 z-10 pointer-events-none bg-gradient-to-l from-bg-main to-transparent" />
-            <div
-                className="photo-marquee-track"
-                style={{ animationDirection: reverse ? "reverse" : "normal" }}
-            >
-                {[...photos, ...photos].map((src, i) => (
-                    <div
-                        key={i}
-                        className="flex-shrink-0 w-[380px] h-[260px] mx-3 rounded-2xl overflow-hidden border border-white/5 hover:border-white/20 hover:-translate-y-1.5 transition-all duration-300 group"
-                    >
-                        <Image
-                            src={src}
-                            alt={`Community moment ${i + 1}`}
-                            width={380}
-                            height={260}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100"
-                        />
-                    </div>
-                ))}
-            </div>
-            <style jsx>{`
-        .photo-marquee-track {
-          display: flex;
-          width: max-content;
-          animation: photo-scroll 30s linear infinite;
-          will-change: transform;
-        }
-        .photo-marquee-track:hover {
-          animation-play-state: paused;
-        }
-        @keyframes photo-scroll {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-      `}</style>
-        </div>
+        <InteractiveMarquee reverse={reverse} speed={30}>
+            {photos.map((src, i) => (
+                <div
+                    key={i}
+                    className="flex-shrink-0 w-[380px] h-[260px] mx-3 rounded-2xl overflow-hidden border border-white/5 hover:border-white/20 hover:-translate-y-1.5 transition-all duration-300 group"
+                >
+                    <Image
+                        src={src}
+                        alt={`Community moment ${i + 1}`}
+                        width={380}
+                        height={260}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100"
+                        draggable={false}
+                    />
+                </div>
+            ))}
+        </InteractiveMarquee>
     );
 }
 
