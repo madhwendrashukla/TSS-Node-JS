@@ -48,33 +48,39 @@ export default function ToolsPage() {
                     </Link>
 
                     {/* Active Tool 5: Founder Events */}
-                    <Link href="/tools/founder-calendar" className="glass-card p-8 md:p-10 rounded-3xl border border-white/10 hover:border-accent-blue/50 transition-colors group relative overflow-hidden bg-[#050505] lg:col-span-2">
-                        <span className="absolute top-0 right-0 w-[300px] h-[300px] bg-accent-violet/10 rounded-full blur-[80px] pointer-events-none group-hover:bg-accent-violet/20 transition-colors"></span>
+                    <Link href="/tools/founder-calendar" className="glass-card p-8 md:p-10 rounded-3xl border border-white/10 hover:border-accent-blue/50 transition-colors group relative overflow-hidden bg-[#050505]">
+                        <span className="bg-accent-blue/10 text-accent-blue text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest mb-6 inline-block border border-accent-blue/20">Live Now</span>
+                        <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight group-hover:text-accent-blue transition-colors">Founder Events Calendar</h3>
+                        <p className="text-text-secondary leading-relaxed font-light mb-8 max-w-xl">A curated monthly basis details of all top B2B events and exhibitions. Add to your calendar to never miss an opportunity.</p>
+                        <span className="text-accent-blue font-bold text-sm tracking-widest uppercase flex items-center gap-2 group-hover:translate-x-2 transition-transform">Access Tool <span className="text-lg">&rarr;</span></span>
+                    </Link>
+
+                    {/* NEW Active Tool 8: Cap Table Simulator */}
+                    <Link href="/tools/cap-table-simulator" className="glass-card p-8 md:p-10 rounded-3xl border border-white/10 hover:border-accent-blue/50 transition-colors group relative overflow-hidden bg-[#050505] lg:col-span-2">
+                        <span className="absolute top-0 right-0 w-[300px] h-[300px] bg-accent-blue/10 rounded-full blur-[80px] pointer-events-none group-hover:bg-accent-blue/20 transition-colors"></span>
                         <div className="relative z-10">
-                            <span className="bg-accent-violet/20 text-accent-violet text-[10px] font-bold px-3 py-1.5 rounded-full border border-accent-violet/30 uppercase tracking-widest mb-6 inline-block animate-pulse">New Active Tool</span>
-                            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight group-hover:text-accent-blue transition-colors">Founder Events Calendar</h3>
-                            <p className="text-text-secondary leading-relaxed font-light mb-8 max-w-xl">A curated monthly basis details of all top B2B events and exhibitions. Add to your calendar to never miss an opportunity.</p>
+                            <span className="bg-accent-blue/20 text-accent-blue text-[10px] font-bold px-3 py-1.5 rounded-full border border-accent-blue/30 uppercase tracking-widest mb-6 inline-block animate-pulse">New Active Tool</span>
+                            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight group-hover:text-accent-blue transition-colors">Interactive Cap Table Simulator</h3>
+                            <p className="text-text-secondary leading-relaxed font-light mb-8 max-w-xl">Simulate seed rounds, option pool expansions, and visualize founder dilution with dynamic pie charts before you sign a term sheet.</p>
                             <span className="text-accent-blue font-bold text-sm tracking-widest uppercase flex items-center gap-2 group-hover:translate-x-2 transition-transform">Access Tool <span className="text-lg">&rarr;</span></span>
                         </div>
                     </Link>
 
-                    {/* Coming Soon Tool 1 */}
-                    <div className="glass-card p-8 md:p-10 rounded-3xl border border-dashed border-white/10 bg-[#020202] relative overflow-hidden group">
-                        <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:4px_4px]"></div>
-                        <span className="bg-white/5 border border-white/10 text-text-secondary text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest mb-6 inline-block">Coming Soon</span>
-                        <h3 className="text-2xl md:text-3xl font-bold text-gray-400 mb-4 tracking-tight">Pitch Deck Repo</h3>
-                        <p className="text-gray-500 leading-relaxed font-light mb-8 relative z-10">A massive curated collection of winning pitch decks from YC startups and global unicorns to study.</p>
-                        <span className="text-gray-600 font-bold text-sm tracking-widest uppercase relative z-10">In Development</span>
-                    </div>
+                    {/* Active Tool 6: Pitch Deck Repo */}
+                    <Link href="/tools/pitch-decks" className="glass-card p-8 md:p-10 rounded-3xl border border-white/10 hover:border-accent-blue/50 transition-colors group relative overflow-hidden bg-[#050505]">
+                        <span className="bg-accent-blue/10 text-accent-blue text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest mb-6 inline-block border border-accent-blue/20">Live Now</span>
+                        <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight group-hover:text-accent-blue transition-colors">Pitch Deck Repo</h3>
+                        <p className="text-text-secondary leading-relaxed font-light mb-8">A massive curated collection of winning pitch decks from YC startups and global unicorns to study.</p>
+                        <span className="text-accent-blue font-bold text-sm tracking-widest uppercase flex items-center gap-2 group-hover:translate-x-2 transition-transform">Access Tool <span className="text-lg">&rarr;</span></span>
+                    </Link>
 
-                    {/* Coming Soon Tool 2 */}
-                    <div className="glass-card p-8 md:p-10 rounded-3xl border border-dashed border-white/10 bg-[#020202] relative overflow-hidden group">
-                        <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:4px_4px]"></div>
-                        <span className="bg-white/5 border border-white/10 text-text-secondary text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest mb-6 inline-block">Coming Soon</span>
-                        <h3 className="text-2xl md:text-3xl font-bold text-gray-400 mb-4 tracking-tight">Financial Modeler</h3>
-                        <p className="text-gray-500 leading-relaxed font-light mb-8 relative z-10">Automated financial projections and runway estimation templates for SaaS and Hardware.</p>
-                        <span className="text-gray-600 font-bold text-sm tracking-widest uppercase relative z-10">In Development</span>
-                    </div>
+                    {/* Active Tool 7: Financial Modeler */}
+                    <Link href="/tools/financial-modeler" className="glass-card p-8 md:p-10 rounded-3xl border border-white/10 hover:border-accent-blue/50 transition-colors group relative overflow-hidden bg-[#050505]">
+                        <span className="bg-accent-blue/10 text-accent-blue text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest mb-6 inline-block border border-accent-blue/20">Live Now</span>
+                        <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight group-hover:text-accent-blue transition-colors">Financial Modeler</h3>
+                        <p className="text-text-secondary leading-relaxed font-light mb-8 relative z-10">Automated financial projections and runway estimation templates for SaaS and Hardware.</p>
+                        <span className="text-accent-blue font-bold text-sm tracking-widest uppercase flex items-center gap-2 group-hover:translate-x-2 transition-transform">Access Tool <span className="text-lg">&rarr;</span></span>
+                    </Link>
 
                     {/* Coming Soon Tool 3 */}
                     <div className="glass-card p-8 md:p-10 rounded-3xl border border-dashed border-white/10 bg-[#020202] relative overflow-hidden group">
