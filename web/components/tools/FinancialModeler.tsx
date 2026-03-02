@@ -699,34 +699,84 @@ export default function FinancialModeler() {
                         </div>
 
                         <div className="flex-grow overflow-x-auto overflow-y-auto custom-scrollbar p-0 md:p-6 mt-[80px] md:mt-[100px]">
-                            <table className="w-full text-left text-xs border-collapse min-w-[700px]">
-                                <thead className="sticky top-0 bg-[#050505] z-10 shadow-[0_10px_10px_-10px_rgba(0,0,0,0.5)]">
-                                    <tr className="border-b border-white/10 text-[9px] md:text-[10px] uppercase tracking-wider text-text-tertiary">
-                                        <th className="pb-2 md:pb-3 px-2 md:px-0 font-bold pr-2 md:pr-4">Month</th>
-                                        <th className="pb-2 md:pb-3 px-2 md:px-0 font-bold pr-2 md:pr-4">Bank Balance</th>
-                                        <th className="pb-2 md:pb-3 px-2 md:px-0 font-bold pr-2 md:pr-4">Gross Rev</th>
-                                        <th className="pb-2 md:pb-3 px-2 md:px-0 font-bold pr-2 md:pr-4">MRR</th>
-                                        <th className="pb-2 md:pb-3 px-2 md:px-0 font-bold pr-2 md:pr-4">Gross Profit</th>
-                                        <th className="pb-2 md:pb-3 px-2 md:px-0 font-bold pr-2 md:pr-4">Total Exp</th>
-                                        <th className="pb-2 md:pb-3 px-2 md:px-0 font-bold pr-2 md:pr-4">Funding</th>
-                                        <th className="pb-2 md:pb-3 px-2 md:px-0 font-bold">Net Margin</th>
-                                    </tr>
-                                </thead>
-                                <tbody className="divide-y divide-white/5 font-mono text-[10px] md:text-xs">
-                                    {projection.map((row) => (
-                                        <tr key={row.month} className="hover:bg-white/5 transition-colors">
-                                            <td className="py-2 md:py-3 px-2 md:px-0 pr-2 md:pr-4 text-white font-sans font-medium whitespace-nowrap">Month {row.month}</td>
-                                            <td className={`py-2 md:py-3 px-2 md:px-0 pr-2 md:pr-4 font-bold ${row.cash < 0 ? 'text-red-500' : 'text-accent-blue'}`}>{formatCurrency(row.cash, currency)}</td>
-                                            <td className="py-2 md:py-3 px-2 md:px-0 pr-2 md:pr-4 text-green-300">{formatCurrency(row.grossRevenue, currency)}</td>
-                                            <td className="py-2 md:py-3 px-2 md:px-0 pr-2 md:pr-4 text-text-tertiary">{formatCurrency(row.revenue, currency)}</td>
-                                            <td className="py-2 md:py-3 px-2 md:px-0 pr-2 md:pr-4 text-white">{formatCurrency(row.grossProfit, currency)}</td>
-                                            <td className="py-2 md:py-3 px-2 md:px-0 pr-2 md:pr-4 text-red-300">{formatCurrency(row.expenses, currency)}</td>
-                                            <td className="py-2 md:py-3 px-2 md:px-0 pr-2 md:pr-4 text-yellow-500">{row.fundInjection > 0 ? `+${formatCurrency(row.fundInjection, currency)}` : '-'}</td>
-                                            <td className={`py-2 md:py-3 px-2 md:px-0 font-bold ${row.burn > 0 ? 'text-red-500' : 'text-green-500'}`}>{row.burn > 0 ? `-${formatCurrency(row.burn, currency)}` : `+${formatCurrency(row.profit, currency)}`}</td>
+                            {/* Desktop Table View */}
+                            <div className="hidden md:block">
+                                <table className="w-full text-left text-xs border-collapse min-w-[700px]">
+                                    <thead className="sticky top-0 bg-[#050505] z-10 shadow-[0_10px_10px_-10px_rgba(0,0,0,0.5)]">
+                                        <tr className="border-b border-white/10 text-[9px] md:text-[10px] uppercase tracking-wider text-text-tertiary">
+                                            <th className="pb-2 md:pb-3 px-2 md:px-0 font-bold pr-2 md:pr-4">Month</th>
+                                            <th className="pb-2 md:pb-3 px-2 md:px-0 font-bold pr-2 md:pr-4">Bank Balance</th>
+                                            <th className="pb-2 md:pb-3 px-2 md:px-0 font-bold pr-2 md:pr-4">Gross Rev</th>
+                                            <th className="pb-2 md:pb-3 px-2 md:px-0 font-bold pr-2 md:pr-4">MRR</th>
+                                            <th className="pb-2 md:pb-3 px-2 md:px-0 font-bold pr-2 md:pr-4">Gross Profit</th>
+                                            <th className="pb-2 md:pb-3 px-2 md:px-0 font-bold pr-2 md:pr-4">Total Exp</th>
+                                            <th className="pb-2 md:pb-3 px-2 md:px-0 font-bold pr-2 md:pr-4">Funding</th>
+                                            <th className="pb-2 md:pb-3 px-2 md:px-0 font-bold">Net Margin</th>
                                         </tr>
-                                    ))}
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody className="divide-y divide-white/5 font-mono text-[10px] md:text-xs">
+                                        {projection.map((row) => (
+                                            <tr key={row.month} className="hover:bg-white/5 transition-colors">
+                                                <td className="py-2 md:py-3 px-2 md:px-0 pr-2 md:pr-4 text-white font-sans font-medium whitespace-nowrap">Month {row.month}</td>
+                                                <td className={`py-2 md:py-3 px-2 md:px-0 pr-2 md:pr-4 font-bold ${row.cash < 0 ? 'text-red-500' : 'text-accent-blue'}`}>{formatCurrency(row.cash, currency)}</td>
+                                                <td className="py-2 md:py-3 px-2 md:px-0 pr-2 md:pr-4 text-green-300">{formatCurrency(row.grossRevenue, currency)}</td>
+                                                <td className="py-2 md:py-3 px-2 md:px-0 pr-2 md:pr-4 text-text-tertiary">{formatCurrency(row.revenue, currency)}</td>
+                                                <td className="py-2 md:py-3 px-2 md:px-0 pr-2 md:pr-4 text-white">{formatCurrency(row.grossProfit, currency)}</td>
+                                                <td className="py-2 md:py-3 px-2 md:px-0 pr-2 md:pr-4 text-red-300">{formatCurrency(row.expenses, currency)}</td>
+                                                <td className="py-2 md:py-3 px-2 md:px-0 pr-2 md:pr-4 text-yellow-500">{row.fundInjection > 0 ? `+${formatCurrency(row.fundInjection, currency)}` : '-'}</td>
+                                                <td className={`py-2 md:py-3 px-2 md:px-0 font-bold ${row.burn > 0 ? 'text-red-500' : 'text-green-500'}`}>{row.burn > 0 ? `-${formatCurrency(row.burn, currency)}` : `+${formatCurrency(row.profit, currency)}`}</td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            {/* Mobile Card View */}
+                            <div className="md:hidden flex flex-col gap-4 p-4">
+                                {projection.map((row) => (
+                                    <div key={row.month} className="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col gap-3">
+                                        <div className="flex justify-between items-center border-b border-white/5 pb-2">
+                                            <span className="text-sm font-bold text-white uppercase tracking-wider">Month {row.month}</span>
+                                            <span className={`text-sm font-black font-mono ${row.cash < 0 ? 'text-red-500' : 'text-accent-blue'}`}>
+                                                {formatCurrency(row.cash, currency)}
+                                            </span>
+                                        </div>
+
+                                        <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-xs font-mono">
+                                            <div className="flex flex-col">
+                                                <span className="text-[9px] text-text-tertiary uppercase tracking-wider">Gross Rev</span>
+                                                <span className="text-green-300">{formatCurrency(row.grossRevenue, currency)}</span>
+                                            </div>
+                                            <div className="flex flex-col text-right">
+                                                <span className="text-[9px] text-text-tertiary uppercase tracking-wider">MRR</span>
+                                                <span className="text-text-tertiary">{formatCurrency(row.revenue, currency)}</span>
+                                            </div>
+
+                                            <div className="flex flex-col">
+                                                <span className="text-[9px] text-text-tertiary uppercase tracking-wider">Gross Profit</span>
+                                                <span className="text-white">{formatCurrency(row.grossProfit, currency)}</span>
+                                            </div>
+                                            <div className="flex flex-col text-right">
+                                                <span className="text-[9px] text-text-tertiary uppercase tracking-wider">Total Exp</span>
+                                                <span className="text-red-300">{formatCurrency(row.expenses, currency)}</span>
+                                            </div>
+                                        </div>
+
+                                        <div className="mt-1 pt-3 border-t border-white/5 flex justify-between items-center text-xs font-mono">
+                                            <div className="flex flex-col">
+                                                <span className="text-[9px] text-text-tertiary uppercase tracking-wider">Funding</span>
+                                                <span className="text-yellow-500 font-bold">{row.fundInjection > 0 ? `+${formatCurrency(row.fundInjection, currency)}` : '-'}</span>
+                                            </div>
+                                            <div className="flex flex-col text-right">
+                                                <span className="text-[9px] text-text-tertiary uppercase tracking-wider">Net Margin</span>
+                                                <span className={`font-black ${row.burn > 0 ? 'text-red-500' : 'text-green-500'}`}>
+                                                    {row.burn > 0 ? `-${formatCurrency(row.burn, currency)}` : `+${formatCurrency(row.profit, currency)}`}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 )}

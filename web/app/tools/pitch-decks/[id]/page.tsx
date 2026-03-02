@@ -98,8 +98,29 @@ export default async function PitchDeckDetailPage({ params }: Props) {
                     </p>
                 </div>
 
-                {/* PDF Viewer */}
-                <div className="rounded-3xl border border-white/10 overflow-hidden bg-black shadow-2xl shadow-black/50" style={{ height: '80vh' }}>
+                {/* Mobile Fallback: Direct PDF Link */}
+                <div className="md:hidden glass-card p-8 rounded-3xl border border-white/10 text-center flex flex-col items-center justify-center gap-6 mt-8">
+                    <div className="w-16 h-16 rounded-full bg-accent-blue/10 flex items-center justify-center text-accent-blue">
+                        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h4 className="text-xl font-bold text-white mb-2">Ready to read the {deck.company} deck?</h4>
+                        <p className="text-sm text-text-secondary">Mobile browsers handle PDFs best in a separate tab.</p>
+                    </div>
+                    <a
+                        href={deck.fileUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-primary w-full py-4 uppercase tracking-widest text-sm font-bold shadow-[0_0_30px_rgba(100,150,255,0.3)] mt-2"
+                    >
+                        Tap to Open PDF
+                    </a>
+                </div>
+
+                {/* Desktop PDF Viewer */}
+                <div className="hidden md:block rounded-3xl border border-white/10 overflow-hidden bg-black shadow-2xl shadow-black/50" style={{ height: '80vh' }}>
                     <div className="bg-white/5 p-4 border-b border-white/10 flex items-center justify-between">
                         <span className="text-sm font-medium text-text-secondary">{deck.fileUrl.split('/').pop()}</span>
                         <div className="flex gap-2">

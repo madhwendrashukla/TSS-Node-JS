@@ -76,8 +76,7 @@ export default function CapTableSimulator() {
 
     // ─── 1. Pre-Money State ───
     const [shareholders, setShareholders] = useState<Shareholder[]>([
-        { id: '1', name: 'Founder A (CEO)', shares: 6000000, type: 'founder', color: COLORS[0] },
-        { id: '2', name: 'Founder B (CTO)', shares: 4000000, type: 'founder', color: COLORS[1] },
+        { id: '1', name: 'Founder (CEO)', shares: 10000000, type: 'founder', color: COLORS[0] },
         { id: 'pool', name: 'Unallocated Option Pool', shares: 0, type: 'option_pool', color: COLORS[2] } // Often zero at founding
     ]);
 
