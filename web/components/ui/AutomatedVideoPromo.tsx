@@ -32,20 +32,9 @@ export function AutomatedVideoPromo() {
     };
 
     return (
-        <section className="relative w-full min-h-screen flex flex-col justify-center overflow-hidden bg-black">
-            {/* Background Video */}
-            <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover z-0"
-            >
-                <source src="/founder-dating.mp4" type="video/mp4" />
-            </video>
-
-            {/* Dim Overlay - A gradient allows some brightness but favors readability */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/90 z-0"></div>
+        <section className="relative w-full min-h-screen flex flex-col justify-center overflow-hidden bg-bg-main">
+            {/* Extremely Subtle Background Glow */}
+            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-accent-blue/5 rounded-full blur-[120px] pointer-events-none"></div>
 
             {/* Main Content Area */}
             <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col items-center justify-center text-center h-full min-h-[500px]">
