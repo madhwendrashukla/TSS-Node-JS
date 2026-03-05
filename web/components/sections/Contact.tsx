@@ -30,7 +30,7 @@ export function Contact() {
     };
 
     return (
-        <section id="contact" className="py-32 w-full bg-[#000000] border-t border-white/5 relative overflow-hidden">
+        <section id="contact" className="py-32 w-full bg-bg-main border-t border-white/5 relative overflow-hidden">
             {/* Extremely Subtle Background Glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent-blue/5 rounded-full blur-[150px] pointer-events-none"></div>
 

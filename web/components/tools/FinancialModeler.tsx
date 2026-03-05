@@ -53,7 +53,7 @@ const EditableNumber = ({
             onFocus={() => setIsEditing(true)}
             onBlur={handleBlur}
             onKeyDown={(e) => e.key === 'Enter' && e.currentTarget.blur()}
-            className={`bg-white/5 hover:bg-white/10 px-2 py-0.5 rounded text-right min-w-[80px] w-auto outline-none font-mono transition-colors border border-transparent focus:border-accent-blue focus:bg-[#0a0a0a] ${textColor}`}
+            className={`bg-white/5 hover:bg-white/10 px-2 py-0.5 rounded text-right min-w-[80px] w-auto outline-none font-mono transition-colors border border-transparent focus:border-accent-blue focus:bg-bg-main ${textColor}`}
         />
     );
 };
@@ -260,7 +260,7 @@ export default function FinancialModeler() {
             <div className="lg:col-span-4 flex flex-col gap-6 lg:sticky lg:top-32">
 
                 {/* Header controls (Currency & Tabs) */}
-                <div className="flex flex-col gap-4 bg-[#050505] border border-white/10 rounded-2xl p-4">
+                <div className="flex flex-col gap-4 bg-bg-surface border border-white/10 rounded-2xl p-4">
                     <div className="flex gap-2 w-full">
                         <button
                             onClick={() => handleCurrencyChange('INR')}
@@ -299,7 +299,7 @@ export default function FinancialModeler() {
                 </div>
 
                 {/* Dynamic Content based on Active Tab */}
-                <div className="glass-card p-6 md:p-8 rounded-3xl border border-white/10 bg-[#050505] min-h-[440px]">
+                <div className="glass-card p-6 md:p-8 rounded-3xl border border-white/10 bg-bg-surface min-h-[440px]">
 
                     {/* --- TAB: BASICS --- */}
                     {activeTab === 'BASICS' && (
@@ -404,7 +404,7 @@ export default function FinancialModeler() {
                                             value={arpa} onChange={(e) => setArpa(Number(e.target.value))}
                                             className="w-full h-1 bg-white/10 rounded-lg appearance-none cursor-pointer accent-green-400" />
                                     </div>
-                                    <div className="bg-black/50 p-2 rounded text-[10px] text-text-secondary text-center">
+                                    <div className="bg-bg-main/50 p-2 rounded text-[10px] text-text-secondary text-center">
                                         Acquires <span className="text-white font-bold">{cac > 0 ? (marketingBudget / cac).toFixed(0) : 0} users</span> adding <span className="text-green-400 font-bold">{formatCurrency((cac > 0 ? (marketingBudget / cac) : 0) * arpa, currency)} MRR</span> monthly.
                                     </div>
                                 </div>
@@ -521,7 +521,7 @@ export default function FinancialModeler() {
 
                 {/* Top Header Actions */}
                 <div className="flex justify-between items-center mb-[-12px] z-10 w-full">
-                    <div className="flex bg-[#050505] border border-white/10 rounded-full p-1 opacity-90 backdrop-blur-sm">
+                    <div className="flex bg-bg-surface border border-white/10 rounded-full p-1 opacity-90 backdrop-blur-sm">
                         <button onClick={() => setViewMode('CHART')} className={`py-1.5 px-4 text-[10px] font-bold uppercase tracking-wider rounded-full transition-all ${viewMode === 'CHART' ? 'bg-white/10 text-white shadow-sm' : 'text-text-tertiary hover:text-white hover:bg-white/5'}`}>Chart</button>
                         <button onClick={() => setViewMode('TABLE')} className={`py-1.5 px-4 text-[10px] font-bold uppercase tracking-wider rounded-full transition-all ${viewMode === 'TABLE' ? 'bg-white/10 text-white shadow-sm' : 'text-text-tertiary hover:text-white hover:bg-white/5'}`}>Detailed Report</button>
                     </div>
@@ -548,7 +548,7 @@ export default function FinancialModeler() {
                         <span className="text-2xl font-mono text-white block tracking-tight">{initialGrossMargin}%</span>
                     </div>
 
-                    <div className="glass-card p-5 rounded-2xl border border-white/10 bg-[#050505] relative overflow-hidden lg:col-span-2 flex items-center justify-between border-accent-blue/20">
+                    <div className="glass-card p-5 rounded-2xl border border-white/10 bg-bg-surface relative overflow-hidden lg:col-span-2 flex items-center justify-between border-accent-blue/20">
                         <div className="absolute top-0 right-0 w-32 h-32 bg-accent-blue/10 rounded-full blur-[40px]"></div>
                         <div>
                             <span className="text-[10px] text-text-tertiary uppercase tracking-wider block mb-1">Runway Extended</span>
@@ -578,7 +578,7 @@ export default function FinancialModeler() {
 
                 {/* View Area: CHAT or TABLE */}
                 {viewMode === 'CHART' ? (
-                    <div className="glass-card p-6 md:p-8 rounded-3xl border border-white/10 bg-[#050505] flex-grow relative overflow-hidden min-h-[440px] animate-in fade-in duration-300">
+                    <div className="glass-card p-6 md:p-8 rounded-3xl border border-white/10 bg-bg-surface flex-grow relative overflow-hidden min-h-[440px] animate-in fade-in duration-300">
                         <div className="absolute top-0 right-0 w-64 h-64 bg-accent-blue/5 rounded-full blur-[80px] pointer-events-none"></div>
 
                         <div className="flex justify-between items-end mb-8 border-b border-white/5 pb-4">
@@ -620,7 +620,7 @@ export default function FinancialModeler() {
                                     <div key={point.month} className="flex-1 flex flex-col justify-end h-full relative group">
 
                                         {/* Tooltip on hover - Now much more comprehensive */}
-                                        <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-[#0a0a0a] border border-white/10 w-[260px] p-4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity z-20 pointer-events-none shadow-[0_20px_40px_rgba(0,0,0,0.8)]">
+                                        <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-bg-main border border-white/10 w-[260px] p-4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity z-20 pointer-events-none shadow-[0_20px_40px_rgba(0,0,0,0.8)]">
                                             <div className="flex justify-between items-center mb-3 border-b border-white/10 pb-2">
                                                 <span className="text-[10px] text-accent-blue font-bold uppercase tracking-wider">Month {point.month}</span>
                                                 <span className={`text-sm font-black ${point.cash < 0 ? 'text-red-500' : 'text-white'}`}>{formatCurrency(point.cash, currency)}</span>
@@ -692,8 +692,8 @@ export default function FinancialModeler() {
                     </div>
                 ) : (
                     // Detailed Table Report View
-                    <div className="glass-card rounded-3xl border border-white/10 bg-[#050505] flex-grow flex flex-col h-[500px] md:min-h-[440px] animate-in fade-in duration-300 relative overflow-hidden">
-                        <div className="p-4 md:p-8 border-b border-white/5 shrink-0 bg-[#050505]/90 backdrop-blur-md z-20 absolute top-0 left-0 right-0">
+                    <div className="glass-card rounded-3xl border border-white/10 bg-bg-surface flex-grow flex flex-col h-[500px] md:min-h-[440px] animate-in fade-in duration-300 relative overflow-hidden">
+                        <div className="p-4 md:p-8 border-b border-white/5 shrink-0 bg-bg-surface/90 backdrop-blur-md z-20 absolute top-0 left-0 right-0">
                             <h3 className="text-lg md:text-xl font-bold text-white tracking-tight">Detailed Monthly Report</h3>
                             <p className="text-xs md:text-sm text-text-tertiary">A comprehensive breakdown of your cashflow logic. Unclamped true balances.</p>
                         </div>
@@ -702,7 +702,7 @@ export default function FinancialModeler() {
                             {/* Desktop Table View */}
                             <div className="hidden md:block">
                                 <table className="w-full text-left text-xs border-collapse min-w-[700px]">
-                                    <thead className="sticky top-0 bg-[#050505] z-10 shadow-[0_10px_10px_-10px_rgba(0,0,0,0.5)]">
+                                    <thead className="sticky top-0 bg-bg-surface z-10 shadow-[0_10px_10px_-10px_rgba(0,0,0,0.5)]">
                                         <tr className="border-b border-white/10 text-[9px] md:text-[10px] uppercase tracking-wider text-text-tertiary">
                                             <th className="pb-2 md:pb-3 px-2 md:px-0 font-bold pr-2 md:pr-4">Month</th>
                                             <th className="pb-2 md:pb-3 px-2 md:px-0 font-bold pr-2 md:pr-4">Bank Balance</th>

@@ -8,7 +8,7 @@ const MentorCard = ({ mentor }: { mentor: MentorProfile }) => (
         <div className="relative w-full h-full duration-700 preserve-3d group-hover:rotate-y-180">
 
             {/* Front Face: Portrait & Highlight */}
-            <div className="absolute inset-0 backface-hidden glass-card rounded-3xl p-6 flex flex-col items-center justify-center text-center bg-[#050505] border border-white/5 shadow-2xl overflow-hidden">
+            <div className="absolute inset-0 backface-hidden glass-card rounded-3xl p-6 flex flex-col items-center justify-center text-center bg-bg-surface border border-white/5 shadow-2xl overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
 
                 {/* Massive Portrait */}
@@ -28,13 +28,13 @@ const MentorCard = ({ mentor }: { mentor: MentorProfile }) => (
                 </div>
 
                 {/* Hover Cue */}
-                <div className="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-black/50 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/50 group-hover:text-accent-blue group-hover:border-accent-blue transition-all">
+                <div className="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-bg-main/50 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/50 group-hover:text-accent-blue group-hover:border-accent-blue transition-all">
                     <i className="fas fa-sync-alt text-xs drop-shadow-lg"></i>
                 </div>
             </div>
 
             {/* Back Face: Details & LinkedIn */}
-            <div className="absolute inset-0 backface-hidden rotate-y-180 glass-card rounded-3xl p-8 flex flex-col justify-center text-center bg-[#0a0a0a] border border-accent-blue/30 shadow-[0_0_30px_rgba(139,92,246,0.15)]">
+            <div className="absolute inset-0 backface-hidden rotate-y-180 glass-card rounded-3xl p-8 flex flex-col justify-center text-center bg-bg-main border border-accent-blue/30 shadow-[0_0_30px_rgba(139,92,246,0.15)]">
                 <div className="mb-6">
                     <h4 className="text-xl font-bold text-white tracking-tight leading-tight">{mentor.name}</h4>
                     <span className="text-accent-blue text-xs uppercase tracking-widest font-bold">{mentor.title}</span>
@@ -62,7 +62,7 @@ const MentorCard = ({ mentor }: { mentor: MentorProfile }) => (
 
 export function Mentors() {
     return (
-        <section id="mentors" className="py-20 bg-[#000000] relative w-full border-t border-white/5">
+        <section id="mentors" className="py-20 bg-bg-main relative w-full border-t border-white/5">
             {/* Extremely Subtle Background Glow */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-accent-violet/5 rounded-[100%] blur-[120px] pointer-events-none"></div>
 

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function EventsPage() {
     return (
-        <div className="pt-32 pb-20 min-h-screen bg-[#000000]">
+        <div className="pt-32 pb-20 min-h-screen bg-bg-main">
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 {/* Header */}
                 <div className="text-center mb-24 max-w-4xl mx-auto">
@@ -27,7 +27,7 @@ export default function EventsPage() {
                     <h2 className="text-2xl font-bold text-white mb-10 tracking-tight pb-4 border-b border-white/10">Upcoming Workshops</h2>
 
                     <div className="grid lg:grid-cols-2 gap-8">
-                        {/* Mock Workshop Card */}
+                        {/* Upcoming Workshop Card */}
                         <div className="glass-card hover-glow rounded-3xl p-8 md:p-10 border border-white/5 relative group h-full flex flex-col">
                             <div className="flex justify-between items-start mb-8">
                                 <div className="bg-accent-blue/10 border border-accent-blue/20 text-accent-blue text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">
@@ -35,21 +35,21 @@ export default function EventsPage() {
                                 </div>
                             </div>
 
-                            <h3 className="text-3xl font-bold text-white mb-4 tracking-[-0.02em] leading-tight group-hover:text-accent-blue transition duration-300">The Art of Pitching: Seed Round</h3>
-                            <p className="text-text-secondary text-lg leading-relaxed mb-10 flex-grow">Learn how to craft a narrative that resonates with angel investors and seed funds. Practical teardowns of successful pitch decks.</p>
+                            <h3 className="text-3xl font-bold text-white mb-4 tracking-[-0.02em] leading-tight group-hover:text-accent-blue transition duration-300 uppercase">CAPITAL / FUND-RAISING WORKSHOP</h3>
+                            <p className="text-text-secondary text-lg leading-relaxed mb-10 flex-grow">Stop guessing what investors want. Join the live, cohort-based program that transforms passionate builders into investable founders.</p>
 
                             <div className="flex flex-col sm:flex-row gap-6 justify-between items-start sm:items-center mt-auto pt-8 border-t border-white/5">
                                 <div className="space-y-2">
                                     <div className="flex items-center text-text-primary font-medium tracking-wide">
-                                        <i className="far fa-calendar text-accent-blue w-6"></i> 15th December
+                                        <i className="far fa-calendar text-accent-blue w-6"></i> Starts April 15th
                                     </div>
                                     <div className="flex items-center text-text-primary font-medium tracking-wide">
-                                        <i className="fas fa-map-marker-alt text-accent-blue w-6"></i> WeWork, Andheri East
+                                        <i className="fas fa-map-marker-alt text-accent-blue w-6"></i> Live Cohort (Online)
                                     </div>
                                 </div>
-                                <button className="w-full sm:w-auto bg-white hover:bg-gray-200 text-black px-8 py-3 rounded-full font-bold transition duration-300">
+                                <Link href="/workshop-reg/index.html" className="w-full sm:w-auto bg-white hover:bg-gray-200 text-black px-8 py-3 rounded-full font-bold transition duration-300 text-center">
                                     RSVP Now
-                                </button>
+                                </Link>
                             </div>
                         </div>
 
@@ -70,7 +70,7 @@ export default function EventsPage() {
 
                     <div className="grid lg:grid-cols-2 gap-8">
                         {/* Past Event Card */}
-                        <div className="glass-card hover-glow rounded-3xl p-8 md:p-10 border border-white/5 relative group h-full flex flex-col bg-[#050505]">
+                        <div className="glass-card hover-glow rounded-3xl p-8 md:p-10 border border-white/5 relative group h-full flex flex-col bg-bg-surface">
                             <div className="flex justify-between items-start mb-8">
                                 <div className="bg-white/10 border border-white/20 text-text-secondary text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">
                                     Concluded
@@ -110,11 +110,11 @@ export default function EventsPage() {
                     {/* Masonry-Style Bento Grid */}
                     <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[200px] md:auto-rows-[250px] gap-4 md:gap-6">
                         {/* Video 1 - Large Feature */}
-                        <div className="glass-card rounded-3xl border border-white/5 overflow-hidden relative group col-span-2 row-span-2 bg-[#050505] flex items-center justify-center h-full">
+                        <div className="glass-card rounded-3xl border border-white/5 overflow-hidden relative group col-span-2 row-span-2 bg-bg-surface flex items-center justify-center h-full">
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                             <video src="/founder-dating.mp4" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" autoPlay muted loop playsInline></video>
                             <div className="absolute bottom-6 left-6 z-20 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 pointer-events-none">
-                                <span className="bg-accent-blue text-black text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-1.5"><div className="w-2 h-2 rounded-full bg-black animate-pulse"></div> Live View</span>
+                                <span className="bg-accent-blue text-black text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-1.5"><div className="w-2 h-2 rounded-full bg-bg-main animate-pulse"></div> Live View</span>
                             </div>
                         </div>
 
@@ -137,9 +137,9 @@ export default function EventsPage() {
                         </div>
 
                         {/* Photo 8 - Replacing Video 2 to avoid duplications */}
-                        <div className="glass-card rounded-3xl border border-white/5 overflow-hidden relative group col-span-2 md:col-span-1 row-span-2 bg-[#050505] border-b-accent-blue/30">
+                        <div className="glass-card rounded-3xl border border-white/5 overflow-hidden relative group col-span-2 md:col-span-1 row-span-2 bg-bg-surface border-b-accent-blue/30">
                             <Image src="/gallery/IMG_1380.JPG" alt="Event" fill className="object-cover group-hover:scale-110 transition-transform duration-700" sizes="(max-width: 768px) 50vw, 25vw" quality={75} />
-                            <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"></div>
+                            <div className="absolute inset-0 bg-bg-main/40 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"></div>
                         </div>
 
                         {/* Photo 4 */}
@@ -158,7 +158,7 @@ export default function EventsPage() {
                         </div>
 
                         {/* Photo 7 - Replacing Video 3 */}
-                        <div className="glass-card rounded-3xl border border-white/5 overflow-hidden relative group col-span-2 md:col-span-2 row-span-1 bg-[#050505]">
+                        <div className="glass-card rounded-3xl border border-white/5 overflow-hidden relative group col-span-2 md:col-span-2 row-span-1 bg-bg-surface">
                             <Image src="/gallery/IMG_1378.JPG" alt="Event" fill className="object-cover hover:scale-110 transition-transform duration-700 filter brightness-75 hover:brightness-100" sizes="(max-width: 768px) 100vw, 50vw" quality={75} />
                         </div>
 

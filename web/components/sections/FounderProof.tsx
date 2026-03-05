@@ -6,7 +6,7 @@ export function FounderProof() {
     const [isPlaying, setIsPlaying] = useState(false);
 
     return (
-        <section className="py-20 bg-black text-text-primary border-t border-functional-border">
+        <section className="py-20 bg-bg-main text-text-primary border-t border-functional-border">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
                     <p className="text-text-secondary max-w-3xl mx-auto">

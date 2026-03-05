@@ -15,16 +15,16 @@ const STATS = [
 
 export default function EcosystemPage() {
     return (
-        <div className="pt-32 pb-20 min-h-screen bg-[#000000]">
+        <div className="pt-32 pb-20 min-h-screen bg-bg-main">
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 {/* Header */}
                 <div className="text-center mb-24 max-w-4xl mx-auto">
-                    <span className="text-accent-blue text-xs font-bold tracking-[0.2em] uppercase mb-4 block">AI NATIVE DIRECTORY</span>
+                    <span className="text-accent-blue text-xs font-bold tracking-[0.2em] uppercase mb-4 block">ECOSYSTEM DIRECTORY</span>
                     <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-[-0.04em] leading-tight">
-                        Map the <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-blue to-accent-violet">Ecosystem.</span>
+                        Map the <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">Ecosystem.</span>
                     </h1>
                     <p className="text-xl md:text-2xl text-text-secondary font-light">
-                        Discover grants, incubators, and investors perfectly matched to your profile with our AI advisor.
+                        Discover grants, incubators, and investors perfectly matched to your profile.
                     </p>
                 </div>
 
@@ -45,11 +45,11 @@ export default function EcosystemPage() {
                         <span className="bg-accent-blue text-black text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-6 inline-block">
                             Mumbai Exclusive
                         </span>
-                        <h2 className="text-4xl font-bold text-white mb-6 tracking-tight">Mumbai Ecosystem Directory</h2>
+                        <h2 className="text-4xl font-bold text-white mb-6 tracking-tight">Incubators & Accelerators Directory</h2>
                         <p className="text-text-secondary text-lg leading-relaxed mb-10 max-w-3xl mx-auto font-light">
-                            We've natively mapped out 50+ top coworking spaces, accelerators, and incubators across Mumbai. Compare equity models, desks, fees, and funding prospects instantly.
+                            We've mapped out top accelerators and incubators. Compare equity models, desks, fees, and funding prospects instantly.
                         </p>
-                        <Link href="/tools/incubator-search/directory" className="inline-block bg-white hover:bg-gray-200 text-black px-10 py-4 rounded-full font-bold transition duration-300">
+                        <Link href="/tools/incubators-accelerators" className="inline-block bg-white hover:bg-gray-200 text-black px-10 py-4 rounded-full font-bold transition duration-300">
                             Explore The Directory
                         </Link>
                     </div>
@@ -66,7 +66,7 @@ export default function EcosystemPage() {
                         <Link href="/tools/incubator-search/incubators" className="glass-card p-10 rounded-3xl border border-white/5 relative group hover:border-accent-blue/50 transition-colors">
                             <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-accent-blue font-bold mb-6 group-hover:scale-110 transition-transform">2</div>
                             <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-accent-blue transition-colors">Incubators</h3>
-                            <p className="text-text-secondary leading-relaxed font-light">Find the best coworking spaces, hardware labs, and accelerators to scale your startup.</p>
+                            <p className="text-text-secondary leading-relaxed font-light">Find the best incubators, hardware labs, and accelerators to scale your startup.</p>
                         </Link>
                         <Link href="/tools/incubator-search/investors" className="glass-card p-10 rounded-3xl border border-white/5 relative group hover:border-accent-blue/50 transition-colors">
                             <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-accent-blue font-bold mb-6 group-hover:scale-110 transition-transform">3</div>

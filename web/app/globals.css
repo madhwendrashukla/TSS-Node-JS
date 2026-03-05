@@ -1,19 +1,20 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-bg-main: #0F111A;
-  --color-bg-surface: #161824;
+  --color-bg-main: #0F172A;
+  --color-bg-surface: #1E293B;
+  /* Slightly lighter shade of bg for surfaces */
   --color-text-primary: #F5F5F7;
   --color-text-secondary: #86868B;
   --color-accent-blue: #8B5CF6;
-  --color-accent-violet: #A855F7;
+  --color-accent-violet: #D946EF;
   --color-functional-success: #34C759;
   --color-functional-border: #333336;
 
   --font-sans: 'Inter', sans-serif;
   --font-serif: 'Merriweather', serif;
 
-  --background-image-gradient-primary: linear-gradient(135deg, #2997FF, #BF48FF);
+  --background-image-gradient-primary: linear-gradient(135deg, #8B5CF6, #D946EF);
 
   --animate-scroll-left: scrollLeft 40s linear infinite;
   --animate-scroll-right: scrollRight 40s linear infinite;
@@ -92,7 +93,8 @@ h6 {
 }
 
 .hover-glow:hover {
-  box-shadow: 0 0 30px rgba(41, 151, 255, 0.15);
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.15);
+  /* Updated to the new brand gradient start color */
   transform: translateY(-2px);
   border-color: rgba(255, 255, 255, 0.15);
 }

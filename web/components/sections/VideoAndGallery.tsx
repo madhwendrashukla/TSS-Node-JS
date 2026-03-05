@@ -150,8 +150,8 @@ export function VideoAndGallery() {
                         Community Gallery
                     </span>
                     <h2 className="text-4xl md:text-5xl font-black text-white tracking-[-0.04em] mb-5">
-                        300+ Leaders at Our{" "}
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-blue to-cyan-400">
+                        Leaders at Our{" "}
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">
                             Gatherings.
                         </span>
                     </h2>

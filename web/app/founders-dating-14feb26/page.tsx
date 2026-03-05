@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function FoundersDatingPage() {
     return (
-        <div className="pt-32 pb-20 min-h-screen bg-[#000000] relative overflow-hidden">
+        <div className="pt-32 pb-20 min-h-screen bg-bg-main relative overflow-hidden">
             {/* Ambient Background Glow */}
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent-blue/10 rounded-full blur-[150px] pointer-events-none"></div>
 
@@ -30,7 +30,7 @@ export default function FoundersDatingPage() {
                         Past Event
                     </div>
                     <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight leading-tight">
-                        Founder's <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-blue to-accent-violet">Dating.</span>
+                        Founder's <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">Dating.</span>
                     </h1>
                     <p className="text-xl text-text-secondary font-light max-w-2xl mx-auto leading-relaxed">
                         A curated offline meetup for founders & builders looking to co-build. Connect, collaborate, and create the next big thing.

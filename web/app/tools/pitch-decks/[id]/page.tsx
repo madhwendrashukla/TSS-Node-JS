@@ -52,7 +52,7 @@ export default async function PitchDeckDetailPage({ params }: Props) {
                             <span>&larr;</span> Back to Pitch Decks
                         </Link>
                         <h1 className="text-3xl md:text-5xl font-black text-white tracking-tight">
-                            {deck.company} <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-blue to-accent-violet">Pitch Deck.</span>
+                            {deck.company} <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">Pitch Deck.</span>
                         </h1>
                     </div>
 
@@ -120,7 +120,7 @@ export default async function PitchDeckDetailPage({ params }: Props) {
                 </div>
 
                 {/* Desktop PDF Viewer */}
-                <div className="hidden md:block rounded-3xl border border-white/10 overflow-hidden bg-black shadow-2xl shadow-black/50" style={{ height: '80vh' }}>
+                <div className="hidden md:block rounded-3xl border border-white/10 overflow-hidden bg-bg-main shadow-2xl shadow-black/50" style={{ height: '80vh' }}>
                     <div className="bg-white/5 p-4 border-b border-white/10 flex items-center justify-between">
                         <span className="text-sm font-medium text-text-secondary">{deck.fileUrl.split('/').pop()}</span>
                         <div className="flex gap-2">

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function WorkshopPage() {
     return (
-        <div className="pt-32 pb-20 min-h-screen bg-[#000000] relative overflow-hidden">
+        <div className="pt-32 pb-20 min-h-screen bg-bg-main relative overflow-hidden">
             {/* Extremely Subtle Background Glow */}
             <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-accent-blue/5 rounded-full blur-[150px] pointer-events-none"></div>
 

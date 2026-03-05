@@ -113,7 +113,7 @@ export default function FounderCalendar() {
     }, [mappedEvents, selectedLocation, selectedSector]);
 
     const EventCard = ({ event, isPast }: { event: ReturnType<typeof getSectorFromEvent> & FounderEvent & { sector: string }, isPast?: boolean }) => (
-        <div className={`glass-card p-6 md:p-8 rounded-3xl border border-white/10 hover:border-accent-blue/40 transition-all group flex flex-col bg-[#050505] ${isPast ? 'opacity-60 saturate-50' : ''}`}>
+        <div className={`glass-card p-6 md:p-8 rounded-3xl border border-white/10 hover:border-accent-blue/40 transition-all group flex flex-col bg-bg-surface ${isPast ? 'opacity-60 saturate-50' : ''}`}>
             <div className="flex justify-between items-start mb-6">
                 <span className="bg-white/5 border border-white/10 text-text-secondary text-xs px-3 py-1 rounded-full">{event.sector}</span>
                 <span className={`font-bold text-sm px-3 py-1 rounded-full whitespace-nowrap ${isPast ? 'text-gray-400 bg-gray-500/10 border border-gray-500/20' : 'text-accent-blue bg-accent-blue/10 border border-accent-blue/20'}`}>
@@ -135,7 +135,7 @@ export default function FounderCalendar() {
                     href={generateGoogleCalendarUrl(event)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-accent-blue to-accent-violet hover:opacity-90 text-white py-3 px-4 rounded-xl text-sm font-bold transition-opacity"
+                    className="w-full flex items-center justify-center gap-2 bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))] hover:opacity-90 text-white py-3 px-4 rounded-xl text-sm font-bold transition-opacity"
                 >
                     <CalendarPlus className="w-4 h-4" />
                     Google Calendar
@@ -180,7 +180,7 @@ export default function FounderCalendar() {
                     </div>
 
                     <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-white mb-6 tracking-tight">
-                        Founder <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-blue to-accent-violet">Events Calendar.</span>
+                        Founder <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">Events Calendar.</span>
                     </h1>
                     <p className="text-lg md:text-xl text-text-secondary font-light max-w-3xl leading-relaxed">
                         Never miss a crucial opportunity. We've mapped out the highest-leverage B2B events, exhibitions, and networking hubs for this month.
@@ -189,7 +189,7 @@ export default function FounderCalendar() {
                 </div>
 
                 {/* Filters */}
-                <div className="glass-card p-4 md:p-6 mb-12 rounded-2xl border border-white/10 flex flex-col md:flex-row gap-4 items-center bg-[#050505]/80 backdrop-blur-md sticky top-24 z-20">
+                <div className="glass-card p-4 md:p-6 mb-12 rounded-2xl border border-white/10 flex flex-col md:flex-row gap-4 items-center bg-bg-surface/80 backdrop-blur-md sticky top-24 z-20">
                     <div className="flex items-center gap-3 text-text-secondary hidden md:flex min-w-fit">
                         <Filter className="w-5 h-5 text-accent-blue" />
                         <span className="font-bold uppercase tracking-widest text-xs">Filter Events</span>
@@ -204,7 +204,7 @@ export default function FounderCalendar() {
                                 onChange={(e) => setSelectedLocation(e.target.value)}
                                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accent-blue/50 focus:bg-white/10 transition-all font-light appearance-none cursor-pointer"
                             >
-                                {uniqueLocations.map(loc => <option key={loc} value={loc} className="bg-[#050505]">{loc}</option>)}
+                                {uniqueLocations.map(loc => <option key={loc} value={loc} className="bg-bg-surface">{loc}</option>)}
                             </select>
                         </div>
                         <div className="flex-1 w-full">
@@ -214,7 +214,7 @@ export default function FounderCalendar() {
                                 onChange={(e) => setSelectedSector(e.target.value)}
                                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accent-violet/50 focus:bg-white/10 transition-all font-light appearance-none cursor-pointer"
                             >
-                                {uniqueSectors.map(sec => <option key={sec} value={sec} className="bg-[#050505]">{sec}</option>)}
+                                {uniqueSectors.map(sec => <option key={sec} value={sec} className="bg-bg-surface">{sec}</option>)}
                             </select>
                         </div>
                     </div>

@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { westernLineData } from '@/lib/data/western_line';
-import { ExternalLink, ChevronDown, ChevronUp, Search, MapPin, Building2, TrendingUp, Filter } from 'lucide-react';
+import { grantsData, Grant } from '@/lib/data/grants';
+import { ExternalLink, ChevronDown, ChevronUp, Search, MapPin, Building2, TrendingUp, Filter, Calendar, Briefcase } from 'lucide-react';
 
 function ScoreBadge({ score }: { score: number }) {
     let color = 'text-gray-400 border-gray-400';
@@ -17,10 +17,10 @@ function ScoreBadge({ score }: { score: number }) {
     );
 }
 
-function DirectoryCard({ item }: { item: any }) {
+function DirectoryCard({ item }: { item: Grant }) {
     const [open, setOpen] = useState(false);
     return (
-        <div className="glass-card hover-glow p-6 md:p-8 rounded-3xl border border-white/5 h-full flex flex-col relative group transition-all duration-300 bg-[#050505] hover:bg-white/5">
+        <div className="glass-card hover-glow p-6 md:p-8 rounded-3xl border border-white/5 h-full flex flex-col relative group transition-all duration-300 bg-bg-surface hover:bg-white/5">
             <div className="flex justify-between items-start gap-4 mb-6">
                 <div>
                     <span className="bg-white/10 text-text-primary text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider mb-3 inline-block">
@@ -28,28 +28,28 @@ function DirectoryCard({ item }: { item: any }) {
                     </span>
                     <h3 className="text-xl font-bold text-white mb-2 tracking-tight group-hover:text-accent-blue transition-colors">{item.name}</h3>
                     <p className="flex items-center gap-1.5 text-sm text-text-secondary font-light">
-                        <MapPin size={12} className="text-accent-blue/60" /> {item.area}
+                        <MapPin size={12} className="text-accent-blue/60" /> {item.location || 'Unknown Area'}
                     </p>
                 </div>
-                <ScoreBadge score={parseInt(item.brandValue) * 10 || 50} />
+                <ScoreBadge score={85} />
             </div>
 
             <div className="grid grid-cols-2 gap-4 mb-6 p-4 bg-white/5 border border-white/10 rounded-2xl">
                 <div className="flex flex-col gap-1">
-                    <span className="text-[10px] text-text-secondary uppercase tracking-widest font-bold">Equity</span>
-                    <strong className="text-sm text-white font-medium">{item.equityTaken}</strong>
+                    <span className="text-[10px] text-text-secondary uppercase tracking-widest font-bold">Funding Support</span>
+                    <strong className="text-sm text-white font-medium">{item.fundingSupport || 'N/A'}</strong>
                 </div>
                 <div className="flex flex-col gap-1">
-                    <span className="text-[10px] text-text-secondary uppercase tracking-widest font-bold">Fee</span>
-                    <strong className="text-sm text-white font-medium">{item.fee}</strong>
+                    <span className="text-[10px] text-text-secondary uppercase tracking-widest font-bold">Provider</span>
+                    <strong className="text-sm text-white font-medium line-clamp-1">{item.provider || 'N/A'}</strong>
                 </div>
                 <div className="flex flex-col gap-1">
-                    <span className="text-[10px] text-text-secondary uppercase tracking-widest font-bold">Stage</span>
-                    <strong className="text-sm text-white font-medium">{item.idealStage}</strong>
+                    <span className="text-[10px] text-text-secondary uppercase tracking-widest font-bold">Ideal Stage</span>
+                    <strong className="text-sm text-white font-medium">{item.idealStage || 'N/A'}</strong>
                 </div>
                 <div className="flex flex-col gap-1">
-                    <span className="text-[10px] text-text-secondary uppercase tracking-widest font-bold">Freedom</span>
-                    <strong className="text-sm text-white font-medium">{item.founderFreedom}/10</strong>
+                    <span className="text-[10px] text-text-secondary uppercase tracking-widest font-bold">Deadline</span>
+                    <strong className="text-sm text-white font-medium line-clamp-1">{item.deadline || 'N/A'}</strong>
                 </div>
             </div>
 
@@ -64,8 +64,12 @@ function DirectoryCard({ item }: { item: any }) {
                 <div className="mb-8 pt-4 border-t border-white/10 animate-fade-in">
                     <ul className="space-y-3">
                         <li className="text-sm text-text-secondary font-light flex justify-between gap-4 border-b border-white/5 pb-2">
-                            <span className="shrink-0 text-white font-medium">Program:</span>
-                            <span className="text-right">{item.programStructure}</span>
+                            <span className="shrink-0 text-white font-medium">Focus Sectors:</span>
+                            <span className="text-right">{item.focusSector || 'Agnostic'}</span>
+                        </li>
+                        <li className="text-sm text-text-secondary font-light flex flex-col gap-2 pt-2">
+                            <span className="shrink-0 text-white font-medium">Eligibility:</span>
+                            <span>{item.criteria || 'N/A'}</span>
                         </li>
                     </ul>
                 </div>
@@ -91,17 +95,15 @@ export default function GrantsPage() {
     const [regionFilter, setRegionFilter] = useState('All');
     const [showFilters, setShowFilters] = useState(false);
 
-    // Mock filtering logic to isolate grants & zero-equity programs like NIDHI
-    const allData = westernLineData.filter(item =>
-        item.broadType.toLowerCase().includes('government') ||
-        item.equityCategory.toLowerCase().includes('zero equity')
-    );
-    const regions = ['All', 'West Mumbai', 'East Mumbai', 'South Mumbai', 'Central Mumbai', 'Navi Mumbai', 'Thane / MMR'];
+    // Use the comprehensive grants data
+    const allData = grantsData;
+    const regions = ['All', 'Pan India', 'Delhi', 'Karnataka', 'Tamil Nadu', 'Kerala', 'Telangana', 'Maharashtra', 'Gujarat', 'Rajasthan', 'Madhya Pradesh', 'Uttar Pradesh', 'West Bengal', 'Andhra Pradesh', 'Punjab', 'Haryana', 'Goa', 'Odisha', 'Assam', 'Delhi NCR', 'Jharkhand', 'Chhattisgarh', 'Meghalaya', 'Bihar'];
 
     const filteredData = allData.filter(item => {
         const matchesSearch = item.name.toLowerCase().includes(search.toLowerCase()) ||
-            item.area.toLowerCase().includes(search.toLowerCase());
-        const matchesRegion = regionFilter === 'All' || item.subRegion === regionFilter;
+            item.provider.toLowerCase().includes(search.toLowerCase()) ||
+            item.focusSector.toLowerCase().includes(search.toLowerCase());
+        const matchesRegion = regionFilter === 'All' || item.location.includes(regionFilter);
         return matchesSearch && matchesRegion;
     });
 
@@ -110,7 +112,7 @@ export default function GrantsPage() {
     };
 
     return (
-        <div className="pt-32 pb-20 min-h-screen bg-[#000000]">
+        <div className="pt-32 pb-20 min-h-screen bg-bg-main">
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <div className="text-center mb-16 max-w-3xl mx-auto border-b border-white/10 pb-12">
                     <span className="text-accent-blue text-xs font-bold tracking-[0.2em] uppercase mb-4 block">Zero Equity & Schemes</span>
@@ -135,7 +137,7 @@ export default function GrantsPage() {
                 </div>
 
                 {showFilters && (
-                    <div className="glass-card p-6 md:p-8 rounded-3xl border border-white/10 mb-12 bg-[#050505]">
+                    <div className="glass-card p-6 md:p-8 rounded-3xl border border-white/10 mb-12 bg-bg-surface">
                         <div className="grid md:grid-cols-2 gap-8 mb-8">
                             <div className="flex flex-col gap-3">
                                 <label className="flex items-center gap-2 text-xs font-bold text-text-secondary tracking-widest uppercase"><Search size={14} className="text-accent-blue" /> Query</label>
@@ -170,9 +172,9 @@ export default function GrantsPage() {
                     </div>
                 ) : (
                     <div className="glass-card p-16 rounded-3xl border border-dashed border-white/10 text-center flex flex-col items-center justify-center min-h-[400px]">
-                        <h3 className="text-2xl font-bold text-white mb-2">Null Parameters</h3>
+                        <h3 className="text-2xl font-bold text-white mb-2">No Results Found</h3>
                         <p className="text-text-secondary mb-8">No grants matched this specific query setup.</p>
-                        <button className="bg-white text-black px-8 py-3 rounded-full font-bold hover:bg-gray-200 transition-colors" onClick={resetFilters}>Clear Memory Matrix</button>
+                        <button className="bg-white text-black px-8 py-3 rounded-full font-bold hover:bg-gray-200 transition-colors" onClick={resetFilters}>Clear Filters</button>
                     </div>
                 )}
             </div>

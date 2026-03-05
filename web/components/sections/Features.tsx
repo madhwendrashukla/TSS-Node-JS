@@ -6,7 +6,7 @@ export function Features() {
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                     <span className="text-accent-violet font-bold tracking-widest uppercase text-sm mb-4 block animate-pulse">Introducing</span>
                     <h2 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight">
-                        "THE <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-blue to-accent-violet">STARTUP</span> SCHOOL"
+                        "THE <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">STARTUP</span> SCHOOL"
                     </h2>
                     <p className="text-2xl text-text-primary font-light mb-12">
                         An alternate B-School for all Aspiring Founders.
@@ -40,7 +40,7 @@ export function Features() {
                     </div>
 
                     <div className="mt-16">
-                        <p className="text-xl md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-accent-blue to-accent-violet font-bold italic">
+                        <p className="text-xl md:text-2xl text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))] font-bold italic">
                             "Your Idea shapes into a Startup here."
                         </p>
                     </div>

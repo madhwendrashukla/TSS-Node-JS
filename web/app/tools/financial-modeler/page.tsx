@@ -20,7 +20,7 @@ export default function FinancialModelerPage() {
                     </Link>
                     <span className="text-accent-violet text-sm font-bold tracking-[0.2em] uppercase mb-4 block">Interactive Tool</span>
                     <h1 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight">
-                        Financial <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-blue to-accent-violet">Modeler.</span>
+                        Financial <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">Modeler.</span>
                     </h1>
                     <p className="text-xl text-text-secondary font-light max-w-3xl leading-relaxed">
                         Input your current financials below to instantly calculate your runtime, net burn, and visualize your cash projection. Understand exactly when you hit zero cash.

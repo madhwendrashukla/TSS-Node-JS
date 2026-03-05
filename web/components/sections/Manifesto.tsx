@@ -1,12 +1,12 @@
 export function Manifesto() {
     return (
-        <section id="manifesto" className="py-32 bg-black relative overflow-hidden w-full border-t border-white/5">
+        <section id="manifesto" className="py-32 bg-bg-main relative overflow-hidden w-full border-t border-white/5">
             <div className="max-w-4xl mx-auto px-6 relative z-10 flex flex-col items-center">
 
                 {/* Minimalist Profile & Intro */}
                 <div className="flex flex-col items-center mb-16 text-center">
                     <div className="mb-8 p-1 rounded-full bg-gradient-to-b from-white/20 to-transparent">
-                        <div className="w-24 h-24 rounded-full overflow-hidden bg-[#0a0a0a] p-1 border border-white/10">
+                        <div className="w-24 h-24 rounded-full overflow-hidden bg-bg-main p-1 border border-white/10">
                             <img
                                 src="/gaurav.jpg"
                                 alt="Gaurav Bansal"

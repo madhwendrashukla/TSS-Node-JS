@@ -4,6 +4,16 @@ import { useEffect, useState } from "react";
 import { MoveDown, BookOpen, Users, Wrench } from "lucide-react";
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
+
+const HERO_IMAGES = [
+    '/images/hero-bg/slide-2.png',
+    '/images/hero-bg/slide-3.png',
+    '/images/hero-bg/slide-4.png',
+    '/images/hero-bg/slide-5.png',
+    '/images/hero-bg/slide-6.png',
+    '/images/hero-bg/slide-7.png',
+];
 
 export function AutomatedVideoPromo() {
     const [currentScene, setCurrentScene] = useState(0);
@@ -11,15 +21,25 @@ export function AutomatedVideoPromo() {
     const totalScenes = 4;
     const sceneDurationMs = 5000;
 
+    const [currentBg, setCurrentBg] = useState(0);
+
     useEffect(() => {
-        const interval = setInterval(() => {
+        const bgInterval = setInterval(() => {
+            setCurrentBg((prev) => (prev + 1) % HERO_IMAGES.length);
+        }, 5000);
+
+        const sceneInterval = setInterval(() => {
             setIsFadingOut(true);
             setTimeout(() => {
                 setCurrentScene((prev) => (prev + 1) % totalScenes);
                 setIsFadingOut(false);
             }, 600);
         }, sceneDurationMs);
-        return () => clearInterval(interval);
+
+        return () => {
+            clearInterval(bgInterval);
+            clearInterval(sceneInterval);
+        };
     }, []);
 
     const goToScene = (index: number) => {
@@ -33,8 +53,30 @@ export function AutomatedVideoPromo() {
 
     return (
         <section className="relative w-full min-h-screen flex flex-col justify-center overflow-hidden bg-bg-main">
+            {/* Background Images Slider */}
+            {HERO_IMAGES.map((src, index) => (
+                <div
+                    key={src}
+                    className={`absolute inset-0 z-0 transition-opacity duration-1000 ease-in-out ${index === currentBg ? 'opacity-40' : 'opacity-0'
+                        }`}
+                >
+                    <Image
+                        src={src}
+                        alt="Hero Background"
+                        fill
+                        className="object-cover object-center md:object-top lg:object-center"
+                        priority={index === 0}
+                    />
+                </div>
+            ))}
+
+            {/* Dark/Gradient Overlays for readability and blending */}
+            <div className="absolute inset-0 z-0 bg-bg-main/60"></div>
+            <div className="absolute inset-0 z-0 bg-gradient-to-t from-bg-main via-transparent to-transparent"></div>
+            <div className="absolute inset-0 z-0 bg-gradient-to-b from-bg-main/80 via-transparent to-transparent"></div>
+
             {/* Extremely Subtle Background Glow */}
-            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-accent-blue/5 rounded-full blur-[120px] pointer-events-none"></div>
+            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-accent-blue/5 rounded-full blur-[120px] pointer-events-none z-0"></div>
 
             {/* Main Content Area */}
             <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col items-center justify-center text-center h-full min-h-[500px]">
@@ -75,7 +117,7 @@ export function AutomatedVideoPromo() {
                         <div className="flex flex-col items-center max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-8 duration-700">
                             <div className="text-accent-blue text-sm font-bold tracking-[0.2em] uppercase mb-4">The Builder Route</div>
                             <h2 className="text-4xl md:text-6xl lg:text-[80px] font-black text-white tracking-tight mb-8 leading-tight">
-                                100 Days of <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-blue to-accent-violet">Execution.</span>
+                                100 Days of <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">Execution.</span>
                             </h2>
                             <p className="text-xl md:text-2xl text-text-secondary font-light mb-12">
                                 Mentorship from active operators. Building a product people actually want to pay for. Zero worthless theory.
@@ -95,7 +137,7 @@ export function AutomatedVideoPromo() {
                             </span>
 
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl mb-16">
-                                <div className="glass-card p-8 rounded-3xl flex flex-col items-center border border-white/10 bg-black/40 backdrop-blur-md">
+                                <div className="glass-card p-8 rounded-3xl flex flex-col items-center border border-white/10 bg-bg-main/40 backdrop-blur-md">
                                     <div className="w-16 h-16 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center mb-6 text-accent-blue">
                                         <BookOpen size={28} />
                                     </div>
@@ -111,7 +153,7 @@ export function AutomatedVideoPromo() {
                                     <p className="text-sm text-text-secondary text-center">Connect directly with industry titans and serial builders.</p>
                                 </div>
 
-                                <div className="glass-card p-8 rounded-3xl flex flex-col items-center border border-white/10 bg-black/40 backdrop-blur-md">
+                                <div className="glass-card p-8 rounded-3xl flex flex-col items-center border border-white/10 bg-bg-main/40 backdrop-blur-md">
                                     <div className="w-16 h-16 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center mb-6 text-amber-400">
                                         <Wrench size={28} />
                                     </div>
@@ -122,7 +164,7 @@ export function AutomatedVideoPromo() {
 
                             <div className="flex flex-col items-center gap-3 animate-bounce mt-4 cursor-pointer" onClick={() => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })}>
                                 <span className="text-xs text-text-secondary uppercase tracking-widest font-bold">Scroll Down to Explore</span>
-                                <div className="w-8 h-12 rounded-full border border-white/20 flex justify-center p-2 bg-black/20 backdrop-blur-sm">
+                                <div className="w-8 h-12 rounded-full border border-white/20 flex justify-center p-2 bg-bg-main/20 backdrop-blur-sm">
                                     <MoveDown className="w-4 h-4 text-accent-cyan animate-pulse" />
                                 </div>
                             </div>

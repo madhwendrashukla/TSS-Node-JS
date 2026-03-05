@@ -284,7 +284,7 @@ export default function CapTableSimulator() {
     };
 
     return (
-        <main className="min-h-screen pt-32 pb-24 bg-[#000000] selection:bg-accent-blue/30 selection:text-accent-blue relative w-full overflow-x-hidden">
+        <main className="min-h-screen pt-32 pb-24 bg-bg-main selection:bg-accent-blue/30 selection:text-accent-blue relative w-full overflow-x-hidden">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-accent-violet/10 rounded-full blur-[150px] pointer-events-none"></div>
 
             <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -295,7 +295,7 @@ export default function CapTableSimulator() {
                             <i className="fas fa-arrow-left"></i> Tools Directory
                         </Link>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tighter mb-4">
-                            Cap Table <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-blue to-accent-violet">Simulator.</span>
+                            Cap Table <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">Simulator.</span>
                         </h1>
                         <p className="text-lg text-text-secondary font-light max-w-2xl">
                             Simulate your seed round. We handle the brutal &quot;Option Pool Shuffle&quot; math automatically so you actually understand your dilution.
@@ -303,7 +303,7 @@ export default function CapTableSimulator() {
                     </div>
 
                     <div className="flex flex-col gap-3 items-start md:items-end">
-                        <div className="flex bg-[#050505] border border-white/10 rounded-full p-1 opacity-90 backdrop-blur-sm">
+                        <div className="flex bg-bg-surface border border-white/10 rounded-full p-1 opacity-90 backdrop-blur-sm">
                             <button onClick={() => handleCurrencyChange('USD')} className={`py-2 px-4 text-xs font-bold uppercase tracking-wider rounded-full transition-all ${currency === 'USD' ? 'bg-white/10 text-white shadow-sm' : 'text-text-tertiary hover:text-white hover:bg-white/5'}`}>USD ($)</button>
                             <button onClick={() => handleCurrencyChange('INR')} className={`py-2 px-4 text-xs font-bold uppercase tracking-wider rounded-full transition-all ${currency === 'INR' ? 'bg-white/10 text-white shadow-sm' : 'text-text-tertiary hover:text-white hover:bg-white/5'}`}>INR (₹)</button>
                         </div>
@@ -328,7 +328,7 @@ export default function CapTableSimulator() {
                     <div className="lg:col-span-5 flex flex-col gap-6">
 
                         {/* Box 1: Pre-Money Cap Table */}
-                        <div className="glass-card p-6 md:p-8 rounded-3xl border border-white/10 bg-[#050505]">
+                        <div className="glass-card p-6 md:p-8 rounded-3xl border border-white/10 bg-bg-surface">
                             <h3 className="text-xl font-black text-white mb-2">1. Current Cap Table</h3>
                             <p className="text-xs text-text-tertiary mb-6">Before the funding round.</p>
 
@@ -404,7 +404,7 @@ export default function CapTableSimulator() {
                                         className="w-full h-1 bg-white/10 rounded-lg appearance-none cursor-pointer accent-white" />
                                 </div>
 
-                                <div className="p-4 bg-black/40 rounded-xl border border-white/5 relative group cursor-help">
+                                <div className="p-4 bg-bg-main/40 rounded-xl border border-white/5 relative group cursor-help">
                                     <label className="flex justify-between text-sm text-text-secondary mb-2 items-center">
                                         <span className="font-bold text-accent-blue border-b border-dotted border-accent-blue/50">Post-Money Option Pool Target</span>
                                         <EditableNumber value={targetOptionPoolPercent} onChange={setTargetOptionPoolPercent} suffix="%" textColor="text-accent-blue font-bold" />
@@ -426,22 +426,22 @@ export default function CapTableSimulator() {
 
                         {/* Top Metrics */}
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                            <div className="glass-card p-5 rounded-2xl border border-white/10 bg-[#050505]">
+                            <div className="glass-card p-5 rounded-2xl border border-white/10 bg-bg-surface">
                                 <span className="text-[10px] text-text-tertiary uppercase tracking-wider block mb-1">Calculated Share Price</span>
                                 <span className="text-xl md:text-2xl font-mono text-white block tracking-tight">{formatCurrency(sharePrice, currency)}</span>
                             </div>
-                            <div className="glass-card p-5 rounded-2xl border border-white/10 bg-[#050505]">
+                            <div className="glass-card p-5 rounded-2xl border border-white/10 bg-bg-surface">
                                 <span className="text-[10px] text-text-tertiary uppercase tracking-wider block mb-1">Post-Money Valuation</span>
                                 <span className="text-xl md:text-2xl font-mono text-white block tracking-tight">{formatCurrency(postMoneyValuation, currency)}</span>
                             </div>
-                            <div className="glass-card p-5 rounded-2xl border border-white/10 bg-[#050505] md:col-span-1 col-span-2">
+                            <div className="glass-card p-5 rounded-2xl border border-white/10 bg-bg-surface md:col-span-1 col-span-2">
                                 <span className="text-[10px] text-text-tertiary uppercase tracking-wider block mb-1">New Pool Shares Issued</span>
                                 <span className="text-xl md:text-2xl font-mono text-red-400 block tracking-tight">+{calcData.newPoolSharesToCreate.toLocaleString()}</span>
                             </div>
                         </div>
 
                         {/* Pie Chart Visuals */}
-                        <div className="glass-card p-6 md:p-8 rounded-3xl border border-white/10 bg-[#050505] relative overflow-hidden flex flex-col items-center justify-center min-h-[400px]">
+                        <div className="glass-card p-6 md:p-8 rounded-3xl border border-white/10 bg-bg-surface relative overflow-hidden flex flex-col items-center justify-center min-h-[400px]">
                             <div className="absolute top-0 right-0 w-64 h-64 bg-accent-violet/5 rounded-full blur-[80px] pointer-events-none"></div>
 
                             <div className="grid grid-cols-2 w-full gap-8 relative z-10">

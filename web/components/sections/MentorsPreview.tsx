@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { mentorsData, MentorProfile } from '@/lib/mentors';
 
 const MentorCard = ({ mentor }: { mentor: MentorProfile }) => (
-    <div className="flex-shrink-0 w-[280px] glass-card rounded-3xl p-6 flex flex-col items-center text-center group bg-[#0a0a0a]/60 border border-white/5 hover:border-accent-blue/30 hover:-translate-y-2 transition-all duration-300 ease-out mx-3">
+    <div className="flex-shrink-0 w-[280px] glass-card rounded-3xl p-6 flex flex-col items-center text-center group bg-bg-main/60 border border-white/5 hover:border-accent-blue/30 hover:-translate-y-2 transition-all duration-300 ease-out mx-3">
         <div className="w-20 h-20 rounded-full overflow-hidden mb-5 border-2 border-white/10 group-hover:border-accent-blue/50 transition-colors duration-500 p-1">
             <img
                 src={mentor.image}
@@ -43,7 +43,7 @@ export function MentorsPreview() {
                 <div className="text-center mb-20">
                     <span className="text-text-secondary text-xs font-bold tracking-[0.2em] uppercase mb-4 block">THE NETWORK</span>
                     <h2 className="text-4xl md:text-6xl font-black text-white tracking-[-0.04em] mb-6">
-                        Learn from <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-blue to-accent-violet">Operators.</span>
+                        Learn from <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">Operators.</span>
                     </h2>
                     <p className="text-xl md:text-2xl text-text-secondary font-light max-w-2xl mx-auto">
                         Meet the industry titans guiding our cohorts.
