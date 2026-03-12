@@ -4,6 +4,16 @@ export function Programs() {
     return (
         <section id="programs" className="py-32 w-full bg-bg-main border-t border-white/5">
             <div className="max-w-7xl mx-auto px-6">
+                
+                {/* Header */}
+                <div className="text-center mb-16">
+                    <span className="text-accent-violet text-xs font-bold tracking-[0.2em] uppercase mb-4 block">
+                        Now Accepting Applications
+                    </span>
+                    <h2 className="text-4xl md:text-5xl font-black text-white tracking-[-0.04em] mb-5">
+                        Programs <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">Launching Soon.</span>
+                    </h2>
+                </div>
 
                 <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 mb-20 items-stretch">
 
@@ -28,7 +38,7 @@ export function Programs() {
                             </div>
                         </div>
                         <Link href="/workshop" className="w-full text-center bg-white/5 hover:bg-white text-white hover:text-black border border-white/10 font-bold py-4 rounded-xl transition duration-300 backdrop-blur-md">
-                            Express Interest
+                            Show your interest
                         </Link>
                     </div>
 
@@ -52,7 +62,7 @@ export function Programs() {
                                 </div>
                             </div>
                             <Link href="/#contact" className="w-full text-center bg-accent-violet hover:bg-white text-white hover:text-black font-bold py-4 rounded-xl transition duration-300 mt-auto">
-                                Apply for Cohort
+                                Show your interest
                             </Link>
                         </div>
                     </div>

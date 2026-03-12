@@ -19,7 +19,7 @@ export default function WorkshopPage() {
                         <span className="w-2 h-2 rounded-full bg-accent-blue shadow-[0_0_10px_rgba(41,151,255,0.8)] animate-pulse"></span> Registration Open
                     </div>
 
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-8 tracking-[-0.04em] leading-tight">
+                    <h1 className="text-5xl md:text-5xl font-black text-white mb-8 tracking-[-0.04em] leading-tight">
                         The <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-blue to-white/80">Spark.</span><br />
                         <span className="text-3xl md:text-5xl font-bold tracking-tight text-white/60">3-Day Ignition Sprint</span>
                     </h1>

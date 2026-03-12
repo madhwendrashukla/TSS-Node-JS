@@ -29,7 +29,7 @@ export default function FoundersDatingPage() {
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white text-xs font-bold uppercase tracking-widest mb-8">
                         Past Event
                     </div>
-                    <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight leading-tight">
+                    <h1 className="text-5xl md:text-5xl font-black text-white mb-6 tracking-tight leading-tight">
                         Founder's <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">Dating.</span>
                     </h1>
                     <p className="text-xl text-text-secondary font-light max-w-2xl mx-auto leading-relaxed">

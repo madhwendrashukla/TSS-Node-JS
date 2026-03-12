@@ -1,6 +1,12 @@
 "use client";
 
 import { useState } from 'react';
+import { Kalam } from 'next/font/google';
+
+const kalam = Kalam({
+    subsets: ['latin'],
+    weight: ['400', '700'],
+});
 
 export function Contact() {
     const [formData, setFormData] = useState({
@@ -35,14 +41,14 @@ export function Contact() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent-blue/5 rounded-full blur-[150px] pointer-events-none"></div>
 
             <div className="max-w-4xl mx-auto px-6 relative z-10">
-                <div className="text-center mb-16">
-                    <span className="text-text-secondary text-xs font-bold tracking-[0.2em] uppercase mb-4 block">APPLY NOW</span>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-[-0.04em] mb-6 leading-tight">
-                        <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">Hai Keeda hai heemat toh</span> <br className="hidden md:block" /><span className="text-white/40">kr startup !!</span>
-                    </h2>
-                    <p className="text-xl text-text-secondary font-light">
-                        Drop the details.
-                    </p>
+                <div className="text-center mb-16 flex flex-col items-center justify-center">
+                    <span className="text-text-secondary text-xs font-bold tracking-[0.2em] uppercase mb-8 block">APPLY NOW</span>
+                    <div className={`${kalam.className} text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight md:leading-snug flex flex-col items-center justify-center gap-2 md:gap-4 -rotate-2 transform hover:rotate-0 transition duration-500 cursor-default`}>
+                        <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))] pb-1 drop-shadow-sm">HAI KEEDA ?</span>
+                        <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-violet),var(--color-accent-blue))] pb-1 drop-shadow-sm">HAI HIMMAT ?</span>
+                        <span className="text-white/90 drop-shadow-sm">TO KAR</span>
+                        <span className="text-white drop-shadow-md">STARTUP !</span>
+                    </div>
                 </div>
 
                 <div className="glass-card rounded-[2rem] p-8 md:p-14 border border-white/5 relative overflow-hidden shadow-2xl">

@@ -3,13 +3,10 @@
 import { useState } from 'react';
 
 const ShayariBlock = () => (
-    <div className="relative">
-        <div className="absolute -top-12 -left-8 text-[120px] font-serif text-white/5 pointer-events-none leading-none">
-            “
-        </div>
-        <h3 className="text-4xl md:text-5xl lg:text-5xl font-bold text-white leading-[1.3] tracking-[-0.02em] relative z-10">
-            “दिल में हो आग तो जलती रहनी चाहिए,<br className="hidden md:block" />
-            तेरा हो चाहे मेरा,<br className="hidden md:block" />
+    <div className="relative mb-10">
+        <h3 className="text-3xl md:text-5xl font-bold text-white leading-[1.3] tracking-[-0.02em] relative z-10">
+            “दिल में हो आग तो जलती रहनी चाहिए,<br />
+            तेरा हो चाहे मेरा,<br />
             <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">सपना ज़िंदा रहना चाहिए!</span>”
         </h3>
     </div>
@@ -19,14 +16,14 @@ const AchievementsList = () => {
     const [isPlaying, setIsPlaying] = useState(false);
 
     return (
-        <div className="flex flex-col gap-6 w-full">
+        <div className="grid lg:grid-cols-3 gap-6 w-full max-w-7xl mx-auto">
             {/* Block 1: The Bootcamp */}
             <div className="bg-bg-surface border border-white/5 rounded-2xl p-6 hover:border-accent-blue/50 transition duration-500 group flex flex-col shadow-lg shadow-black/20">
                 <h3 className="text-base font-bold text-white mb-4 text-center tracking-tight">Mentor Panel: E-Cell IIT Madras</h3>
                 <div className="aspect-video bg-bg-main rounded-xl mb-5 flex items-center justify-center border border-white/5 group-hover:border-accent-blue/50 transition duration-500 relative overflow-hidden">
                     <img src="/bootcamp.jpeg" alt="Mentor Panel at IIT Madras" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition duration-700" />
                 </div>
-                <p className="text-text-secondary text-xs mb-5 leading-relaxed font-light">
+                <p className="text-text-secondary text-xs mb-5 leading-relaxed font-light flex-grow">
                     Invited as a Mentor at E-Cell IIT Madras. Mentoring early-stage founders, reviewing startup ideas, and providing practical guidance on execution and validation.
                 </p>
                 <a href="https://www.linkedin.com/posts/gauravbansal2_mentor-iit-startup-activity-7404790908174450688-P0G5" target="_blank" rel="noopener noreferrer" className="block w-full text-center bg-white/5 border border-white/10 text-text-primary text-sm font-semibold py-3 rounded-xl hover:bg-white hover:text-black transition duration-300 mt-auto">
@@ -40,7 +37,7 @@ const AchievementsList = () => {
                 <div className="aspect-video bg-bg-main rounded-xl mb-5 flex items-center justify-center border border-white/5 group-hover:border-accent-violet/50 transition relative overflow-hidden">
                     <img src="/iimrohtak.jpg" alt="Judge and Mentor at IIM Rohtak" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition duration-700" />
                 </div>
-                <p className="text-text-secondary text-xs mb-5 leading-relaxed font-light">
+                <p className="text-text-secondary text-xs mb-5 leading-relaxed font-light flex-grow">
                     Invited as a Judge and Mentor at IIM Rohtak. Evaluating innovative startups, providing critical feedback on pitches, and guiding aspiring founders on their journey from concept to scale.
                 </p>
                 <a href="https://www.linkedin.com/in/gauravbansal2/details/featured/" target="_blank" rel="noopener noreferrer" className="block w-full text-center bg-white/5 border border-white/10 text-text-primary text-sm font-semibold py-3 rounded-xl hover:bg-white hover:text-black transition duration-300 mt-auto">
@@ -76,7 +73,7 @@ const AchievementsList = () => {
                         </>
                     )}
                 </div>
-                <p className="text-text-secondary text-xs mb-5 leading-relaxed font-light">
+                <p className="text-text-secondary text-xs mb-5 leading-relaxed font-light flex-grow">
                     How to Ideate, Build and Scale your Startup | Hacks and Mistakes.<br />
                     <span className="text-[10px] text-gray-500 mt-1.5 block uppercase tracking-wider font-semibold">Conducted at Doon Business School.</span>
                 </p>
@@ -97,8 +94,6 @@ function EnglishTextComponent() {
 
             <p>For the middle-class dreamer, choosing a startup over a steady paycheck is an act of war against social security.</p>
 
-            <div className="w-16 h-[1px] bg-white/20 my-10 hidden md:block"></div>
-
             <p>A startup’s greatest enemy isn't competition — it’s the <strong className="text-white font-medium">“Initial Days Vacuum”</strong>. We talk about “funding”, but we forget about “foundation”.</p>
 
             <p>Many have the <em className="text-white italic">‘Keeda’</em> (the itch) and the <em className="text-white italic">‘Himmat’</em> (the courage), but courage without a compass is just a slow way to get lost.</p>
@@ -106,8 +101,6 @@ function EnglishTextComponent() {
             <p>The ecosystem treats early-stage startups like athletes; in reality, they need to be treated like infants.</p>
 
             <p>If you don't hold the hand that is trying to build, that hand will eventually reach for a corporate cubicle just to survive.</p>
-
-            <div className="w-16 h-[1px] bg-white/20 my-10 hidden md:block"></div>
 
             <p className="text-2xl md:text-3xl text-white font-medium tracking-tight">I believe tactical, hands-on support in the first 100 days is more valuable than a seed check in the first 300.</p>
 
@@ -122,75 +115,47 @@ function EnglishTextComponent() {
 
 export function FounderManifesto() {
     return (
-        <section id="manifesto" className="py-16 md:py-32 bg-bg-main relative overflow-hidden w-full border-t border-white/5">
+        <section id="manifesto" className="py-16 md:py-32 bg-bg-main relative w-full border-t border-white/5">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent opacity-50 blur-[100px] pointer-events-none" />
 
-            <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col items-center">
-
-                {/* Minimalist Profile & Intro */}
-                <div className="flex flex-col items-center mb-16 md:mb-20 text-center">
-                    <div className="mb-6 p-1 rounded-full bg-gradient-to-b from-white/20 to-transparent shadow-lg shadow-white/5">
-                        <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden bg-bg-main p-1 border border-white/10">
-                            <img
-                                src="/gaurav.jpg"
-                                alt="Gaurav Bansal"
-                                className="w-full h-full rounded-full object-cover filter grayscale hover:grayscale-0 transition duration-700"
-                            />
-                        </div>
-                    </div>
-                    <span className="text-text-secondary text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase mb-3 text-accent-blue/80 text-center">THE FOUNDER’S MANIFESTO</span>
-                    <h4 className="text-2xl md:text-4xl font-bold text-white tracking-tight text-center">Gaurav Bansal</h4>
-                    <a href="https://www.linkedin.com/in/gauravbansal2/" target="_blank" rel="noopener noreferrer" className="text-accent-violet hover:text-white transition inline-flex items-center gap-2 mt-4 text-sm font-medium bg-white/5 px-4 py-2 rounded-full border border-white/5 hover:bg-white/10 hover:border-accent-violet/50">
-                        Connect on LinkedIn <i className="fab fa-linkedin"></i>
-                    </a>
-                </div>
-
-                {/* DESKTOP SPLIT LAYOUT (Hidden on mobile) */}
-                <div className="hidden lg:grid w-full grid-cols-[40%_minmax(0,1fr)] gap-24 relative">
-                    {/* Left Column: Sticky Shayari + Achievements below it */}
-                    <div className="flex flex-col relative">
-                        <div className="sticky top-32 h-fit pb-12 z-20">
-                            <ShayariBlock />
-                        </div>
-                        <div className="mt-8 relative z-10">
-                            <h4 className="text-white font-bold tracking-[0.2em] text-xs uppercase mb-8 flex items-center gap-4 opacity-80">
-                                <span className="h-[1px] bg-white/10 flex-1"></span>
-                                Track Record
-                                <span className="h-[1px] bg-white/10 flex-1"></span>
-                            </h4>
-                            <AchievementsList />
-                        </div>
-                    </div>
-
-                    {/* Right Column: English Editorial Text */}
-                    <div className="pt-2">
-                        <EnglishTextComponent />
+            {/* Profile Intro */}
+            <div className="max-w-4xl mx-auto px-6 relative z-10 flex flex-col mb-16 md:mb-20 items-center justify-center text-center">
+                <div className="mb-6 p-1 rounded-full bg-gradient-to-b from-white/20 to-transparent shadow-lg shadow-white/5">
+                    <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden bg-bg-main p-1 border border-white/10">
+                        <img
+                            src="/gaurav.jpg"
+                            alt="Gaurav Bansal"
+                            className="w-full h-full rounded-full object-cover filter grayscale hover:grayscale-0 transition duration-700"
+                        />
                     </div>
                 </div>
+                <span className="text-text-secondary text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase mb-3 text-accent-blue/80">THE FOUNDER’S MANIFESTO</span>
+                <h4 className="text-2xl md:text-4xl font-bold text-white tracking-tight">Gaurav Bansal</h4>
+                <a href="https://www.linkedin.com/in/gauravbansal2/" target="_blank" rel="noopener noreferrer" className="text-accent-violet hover:text-white transition inline-flex items-center gap-2 mt-4 text-sm font-medium bg-white/5 px-4 py-2 rounded-full border border-white/5 hover:bg-white/10 hover:border-accent-violet/50">
+                    Connect on LinkedIn <i className="fab fa-linkedin"></i>
+                </a>
+            </div>
 
-                {/* MOBILE/TABLET LAYOUT (Hidden on desktop) */}
-                <div className="flex flex-col lg:hidden w-full gap-16 relative">
-                    {/* 1. First show that Shayari */}
-                    <div>
-                        <ShayariBlock />
-                    </div>
+            {/* Manifesto Content (Shayari -> English Text) */}
+            <div className="max-w-4xl mx-auto px-6 relative z-10 flex flex-col mb-24">
+                <ShayariBlock />
+                <EnglishTextComponent />
+            </div>
 
-                    {/* 2. Then next Manifesto */}
-                    <div>
-                        <EnglishTextComponent />
-                    </div>
-
-                    {/* 3. Final these blocks (Achievements) */}
-                    <div className="pt-8">
-                        <h4 className="text-white font-bold tracking-[0.2em] text-[10px] uppercase mb-8 flex items-center gap-4 opacity-80">
-                            <span className="h-[1px] bg-white/10 flex-1"></span>
-                            Track Record
-                            <span className="h-[1px] bg-white/10 flex-1"></span>
-                        </h4>
-                        <AchievementsList />
-                    </div>
+            {/* Achievements Grid */}
+            <div className="max-w-7xl mx-auto px-6 relative z-10 w-full pt-10 border-t border-white/5">
+                <div className="text-center mb-16">
+                    <h4 className="text-white font-bold tracking-[0.2em] text-xs uppercase mb-4 flex items-center justify-center gap-4 opacity-80">
+                        <span className="h-[1px] bg-white/10 w-12"></span>
+                        Track Record
+                        <span className="h-[1px] bg-white/10 w-12"></span>
+                    </h4>
+                    <p className="text-text-secondary max-w-3xl mx-auto text-lg">
+                        This school is not built on theory. It is built on lived experience, scars, and lessons earned the hard way.
+                    </p>
                 </div>
 
+                <AchievementsList />
             </div>
         </section>
     );

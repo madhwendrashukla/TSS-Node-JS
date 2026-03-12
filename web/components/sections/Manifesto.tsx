@@ -28,8 +28,8 @@ export function Manifesto() {
                         “
                     </div>
 
-                    <div className="manifesto-font text-xl md:text-2xl lg:text-[28px] text-[#A1A1A6] leading-[1.8] space-y-10 font-light">
-                        <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-16 tracking-[-0.02em]">
+                    <div className="manifesto-font text-xl md:text-2xl text-[#A1A1A6] leading-[1.8] space-y-10 font-light">
+                        <h3 className="text-3xl md:text-4xl font-bold text-white leading-tight mb-16 tracking-[-0.02em]">
                             “दिल में हो आग तो जलती रहनी चाहिए,<br />
                             तेरा हो चाहे मेरा,<br />
                             <span className="gradient-text">सपना ज़िंदा रहना चाहिए!</span>”

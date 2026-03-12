@@ -119,7 +119,7 @@ export default function InvestorsPage() {
                         <span className="bg-accent-violet/20 text-accent-violet text-[10px] font-bold px-3 py-1 rounded-full border border-accent-violet/30 uppercase tracking-widest">Premium Database</span>
                         <div className="h-px bg-white/10 w-20"></div>
                     </div>
-                    <h1 className="text-5xl md:text-7xl font-black text-white tracking-[-0.04em] mb-6">
+                    <h1 className="text-5xl md:text-5xl font-black text-white tracking-[-0.04em] mb-6">
                         Investors <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">Match.</span>
                     </h1>
                     <p className="text-xl text-text-secondary font-light max-w-2xl">

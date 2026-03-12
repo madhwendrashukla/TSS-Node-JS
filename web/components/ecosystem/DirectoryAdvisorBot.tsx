@@ -7,12 +7,11 @@ import { useRouter } from 'next/navigation';
 const WHATSAPP_LINK = 'https://chat.whatsapp.com/BJ5RIXujFJG7ceB06nVqa4';
 const WORKSHOP_LINK = '/programs'; // redirect to programs/events page
 
+import { BookOpen, CalendarDays } from 'lucide-react';
+
 const TOOLS = [
-    { label: 'Pitch Deck Repo 📚', desc: '48+ winning pitch decks', href: '/tools/pitch-decks', color: 'from-violet-500/20 to-violet-600/10 border-violet-500/30 hover:border-violet-400/60' },
-    { label: 'Investor Match 💰', desc: '100+ VCs & Angel Networks', href: '/tools/incubator-search/investors', color: 'from-blue-500/20 to-blue-600/10 border-blue-500/30 hover:border-blue-400/60' },
-    { label: 'Incubators & Accelerators 🏢', desc: 'Top programs across India', href: '/tools/incubators-accelerators', color: 'from-cyan-500/20 to-cyan-600/10 border-cyan-500/30 hover:border-cyan-400/60' },
-    { label: 'Grants & Schemes 🎁', desc: 'Zero-equity government grants', href: '/tools/incubator-search/grants', color: 'from-emerald-500/20 to-emerald-600/10 border-emerald-500/30 hover:border-emerald-400/60' },
-    { label: 'Founder Events 📅', desc: 'Curated monthly B2B events', href: '/tools/founder-calendar', color: 'from-orange-500/20 to-orange-600/10 border-orange-500/30 hover:border-orange-400/60' },
+    { label: 'Pitch Deck Repo', icon: BookOpen, desc: '48+ winning pitch decks', href: '/tools/pitch-decks', color: 'from-violet-500/20 to-violet-600/10 border-violet-500/30 hover:border-violet-400/60' },
+    { label: 'Founder Events', icon: CalendarDays, desc: 'Curated monthly B2B events', href: '/tools/founder-calendar', color: 'from-orange-500/20 to-orange-600/10 border-orange-500/30 hover:border-orange-400/60' },
 ];
 
 /* ── Idle notification bubbles shown near FAB when chat is closed ──────────── */
@@ -24,7 +23,7 @@ function IdleNotifications({ onDismiss }: { onDismiss: (id: string) => void }) {
                 <span className="text-lg">💬</span>
                 <div className="flex-1 min-w-0">
                     <p className="text-white text-xs font-semibold truncate">Join Founder Community</p>
-                    <p className="text-text-tertiary text-[10px] truncate">WhatsApp · 1000+ founders</p>
+                    <p className="text-text-tertiary text-[10px] truncate">Connect on WhatsApp</p>
                 </div>
                 <button
                     onClick={() => onDismiss('whatsapp')}
@@ -146,10 +145,15 @@ export default function DirectoryAdvisorBot() {
                                 <button
                                     key={tool.href}
                                     onClick={() => handleTool(tool.href, tool.label)}
-                                    className={`w-full text-left px-4 py-3 rounded-xl border bg-gradient-to-r ${tool.color} transition-all duration-200 group ${clicked === tool.label ? 'scale-95 opacity-70' : 'hover:scale-[1.02]'}`}
+                                    className={`w-full text-left px-4 py-3 rounded-xl border bg-gradient-to-r ${tool.color} transition-all duration-200 group flex items-center gap-3 ${clicked === tool.label ? 'scale-95 opacity-70' : 'hover:scale-[1.02]'}`}
                                 >
-                                    <p className="text-white text-sm font-semibold leading-tight">{tool.label}</p>
-                                    <p className="text-text-tertiary text-[11px] mt-0.5">{tool.desc}</p>
+                                    <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/80 group-hover:text-white transition-colors">
+                                        <tool.icon size={16} />
+                                    </div>
+                                    <div>
+                                        <p className="text-white text-sm font-semibold leading-tight">{tool.label}</p>
+                                        <p className="text-text-tertiary text-[11px] mt-0.5">{tool.desc}</p>
+                                    </div>
                                 </button>
                             ))}
                         </div>
@@ -168,7 +172,7 @@ export default function DirectoryAdvisorBot() {
                                 </svg>
                                 <div>
                                     <p className="text-[#25D366] text-sm font-bold leading-tight">Join Our Community 👥</p>
-                                    <p className="text-text-tertiary text-[10px]">1000+ founders on WhatsApp</p>
+                                    <p className="text-text-tertiary text-[10px]">Connect with founders on WhatsApp</p>
                                 </div>
                                 <ExternalLink size={13} className="ml-auto text-[#25D366]/50 group-hover:text-[#25D366]" />
                             </a>

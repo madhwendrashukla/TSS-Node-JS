@@ -6,6 +6,8 @@ import { MentorsPreview } from "@/components/sections/MentorsPreview";
 import { ToolsShowcase } from "@/components/sections/ToolsShowcase";
 import { VideoAndGallery } from "@/components/sections/VideoAndGallery";
 import { Contact } from "@/components/sections/Contact";
+import { Programs } from "@/components/sections/Programs";
+import { Gallery } from "@/components/sections/Gallery";
 
 export default function Home() {
   return (
@@ -18,6 +20,8 @@ export default function Home() {
         <VideoAndGallery />
         <ToolsShowcase />
         <FounderManifesto />
+        <Programs />
+        <Gallery />
         <Contact />
       </main>
     </>

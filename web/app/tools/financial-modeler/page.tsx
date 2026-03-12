@@ -19,7 +19,7 @@ export default function FinancialModelerPage() {
                         <span>&larr;</span> Back to Tools
                     </Link>
                     <span className="text-accent-violet text-sm font-bold tracking-[0.2em] uppercase mb-4 block">Interactive Tool</span>
-                    <h1 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight">
+                    <h1 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">
                         Financial <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">Modeler.</span>
                     </h1>
                     <p className="text-xl text-text-secondary font-light max-w-3xl leading-relaxed">

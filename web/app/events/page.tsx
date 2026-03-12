@@ -14,7 +14,7 @@ export default function EventsPage() {
                 {/* Header */}
                 <div className="text-center mb-24 max-w-4xl mx-auto">
                     <span className="text-text-secondary text-xs font-bold tracking-[0.2em] uppercase mb-4 block">THE GATHERINGS</span>
-                    <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-[-0.04em] leading-tight">
+                    <h1 className="text-5xl md:text-5xl font-black text-white mb-6 tracking-[-0.04em] leading-tight">
                         Real <span className="text-white/40">Conversations.</span>
                     </h1>
                     <p className="text-xl md:text-2xl text-text-secondary font-light">

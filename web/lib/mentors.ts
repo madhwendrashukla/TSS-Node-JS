@@ -67,7 +67,7 @@ export const mentorsData: MentorProfile[] = [
         name: "Upyukt Prakash",
         title: "Senior Principal Consultant",
         credentials: ["Senior Principal Consultant at Oracle with 18+ years of experience in project management, process transformation, and Lean Six Sigma, previously contributing at Tata Consultancy Services and Thales Avionics USA."],
-        image: "/upyukt.jpg",
+        image: "/upkyut.png",
         linkedinUrl: "https://www.linkedin.com/in/upyukt-prakash-mater-black-belt-six-sigma-0b821514/"
     },
     {
@@ -81,21 +81,21 @@ export const mentorsData: MentorProfile[] = [
         name: "Deric Karunesudas",
         title: "Cybersecurity Leader & Investor",
         credentials: ["A Cybersecurity Leader and seasoned Investor with an 18-year track record of driving profitable growth for global enterprises. Spanning the US, Europe, Middle East, and APAC."],
-        image: "/deric.jpg",
+        image: "/deric.jpeg",
         linkedinUrl: "https://www.linkedin.com/in/derickarunesudas/"
     },
     {
         name: "Dr Debashis Bhattacharya",
         title: "Surgeon & Medical Advisor",
         credentials: ["A seasoned Surgeon and MNC Medical Advisor, he blends clinical mastery with a sophisticated acumen for enterprise building. As a mentor and investor, he translates deep healthcare expertise into actionable growth strategies."],
-        image: "/debashis.jpg",
+        image: "/debashis.jpeg",
         linkedinUrl: "https://www.linkedin.com/in/debashis-bhattacharya-0611a645/"
     },
     {
         name: "Anant Sharma",
         title: "Ex-Founder @Tweek Labs",
         credentials: ["He brings strong experience in building startups, bio-sensing devices and robust IoT systems. Understands the full spectrum of hardware development, from industrial design to electro-mechanical prototyping."],
-        image: "/anant.jpg",
+        image: "/anant.jpeg",
         linkedinUrl: "https://www.linkedin.com/in/anant3110/"
     }
 ];

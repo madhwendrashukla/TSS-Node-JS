@@ -29,7 +29,6 @@ export function Navbar() {
                         </div>
                         {/* Desktop Menu - High contrast, small text, dense tracking */}
                         <div className="hidden md:flex items-center space-x-8 text-xs font-semibold tracking-wide">
-                            <Link href="/programs" className={`${isActive('/programs') ? 'text-white' : 'text-text-secondary'} hover:text-white transition duration-300`}>PROGRAMS</Link>
                             <Link href="/mentors" className={`${isActive('/mentors') ? 'text-white' : 'text-text-secondary'} hover:text-white transition duration-300`}>MENTORS</Link>
                             <Link href="/events" className={`${isActive('/events') ? 'text-white' : 'text-text-secondary'} hover:text-white transition duration-300`}>EVENTS</Link>
                             <Link href="/tools" className={`${isActive('/tools') || pathname.startsWith('/tools/') ? 'text-white' : 'text-text-secondary'} hover:text-white transition duration-300`}>TOOLS</Link>
@@ -49,7 +48,6 @@ export function Navbar() {
             {/* Mobile Menu - Full screen overlay style */}
             <div className={`${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} md:hidden fixed inset-0 top-[56px] bg-[#0F111A] z-40 transition-opacity duration-300 overflow-y-auto`}>
                 <div className="px-6 py-8 flex flex-col space-y-6 text-2xl font-bold tracking-tight">
-                    <Link href="/programs" onClick={closeMenu} className="text-text-primary hover:text-accent-blue transition-colors border-b border-white/10 pb-4">Programs</Link>
                     <Link href="/mentors" onClick={closeMenu} className="text-text-primary hover:text-accent-blue transition-colors border-b border-white/10 pb-4">Mentors</Link>
                     <Link href="/events" onClick={closeMenu} className="text-text-primary hover:text-accent-blue transition-colors border-b border-white/10 pb-4">Events</Link>
                     <Link href="/tools" onClick={closeMenu} className="text-text-primary hover:text-accent-blue transition-colors border-b border-white/10 pb-4">Tools</Link>

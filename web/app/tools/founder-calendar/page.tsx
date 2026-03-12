@@ -179,7 +179,7 @@ export default function FounderCalendar() {
                         <span className="bg-accent-violet/20 text-accent-violet text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest border border-accent-violet/30 animate-pulse">New Active Tool</span>
                     </div>
 
-                    <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-white mb-6 tracking-tight">
+                    <h1 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">
                         Founder <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">Events Calendar.</span>
                     </h1>
                     <p className="text-lg md:text-xl text-text-secondary font-light max-w-3xl leading-relaxed">

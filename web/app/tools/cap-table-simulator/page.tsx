@@ -294,7 +294,7 @@ export default function CapTableSimulator() {
                         <Link href="/tools" className="text-accent-violet text-xs font-bold uppercase tracking-widest hover:text-white transition-colors mb-4 flex items-center gap-2 w-max">
                             <i className="fas fa-arrow-left"></i> Tools Directory
                         </Link>
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tighter mb-4">
+                        <h1 className="text-4xl md:text-5xl font-black text-white tracking-tighter mb-4">
                             Cap Table <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">Simulator.</span>
                         </h1>
                         <p className="text-lg text-text-secondary font-light max-w-2xl">

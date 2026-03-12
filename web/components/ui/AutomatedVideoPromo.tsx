@@ -81,7 +81,7 @@ export function AutomatedVideoPromo() {
                             <span className="px-5 py-2 rounded-full border border-white/10 bg-white/5 text-text-secondary text-xs uppercase tracking-[0.2em] font-medium backdrop-blur-md mb-8">
                                 The 100-Day Acceleration
                             </span>
-                            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[100px] font-black tracking-[-0.04em] text-white leading-[1.1] md:leading-[0.9] mb-6 md:mb-8">
+                            <h1 className="text-4xl sm:text-5xl md:text-5xl font-black tracking-[-0.04em] text-white leading-[1.1] md:leading-[0.9] mb-6 md:mb-8">
                                 Stop <span className="text-white/40">Ideating.</span><br />
                                 Start <span className="gradient-text">Building.</span>
                             </h1>
@@ -95,7 +95,7 @@ export function AutomatedVideoPromo() {
                     {currentScene === 1 && (
                         <div className="flex flex-col items-center max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-8 duration-700">
                             <div className="text-accent-blue text-sm font-bold tracking-[0.2em] uppercase mb-4">The Bridge</div>
-                            <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-[80px] font-black text-white tracking-tight mb-6 md:mb-8 leading-tight text-center">
+                            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-6 md:mb-8 leading-tight text-center">
                                 The 0 &rarr; 1 Bridge <br />
                                 <span className="text-white/40">Where Founders Are Built.</span>
                             </h2>
@@ -109,7 +109,7 @@ export function AutomatedVideoPromo() {
                     {currentScene === 2 && (
                         <div className="flex flex-col items-center max-w-4xl mx-auto px-4 w-full animate-in fade-in slide-in-from-bottom-8 duration-700">
                             <div className="text-accent-violet text-xs md:text-sm font-bold tracking-[0.2em] uppercase mb-4 text-center">The Roadmap</div>
-                            <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tight mb-8 md:mb-10 leading-snug md:leading-tight text-center">
+                            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-8 md:mb-10 leading-snug md:leading-tight text-center">
                                 3 days of ignition sprint <br />
                                 <span className="text-white/40 text-xl md:text-3xl block my-3 md:my-5">to</span>
                                 <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">100 days of Deep Dive Immersion cohorts</span>

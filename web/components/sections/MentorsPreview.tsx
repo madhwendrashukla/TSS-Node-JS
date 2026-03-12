@@ -42,11 +42,11 @@ export function MentorsPreview() {
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <div className="text-center mb-10 md:mb-20">
                     <span className="text-text-secondary text-xs font-bold tracking-[0.2em] uppercase mb-4 block">THE NETWORK</span>
-                    <h2 className="text-3xl md:text-6xl font-black text-white tracking-[-0.04em] mb-6">
-                        Learn from <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">Operators.</span>
+                    <h2 className="text-3xl md:text-5xl font-black text-white tracking-[-0.04em] mb-6">
+                        Learn from <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">Masters.</span>
                     </h2>
                     <p className="text-lg md:text-2xl text-text-secondary font-light max-w-2xl mx-auto">
-                        Meet the industry titans guiding our cohorts.
+                        Get mentored by the masters of the industry.
                     </p>
                 </div>
             </div>

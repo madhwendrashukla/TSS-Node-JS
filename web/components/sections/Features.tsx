@@ -5,7 +5,7 @@ export function Features() {
             <section id="about" className="py-24 relative overflow-hidden bg-bg-main border-t border-white/5">
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                     <span className="text-accent-violet font-bold tracking-widest uppercase text-sm mb-4 block animate-pulse">Introducing</span>
-                    <h2 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight">
+                    <h2 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">
                         "THE <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">STARTUP</span> SCHOOL"
                     </h2>
                     <p className="text-2xl text-text-primary font-light mb-12">

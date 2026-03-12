@@ -14,40 +14,14 @@ export default function ToolsPage() {
 
             <div className="text-center px-6 relative z-10">
                 <span className="text-accent-blue text-sm font-bold tracking-[0.2em] uppercase mb-4 block animate-pulse">Ecosystem Hub</span>
-                <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-[-0.04em]">
+                <h1 className="text-5xl md:text-5xl font-black text-white mb-6 tracking-[-0.04em]">
                     Startup <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-blue to-accent-violet">Tools.</span>
                 </h1>
                 <p className="text-xl md:text-2xl text-text-secondary font-light max-w-2xl mx-auto mb-10">
                     A curated ecosystem of resources, platforms, and frameworks to accelerate your build.
                 </p>
                 <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-5xl mx-auto text-left relative z-10 w-full font-light">
-                    {/* Active Tool 1: Directory */}
-                    <Link href="/tools/incubators-accelerators" className="glass-card p-8 md:p-10 rounded-3xl border border-white/10 hover:border-accent-blue/50 transition-colors group relative overflow-hidden bg-[#050505]">
-                        <span className="bg-accent-blue/10 text-accent-blue text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest mb-6 inline-block border border-accent-blue/20">Live Now</span>
-                        <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight group-hover:text-accent-blue transition-colors">Incubators & Accelerators</h3>
-                        <p className="text-text-secondary leading-relaxed font-light mb-8">An intelligent mapping tool to discover workspaces across the startup landscape.</p>
-                        <span className="text-accent-blue font-bold text-sm tracking-widest uppercase flex items-center gap-2 group-hover:translate-x-2 transition-transform">Access Tool <span className="text-lg">&rarr;</span></span>
-                    </Link>
-
-                    {/* Active Tool 2: Grants */}
-                    <Link href="/tools/incubator-search/grants" className="glass-card p-8 md:p-10 rounded-3xl border border-white/10 hover:border-accent-blue/50 transition-colors group relative overflow-hidden bg-[#050505]">
-                        <span className="bg-accent-blue/10 text-accent-blue text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest mb-6 inline-block border border-accent-blue/20">Live Now</span>
-                        <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight group-hover:text-accent-blue transition-colors">Grants & Schemes</h3>
-                        <p className="text-text-secondary leading-relaxed font-light mb-8">Explore government-backed hubs, universities, and pure grants asking for 0% equity.</p>
-                        <span className="text-accent-blue font-bold text-sm tracking-widest uppercase flex items-center gap-2 group-hover:translate-x-2 transition-transform">Access Tool <span className="text-lg">&rarr;</span></span>
-                    </Link>
-
-
-
-                    {/* Active Tool 4: Investors */}
-                    <Link href="/tools/incubator-search/investors" className="glass-card p-8 md:p-10 rounded-3xl border border-white/10 hover:border-accent-blue/50 transition-colors group relative overflow-hidden bg-[#050505]">
-                        <span className="bg-accent-blue/10 text-accent-blue text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest mb-6 inline-block border border-accent-blue/20">Live Now</span>
-                        <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight group-hover:text-accent-blue transition-colors">Investors Match</h3>
-                        <p className="text-text-secondary leading-relaxed font-light mb-8">Discover hubs with the highest investor density and direct seed funding guarantees.</p>
-                        <span className="text-accent-blue font-bold text-sm tracking-widest uppercase flex items-center gap-2 group-hover:translate-x-2 transition-transform">Access Tool <span className="text-lg">&rarr;</span></span>
-                    </Link>
-
-                    {/* Active Tool 5: Founder Events */}
+                    {/* Active Tool 1: Founder Events Calendar */}
                     <Link href="/tools/founder-calendar" className="glass-card p-8 md:p-10 rounded-3xl border border-white/10 hover:border-accent-blue/50 transition-colors group relative overflow-hidden bg-[#050505]">
                         <span className="bg-accent-blue/10 text-accent-blue text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest mb-6 inline-block border border-accent-blue/20">Live Now</span>
                         <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight group-hover:text-accent-blue transition-colors">Founder Events Calendar</h3>
@@ -55,13 +29,44 @@ export default function ToolsPage() {
                         <span className="text-accent-blue font-bold text-sm tracking-widest uppercase flex items-center gap-2 group-hover:translate-x-2 transition-transform">Access Tool <span className="text-lg">&rarr;</span></span>
                     </Link>
 
-                    {/* Active Tool: Pitch Deck Repo - Full width */}
-                    <Link href="/tools/pitch-decks" className="glass-card p-8 md:p-10 rounded-3xl border border-white/10 hover:border-accent-blue/50 transition-colors group relative overflow-hidden bg-[#050505] lg:col-span-2">
+                    {/* Active Tool 2: Pitch Deck Repo */}
+                    <Link href="/tools/pitch-decks" className="glass-card p-8 md:p-10 rounded-3xl border border-white/10 hover:border-accent-blue/50 transition-colors group relative overflow-hidden bg-[#050505]">
                         <span className="bg-accent-blue/10 text-accent-blue text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest mb-6 inline-block border border-accent-blue/20">Live Now</span>
                         <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight group-hover:text-accent-blue transition-colors">Pitch Deck Repo</h3>
                         <p className="text-text-secondary leading-relaxed font-light mb-8 max-w-xl">A massive curated collection of 48+ winning pitch decks from YC startups and global unicorns. Study how the best in the world built their narrative.</p>
                         <span className="text-accent-blue font-bold text-sm tracking-widest uppercase flex items-center gap-2 group-hover:translate-x-2 transition-transform">Access Tool <span className="text-lg">&rarr;</span></span>
                     </Link>
+
+                    {/* Coming Soon: Incubators & Accelerators */}
+                    <div className="glass-card p-8 md:p-10 rounded-3xl border border-dashed border-white/10 bg-[#020202] relative overflow-hidden group">
+                        <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:4px_4px]"></div>
+                        <div className="relative z-10">
+                            <span className="bg-white/5 border border-white/10 text-text-secondary text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest mb-6 inline-block">Coming Soon</span>
+                            <h3 className="text-2xl md:text-3xl font-bold text-gray-400 mb-4 tracking-tight">Incubators & Accelerators</h3>
+                            <p className="text-gray-500 leading-relaxed font-light mb-8">An intelligent mapping tool to discover workspaces across the startup landscape.</p>
+                            <span className="text-gray-600 font-bold text-sm tracking-widest uppercase relative z-10">In Development</span>
+                        </div>
+                    </div>
+
+                    {/* Coming Soon: Grants & Schemes */}
+                    <div className="glass-card p-8 md:p-10 rounded-3xl border border-dashed border-white/10 bg-[#020202] relative overflow-hidden group">
+                        <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:4px_4px]"></div>
+                        <span className="bg-white/5 border border-white/10 text-text-secondary text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest mb-6 inline-block">Coming Soon</span>
+                        <h3 className="text-2xl md:text-3xl font-bold text-gray-400 mb-4 tracking-tight">Grants & Schemes</h3>
+                        <p className="text-gray-500 leading-relaxed font-light mb-8 relative z-10">Explore government-backed hubs, universities, and pure grants asking for 0% equity.</p>
+                        <span className="text-gray-600 font-bold text-sm tracking-widest uppercase relative z-10">In Development</span>
+                    </div>
+
+                    {/* Coming Soon: Investors Match */}
+                    <div className="glass-card p-8 md:p-10 rounded-3xl border border-dashed border-white/10 bg-[#020202] relative overflow-hidden group">
+                        <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:4px_4px]"></div>
+                        <div className="relative z-10">
+                            <span className="bg-white/5 border border-white/10 text-text-secondary text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest mb-6 inline-block">Coming Soon</span>
+                            <h3 className="text-2xl md:text-3xl font-bold text-gray-400 mb-4 tracking-tight">Investors Match</h3>
+                            <p className="text-gray-500 leading-relaxed font-light mb-8">Discover hubs with the highest investor density and direct seed funding guarantees.</p>
+                            <span className="text-gray-600 font-bold text-sm tracking-widest uppercase relative z-10">In Development</span>
+                        </div>
+                    </div>
 
                     {/* Coming Soon: Cap Table Simulator */}
                     <div className="glass-card p-8 md:p-10 rounded-3xl border border-dashed border-white/10 bg-[#020202] relative overflow-hidden group">
@@ -75,7 +80,7 @@ export default function ToolsPage() {
                     </div>
 
                     {/* Coming Soon: Financial Modeler */}
-                    <div className="glass-card p-8 md:p-10 rounded-3xl border border-dashed border-white/10 bg-[#020202] relative overflow-hidden group">
+                    <div className="glass-card p-8 md:p-10 rounded-3xl border border-dashed border-white/10 bg-[#020202] relative overflow-hidden group lg:col-span-2">
                         <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:4px_4px]"></div>
                         <span className="bg-white/5 border border-white/10 text-text-secondary text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest mb-6 inline-block">Coming Soon</span>
                         <h3 className="text-2xl md:text-3xl font-bold text-gray-400 mb-4 tracking-tight">Financial Modeler</h3>

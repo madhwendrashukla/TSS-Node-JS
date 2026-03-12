@@ -2,138 +2,157 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { incubatorsData, Incubator } from '@/lib/data/Incubators and Accelerators/incubators';
-import { investorsData, Investor } from '@/lib/data/Investors/investors';
+import { globalPitchDecksData, GlobalPitchDeck } from '@/lib/data/globalPitchDecks';
+import { eventsData, FounderEvent, parseEventStringDates } from '@/lib/data/events';
+import { CalendarPlus, ExternalLink } from 'lucide-react';
+import { IcsDownloadButton } from '@/components/ecosystem/IcsDownloadButton';
+
+function generateGoogleCalendarUrl(event: FounderEvent) {
+    const text = encodeURIComponent(event.eventName);
+    const details = encodeURIComponent(`Find out more: ${event.weblink || 'No link provided.'}\n\nDates: ${event.startDate} ${event.month}`);
+    const location = encodeURIComponent(`${event.exhibitionCentre}, ${event.location}`);
+
+    const datesInfo = parseEventStringDates(event);
+    let datesParam = '';
+    if (datesInfo) {
+        datesParam = `&dates=${datesInfo.start}/${datesInfo.end}`;
+    }
+
+    return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${text}&details=${details}&location=${location}${datesParam}`;
+}
 
 import { InteractiveMarquee } from '../ui/InteractiveMarquee';
 
-function IncubatorLogo({ domain, name }: { domain: string, name: string }) {
-    const [errorStage, setErrorStage] = React.useState(0);
-
-    if (!domain || errorStage >= 2) {
-        return <span className="text-sm font-black text-slate-900">{name.charAt(0)}</span>;
+function PitchDeckCard({ item }: { item: GlobalPitchDeck }) {
+    // Generate a consistent yet colorful gradient based on the company name
+    const colors = [
+        'from-blue-500 to-indigo-600',
+        'from-emerald-400 to-cyan-500',
+        'from-amber-400 to-orange-500',
+        'from-fuchsia-500 to-pink-600',
+        'from-violet-500 to-purple-600',
+        'from-rose-400 to-red-500'
+    ];
+    // Guess domain based on company name
+    let domain = item.company.toLowerCase().replace(/[^a-z0-9.-]/g, '');
+    if (!domain.includes('.')) {
+        domain += '.com';
     }
 
-    const src = errorStage === 0
-        ? `https://logo.clearbit.com/${domain}`
-        : `https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${domain}&size=128`;
-
     return (
-        <img
-            loading="lazy"
-            src={src}
-            alt={name}
-            className="w-full h-full object-contain p-1.5"
-            onError={() => setErrorStage(prev => prev + 1)}
-        />
-    );
-}
-
-function IncubatorCard({ item }: { item: Incubator }) {
-    let domain = '';
-    try {
-        if (item.website?.startsWith('http')) {
-            domain = new URL(item.website).hostname.replace('www.', '');
-        } else if (item.website?.includes('.')) {
-            domain = item.website.replace('www.', '');
-        } else if (item.contactDetails?.includes('.')) {
-            domain = item.contactDetails.replace('www.', '');
-        }
-    } catch { }
-
-    return (
-        <div className="flex flex-col flex-shrink-0 w-[85vw] sm:w-[280px] md:w-[320px] h-[280px] mx-2 md:mx-3 glass-card rounded-2xl p-6 bg-bg-main/60 border border-white/5 hover:border-accent-blue/30 hover:shadow-[0_0_30px_rgba(100,150,255,0.15)] hover:-translate-y-2 transition-all duration-300 ease-out cursor-default relative overflow-hidden group">
+        <a href={item.fileUrl} target="_blank" rel="noopener noreferrer" className="flex flex-col flex-shrink-0 w-[85vw] sm:w-[280px] md:w-[320px] h-[280px] mx-2 md:mx-3 glass-card rounded-2xl p-6 bg-bg-surface border border-white/5 hover:border-accent-blue/30 hover:shadow-[0_0_30px_rgba(100,150,255,0.15)] hover:-translate-y-2 transition-all duration-300 ease-out cursor-pointer relative overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-tr from-accent-blue/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
             <div className="flex flex-col h-full relative z-10">
                 <div className="flex items-center gap-3 mb-4 shrink-0">
-                    <div className="w-11 h-11 rounded-xl bg-white flex items-center justify-center overflow-hidden shrink-0 group-hover:shadow-md transition-shadow">
-                        <IncubatorLogo domain={domain} name={item.name} />
+                    <div className={`w-11 h-11 rounded-xl bg-white p-1 flex items-center justify-center overflow-hidden shrink-0 group-hover:shadow-md transition-shadow relative border border-white/10`}>
+                        {/* Fetching actual company logo from Google Favicon, fallback to UI avatars */}
+                        <img 
+                            src={`https://www.google.com/s2/favicons?domain=${domain}&sz=128`} 
+                            alt={`${item.company} logo`}
+                            className="w-full h-full object-contain"
+                            onError={(e) => {
+                                // Fallback to initials if image load fails completely
+                                const target = e.target as HTMLImageElement;
+                                target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(item.company)}&background=random&color=fff&bold=true`;
+                            }}
+                        />
                     </div>
                     <div className="min-w-0">
-                        <h4 className="text-white font-bold text-sm line-clamp-1">{item.name}</h4>
-                        <p className="text-accent-blue text-[10px] font-bold tracking-widest uppercase truncate">{item.location}</p>
+                        <h4 className="text-white font-bold text-sm line-clamp-1">{item.company}</h4>
+                        <p className="text-accent-blue text-[10px] font-bold tracking-widest uppercase truncate">{item.round} • {item.year}</p>
                     </div>
                 </div>
 
-                <div className="flex items-center justify-between gap-2 mb-3">
-                    <span className="text-text-secondary text-xs line-clamp-1">{item.type}</span>
-                    <span className={`text-[10px] whitespace-nowrap font-medium tracking-widest uppercase px-2 py-1 rounded-md border flex-shrink-0 ${item.equityTaken.toLowerCase().includes('nil') || item.equityTaken.toLowerCase().includes('0%') ? 'text-green-400 bg-green-400/10 border-green-400/20' : 'text-amber-400 bg-amber-400/10 border-amber-400/20'}`}>
-                        {item.equityTaken}
+                <div className="mb-3">
+                    <p className="text-text-secondary text-xs line-clamp-2">{item.tagline}</p>
+                </div>
+
+                <div className="flex flex-wrap gap-1.5 mb-4 flex-1 items-start">
+                    {item.tags.slice(0, 3).map(tag => (
+                        <span key={tag} className="text-[10px] whitespace-nowrap font-semibold px-2.5 py-1 rounded-full border bg-[#11131a] text-gray-300 border-white/10 shadow-sm">{tag}</span>
+                    ))}
+                </div>
+
+                <div className="flex items-center gap-2 pt-3 border-t border-white/5 mt-auto shrink-0 text-text-secondary justify-between">
+                    <div>
+                        <span className="text-white font-bold text-md">{item.raisedThisRound}</span>
+                        <span className="text-[10px] ml-1 uppercase tracking-widest font-semibold opacity-70">raised</span>
+                    </div>
+                    <span className="flex items-center gap-1.5 text-accent-blue text-xs font-semibold group-hover:text-white transition-colors border border-accent-blue/20 bg-accent-blue/10 px-3 py-1.5 rounded-full">
+                        <i className="fas fa-file-pdf"></i> View Deck
                     </span>
                 </div>
-
-                <div className="grid grid-cols-2 gap-2 text-xs mt-auto mb-4">
-                    <div className="bg-white/5 rounded-lg p-2">
-                        <p className="text-text-secondary text-[10px] uppercase tracking-wider mb-0.5">Funding</p>
-                        <p className="text-white font-semibold text-[11px] leading-tight truncate">{item.fundingSupport}</p>
-                    </div>
-                    <div className="bg-white/5 rounded-lg p-2">
-                        <p className="text-text-secondary text-[10px] uppercase tracking-wider mb-0.5">Stage</p>
-                        <p className="text-white font-semibold text-[11px] leading-tight truncate">{item.idealStage}</p>
-                    </div>
-                </div>
-                {item.website && (
-                    <a href={item.website} target="_blank" rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-accent-blue text-xs font-semibold hover:text-white transition-colors w-fit mt-auto"
-                        onClick={e => e.stopPropagation()}>
-                        <i className="fas fa-external-link-alt text-[10px]"></i> Visit
-                    </a>
-                )}
             </div>
-        </div>
+        </a>
     );
 }
 
-// ─── 2. Investor Cards ─────────────────────────────────────────────────
-function InvestorCard({ item }: { item: Investor }) {
+// ─── 2. Event Cards ─────────────────────────────────────────────────
+function EventCard({ item }: { item: FounderEvent }) {
     return (
-        <div className="flex flex-col flex-shrink-0 w-[85vw] sm:w-[280px] md:w-[320px] h-[280px] mx-2 md:mx-3 glass-card rounded-2xl p-6 bg-bg-surface border border-white/5 hover:border-accent-blue/30 hover:shadow-[0_0_30px_rgba(139,92,246,0.15)] hover:-translate-y-2 transition-all duration-300 ease-out cursor-default relative overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/5 to-accent-violet/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+        <a href={"/tools/founder-calendar"} className="flex flex-col flex-shrink-0 w-[85vw] sm:w-[300px] md:w-[340px] h-[360px] mx-2 md:mx-3 glass-card rounded-2xl p-6 bg-bg-surface border border-white/5 hover:border-accent-violet/30 hover:shadow-[0_0_30px_rgba(139,92,246,0.15)] hover:-translate-y-2 transition-all duration-300 ease-out cursor-pointer relative overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-br from-accent-violet/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
             <div className="flex flex-col h-full relative z-10">
                 <div className="flex items-center gap-3 mb-4 shrink-0">
-                    <div className="w-11 h-11 rounded-xl bg-white flex items-center justify-center overflow-hidden shrink-0 group-hover:shadow-md transition-shadow">
-                        {item.logoUrl ? (
-                            <img loading="lazy" src={item.logoUrl} alt={item.name} className="w-full h-full object-contain p-1.5" onError={(e: React.SyntheticEvent<HTMLImageElement>) => { const el = e.target as HTMLImageElement; el.style.display = 'none'; el.parentElement!.innerHTML = `<span class="text-sm font-black text-slate-900">${item.name.charAt(0)}</span>`; }} />
-                        ) : (
-                            <span className="text-sm font-black text-slate-900">{item.name.charAt(0)}</span>
-                        )}
+                    <div className="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center overflow-hidden shrink-0 group-hover:bg-accent-violet/20 transition-colors border border-white/10 group-hover:border-accent-violet/30">
+                        <i className="fas fa-calendar-alt text-lg text-accent-violet"></i>
                     </div>
                     <div className="min-w-0">
-                        <h4 className="text-white font-bold text-sm line-clamp-1">{item.name}</h4>
-                        <p className="text-accent-violet text-[10px] font-bold tracking-widest uppercase truncate">{item.type}</p>
+                        <h4 className="text-white font-bold text-sm line-clamp-2">{item.eventName}</h4>
                     </div>
                 </div>
-                <div className="flex flex-wrap gap-1 mb-3">
-                    {item.stages.map(s => (
-                        <span key={s} className="text-[10px] whitespace-nowrap font-medium px-2 py-1 rounded-md border bg-accent-blue/10 text-accent-blue border-accent-blue/20">{s}</span>
-                    ))}
-                </div>
-                <div className="flex flex-wrap gap-1 mb-4 flex-1">
-                    {item.industries.slice(0, 3).map(ind => (
-                        <span key={ind} className="text-[10px] whitespace-nowrap font-medium px-2 py-1 rounded-md border bg-accent-violet/10 text-accent-violet border-accent-violet/20">{ind}</span>
-                    ))}
-                    {item.industries.length > 3 && (
-                        <span className="text-[9px] text-text-secondary py-0.5">+{item.industries.length - 3}</span>
-                    )}
-                </div>
-                {item.investments && (
-                    <div className="flex items-center gap-2 pt-3 border-t border-white/5 mt-auto shrink-0 text-text-secondary">
-                        <span className="text-white font-bold text-sm">{item.investments}</span>
-                        <span className="text-[10px]">investments</span>
+                
+                <div className="space-y-2 mb-4 flex-1">
+                    <div className="flex items-center gap-2 text-text-secondary text-xs">
+                        <i className="fas fa-map-marker-alt w-4 text-center text-accent-violet/70"></i>
+                        <span className="line-clamp-1">{item.exhibitionCentre}, {item.location}</span>
                     </div>
-                )}
+                    <div className="flex items-center gap-2 text-text-secondary text-xs">
+                        <i className="fas fa-clock w-4 text-center text-accent-violet/70"></i>
+                        <span>{item.startDate} {item.month}</span>
+                    </div>
+                </div>
+
+                <div className="mt-auto flex flex-col gap-3 pt-3 border-t border-white/5 w-full">
+                    <button
+                        onClick={(e) => { e.preventDefault(); window.open(generateGoogleCalendarUrl(item), '_blank'); }}
+                        className="w-full flex items-center justify-center gap-2 bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))] hover:opacity-90 text-white py-2.5 px-4 rounded-xl text-sm font-bold transition-opacity"
+                    >
+                        <CalendarPlus className="w-4 h-4" />
+                        Google Calendar
+                    </button>
+                    <div className="grid grid-cols-2 gap-3 w-full">
+                        <div onClick={(e) => { e.preventDefault(); return false; }} className="w-full h-full"> 
+                            {/* Inner wrapper to stop propagation for iCal button internally */}
+                            <IcsDownloadButton event={item} />
+                        </div>
+                        {item.weblink && !item.weblink.includes('gtm.whr.ai') ? (
+                            <button
+                                onClick={(e) => { e.preventDefault(); window.open(item.weblink, '_blank'); }}
+                                className="flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-white py-2.5 px-4 rounded-xl text-sm font-medium transition-colors border border-white/5 hover:border-white/10"
+                            >
+                                <ExternalLink className="w-4 h-4" />
+                                Details
+                            </button>
+                        ) : (
+                            <div className="flex items-center justify-center gap-2 bg-white/5 opacity-50 text-white py-2.5 px-4 rounded-xl text-sm font-medium border border-white/5 cursor-not-allowed">
+                                No Link
+                            </div>
+                        )}
+                    </div>
+                </div>
             </div>
-        </div>
+        </a>
     );
 }
 
 // ─── 3. All Tools Marquee Data ──────────────────────────────────────────
 const ALL_TOOLS = [
-    { name: "Incubator Search", desc: "Compare 50+ workspaces", icon: "fas fa-building", href: "/tools/incubators-accelerators", active: true },
-    { name: "Investor Database", desc: "250+ active angels & VCs", icon: "fas fa-hand-holding-usd", href: "/tools/incubator-search/investors", active: true },
-    { name: "Grants & Schemes", desc: "₹50Cr+ zero-equity funding", icon: "fas fa-award", href: "/tools/incubator-search/grants", active: true },
+    { name: "Incubator Search", desc: "Compare 50+ workspaces", icon: "fas fa-building", href: "/tools/incubators-accelerators", active: false },
+    { name: "Investor Database", desc: "250+ active angels & VCs", icon: "fas fa-hand-holding-usd", href: "/tools/incubator-search/investors", active: false },
+    { name: "Grants & Schemes", desc: "₹50Cr+ zero-equity funding", icon: "fas fa-award", href: "/tools/incubator-search/grants", active: false },
     { name: "Events Calendar", desc: "Top startup summits", icon: "fas fa-calendar-alt", href: "/tools/founder-calendar", active: true },
-    { name: "Pitch Deck Library", desc: "Study 35+ funded decks", icon: "fas fa-file-powerpoint", href: "/tools", active: true },
+    { name: "Pitch Deck Library", desc: "Study 35+ funded decks", icon: "fas fa-file-powerpoint", href: "/tools/pitch-decks", active: true },
     { name: "Financial Modeler", desc: "Runway projections", icon: "fas fa-chart-line", href: "#", active: false },
     { name: "Cap Table Simulator", desc: "Visualize equity dilution", icon: "fas fa-chart-pie", href: "#", active: false },
 ];
@@ -171,38 +190,36 @@ function BasicToolCard({ item }: { item: typeof ALL_TOOLS[0] }) {
 
 // ─── Main export ───────────────────────────────────────────────────────
 export function ToolsShowcase() {
-    const incubators = incubatorsData;
-
     return (
         <>
-            {/* 1 & 2. Ecosystem Directories (Combined Incubators & Investors) */}
+            {/* 1 & 2. Ecosystem Directories (Combined Pitch Decks & Events) */}
             <section className="pt-8 pb-4 bg-bg-main relative w-full">
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent-blue/5 rounded-full blur-[120px] pointer-events-none" />
                 <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-accent-violet/5 rounded-full blur-[150px] pointer-events-none" />
 
                 <div className="max-w-7xl mx-auto px-6 relative z-10 mb-3 text-center">
-                    <span className="text-accent-blue text-[10px] font-bold tracking-[0.2em] uppercase mb-2 block">Ecosystem Directories</span>
+                    <span className="text-accent-blue text-[10px] font-bold tracking-[0.2em] uppercase mb-2 block">Premium Resources</span>
                     <h2 className="text-3xl md:text-4xl font-black text-white tracking-[-0.04em] mb-2">
-                        <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">Investors &amp; Incubators.</span>
+                        <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">Decks &amp; Events.</span>
                     </h2>
                     <p className="text-sm md:text-base text-text-secondary font-light max-w-2xl mx-auto">
-                        A curated, crystal-clear directory of active angels, funds, and top workspaces.
+                        Study the best pitch decks from global unicorns, and discover top B2B events across India.
                     </p>
                 </div>
 
                 <div className="mb-3">
-                    <InteractiveMarquee speed={Math.max(40, incubators.length * 4)}>
-                        {incubators.map((item, i) => <IncubatorCard key={`inc-${i}`} item={item} />)}
+                    <InteractiveMarquee speed={Math.max(40, globalPitchDecksData.slice(0, 15).length * 4)}>
+                        {globalPitchDecksData.slice(0, 15).map((item, i) => <PitchDeckCard key={`deck-${i}`} item={item} />)}
                     </InteractiveMarquee>
                 </div>
 
                 <InteractiveMarquee reverse speed={Math.max(40, 20 * 3)}>
-                    {investorsData.slice(0, 20).map((item, i) => <InvestorCard key={`inv-${i}`} item={item} />)}
+                    {eventsData.slice(0, 20).map((item, i) => <EventCard key={`evt-${i}`} item={item} />)}
                 </InteractiveMarquee>
 
                 <div className="mt-4 text-center relative z-10 mb-3">
                     <Link href="/tools" className="group inline-flex items-center gap-3 bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))] hover:opacity-90 text-white px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-300 shadow-lg shadow-accent-violet/20">
-                        Explore our all tools <i className="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        Explore all tools <i className="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                     </Link>
                 </div>
             </section>
