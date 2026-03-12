@@ -165,57 +165,7 @@ export default function EventsPage() {
                     </div>
                 </section>
 
-                {/* Startup Testimonials */}
-                <section>
-                    <h2 className="text-2xl font-bold text-white mb-10 tracking-tight pb-4 border-b border-white/10">Word on the Street</h2>
-
-                    <div className="grid md:grid-cols-3 gap-8">
-                        {/* Testimonial 1 */}
-                        <div className="glass-card hover-glow p-8 md:p-10 rounded-3xl border border-white/5 relative flex flex-col">
-                            <div className="flex text-white/20 text-xs mb-8 gap-1">
-                                <i className="fas fa-star text-white"></i><i className="fas fa-star text-white"></i><i className="fas fa-star text-white"></i><i className="fas fa-star text-white"></i><i className="fas fa-star text-white"></i>
-                            </div>
-                            <p className="text-text-primary text-lg leading-relaxed mb-10 flex-grow font-light">"The 100-day mentoring program completely shifted our go-to-market strategy. We avoided a costly mistake thanks to the rigorous teardowns."</p>
-                            <div className="flex items-center gap-4 pt-6 border-t border-white/5">
-                                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center font-bold text-white tracking-widest border border-white/10">AS</div>
-                                <div>
-                                    <div className="font-bold text-white tracking-wide">Aman Sharma</div>
-                                    <div className="text-sm text-text-secondary">Founder, LogiTech</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Testimonial 2 */}
-                        <div className="glass-card hover-glow p-8 md:p-10 rounded-3xl border border-white/5 relative flex flex-col">
-                            <div className="flex text-white/20 text-xs mb-8 gap-1">
-                                <i className="fas fa-star text-white"></i><i className="fas fa-star text-white"></i><i className="fas fa-star text-white"></i><i className="fas fa-star text-white"></i><i className="fas fa-star text-white"></i>
-                            </div>
-                            <p className="text-text-primary text-lg leading-relaxed mb-10 flex-grow font-light">"Access to this network is unparalleled. Met my co-founder during the Spark intensive. Validated our idea in 48 hours instead of 4 months."</p>
-                            <div className="flex items-center gap-4 pt-6 border-t border-white/5">
-                                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center font-bold text-white tracking-widest border border-white/10">RP</div>
-                                <div>
-                                    <div className="font-bold text-white tracking-wide">Riya Patel</div>
-                                    <div className="text-sm text-text-secondary">Co-Builder, FinStack</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Testimonial 3 */}
-                        <div className="glass-card hover-glow p-8 md:p-10 rounded-3xl border border-white/5 relative flex flex-col">
-                            <div className="flex text-white/20 text-xs mb-8 gap-1">
-                                <i className="fas fa-star text-white"></i><i className="fas fa-star text-white"></i><i className="fas fa-star text-white"></i><i className="fas fa-star text-white"></i><i className="fas fa-star text-white"></i>
-                            </div>
-                            <p className="text-text-primary text-lg leading-relaxed mb-10 flex-grow font-light">"Skip the MBA if you literally want to build a startup. The actionable advice you get here is worth 10x the investment. The real deal."</p>
-                            <div className="flex items-center gap-4 pt-6 border-t border-white/5">
-                                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center font-bold text-white tracking-widest border border-white/10">KD</div>
-                                <div>
-                                    <div className="font-bold text-white tracking-wide">Karan Desai</div>
-                                    <div className="text-sm text-text-secondary">CEO, EduVance</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                {/* Previous Testimonials section has been removed */}
             </div>
         </div>
     );

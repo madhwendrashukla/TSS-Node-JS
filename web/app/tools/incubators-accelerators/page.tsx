@@ -5,11 +5,40 @@ import Link from 'next/link';
 import { Search, Filter, MapPin, ExternalLink, ArrowLeft, Globe, Building2, Zap } from 'lucide-react';
 import { incubatorsData, Incubator } from '@/lib/data/Incubators and Accelerators/incubators';
 
+function IncubatorLogo({ domain, name }: { domain: string, name: string }) {
+    const [errorStage, setErrorStage] = useState(0);
+
+    if (!domain || errorStage >= 2) {
+        return <span className="text-xl font-bold text-accent-blue">{name.charAt(0)}</span>;
+    }
+
+    const src = errorStage === 0
+        ? `https://logo.clearbit.com/${domain}`
+        : `https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${domain}&size=128`;
+
+    return (
+        <img
+            src={src}
+            alt={name}
+            className="w-full h-full object-contain p-2.5"
+            onError={() => setErrorStage(prev => prev + 1)}
+        />
+    );
+}
+
 function IncubatorCard({ item }: { item: Incubator }) {
     if (!item.name) return null;
 
-    const domain = item.website ? item.website.replace(/^https?:\/\//, '').split('/')[0] : '';
-    const logoUrl = domain ? `https://logo.clearbit.com/${domain}` : null;
+    let domain = '';
+    try {
+        if (item.website?.startsWith('http')) {
+            domain = new URL(item.website).hostname.replace('www.', '');
+        } else if (item.website?.includes('.')) {
+            domain = item.website.replace('www.', '');
+        } else if (item.contactDetails?.includes('.')) {
+            domain = item.contactDetails.replace('www.', '');
+        }
+    } catch { }
 
     return (
         <div className="flex flex-col glass-card rounded-3xl p-6 md:p-8 bg-bg-surface/40 border border-white/10 hover:border-accent-blue/40 hover:shadow-[0_0_40px_rgba(80,140,255,0.1)] transition-all duration-300 group flex flex-col h-full relative overflow-hidden">
@@ -17,20 +46,7 @@ function IncubatorCard({ item }: { item: Incubator }) {
 
             <div className="flex justify-between items-start mb-6">
                 <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden shrink-0 group-hover:scale-110 transition-transform duration-300">
-                    {logoUrl ? (
-                        <img
-                            src={logoUrl}
-                            alt={item.name}
-                            className="w-full h-full object-contain p-2.5"
-                            onError={(e) => {
-                                const target = e.target as HTMLImageElement;
-                                target.style.display = 'none';
-                                target.parentElement!.innerHTML = `<span class="text-xl font-bold text-accent-blue">${item.name.charAt(0)}</span>`;
-                            }}
-                        />
-                    ) : (
-                        <span className="text-xl font-bold text-accent-blue">{item.name.charAt(0)}</span>
-                    )}
+                    <IncubatorLogo domain={domain} name={item.name} />
                 </div>
                 <div className="flex flex-col items-end gap-2">
                     <span className="bg-accent-blue/10 border border-accent-blue/20 text-accent-blue text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest leading-none">

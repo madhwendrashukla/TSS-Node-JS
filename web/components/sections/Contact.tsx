@@ -37,11 +37,11 @@ export function Contact() {
             <div className="max-w-4xl mx-auto px-6 relative z-10">
                 <div className="text-center mb-16">
                     <span className="text-text-secondary text-xs font-bold tracking-[0.2em] uppercase mb-4 block">APPLY NOW</span>
-                    <h2 className="text-4xl md:text-6xl font-black text-white tracking-[-0.04em] mb-6">
-                        Ready to <span className="text-white/40">Build?</span>
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-[-0.04em] mb-6 leading-tight">
+                        <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">Hai Keeda hai heemat toh</span> <br className="hidden md:block" /><span className="text-white/40">kr startup !!</span>
                     </h2>
                     <p className="text-xl text-text-secondary font-light">
-                        Drop your details below and we will get back to you.
+                        Drop the details.
                     </p>
                 </div>
 

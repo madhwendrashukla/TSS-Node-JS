@@ -52,10 +52,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} ${merriweather.variable} antialiased bg-bg-main text-text-primary selection:bg-accent-blue selection:text-white`}
+        className={`${inter.variable} ${merriweather.variable} antialiased bg-bg-main text-text-primary selection:bg-accent-blue selection:text-white overflow-x-hidden`}
       >
         <Navbar />
-        <main className="min-h-screen">
+        <main className="min-h-screen overflow-x-hidden w-full">
           {children}
         </main>
         <DirectoryAdvisorBot />

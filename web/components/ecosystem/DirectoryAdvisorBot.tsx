@@ -1,158 +1,215 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
-import { MessageSquare, X, Send, Bot, User } from 'lucide-react';
-import { incubatorsData } from '@/lib/data/Incubators and Accelerators/incubators';
-import { eventsData } from '@/lib/data/events';
+import { useState, useEffect } from 'react';
+import { X, MessageSquare, Bot, ExternalLink } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
+const WHATSAPP_LINK = 'https://chat.whatsapp.com/BJ5RIXujFJG7ceB06nVqa4';
+const WORKSHOP_LINK = '/programs'; // redirect to programs/events page
+
+const TOOLS = [
+    { label: 'Pitch Deck Repo 📚', desc: '48+ winning pitch decks', href: '/tools/pitch-decks', color: 'from-violet-500/20 to-violet-600/10 border-violet-500/30 hover:border-violet-400/60' },
+    { label: 'Investor Match 💰', desc: '100+ VCs & Angel Networks', href: '/tools/incubator-search/investors', color: 'from-blue-500/20 to-blue-600/10 border-blue-500/30 hover:border-blue-400/60' },
+    { label: 'Incubators & Accelerators 🏢', desc: 'Top programs across India', href: '/tools/incubators-accelerators', color: 'from-cyan-500/20 to-cyan-600/10 border-cyan-500/30 hover:border-cyan-400/60' },
+    { label: 'Grants & Schemes 🎁', desc: 'Zero-equity government grants', href: '/tools/incubator-search/grants', color: 'from-emerald-500/20 to-emerald-600/10 border-emerald-500/30 hover:border-emerald-400/60' },
+    { label: 'Founder Events 📅', desc: 'Curated monthly B2B events', href: '/tools/founder-calendar', color: 'from-orange-500/20 to-orange-600/10 border-orange-500/30 hover:border-orange-400/60' },
+];
+
+/* ── Idle notification bubbles shown near FAB when chat is closed ──────────── */
+function IdleNotifications({ onDismiss }: { onDismiss: (id: string) => void }) {
+    return (
+        <div className="flex flex-col items-end gap-2 mb-3">
+            {/* WhatsApp community */}
+            <div className="flex items-center gap-2 bg-bg-surface/95 backdrop-blur border border-[#25D366]/40 rounded-2xl px-4 py-2.5 shadow-xl max-w-[260px] group animate-in slide-in-from-right-4 fade-in duration-300">
+                <span className="text-lg">💬</span>
+                <div className="flex-1 min-w-0">
+                    <p className="text-white text-xs font-semibold truncate">Join Founder Community</p>
+                    <p className="text-text-tertiary text-[10px] truncate">WhatsApp · 1000+ founders</p>
+                </div>
+                <button
+                    onClick={() => onDismiss('whatsapp')}
+                    className="text-white/30 hover:text-white transition-colors shrink-0"
+                >
+                    <X size={12} />
+                </button>
+            </div>
+            {/* Workshop notification */}
+            <div className="flex items-center gap-2 bg-bg-surface/95 backdrop-blur border border-accent-violet/40 rounded-2xl px-4 py-2.5 shadow-xl max-w-[260px] animate-in slide-in-from-right-4 fade-in duration-500">
+                <span className="text-lg">🎤</span>
+                <div className="flex-1 min-w-0">
+                    <p className="text-white text-xs font-semibold truncate">Fundraising Workshop</p>
+                    <p className="text-text-tertiary text-[10px] truncate">Upcoming · Register free</p>
+                </div>
+                <button
+                    onClick={() => onDismiss('workshop')}
+                    className="text-white/30 hover:text-white transition-colors shrink-0"
+                >
+                    <X size={12} />
+                </button>
+            </div>
+        </div>
+    );
+}
+
+/* ── Main Component ─────────────────────────────────────────────────────────── */
 export default function DirectoryAdvisorBot() {
     const [isOpen, setIsOpen] = useState(false);
-    const [messages, setMessages] = useState([
-        { role: 'assistant', content: "Hi! I'm your ecosystem advisor. Ask me anything about our top incubators, spaces, and grants, or tell me where you'd like to go on the platform." }
-    ]);
-    const [input, setInput] = useState('');
-    const [isLoading, setIsLoading] = useState(false);
-    const messagesEndRef = useRef<HTMLDivElement>(null);
+    const [dismissed, setDismissed] = useState<Set<string>>(new Set());
+    const [showIdle, setShowIdle] = useState(false);
+    const [clicked, setClicked] = useState<string | null>(null);
     const router = useRouter();
 
-    const scrollToBottom = () => {
-        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-    };
-
+    // Show idle notifications after 8 seconds of no interaction
     useEffect(() => {
-        scrollToBottom();
-    }, [messages]);
+        if (isOpen) { setShowIdle(false); return; }
+        const t = setTimeout(() => setShowIdle(true), 8000);
+        return () => clearTimeout(t);
+    }, [isOpen]);
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        if (!input.trim() || isLoading) return;
-
-        const userMessage = input.trim();
-        setInput('');
-        setMessages(prev => [...prev, { role: 'user', content: userMessage }]);
-        setIsLoading(true);
-
-        try {
-            const res = await fetch('/api/directory-chat', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    messages: [
-                        ...messages.filter(m => m.role !== 'system'),
-                        { role: 'user', content: userMessage }
-                    ]
-                })
-            });
-
-            if (!res.ok) throw new Error('Request failed');
-
-            const data = await res.json();
-            const reply = data.reply;
-
-            // Intercept Redirection Command
-            const redirectMatch = reply.match(/__REDIRECT:(.*?)__/);
-            if (redirectMatch) {
-                const targetUrl = redirectMatch[1].trim();
-                setMessages(prev => [...prev, { role: 'assistant', content: `Sure thing! Taking you to the ${targetUrl.split('/').pop()?.replace(/-/g, ' ')} now... 🚀` }]);
-                router.push(targetUrl);
-            } else {
-                setMessages(prev => [...prev, { role: 'assistant', content: reply }]);
-            }
-        } catch (err) {
-            setMessages(prev => [...prev, { role: 'assistant', content: "Something went wrong on my end. Could you try that again?" }]);
-        } finally {
-            setIsLoading(false);
-        }
+    const dismissNotif = (id: string) => {
+        setDismissed(prev => new Set(prev).add(id));
     };
+
+    const handleTool = (href: string, label: string) => {
+        setClicked(label);
+        setTimeout(() => {
+            if (href.startsWith('http')) {
+                window.open(href, '_blank');
+            } else {
+                router.push(href);
+            }
+            setIsOpen(false);
+            setClicked(null);
+        }, 350);
+    };
+
+    const notifCount = (showIdle && !isOpen)
+        ? [!dismissed.has('whatsapp'), !dismissed.has('workshop')].filter(Boolean).length
+        : 0;
+
+    const anyIdleVisible = showIdle && !isOpen && (!dismissed.has('whatsapp') || !dismissed.has('workshop'));
 
     return (
-        <>
-            {/* FAB */}
-            {!isOpen && (
-                <div className="fixed bottom-8 right-8 w-14 h-14 z-[999] group">
-                    <div className="absolute inset-0 rounded-full bg-accent-blue opacity-50 animate-ping" style={{ animationDuration: '3s' }}></div>
-                    <button
-                        className="absolute inset-0 w-full h-full rounded-full bg-bg-main border border-white/10 text-accent-blue shadow-[0_0_30px_rgba(45,212,191,0.2)] flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 hover:bg-accent-blue hover:text-black z-10"
-                        onClick={() => setIsOpen(true)}
-                        aria-label="Open Advisor"
-                    >
-                        <MessageSquare size={24} />
-                    </button>
+        <div className="fixed bottom-8 right-8 z-[999] flex flex-col items-end">
+
+            {/* Idle notification bubbles */}
+            {anyIdleVisible && (
+                <div className="mb-1">
+                    <IdleNotifications onDismiss={(id) => {
+                        dismissNotif(id);
+                        if (id === 'whatsapp') window.open(WHATSAPP_LINK, '_blank');
+                        if (id === 'workshop') router.push(WORKSHOP_LINK);
+                    }} />
                 </div>
             )}
 
-            {/* Chat Window */}
+            {/* Chat panel */}
             {isOpen && (
-                <div className="fixed bottom-8 right-8 w-[380px] max-w-[calc(100vw-32px)] h-[550px] max-h-[80vh] glass-card border border-white/10 rounded-2xl shadow-2xl flex flex-col z-[1000] overflow-hidden backdrop-blur-xl bg-bg-main/60">
+                <div className="mb-4 w-[360px] max-w-[calc(100vw-32px)] glass-card border border-white/10 rounded-2xl shadow-2xl flex flex-col overflow-hidden backdrop-blur-xl bg-bg-main/70 animate-in slide-in-from-bottom-4 fade-in duration-200">
+                    {/* Header */}
                     <div className="p-4 bg-white/5 border-b border-white/10 flex justify-between items-center">
                         <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-full bg-bg-surface border border-white/10 flex items-center justify-center text-accent-blue shadow-[0_0_15px_rgba(45,212,191,0.2)]">
-                                <Bot size={20} />
+                            <div className="w-9 h-9 rounded-full bg-bg-surface border border-white/10 flex items-center justify-center text-accent-blue">
+                                <Bot size={18} />
                             </div>
                             <div>
-                                <h3 className="text-sm font-bold text-white tracking-wide">Ecosystem Advisor</h3>
+                                <h3 className="text-sm font-bold text-white">Startup Advisor</h3>
                                 <span className="text-xs text-accent-blue/80 flex items-center gap-1">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-accent-blue animate-pulse"></span> Online
+                                    <span className="w-1.5 h-1.5 rounded-full bg-accent-blue animate-pulse" />
+                                    Online
                                 </span>
                             </div>
                         </div>
-                        <button className="text-gray-400 hover:text-white transition-colors bg-white/5 hover:bg-white/10 rounded-full p-2" onClick={() => setIsOpen(false)}>
-                            <X size={16} />
-                        </button>
-                    </div>
-
-                    <div className="flex-1 p-5 overflow-y-auto flex flex-col gap-4 scrollbar-thin scrollbar-thumb-white/10">
-                        {messages.map((msg, i) => (
-                            <div key={i} className={`flex items-end gap-2 max-w-[85%] ${msg.role === 'user' ? 'self-end flex-row-reverse' : 'self-start'}`}>
-                                {msg.role === 'assistant' && (
-                                    <div className="w-6 h-6 rounded-full bg-white/5 border border-white/10 text-accent-blue flex items-center justify-center shrink-0">
-                                        <Bot size={12} />
-                                    </div>
-                                )}
-                                <div
-                                    className={`px-4 py-3 rounded-2xl text-sm leading-relaxed ${msg.role === 'user'
-                                        ? 'bg-accent-blue text-black rounded-br-sm font-medium'
-                                        : 'bg-white/5 text-text-primary border border-white/10 rounded-bl-sm font-light'
-                                        }`}
-                                    dangerouslySetInnerHTML={{ __html: msg.content.replace(/\n/g, '<br/>') }}
-                                />
-                            </div>
-                        ))}
-                        {isLoading && (
-                            <div className="flex items-end gap-2 max-w-[85%] self-start">
-                                <div className="w-6 h-6 rounded-full bg-white/5 border border-white/10 text-accent-blue flex items-center justify-center shrink-0">
-                                    <Bot size={12} />
-                                </div>
-                                <div className="px-4 py-3 rounded-2xl bg-white/5 border border-white/10 rounded-bl-sm flex gap-1 items-center h-[44px]">
-                                    <span className="w-1.5 h-1.5 bg-accent-blue/60 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
-                                    <span className="w-1.5 h-1.5 bg-accent-blue/60 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
-                                    <span className="w-1.5 h-1.5 bg-accent-blue/60 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
-                                </div>
-                            </div>
-                        )}
-                        <div ref={messagesEndRef} />
-                    </div>
-
-                    <form onSubmit={handleSubmit} className="p-3 bg-bg-main/40 border-t border-white/10 flex gap-2">
-                        <input
-                            type="text"
-                            placeholder="Find a space in Bandra..."
-                            className="flex-1 bg-white/5 border border-white/10 rounded-full px-4 py-3 text-sm text-white focus:outline-none focus:border-accent-blue/50 focus:bg-white/10 transition-all font-light"
-                            value={input}
-                            onChange={(e) => setInput(e.target.value)}
-                            disabled={isLoading}
-                        />
                         <button
-                            type="submit"
-                            disabled={isLoading || !input.trim()}
-                            className="w-11 h-11 shrink-0 bg-accent-blue text-black rounded-full flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed hover:bg-white transition-colors"
+                            className="text-gray-400 hover:text-white bg-white/5 hover:bg-white/10 rounded-full p-2 transition-colors"
+                            onClick={() => setIsOpen(false)}
                         >
-                            <Send size={18} />
+                            <X size={15} />
                         </button>
-                    </form>
+                    </div>
+
+                    {/* Body */}
+                    <div className="p-4 flex flex-col gap-3 overflow-y-auto max-h-[460px]">
+                        {/* Greeting bubble */}
+                        <div className="flex items-end gap-2">
+                            <div className="w-6 h-6 rounded-full bg-white/5 border border-white/10 text-accent-blue flex items-center justify-center shrink-0">
+                                <Bot size={11} />
+                            </div>
+                            <div className="bg-white/5 border border-white/10 rounded-2xl rounded-bl-sm px-4 py-3 text-sm text-white font-light leading-relaxed">
+                                Hey! 👋 How can I help you today? Pick what you're looking for:
+                            </div>
+                        </div>
+
+                        {/* Tool buttons */}
+                        <div className="flex flex-col gap-2 pl-8">
+                            {TOOLS.map(tool => (
+                                <button
+                                    key={tool.href}
+                                    onClick={() => handleTool(tool.href, tool.label)}
+                                    className={`w-full text-left px-4 py-3 rounded-xl border bg-gradient-to-r ${tool.color} transition-all duration-200 group ${clicked === tool.label ? 'scale-95 opacity-70' : 'hover:scale-[1.02]'}`}
+                                >
+                                    <p className="text-white text-sm font-semibold leading-tight">{tool.label}</p>
+                                    <p className="text-text-tertiary text-[11px] mt-0.5">{tool.desc}</p>
+                                </button>
+                            ))}
+                        </div>
+
+                        {/* WhatsApp community strip */}
+                        <div className="pl-8">
+                            <a
+                                href={WHATSAPP_LINK}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-3 w-full bg-[#25D366]/10 border border-[#25D366]/30 hover:border-[#25D366]/60 hover:bg-[#25D366]/15 rounded-xl px-4 py-3 transition-all group"
+                            >
+                                <svg className="w-5 h-5 shrink-0 text-[#25D366]" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                                    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.12.554 4.12 1.524 5.855L.057 23.886a.5.5 0 0 0 .614.617l6.155-1.56A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.65-.518-5.16-1.42l-.36-.215-3.73.946.995-3.641-.234-.374A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
+                                </svg>
+                                <div>
+                                    <p className="text-[#25D366] text-sm font-bold leading-tight">Join Our Community 👥</p>
+                                    <p className="text-text-tertiary text-[10px]">1000+ founders on WhatsApp</p>
+                                </div>
+                                <ExternalLink size={13} className="ml-auto text-[#25D366]/50 group-hover:text-[#25D366]" />
+                            </a>
+                        </div>
+
+                        {/* Workshop strip */}
+                        <div className="pl-8">
+                            <button
+                                onClick={() => { router.push(WORKSHOP_LINK); setIsOpen(false); }}
+                                className="flex items-center gap-3 w-full bg-accent-violet/10 border border-accent-violet/30 hover:border-accent-violet/60 hover:bg-accent-violet/15 rounded-xl px-4 py-3 transition-all group text-left"
+                            >
+                                <span className="text-xl shrink-0">🎤</span>
+                                <div>
+                                    <p className="text-accent-violet text-sm font-bold leading-tight">Fundraising Workshop</p>
+                                    <p className="text-text-tertiary text-[10px]">Upcoming · Free to attend</p>
+                                </div>
+                                <ExternalLink size={13} className="ml-auto text-accent-violet/50 group-hover:text-accent-violet" />
+                            </button>
+                        </div>
+                    </div>
                 </div>
             )}
-        </>
+
+            {/* FAB */}
+            <div className="relative w-14 h-14">
+                {/* Ping ring */}
+                <div className="absolute inset-0 rounded-full bg-accent-blue opacity-40 animate-ping" style={{ animationDuration: '3s' }} />
+                {/* Notification badge */}
+                {notifCount > 0 && (
+                    <span className="absolute -top-1 -right-1 z-20 w-5 h-5 bg-red-500 text-white text-[10px] font-black rounded-full flex items-center justify-center shadow-lg">
+                        {notifCount}
+                    </span>
+                )}
+                <button
+                    className="absolute inset-0 w-full h-full rounded-full bg-bg-main border border-white/10 text-accent-blue shadow-[0_0_30px_rgba(45,212,191,0.2)] flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 hover:bg-accent-blue hover:text-black z-10"
+                    onClick={() => { setIsOpen(o => !o); setShowIdle(false); }}
+                    aria-label="Open Advisor"
+                >
+                    {isOpen ? <X size={22} /> : <MessageSquare size={22} />}
+                </button>
+            </div>
+        </div>
     );
 }

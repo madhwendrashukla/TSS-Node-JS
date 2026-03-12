@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { grantsData, Grant } from '@/lib/data/grants';
-import { ExternalLink, ChevronDown, ChevronUp, Search, MapPin, Building2, TrendingUp, Filter, Calendar, Briefcase } from 'lucide-react';
+import Link from 'next/link';
+import { ExternalLink, ChevronDown, ChevronUp, Search, MapPin, Building2, TrendingUp, Filter, Calendar, Briefcase, ArrowLeft } from 'lucide-react';
 
 function ScoreBadge({ score }: { score: number }) {
     let color = 'text-gray-400 border-gray-400';
@@ -93,7 +94,6 @@ function DirectoryCard({ item }: { item: Grant }) {
 export default function GrantsPage() {
     const [search, setSearch] = useState('');
     const [regionFilter, setRegionFilter] = useState('All');
-    const [showFilters, setShowFilters] = useState(false);
 
     // Use the comprehensive grants data
     const allData = grantsData;
@@ -114,55 +114,69 @@ export default function GrantsPage() {
     return (
         <div className="pt-32 pb-20 min-h-screen bg-bg-main">
             <div className="max-w-7xl mx-auto px-6 relative z-10">
-                <div className="text-center mb-16 max-w-3xl mx-auto border-b border-white/10 pb-12">
-                    <span className="text-accent-blue text-xs font-bold tracking-[0.2em] uppercase mb-4 block">Zero Equity & Schemes</span>
-                    <h1 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-[-0.04em]">
-                        Grants Directory.
+                <Link href="/tools" className="inline-flex items-center text-text-tertiary hover:text-white transition-colors mb-8 text-sm group">
+                    <ArrowLeft size={16} className="mr-2 group-hover:-translate-x-1 transition-transform" />
+                    Back to Tools
+                </Link>
+
+                <div className="mb-12">
+                    <div className="flex items-center gap-3 mb-4">
+                        <span className="bg-accent-violet/20 text-accent-violet text-[10px] font-bold px-3 py-1 rounded-full border border-accent-violet/30 uppercase tracking-widest">Zero Equity</span>
+                        <div className="h-px bg-white/10 w-20"></div>
+                    </div>
+                    <h1 className="text-5xl md:text-7xl font-black text-white tracking-[-0.04em] mb-6">
+                        Grants <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">Directory.</span>
                     </h1>
-                    <p className="text-lg md:text-xl text-text-secondary font-light">
+                    <p className="text-xl text-text-secondary font-light max-w-2xl">
                         Explore government-backed hubs, universities, and pure grants asking for 0% equity.
                     </p>
                 </div>
 
-                <div className="mb-8 flex justify-between items-center text-sm">
-                    <p className="text-text-secondary font-light">
-                        Showing <strong className="text-white font-bold">{filteredData.length}</strong> parameters.
-                    </p>
-                    <button
-                        className="flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2 rounded-full text-white font-medium transition-colors"
-                        onClick={() => setShowFilters(!showFilters)}
-                    >
-                        <Filter size={14} /> {showFilters ? 'Hide Config' : 'Adjust Config'}
-                    </button>
-                </div>
+                {/* Unified Filter Bar */}
+                <div className="glass-card p-4 md:p-6 rounded-[2rem] border border-white/10 bg-bg-surface/30 mb-12 flex flex-col lg:flex-row items-stretch lg:items-center gap-4">
+                    <div className="flex items-center gap-4 px-4 border-r border-white/10 hidden lg:flex">
+                        <Filter size={20} className="text-accent-blue" />
+                        <span className="text-xs font-bold text-white uppercase tracking-widest whitespace-nowrap">Browse Grants</span>
+                    </div>
 
-                {showFilters && (
-                    <div className="glass-card p-6 md:p-8 rounded-3xl border border-white/10 mb-12 bg-bg-surface">
-                        <div className="grid md:grid-cols-2 gap-8 mb-8">
-                            <div className="flex flex-col gap-3">
-                                <label className="flex items-center gap-2 text-xs font-bold text-text-secondary tracking-widest uppercase"><Search size={14} className="text-accent-blue" /> Query</label>
-                                <input
-                                    type="text"
-                                    className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-accent-blue/50 focus:bg-white/10 transition-all font-light"
-                                    placeholder="e.g. Bandra, WeWork..."
-                                    value={search}
-                                    onChange={e => setSearch(e.target.value)}
-                                />
-                            </div>
-
-                            <div className="flex flex-col gap-3">
-                                <label className="flex items-center gap-2 text-xs font-bold text-text-secondary tracking-widest uppercase"><MapPin size={14} className="text-accent-blue" /> Geometry</label>
-                                <div className="flex flex-wrap gap-2">
-                                    {regions.map(r => (
-                                        <button key={r} onClick={() => setRegionFilter(r)} className={`px-3 py-1.5 text-xs rounded-full border transition-colors ${regionFilter === r ? 'bg-white text-black border-white font-bold' : 'bg-transparent text-text-secondary border-white/20 hover:border-white/50'}`}>
-                                            {r}
-                                        </button>
-                                    ))}
-                                </div>
+                    <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {/* Region Select */}
+                        <div className="relative group">
+                            <label className="absolute left-4 -top-2 px-2 bg-[#0A0A0B] text-[10px] font-bold text-text-tertiary uppercase tracking-wider z-20 transition-colors group-focus-within:text-accent-blue">Region</label>
+                            <select
+                                value={regionFilter}
+                                onChange={(e) => setRegionFilter(e.target.value)}
+                                className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 px-4 text-sm text-white focus:outline-none focus:border-accent-blue/50 transition-all appearance-none cursor-pointer"
+                            >
+                                {regions.map(r => <option key={r} value={r} className="bg-bg-surface">{r}</option>)}
+                            </select>
+                            <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-text-tertiary">
+                                <Search size={16} className="rotate-90" />
                             </div>
                         </div>
+
+                        {/* Search Input */}
+                        <div className="relative group">
+                            <label className="absolute left-4 -top-2 px-2 bg-[#0A0A0B] text-[10px] font-bold text-text-tertiary uppercase tracking-wider z-20 transition-colors group-focus-within:text-accent-blue">Search Grants</label>
+                            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-text-tertiary group-focus-within:text-accent-blue transition-colors">
+                                <Search size={18} />
+                            </div>
+                            <input
+                                type="text"
+                                placeholder="Grant name, provider, sector..."
+                                value={search}
+                                onChange={(e) => setSearch(e.target.value)}
+                                className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-sm text-white placeholder:text-text-tertiary focus:outline-none focus:border-accent-blue/50 transition-all"
+                            />
+                        </div>
                     </div>
-                )}
+                </div>
+
+                <div className="flex items-center justify-between mb-8">
+                    <p className="text-text-tertiary text-xs font-bold uppercase tracking-widest">
+                        Grants Available: <span className="text-white ml-2">{filteredData.length}</span>
+                    </p>
+                </div>
 
                 {filteredData.length > 0 ? (
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

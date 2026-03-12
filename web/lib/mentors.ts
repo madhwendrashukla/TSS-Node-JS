@@ -62,5 +62,40 @@ export const mentorsData: MentorProfile[] = [
         credentials: ["A FMS-Delhi passout, he brings with him 12+ yrs of expereince in building products , strategy at organisations like 99acre, Droom, Deloitte. His book 'The class of 2006' was launched by R.Madhavan. Currently building next Gen AI Products in B2B SAAS."],
         image: "/akash.jpeg",
         linkedinUrl: "https://www.linkedin.com/in/akashkansal/"
+    },
+    {
+        name: "Upyukt Prakash",
+        title: "Senior Principal Consultant",
+        credentials: ["Senior Principal Consultant at Oracle with 18+ years of experience in project management, process transformation, and Lean Six Sigma, previously contributing at Tata Consultancy Services and Thales Avionics USA."],
+        image: "/upyukt.jpg",
+        linkedinUrl: "https://www.linkedin.com/in/upyukt-prakash-mater-black-belt-six-sigma-0b821514/"
+    },
+    {
+        name: "Pawan Mishra",
+        title: "Ex-Co-founder",
+        credentials: ["Software Engineer at PhonePe, previously SDE-2 at Blinkit and Co-Founder of Fashn.me, with a strong foundation in building scalable consumer tech products. Combines startup experience with high-growth product engineering expertise."],
+        image: "/pawan.jpg",
+        linkedinUrl: "https://www.linkedin.com/in/pawan-mishra-2910/"
+    },
+    {
+        name: "Deric Karunesudas",
+        title: "Cybersecurity Leader & Investor",
+        credentials: ["A Cybersecurity Leader and seasoned Investor with an 18-year track record of driving profitable growth for global enterprises. Spanning the US, Europe, Middle East, and APAC."],
+        image: "/deric.jpg",
+        linkedinUrl: "https://www.linkedin.com/in/derickarunesudas/"
+    },
+    {
+        name: "Dr Debashis Bhattacharya",
+        title: "Surgeon & Medical Advisor",
+        credentials: ["A seasoned Surgeon and MNC Medical Advisor, he blends clinical mastery with a sophisticated acumen for enterprise building. As a mentor and investor, he translates deep healthcare expertise into actionable growth strategies."],
+        image: "/debashis.jpg",
+        linkedinUrl: "https://www.linkedin.com/in/debashis-bhattacharya-0611a645/"
+    },
+    {
+        name: "Anant Sharma",
+        title: "Ex-Founder @Tweek Labs",
+        credentials: ["He brings strong experience in building startups, bio-sensing devices and robust IoT systems. Understands the full spectrum of hardware development, from industrial design to electro-mechanical prototyping."],
+        image: "/anant.jpg",
+        linkedinUrl: "https://www.linkedin.com/in/anant3110/"
     }
 ];

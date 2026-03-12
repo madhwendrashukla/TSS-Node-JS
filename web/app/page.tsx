@@ -1,6 +1,7 @@
 "use client";
 
 import { Hero } from "@/components/sections/Hero";
+import { FounderManifesto } from "@/components/sections/FounderManifesto";
 import { MentorsPreview } from "@/components/sections/MentorsPreview";
 import { ToolsShowcase } from "@/components/sections/ToolsShowcase";
 import { VideoAndGallery } from "@/components/sections/VideoAndGallery";
@@ -16,6 +17,7 @@ export default function Home() {
         <MentorsPreview />
         <VideoAndGallery />
         <ToolsShowcase />
+        <FounderManifesto />
         <Contact />
       </main>
     </>

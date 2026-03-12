@@ -1,184 +1,50 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { useRef, useState } from "react";
 
-// ─── Gallery photos from /public/gallery/ ─────────────────────────────
-const GALLERY_PHOTOS = [
-    "/gallery/IMG_0845.JPG",
-    "/gallery/IMG_1280.JPG",
-    "/gallery/IMG_1318.JPG",
-    "/gallery/IMG_1319.JPG",
-    "/gallery/IMG_1342.JPG",
-    "/gallery/IMG_1371.JPG",
-    "/gallery/IMG_1378.JPG",
-    "/gallery/IMG_1380.JPG",
-];
-
-import { InteractiveMarquee } from '../ui/InteractiveMarquee';
-
-function PhotoMarquee({ photos, reverse = false }: { photos: string[]; reverse?: boolean }) {
-    return (
-        <InteractiveMarquee reverse={reverse} speed={30}>
-            {photos.map((src, i) => (
-                <div
-                    key={i}
-                    className="flex-shrink-0 w-[380px] h-[260px] mx-3 rounded-2xl overflow-hidden border border-white/5 hover:border-white/20 hover:-translate-y-1.5 transition-all duration-300 group"
-                >
-                    <Image
-                        src={src}
-                        alt={`Community moment ${i + 1}`}
-                        width={380}
-                        height={260}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100"
-                        draggable={false}
-                    />
-                </div>
-            ))}
-        </InteractiveMarquee>
-    );
-}
-
-// ─── Main export ───────────────────────────────────────────────────────
 export function VideoAndGallery() {
-    const videoRef = useRef<HTMLVideoElement>(null);
-    const [isPlaying, setIsPlaying] = useState(true);
-    const [isMuted, setIsMuted] = useState(true);
-
-    const togglePlay = () => {
-        if (!videoRef.current) return;
-        if (isPlaying) {
-            videoRef.current.pause();
-        } else {
-            videoRef.current.play();
-        }
-        setIsPlaying(!isPlaying);
-    };
-
-    const toggleMute = () => {
-        if (!videoRef.current) return;
-        videoRef.current.muted = !videoRef.current.muted;
-        setIsMuted(!isMuted);
-    };
-
-    // Row 1: first 8, Row 2: reversed for visual contrast
-    const row2 = [...GALLERY_PHOTOS].reverse();
-
     return (
         <>
             {/* ── Video Section ───────────────────────────────────────────── */}
-            <section className="py-28 bg-bg-main relative overflow-hidden w-full border-t border-white/5">
+            <section className="py-28 bg-bg-main relative w-full border-t border-white/5">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-accent-violet/5 rounded-full blur-[120px] pointer-events-none" />
 
                 <div className="max-w-5xl mx-auto px-6 relative z-10">
                     {/* Header */}
                     <div className="text-center mb-14">
-                        <span className="text-accent-violet text-xs font-bold tracking-[0.2em] uppercase mb-4 block">
-                            Our Community
+                        <span className="text-accent-blue text-xs font-bold tracking-[0.2em] uppercase mb-4 block">
+                            Upcoming Highlights
                         </span>
                         <h2 className="text-4xl md:text-5xl font-black text-white tracking-[-0.04em] mb-5">
-                            What Happens When{" "}
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-violet to-accent-blue">
-                                Founders Meet.
+                            Preparing You for{" "}
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">
+                                Your Next Round.
                             </span>
                         </h2>
                         <p className="text-lg text-text-secondary font-light max-w-xl mx-auto">
-                            Real conversations. Real connections. Real startups getting better together.
+                            Intensive sessions deep diving into the metrics and narratives that matter.
                         </p>
                     </div>
 
-                    {/* Video Player */}
-                    <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl shadow-accent-violet/10 group">
-                        <video
-                            ref={videoRef}
-                            src="/founder-dating.mp4"
-                            autoPlay
-                            muted
-                            loop
-                            playsInline
-                            className="w-full aspect-video object-cover"
-                            onPlay={() => setIsPlaying(true)}
-                            onPause={() => setIsPlaying(false)}
-                        />
-
-                        {/* Overlay gradient */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-
-                        {/* Controls */}
-                        <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between">
-                            <button
-                                onClick={togglePlay}
-                                className="flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full px-5 py-2.5 hover:bg-white/20 transition-all duration-200 font-semibold text-sm"
-                            >
-                                <i className={`fas ${isPlaying ? "fa-pause" : "fa-play"} text-xs`}></i>
-                                {isPlaying ? "Pause" : "Play"}
-                            </button>
-
-                            <div className="flex items-center gap-2">
-                                <button
-                                    onClick={toggleMute}
-                                    className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition-all flex items-center justify-center"
-                                >
-                                    <i className={`fas ${isMuted ? "fa-volume-mute" : "fa-volume-up"} text-xs`}></i>
-                                </button>
+                    {/* Fundraising Highlight */}
+                    <div className="relative rounded-3xl overflow-hidden border border-accent-blue/20 shadow-2xl shadow-accent-blue/10 bg-gradient-to-br from-bg-main/60 to-bg-main/20 backdrop-blur-md p-10 md:p-16 text-center max-w-4xl mx-auto group">
+                        <div className="absolute inset-0 bg-white/5 opacity-10 group-hover:opacity-20 transition-opacity duration-700"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-bg-main via-bg-main/80 to-transparent"></div>
+                        <div className="relative z-10 flex flex-col items-center">
+                            <div className="w-16 h-16 rounded-2xl bg-accent-blue/10 border border-accent-blue/20 flex items-center justify-center mb-6 text-accent-blue">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-rocket"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" /><path d="m12 15-3-3a22 22 0 0 1 3.82-13 1.5 1.5 0 0 1 2.18 2.18A22 22 0 0 1 12 15Z" /><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" /><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" /></svg>
                             </div>
+                            <h3 className="text-3xl md:text-5xl font-black text-white tracking-tight mb-6">
+                                The Ultimate <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">Fundraising Bootcamps.</span>
+                            </h3>
+                            <p className="text-lg text-text-secondary md:text-xl font-light max-w-2xl mx-auto mb-10">
+                                Master the art of the pitch, structuring your round, and closing term sheets with top Indian angels and VCs. Coming this quarter.
+                            </p>
+                            <Link href="/programs" className="bg-white text-black px-8 py-4 rounded-full font-bold text-sm tracking-widest uppercase transition-all shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:scale-105 inline-flex items-center">
+                                Join the Waitlist <i className="fas fa-arrow-right ml-3 text-xs"></i>
+                            </Link>
                         </div>
-
-                        {/* Center play button when paused */}
-                        {!isPlaying && (
-                            <button
-                                onClick={togglePlay}
-                                className="absolute inset-0 flex items-center justify-center group/play"
-                            >
-                                <div className="w-20 h-20 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover/play:bg-white/20 transition-all duration-300 group-hover/play:scale-110">
-                                    <i className="fas fa-play text-white text-xl ml-1"></i>
-                                </div>
-                            </button>
-                        )}
                     </div>
-                </div>
-            </section>
-
-            {/* ── Gallery Marquee Section ─────────────────────────────────── */}
-            <section className="py-20 bg-bg-main relative overflow-hidden w-full border-t border-white/5">
-                <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-accent-blue/5 rounded-full blur-[120px] pointer-events-none" />
-
-                {/* Header */}
-                <div className="max-w-7xl mx-auto px-6 relative z-10 mb-14 text-center">
-                    <span className="text-accent-blue text-xs font-bold tracking-[0.2em] uppercase mb-4 block">
-                        Community Gallery
-                    </span>
-                    <h2 className="text-4xl md:text-5xl font-black text-white tracking-[-0.04em] mb-5">
-                        Leaders at Our{" "}
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">
-                            Gatherings.
-                        </span>
-                    </h2>
-                    <p className="text-lg text-text-secondary font-light max-w-xl mx-auto">
-                        Bootcamps, founder dating sessions, investor meetups — captured in the moment.
-                    </p>
-                </div>
-
-                {/* Row 1 — left to right */}
-                <div className="mb-4">
-                    <PhotoMarquee photos={GALLERY_PHOTOS} />
-                </div>
-
-                {/* Row 2 — right to left */}
-                <div className="mb-14">
-                    <PhotoMarquee photos={row2} reverse />
-                </div>
-
-                {/* CTA */}
-                <div className="text-center relative z-10">
-                    <Link
-                        href="/events"
-                        className="group inline-flex items-center text-accent-blue hover:text-white font-bold text-base transition duration-300"
-                    >
-                        View Full Gallery
-                        <i className="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform"></i>
-                    </Link>
                 </div>
             </section>
         </>

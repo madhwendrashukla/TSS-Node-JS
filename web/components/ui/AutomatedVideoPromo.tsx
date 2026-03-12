@@ -42,17 +42,10 @@ export function AutomatedVideoPromo() {
         };
     }, []);
 
-    const goToScene = (index: number) => {
-        if (currentScene === index || isFadingOut) return;
-        setIsFadingOut(true);
-        setTimeout(() => {
-            setCurrentScene(index);
-            setIsFadingOut(false);
-        }, 600);
-    };
+
 
     return (
-        <section className="relative w-full min-h-screen flex flex-col justify-center overflow-hidden bg-bg-main">
+        <section className="relative w-full min-h-[100svh] flex flex-col justify-center overflow-hidden bg-bg-main">
             {/* Background Images Slider */}
             {HERO_IMAGES.map((src, index) => (
                 <div
@@ -88,12 +81,12 @@ export function AutomatedVideoPromo() {
                             <span className="px-5 py-2 rounded-full border border-white/10 bg-white/5 text-text-secondary text-xs uppercase tracking-[0.2em] font-medium backdrop-blur-md mb-8">
                                 The 100-Day Acceleration
                             </span>
-                            <h1 className="text-5xl md:text-7xl lg:text-[100px] font-black tracking-[-0.04em] text-white leading-[0.9] mb-8">
-                                Stop <span className="text-white/40">Planning.</span><br />
+                            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[100px] font-black tracking-[-0.04em] text-white leading-[1.1] md:leading-[0.9] mb-6 md:mb-8">
+                                Stop <span className="text-white/40">Ideating.</span><br />
                                 Start <span className="gradient-text">Building.</span>
                             </h1>
                             <p className="text-xl md:text-3xl font-light text-text-secondary max-w-3xl mx-auto tracking-tight leading-relaxed">
-                                An alternate B-School for Bharat&apos;s aspiring founders. We bridge the deadly gaps in <span className="text-white font-medium">Learning</span>, <span className="text-white font-medium">Access</span>, <span className="text-white font-medium">Mentoring</span>, and <span className="text-white font-medium">Community</span>.
+                                Join the alternate B-school for Aspiring Founders.
                             </p>
                         </div>
                     )}
@@ -101,28 +94,30 @@ export function AutomatedVideoPromo() {
                     {/* Scene 2: The Problem */}
                     {currentScene === 1 && (
                         <div className="flex flex-col items-center max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-8 duration-700">
-                            <div className="text-red-500 text-sm font-bold tracking-[0.2em] uppercase mb-4">The Traditional Route</div>
-                            <h2 className="text-4xl md:text-6xl lg:text-[80px] font-black text-white tracking-tight mb-8 leading-tight">
-                                2 Years. ₹20L+. <br />
-                                <span className="text-white/40">Zero Validation.</span>
+                            <div className="text-accent-blue text-sm font-bold tracking-[0.2em] uppercase mb-4">The Bridge</div>
+                            <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-[80px] font-black text-white tracking-tight mb-6 md:mb-8 leading-tight text-center">
+                                The 0 &rarr; 1 Bridge <br />
+                                <span className="text-white/40">Where Founders Are Built.</span>
                             </h2>
-                            <p className="text-xl md:text-2xl text-text-secondary font-light">
-                                Why waste years on theoretical MBA case studies just to fight for a corporate desk job? The opportunity cost is massive.
+                            <p className="text-xl md:text-2xl text-text-secondary font-light text-center">
+                                We close 4 deadly gaps: Learning, Access, Mentoring, Community
                             </p>
                         </div>
                     )}
 
                     {/* Scene 3: The Solution */}
                     {currentScene === 2 && (
-                        <div className="flex flex-col items-center max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-8 duration-700">
-                            <div className="text-accent-blue text-sm font-bold tracking-[0.2em] uppercase mb-4">The Builder Route</div>
-                            <h2 className="text-4xl md:text-6xl lg:text-[80px] font-black text-white tracking-tight mb-8 leading-tight">
-                                100 Days of <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">Execution.</span>
+                        <div className="flex flex-col items-center max-w-4xl mx-auto px-4 w-full animate-in fade-in slide-in-from-bottom-8 duration-700">
+                            <div className="text-accent-violet text-xs md:text-sm font-bold tracking-[0.2em] uppercase mb-4 text-center">The Roadmap</div>
+                            <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tight mb-8 md:mb-10 leading-snug md:leading-tight text-center">
+                                3 days of ignition sprint <br />
+                                <span className="text-white/40 text-xl md:text-3xl block my-3 md:my-5">to</span>
+                                <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">100 days of Deep Dive Immersion cohorts</span>
                             </h2>
-                            <p className="text-xl md:text-2xl text-text-secondary font-light mb-12">
-                                Mentorship from active operators. Building a product people actually want to pay for. Zero worthless theory.
+                            <p className="text-xl md:text-2xl text-text-secondary font-light mb-12 italic">
+                                Choose the program that fits you the best
                             </p>
-                            <Link href="/programs" className="group flex items-center justify-center bg-white text-black px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(255,255,255,0.2)]">
+                            <Link href="/programs" className="group flex items-center justify-center bg-white text-black px-6 py-3 md:px-8 md:py-4 rounded-full font-semibold text-base md:text-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(255,255,255,0.2)]">
                                 Explore Programs
                                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </Link>
@@ -136,29 +131,33 @@ export function AutomatedVideoPromo() {
                                 Your Next-Gen Startup Ecosystem
                             </span>
 
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl mb-16">
-                                <div className="glass-card p-8 rounded-3xl flex flex-col items-center border border-white/10 bg-bg-main/40 backdrop-blur-md">
-                                    <div className="w-16 h-16 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center mb-6 text-accent-blue">
-                                        <BookOpen size={28} />
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 w-full max-w-6xl mb-16 px-2 md:px-4">
+                                <div className="glass-card flex flex-col items-center justify-center p-4 md:p-6 lg:p-8 rounded-2xl md:rounded-3xl border border-white/10 bg-bg-main/40 backdrop-blur-md hover:bg-white/5 transition-colors">
+                                    <div className="w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-xl md:rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center mb-3 md:mb-5 text-accent-blue">
+                                        <BookOpen size={20} className="md:w-6 md:h-6 lg:w-7 lg:h-7" />
                                     </div>
-                                    <h4 className="text-white font-bold text-xl mb-3">Learn Frameworks</h4>
-                                    <p className="text-sm text-text-secondary text-center">Master live, outcome-driven deep tech and business concepts.</p>
+                                    <h4 className="text-white font-bold text-sm md:text-lg lg:text-xl text-center leading-tight">Learn Frameworks</h4>
                                 </div>
 
-                                <div className="glass-card p-8 rounded-3xl flex flex-col items-center border border-accent-violet/30 bg-accent-violet/5 backdrop-blur-md shadow-[0_0_30px_rgba(168,85,247,0.1)]">
-                                    <div className="w-16 h-16 rounded-2xl bg-accent-violet/20 border border-accent-violet/20 flex items-center justify-center mb-6 text-accent-violet">
-                                        <Users size={28} />
+                                <div className="glass-card flex flex-col items-center justify-center p-4 md:p-6 lg:p-8 rounded-2xl md:rounded-3xl border border-accent-violet/30 bg-accent-violet/5 backdrop-blur-md shadow-[0_0_30px_rgba(168,85,247,0.1)] hover:bg-accent-violet/10 transition-colors">
+                                    <div className="w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-xl md:rounded-2xl bg-accent-violet/20 border border-accent-violet/20 flex items-center justify-center mb-3 md:mb-5 text-accent-violet">
+                                        <Users size={20} className="md:w-6 md:h-6 lg:w-7 lg:h-7" />
                                     </div>
-                                    <h4 className="text-white font-bold text-xl mb-3">Find Mentors</h4>
-                                    <p className="text-sm text-text-secondary text-center">Connect directly with industry titans and serial builders.</p>
+                                    <h4 className="text-white font-bold text-sm md:text-lg lg:text-xl text-center leading-tight">Find Mentors</h4>
                                 </div>
 
-                                <div className="glass-card p-8 rounded-3xl flex flex-col items-center border border-white/10 bg-bg-main/40 backdrop-blur-md">
-                                    <div className="w-16 h-16 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center mb-6 text-amber-400">
-                                        <Wrench size={28} />
+                                <div className="glass-card flex flex-col items-center justify-center p-4 md:p-6 lg:p-8 rounded-2xl md:rounded-3xl border border-white/10 bg-bg-main/40 backdrop-blur-md hover:bg-white/5 transition-colors">
+                                    <div className="w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-xl md:rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center mb-3 md:mb-5 text-amber-400">
+                                        <Wrench size={20} className="md:w-6 md:h-6 lg:w-7 lg:h-7" />
                                     </div>
-                                    <h4 className="text-white font-bold text-xl mb-3">Explore Tools</h4>
-                                    <p className="text-sm text-text-secondary text-center">Simulate equity, model finances, and access directories.</p>
+                                    <h4 className="text-white font-bold text-sm md:text-lg lg:text-xl text-center leading-tight">Explore Tools</h4>
+                                </div>
+
+                                <div className="glass-card flex flex-col items-center justify-center p-4 md:p-6 lg:p-8 rounded-2xl md:rounded-3xl border border-white/10 bg-bg-main/40 backdrop-blur-md hover:bg-white/5 transition-colors">
+                                    <div className="w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-xl md:rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center mb-3 md:mb-5 text-green-400">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-blocks md:w-6 md:h-6 lg:w-7 lg:h-7"><rect width="7" height="7" x="14" y="3" rx="1" /><path d="M10 21V8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1H3" /></svg>
+                                    </div>
+                                    <h4 className="text-white font-bold text-sm md:text-lg lg:text-xl text-center leading-tight">Build Together</h4>
                                 </div>
                             </div>
 
@@ -173,27 +172,7 @@ export function AutomatedVideoPromo() {
                 </div>
             </div>
 
-            {/* ── Progress Indicators ── */}
-            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-4 z-20">
-                {[0, 1, 2, 3].map((sceneIndex) => (
-                    <div
-                        key={sceneIndex}
-                        className={`w-16 h-1.5 rounded-full overflow-hidden bg-white/20 cursor-pointer hover:bg-white/40 transition-colors pointer-events-auto`}
-                        onClick={() => goToScene(sceneIndex)}
-                    >
-                        {currentScene === sceneIndex && (
-                            <div className="h-full bg-white opacity-100 animate-[progress_5s_linear_forwards]"></div>
-                        )}
-                    </div>
-                ))}
-            </div>
 
-            <style jsx>{`
-        @keyframes progress {
-          from { width: 0%; }
-          to { width: 100%; }
-        }
-      `}</style>
         </section>
     );
 }

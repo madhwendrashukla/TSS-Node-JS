@@ -97,7 +97,7 @@ export default function InvestorsPage() {
         return ['All Industries', ...Array.from(ind).sort()];
     }, []);
 
-    const filteredInvestors = useMemo(() => {
+    const displayedInvestors = useMemo(() => {
         return investorsData.filter(inv => {
             const matchesSearch = inv.name.toLowerCase().includes(search.toLowerCase()) ||
                 inv.about.toLowerCase().includes(search.toLowerCase());
@@ -126,6 +126,7 @@ export default function InvestorsPage() {
                         A curated database of 100+ top-tier VCs, Angel Networks, and Family Offices. Find the right capital for your mission.
                     </p>
                 </div>
+
 
                 {/* Unified Filter Bar */}
                 <div className="glass-card p-4 md:p-6 rounded-[2rem] border border-white/10 bg-bg-surface/30 mb-12 flex flex-col lg:flex-row items-stretch lg:items-center gap-4">
@@ -168,16 +169,18 @@ export default function InvestorsPage() {
                 </div>
 
                 {/* Grid Results */}
-                <p className="text-text-tertiary text-xs mb-8 font-bold uppercase tracking-widest">
-                    Available Matches: <span className="text-white ml-2">{filteredInvestors.length}</span>
-                </p>
+                <div className="flex items-center justify-between mb-8">
+                    <p className="text-text-tertiary text-xs font-bold uppercase tracking-widest">
+                        Available Matches: <span className="text-white ml-2">{displayedInvestors.length}</span>
+                    </p>
+                </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {filteredInvestors.map((inv, i) => (
+                    {displayedInvestors.map((inv, i) => (
                         <div
                             key={inv.name + i}
                             onClick={() => setSelectedInvestor(inv)}
-                            className="glass-card p-8 rounded-3xl border border-white/10 hover:border-accent-blue/40 transition-all duration-300 group cursor-pointer flex flex-col bg-bg-surface relative overflow-hidden h-full"
+                            className="glass-card p-8 rounded-3xl border border-white/10 hover:border-accent-blue/40 bg-bg-surface transition-all duration-300 group cursor-pointer flex flex-col relative overflow-hidden h-full"
                         >
                             <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none"></div>
 
@@ -195,6 +198,7 @@ export default function InvestorsPage() {
                             <h3 className="text-2xl font-bold text-white mb-2 leading-tight group-hover:text-accent-blue transition-colors line-clamp-2">{inv.name}</h3>
                             <p className="text-text-secondary text-sm font-light mb-6 line-clamp-2 italic">"{inv.about}"</p>
 
+
                             <div className="mt-auto space-y-3 pt-6 border-t border-white/5">
                                 <div className="flex items-center justify-between text-xs text-text-tertiary">
                                     <span className="flex items-center gap-2"><Briefcase size={14} /> Stage</span>
@@ -211,9 +215,10 @@ export default function InvestorsPage() {
                             </div>
                         </div>
                     ))}
+
                 </div>
 
-                {filteredInvestors.length === 0 && (
+                {displayedInvestors.length === 0 && (
                     <div className="glass-card p-20 rounded-[3rem] border border-dashed border-white/10 text-center flex flex-col items-center justify-center min-h-[400px]">
                         <Search size={40} className="text-text-tertiary mb-6 opacity-30" />
                         <h3 className="text-2xl font-bold text-white mb-2">No matching partners</h3>
