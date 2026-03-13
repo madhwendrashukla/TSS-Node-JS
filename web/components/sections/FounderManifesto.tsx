@@ -3,8 +3,8 @@
 import { useState } from 'react';
 
 const ShayariBlock = () => (
-    <div className="relative mb-10">
-        <h3 className="text-3xl md:text-5xl font-bold text-white leading-[1.3] tracking-[-0.02em] relative z-10">
+    <div className="relative mb-10 w-full max-w-4xl px-4 md:px-0 mx-auto text-center md:text-left">
+        <h3 className="text-xl md:text-3xl font-bold text-white leading-[1.5] tracking-[-0.01em] relative z-10 italic">
             “दिल में हो आग तो जलती रहनी चाहिए,<br />
             तेरा हो चाहे मेरा,<br />
             <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">सपना ज़िंदा रहना चाहिए!</span>”
@@ -145,12 +145,7 @@ export function FounderManifesto() {
             {/* Achievements Grid */}
             <div className="max-w-7xl mx-auto px-6 relative z-10 w-full pt-10 border-t border-white/5">
                 <div className="text-center mb-16">
-                    <h4 className="text-white font-bold tracking-[0.2em] text-xs uppercase mb-4 flex items-center justify-center gap-4 opacity-80">
-                        <span className="h-[1px] bg-white/10 w-12"></span>
-                        Track Record
-                        <span className="h-[1px] bg-white/10 w-12"></span>
-                    </h4>
-                    <p className="text-text-secondary max-w-3xl mx-auto text-lg">
+                    <p className="text-text-secondary max-w-3xl mx-auto text-lg mt-4">
                         This school is not built on theory. It is built on lived experience, scars, and lessons earned the hard way.
                     </p>
                 </div>

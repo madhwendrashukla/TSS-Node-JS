@@ -5,7 +5,7 @@ import { X, MessageSquare, Bot, ExternalLink } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 const WHATSAPP_LINK = 'https://chat.whatsapp.com/BJ5RIXujFJG7ceB06nVqa4';
-const WORKSHOP_LINK = '/programs'; // redirect to programs/events page
+const WORKSHOP_LINK = '/workshop-reg/index.html'; // redirect to workshop page
 
 import { BookOpen, CalendarDays } from 'lucide-react';
 
@@ -33,14 +33,17 @@ function IdleNotifications({ onDismiss }: { onDismiss: (id: string) => void }) {
                 </button>
             </div>
             {/* Workshop notification */}
-            <div className="flex items-center gap-2 bg-bg-surface/95 backdrop-blur border border-accent-violet/40 rounded-2xl px-4 py-2.5 shadow-xl max-w-[260px] animate-in slide-in-from-right-4 fade-in duration-500">
+            <div 
+                onClick={() => { onDismiss('workshop'); window.location.href = WORKSHOP_LINK; }}
+                className="flex items-center gap-2 bg-bg-surface/95 backdrop-blur border border-accent-violet/40 rounded-2xl px-4 py-2.5 shadow-xl max-w-[260px] animate-in slide-in-from-right-4 fade-in duration-500 cursor-pointer hover:border-accent-violet/70 transition-colors group"
+            >
                 <span className="text-lg">🎤</span>
                 <div className="flex-1 min-w-0">
-                    <p className="text-white text-xs font-semibold truncate">Fundraising Workshop</p>
+                    <p className="text-white text-xs font-semibold truncate group-hover:text-accent-violet transition-colors">Fundraising Workshop</p>
                     <p className="text-text-tertiary text-[10px] truncate">Upcoming · Register free</p>
                 </div>
                 <button
-                    onClick={() => onDismiss('workshop')}
+                    onClick={(e) => { e.stopPropagation(); onDismiss('workshop'); }}
                     className="text-white/30 hover:text-white transition-colors shrink-0"
                 >
                     <X size={12} />
@@ -181,7 +184,7 @@ export default function DirectoryAdvisorBot() {
                         {/* Workshop strip */}
                         <div className="pl-8">
                             <button
-                                onClick={() => { router.push(WORKSHOP_LINK); setIsOpen(false); }}
+                                onClick={() => { window.location.href = WORKSHOP_LINK; setIsOpen(false); }}
                                 className="flex items-center gap-3 w-full bg-accent-violet/10 border border-accent-violet/30 hover:border-accent-violet/60 hover:bg-accent-violet/15 rounded-xl px-4 py-3 transition-all group text-left"
                             >
                                 <span className="text-xl shrink-0">🎤</span>

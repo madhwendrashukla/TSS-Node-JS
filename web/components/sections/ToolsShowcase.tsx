@@ -148,9 +148,9 @@ function EventCard({ item }: { item: FounderEvent }) {
 
 // ─── 3. All Tools Marquee Data ──────────────────────────────────────────
 const ALL_TOOLS = [
-    { name: "Incubator Search", desc: "Compare 50+ workspaces", icon: "fas fa-building", href: "/tools/incubators-accelerators", active: false },
+    { name: "Incubators & Accelerators", desc: "An intelligent mapping tool to discover workspaces across the startup landscape.", icon: "fas fa-building", href: "/tools/incubators-accelerators", active: false },
     { name: "Investor Database", desc: "250+ active angels & VCs", icon: "fas fa-hand-holding-usd", href: "/tools/incubator-search/investors", active: false },
-    { name: "Grants & Schemes", desc: "₹50Cr+ zero-equity funding", icon: "fas fa-award", href: "/tools/incubator-search/grants", active: false },
+    { name: "Grants & Schemes", desc: "Explore government-backed hubs, universities, and pure grants asking for 0% equity.", icon: "fas fa-award", href: "/tools/incubator-search/grants", active: false },
     { name: "Events Calendar", desc: "Top startup summits", icon: "fas fa-calendar-alt", href: "/tools/founder-calendar", active: true },
     { name: "Pitch Deck Library", desc: "Study 35+ funded decks", icon: "fas fa-file-powerpoint", href: "/tools/pitch-decks", active: true },
     { name: "Financial Modeler", desc: "Runway projections", icon: "fas fa-chart-line", href: "#", active: false },
@@ -176,7 +176,7 @@ function BasicToolCard({ item }: { item: typeof ALL_TOOLS[0] }) {
                     <i className={`${item.icon} text-2xl`}></i>
                 </div>
                 {!item.active && (
-                    <span className="text-[10px] font-bold text-green-400 tracking-widest uppercase border border-green-500/30 bg-green-500/10 px-3 py-1.5 rounded-md self-start mt-1">Coming Soon</span>
+                    <span className="text-[10px] font-bold text-green-400 tracking-widest uppercase border border-green-500/30 bg-green-500/10 px-3 py-1.5 rounded-md self-start mt-1 shadow-[0_0_10px_rgba(34,197,94,0.2)]">Coming Soon</span>
                 )}
             </div>
 
@@ -200,7 +200,7 @@ export function ToolsShowcase() {
                 <div className="max-w-7xl mx-auto px-6 relative z-10 mb-3 text-center">
                     <span className="text-accent-blue text-[10px] font-bold tracking-[0.2em] uppercase mb-2 block">Premium Resources</span>
                     <h2 className="text-3xl md:text-4xl font-black text-white tracking-[-0.04em] mb-2">
-                        <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">Decks &amp; Events.</span>
+                        <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">Tools &amp; Resources.</span>
                     </h2>
                     <p className="text-sm md:text-base text-text-secondary font-light max-w-2xl mx-auto">
                         Study the best pitch decks from global unicorns, and discover top B2B events across India.

@@ -68,12 +68,7 @@ export function Gallery() {
         <section className="py-20 bg-bg-main relative overflow-hidden w-full border-t border-white/5">
             <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-accent-blue/5 rounded-full blur-[120px] pointer-events-none" />
 
-            {/* Header */}
-            <div className="max-w-7xl mx-auto px-6 relative z-10 mb-14 text-center items-center justify-center flex flex-col">
-                <span className="text-3xl md:text-5xl font-black text-white tracking-[-0.04em] mb-4 block">
-                    Community Gallery
-                </span>
-            </div>
+            {/* Header Removed */}
 
             {/* Row 1 — left to right */}
             <div className="mb-4">

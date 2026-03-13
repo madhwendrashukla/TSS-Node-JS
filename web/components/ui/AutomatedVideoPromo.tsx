@@ -10,7 +10,6 @@ const HERO_IMAGES = [
     '/images/hero-bg/slide-2.png',
     '/images/hero-bg/slide-3.png',
     '/images/hero-bg/slide-4.png',
-    '/images/hero-bg/slide-5.png',
     '/images/hero-bg/slide-6.png',
     '/images/hero-bg/slide-7.png',
 ];
@@ -62,6 +61,7 @@ export function AutomatedVideoPromo() {
                     />
                 </div>
             ))}
+            <div className="absolute inset-0 bg-[url('https://transparenttextures.com/patterns/cubes.png')] opacity-[0.03] mix-blend-overlay -z-10"></div>
 
             {/* Dark/Gradient Overlays for readability and blending */}
             <div className="absolute inset-0 z-0 bg-bg-main/60"></div>
@@ -78,9 +78,7 @@ export function AutomatedVideoPromo() {
                     {/* Scene 1: The Hook */}
                     {currentScene === 0 && (
                         <div className="flex flex-col items-center animate-in fade-in zoom-in duration-700">
-                            <span className="px-5 py-2 rounded-full border border-white/10 bg-white/5 text-text-secondary text-xs uppercase tracking-[0.2em] font-medium backdrop-blur-md mb-8">
-                                The 100-Day Acceleration
-                            </span>
+
                             <h1 className="text-4xl sm:text-5xl md:text-5xl font-black tracking-[-0.04em] text-white leading-[1.1] md:leading-[0.9] mb-6 md:mb-8">
                                 Stop <span className="text-white/40">Ideating.</span><br />
                                 Start <span className="gradient-text">Building.</span>

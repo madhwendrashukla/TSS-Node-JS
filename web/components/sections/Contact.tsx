@@ -41,40 +41,40 @@ export function Contact() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent-blue/5 rounded-full blur-[150px] pointer-events-none"></div>
 
             <div className="max-w-4xl mx-auto px-6 relative z-10">
-                <div className="text-center mb-16 flex flex-col items-center justify-center">
-                    <span className="text-text-secondary text-xs font-bold tracking-[0.2em] uppercase mb-8 block">APPLY NOW</span>
-                    <div className={`${kalam.className} text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight md:leading-snug flex flex-col items-center justify-center gap-2 md:gap-4 -rotate-2 transform hover:rotate-0 transition duration-500 cursor-default`}>
-                        <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))] pb-1 drop-shadow-sm">HAI KEEDA ?</span>
-                        <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-violet),var(--color-accent-blue))] pb-1 drop-shadow-sm">HAI HIMMAT ?</span>
-                        <span className="text-white/90 drop-shadow-sm">TO KAR</span>
-                        <span className="text-white drop-shadow-md">STARTUP !</span>
+                <div className="text-center mb-12 flex flex-col items-center justify-center">
+                    <span className="text-text-secondary text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase mb-6 block">APPLY NOW</span>
+                    <div className="flex flex-col items-center justify-center gap-1 md:gap-2">
+                        <span className={`${kalam.className} text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))] pb-1 drop-shadow-sm`}>HAI KEEDA ?</span>
+                        <span className={`${kalam.className} text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-violet),var(--color-accent-blue))] pb-1 drop-shadow-sm`}>HAI HIMMAT ?</span>
+                        <span className={`${kalam.className} text-2xl md:text-4xl font-bold text-white/90 pt-2`}>TO KAR</span>
+                        <span className={`${kalam.className} text-2xl md:text-4xl font-bold text-white pb-1`}>STARTUP !</span>
                     </div>
                 </div>
 
-                <div className="glass-card rounded-[2rem] p-8 md:p-14 border border-white/5 relative overflow-hidden shadow-2xl">
+                <div className="glass-card rounded-[2rem] p-6 sm:p-10 md:p-14 border border-white/5 relative overflow-hidden shadow-2xl">
                     <form id="inquiry-form" onSubmit={handleFormSubmit} className="space-y-8 relative z-10">
                         <div className="grid md:grid-cols-2 gap-8">
                             <div>
-                                <label htmlFor="form-name" className="block text-xs font-bold tracking-[0.1em] text-text-secondary uppercase mb-3 ml-1">Full Name</label>
+                                <label htmlFor="form-name" className="block text-[10px] font-bold tracking-[0.1em] text-text-secondary uppercase mb-2 ml-1">Full Name</label>
                                 <input
                                     type="text"
                                     id="form-name"
                                     required
                                     value={formData.name}
                                     onChange={handleChange}
-                                    className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-accent-blue focus:bg-white/[0.05] transition duration-300 placeholder-white/20"
+                                    className="w-full bg-white/[0.03] border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-accent-blue focus:bg-white/[0.05] transition duration-300 placeholder-white/20"
                                     placeholder="John Doe"
                                 />
                             </div>
                             <div>
-                                <label htmlFor="form-city" className="block text-xs font-bold tracking-[0.1em] text-text-secondary uppercase mb-3 ml-1">City</label>
+                                <label htmlFor="form-city" className="block text-[10px] font-bold tracking-[0.1em] text-text-secondary uppercase mb-2 ml-1">City</label>
                                 <input
                                     type="text"
                                     id="form-city"
                                     required
                                     value={formData.city}
                                     onChange={handleChange}
-                                    className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-accent-blue focus:bg-white/[0.05] transition duration-300 placeholder-white/20"
+                                    className="w-full bg-white/[0.03] border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-accent-blue focus:bg-white/[0.05] transition duration-300 placeholder-white/20"
                                     placeholder="Mumbai, Bengaluru, etc."
                                 />
                             </div>
@@ -82,7 +82,7 @@ export function Contact() {
 
                         <div className="grid md:grid-cols-2 gap-8">
                             <div>
-                                <label htmlFor="form-contact" className="block text-xs font-bold tracking-[0.1em] text-text-secondary uppercase mb-3 ml-1">Contact Number</label>
+                                <label htmlFor="form-contact" className="block text-[10px] font-bold tracking-[0.1em] text-text-secondary uppercase mb-2 ml-1">Contact Number</label>
                                 <input
                                     type="tel"
                                     id="form-contact"
@@ -91,26 +91,26 @@ export function Contact() {
                                     title="Please enter a valid 10 digit mobile number"
                                     value={formData.phone}
                                     onChange={handleChange}
-                                    className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-accent-blue focus:bg-white/[0.05] transition duration-300 placeholder-white/20"
+                                    className="w-full bg-white/[0.03] border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-accent-blue focus:bg-white/[0.05] transition duration-300 placeholder-white/20"
                                     placeholder="9876543210"
                                 />
                             </div>
                             <div>
-                                <label htmlFor="form-email" className="block text-xs font-bold tracking-[0.1em] text-text-secondary uppercase mb-3 ml-1">Email Address</label>
+                                <label htmlFor="form-email" className="block text-[10px] font-bold tracking-[0.1em] text-text-secondary uppercase mb-2 ml-1">Email Address</label>
                                 <input
                                     type="email"
                                     id="form-email"
                                     required
                                     value={formData.email}
                                     onChange={handleChange}
-                                    className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-accent-blue focus:bg-white/[0.05] transition duration-300 placeholder-white/20"
+                                    className="w-full bg-white/[0.03] border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-accent-blue focus:bg-white/[0.05] transition duration-300 placeholder-white/20"
                                     placeholder="john@example.com"
                                 />
                             </div>
                         </div>
 
-                        <div className="pt-8 text-center flex justify-center">
-                            <button type="submit" className="group w-full md:w-auto bg-white hover:bg-gray-100 text-black px-12 py-4 rounded-full font-bold text-lg transition-all duration-300 flex items-center justify-center">
+                        <div className="pt-6 text-center flex justify-center">
+                            <button type="submit" className="group w-full md:w-auto bg-white hover:bg-gray-100 text-black px-8 py-3 rounded-full font-bold text-sm transition-all duration-300 flex items-center justify-center">
                                 Submit Inquiry
                                 <i className="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform"></i>
                             </button>
@@ -121,6 +121,10 @@ export function Contact() {
 
             <footer className="mt-32 pt-10 text-center text-text-secondary text-sm font-medium tracking-wide border-t border-white/5 mx-6">
                 <p>&copy; {new Date().getFullYear()} The Startup School. All rights reserved.</p>
+                <div className="mt-4 flex justify-center gap-6 text-xs text-text-tertiary">
+                    <a href="/privacy-policy" className="hover:text-accent-blue transition-colors">Privacy Policy</a>
+                    <a href="/terms-of-use" className="hover:text-accent-violet transition-colors">Terms of Use</a>
+                </div>
             </footer>
         </section>
     );

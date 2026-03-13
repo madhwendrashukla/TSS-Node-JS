@@ -41,30 +41,27 @@ export default function ToolsPage() {
                     <div className="glass-card p-8 md:p-10 rounded-3xl border border-dashed border-white/10 bg-[#020202] relative overflow-hidden group">
                         <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:4px_4px]"></div>
                         <div className="relative z-10">
-                            <span className="bg-white/5 border border-white/10 text-text-secondary text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest mb-6 inline-block">Coming Soon</span>
+                            <span className="bg-green-500/10 border border-green-500/30 text-green-400 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest mb-6 inline-block shadow-[0_0_15px_rgba(34,197,94,0.2)]">Coming Soon</span>
                             <h3 className="text-2xl md:text-3xl font-bold text-gray-400 mb-4 tracking-tight">Incubators & Accelerators</h3>
                             <p className="text-gray-500 leading-relaxed font-light mb-8">An intelligent mapping tool to discover workspaces across the startup landscape.</p>
-                            <span className="text-gray-600 font-bold text-sm tracking-widest uppercase relative z-10">In Development</span>
                         </div>
                     </div>
 
                     {/* Coming Soon: Grants & Schemes */}
                     <div className="glass-card p-8 md:p-10 rounded-3xl border border-dashed border-white/10 bg-[#020202] relative overflow-hidden group">
                         <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:4px_4px]"></div>
-                        <span className="bg-white/5 border border-white/10 text-text-secondary text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest mb-6 inline-block">Coming Soon</span>
+                        <span className="bg-green-500/10 border border-green-500/30 text-green-400 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest mb-6 inline-block shadow-[0_0_15px_rgba(34,197,94,0.2)]">Coming Soon</span>
                         <h3 className="text-2xl md:text-3xl font-bold text-gray-400 mb-4 tracking-tight">Grants & Schemes</h3>
                         <p className="text-gray-500 leading-relaxed font-light mb-8 relative z-10">Explore government-backed hubs, universities, and pure grants asking for 0% equity.</p>
-                        <span className="text-gray-600 font-bold text-sm tracking-widest uppercase relative z-10">In Development</span>
                     </div>
 
                     {/* Coming Soon: Investors Match */}
                     <div className="glass-card p-8 md:p-10 rounded-3xl border border-dashed border-white/10 bg-[#020202] relative overflow-hidden group">
                         <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:4px_4px]"></div>
                         <div className="relative z-10">
-                            <span className="bg-white/5 border border-white/10 text-text-secondary text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest mb-6 inline-block">Coming Soon</span>
+                            <span className="bg-green-500/10 border border-green-500/30 text-green-400 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest mb-6 inline-block shadow-[0_0_15px_rgba(34,197,94,0.2)]">Coming Soon</span>
                             <h3 className="text-2xl md:text-3xl font-bold text-gray-400 mb-4 tracking-tight">Investors Match</h3>
                             <p className="text-gray-500 leading-relaxed font-light mb-8">Discover hubs with the highest investor density and direct seed funding guarantees.</p>
-                            <span className="text-gray-600 font-bold text-sm tracking-widest uppercase relative z-10">In Development</span>
                         </div>
                     </div>
 
@@ -72,20 +69,18 @@ export default function ToolsPage() {
                     <div className="glass-card p-8 md:p-10 rounded-3xl border border-dashed border-white/10 bg-[#020202] relative overflow-hidden group">
                         <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:4px_4px]"></div>
                         <div className="relative z-10">
-                            <span className="bg-white/5 border border-white/10 text-text-secondary text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest mb-6 inline-block">Coming Soon</span>
+                            <span className="bg-green-500/10 border border-green-500/30 text-green-400 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest mb-6 inline-block shadow-[0_0_15px_rgba(34,197,94,0.2)]">Coming Soon</span>
                             <h3 className="text-2xl md:text-3xl font-bold text-gray-400 mb-4 tracking-tight">Interactive Cap Table Simulator</h3>
                             <p className="text-gray-500 leading-relaxed font-light mb-8 max-w-xl">Simulate seed rounds, option pool expansions, and visualize founder dilution with dynamic pie charts before you sign a term sheet.</p>
-                            <span className="text-gray-600 font-bold text-sm tracking-widest uppercase relative z-10">In Development</span>
                         </div>
                     </div>
 
                     {/* Coming Soon: Financial Modeler */}
                     <div className="glass-card p-8 md:p-10 rounded-3xl border border-dashed border-white/10 bg-[#020202] relative overflow-hidden group lg:col-span-2">
                         <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:4px_4px]"></div>
-                        <span className="bg-white/5 border border-white/10 text-text-secondary text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest mb-6 inline-block">Coming Soon</span>
+                        <span className="bg-green-500/10 border border-green-500/30 text-green-400 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest mb-6 inline-block shadow-[0_0_15px_rgba(34,197,94,0.2)]">Coming Soon</span>
                         <h3 className="text-2xl md:text-3xl font-bold text-gray-400 mb-4 tracking-tight">Financial Modeler</h3>
                         <p className="text-gray-500 leading-relaxed font-light mb-8 relative z-10">Automated financial projections and runway estimation templates for SaaS and Hardware.</p>
-                        <span className="text-gray-600 font-bold text-sm tracking-widest uppercase relative z-10">In Development</span>
                     </div>
                 </div>
             </div>
