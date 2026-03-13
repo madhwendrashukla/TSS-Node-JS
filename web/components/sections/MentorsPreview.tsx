@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { mentorsData, MentorProfile } from '@/lib/mentors';
 
 const MentorCard = ({ mentor }: { mentor: MentorProfile }) => (
-    <div className="flex-shrink-0 w-[85vw] sm:w-[260px] md:w-[280px] mx-2 md:mx-3 glass-card rounded-3xl p-6 flex flex-col items-center text-center group bg-bg-main/60 border border-white/5 hover:border-accent-blue/30 hover:-translate-y-2 transition-all duration-300 ease-out">
+    <div className="flex-shrink-0 w-[85vw] sm:w-[260px] md:w-[280px] mx-2 md:mx-3 glass-card rounded-3xl p-6 flex flex-col items-center text-center group bg-bg-main/60 border border-white/5 hover:border-accent-blue hover:shadow-[0_0_20px_rgba(45,212,191,0.2)] hover:scale-[1.05] hover:-translate-y-3 transition-all duration-500 ease-out">
         <div className="w-20 h-20 rounded-full overflow-hidden mb-5 border-2 border-white/10 group-hover:border-accent-blue/50 transition-colors duration-500 p-1">
             <img
                 src={mentor.image}
@@ -14,7 +14,7 @@ const MentorCard = ({ mentor }: { mentor: MentorProfile }) => (
             />
         </div>
         <h4 className="text-base font-bold text-white mb-1 tracking-tight">{mentor.name}</h4>
-        <p className="text-accent-blue font-semibold text-[10px] tracking-widest uppercase mb-3 leading-tight">{mentor.title}</p>
+        <p className="text-accent-blue font-semibold text-[10px] tracking-widest uppercase mb-3 leading-tight group-hover:text-white transition-colors">{mentor.title}</p>
         <p className="text-text-secondary text-xs leading-relaxed line-clamp-3 mb-4">{mentor.credentials.join(" ")}</p>
         {mentor.linkedinUrl && (
             <a

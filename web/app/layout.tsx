@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Merriweather } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
 import DirectoryAdvisorBot from "@/components/ecosystem/DirectoryAdvisorBot";
 
 const inter = Inter({
@@ -51,6 +52,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body
         className={`${inter.variable} ${merriweather.variable} antialiased bg-bg-main text-text-primary selection:bg-accent-blue selection:text-white overflow-x-hidden`}
       >
@@ -58,6 +66,7 @@ export default function RootLayout({
         <main className="min-h-screen overflow-x-hidden w-full">
           {children}
         </main>
+        <Footer />
         <DirectoryAdvisorBot />
       </body>
     </html>

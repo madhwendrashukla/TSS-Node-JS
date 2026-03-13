@@ -14,6 +14,69 @@ const HERO_IMAGES = [
     '/images/hero-bg/slide-7.png',
 ];
 
+/* ── Compact Apply Now Form ─────────────────────────────────────────────── */
+function HeroApplyForm() {
+    const [form, setForm] = useState({ name: '', city: '', email: '', phone: '' });
+    const [submitted, setSubmitted] = useState(false);
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    };
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        const body = `Name: ${form.name}%0ACity: ${form.city}%0AEmail: ${form.email}%0APhone: ${form.phone}`;
+        window.open(`mailto:info@thestartupschool.in?subject=Apply Now - The Startup School&body=${body}`, '_blank');
+        setSubmitted(true);
+        setTimeout(() => setSubmitted(false), 4000);
+    };
+
+    if (submitted) {
+        return (
+            <div className="flex flex-col items-center justify-center py-6 gap-3">
+                <div className="text-4xl">🎉</div>
+                <p className="text-green-400 font-bold text-lg">We'll be in touch soon!</p>
+                <p className="text-text-secondary text-sm">Check your email for confirmation.</p>
+            </div>
+        );
+    }
+
+    return (
+        <form onSubmit={handleSubmit} className="space-y-3">
+            <div className="grid grid-cols-2 gap-3">
+                <input
+                    name="name" value={form.name} onChange={handleChange} required
+                    placeholder="Your Full Name"
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/30 text-sm focus:outline-none focus:border-[#8b5cf6] transition"
+                />
+                <input
+                    name="city" value={form.city} onChange={handleChange}
+                    placeholder="City (e.g. Mumbai)"
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/30 text-sm focus:outline-none focus:border-[#8b5cf6] transition"
+                />
+            </div>
+            <input
+                name="email" type="email" value={form.email} onChange={handleChange} required
+                placeholder="you@example.com"
+                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/30 text-sm focus:outline-none focus:border-[#8b5cf6] transition"
+            />
+            <input
+                name="phone" value={form.phone} onChange={handleChange}
+                placeholder="+91 XXXXX XXXXX"
+                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/30 text-sm focus:outline-none focus:border-[#8b5cf6] transition"
+            />
+            <button
+                type="submit"
+                className="w-full py-3.5 rounded-xl font-bold text-white text-base transition-all duration-300 hover:opacity-90 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)]"
+                style={{ background: 'linear-gradient(to right, #8b5cf6, #d946ef)' }}
+            >
+                Submit →
+            </button>
+            <p className="text-center text-white/30 text-xs">We respect your privacy. No spam, only fire. 🔥</p>
+        </form>
+    );
+}
+
 export function AutomatedVideoPromo() {
     const [currentScene, setCurrentScene] = useState(0);
     const [isFadingOut, setIsFadingOut] = useState(false);
@@ -78,7 +141,6 @@ export function AutomatedVideoPromo() {
                     {/* Scene 1: The Hook */}
                     {currentScene === 0 && (
                         <div className="flex flex-col items-center animate-in fade-in zoom-in duration-700">
-
                             <h1 className="text-4xl sm:text-5xl md:text-5xl font-black tracking-[-0.04em] text-white leading-[1.1] md:leading-[0.9] mb-6 md:mb-8">
                                 Stop <span className="text-white/40">Ideating.</span><br />
                                 Start <span className="gradient-text">Building.</span>
@@ -112,13 +174,9 @@ export function AutomatedVideoPromo() {
                                 <span className="text-white/40 text-xl md:text-3xl block my-3 md:my-5">to</span>
                                 <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">100 days of Deep Dive Immersion cohorts</span>
                             </h2>
-                            <p className="text-xl md:text-2xl text-text-secondary font-light mb-12 italic">
+                            <p className="text-xl md:text-2xl text-text-secondary font-light italic">
                                 Choose the program that fits you the best
                             </p>
-                            <Link href="/programs" className="group flex items-center justify-center bg-white text-black px-6 py-3 md:px-8 md:py-4 rounded-full font-semibold text-base md:text-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(255,255,255,0.2)]">
-                                Explore Programs
-                                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                            </Link>
                         </div>
                     )}
 

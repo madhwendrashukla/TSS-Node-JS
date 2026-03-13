@@ -5,7 +5,7 @@ import { X, MessageSquare, Bot, ExternalLink } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 const WHATSAPP_LINK = 'https://chat.whatsapp.com/BJ5RIXujFJG7ceB06nVqa4';
-const WORKSHOP_LINK = '/workshop-reg/index.html'; // redirect to workshop page
+const WORKSHOP_LINK = '/workshop'; // redirect to workshop page
 
 import { BookOpen, CalendarDays } from 'lucide-react';
 
@@ -19,9 +19,12 @@ function IdleNotifications({ onDismiss }: { onDismiss: (id: string) => void }) {
     return (
         <div className="flex flex-col items-end gap-2 mb-3">
             {/* WhatsApp community */}
-            <div className="flex items-center gap-2 bg-bg-surface/95 backdrop-blur border border-[#25D366]/40 rounded-2xl px-4 py-2.5 shadow-xl max-w-[260px] group animate-in slide-in-from-right-4 fade-in duration-300">
+            <div className="flex items-center gap-2 bg-bg-surface/95 backdrop-blur border border-[#25D366]/40 rounded-2xl px-4 py-2.5 shadow-xl max-w-[260px] group animate-in slide-in-from-right-4 fade-in duration-300 cursor-pointer hover:border-[#25D366]/70 transition-colors">
                 <span className="text-lg">💬</span>
-                <div className="flex-1 min-w-0">
+                <div 
+                    onClick={() => window.open(WHATSAPP_LINK, '_blank')}
+                    className="flex-1 min-w-0"
+                >
                     <p className="text-white text-xs font-semibold truncate">Join Founder Community</p>
                     <p className="text-text-tertiary text-[10px] truncate">Connect on WhatsApp</p>
                 </div>
@@ -53,6 +56,46 @@ function IdleNotifications({ onDismiss }: { onDismiss: (id: string) => void }) {
     );
 }
 
+/* ── Rich notification sound via Web Audio API ─────────────────────────────── */
+function playNotifSound() {
+    try {
+        const ctx = new (window.AudioContext || (window as any).webkitAudioContext)();
+
+        // Punchy low "pop" kick
+        const kick = ctx.createOscillator();
+        const kickGain = ctx.createGain();
+        kick.connect(kickGain);
+        kickGain.connect(ctx.destination);
+        kick.type = 'sine';
+        kick.frequency.setValueAtTime(150, ctx.currentTime);
+        kick.frequency.exponentialRampToValueAtTime(50, ctx.currentTime + 0.1);
+        kickGain.gain.setValueAtTime(0.5, ctx.currentTime);
+        kickGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.2);
+        kick.start(ctx.currentTime);
+        kick.stop(ctx.currentTime + 0.2);
+
+        // 3-tone ascending chime (loud and bright)
+        const notes = [
+            { freq: 880, start: 0.12, vol: 0.35 },
+            { freq: 1320, start: 0.26, vol: 0.3 },
+            { freq: 1760, start: 0.40, vol: 0.25 },
+        ];
+        notes.forEach(({ freq, start, vol }) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.type = 'triangle';
+            osc.frequency.value = freq;
+            gain.gain.setValueAtTime(0, ctx.currentTime + start);
+            gain.gain.linearRampToValueAtTime(vol, ctx.currentTime + start + 0.04);
+            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + start + 0.5);
+            osc.start(ctx.currentTime + start);
+            osc.stop(ctx.currentTime + start + 0.55);
+        });
+    } catch {}
+}
+
 /* ── Main Component ─────────────────────────────────────────────────────────── */
 export default function DirectoryAdvisorBot() {
     const [isOpen, setIsOpen] = useState(false);
@@ -61,10 +104,43 @@ export default function DirectoryAdvisorBot() {
     const [clicked, setClicked] = useState<string | null>(null);
     const router = useRouter();
 
-    // Show idle notifications after 8 seconds of no interaction
+    // Unlock AudioContext on first user interaction (browser requires gesture before audio)
+    useEffect(() => {
+        let unlocked = false;
+        const unlock = () => {
+            if (unlocked) return;
+            unlocked = true;
+            try {
+                const ctx = new (window.AudioContext || (window as any).webkitAudioContext)();
+                // Create and immediately stop a silent buffer to warm up the context
+                const buf = ctx.createBuffer(1, 1, 22050);
+                const src = ctx.createBufferSource();
+                src.buffer = buf;
+                src.connect(ctx.destination);
+                src.start(0);
+                ctx.resume();
+            } catch {}
+            document.removeEventListener('click', unlock);
+            document.removeEventListener('touchstart', unlock);
+            document.removeEventListener('keydown', unlock);
+        };
+        document.addEventListener('click', unlock, { once: true });
+        document.addEventListener('touchstart', unlock, { once: true });
+        document.addEventListener('keydown', unlock, { once: true });
+        return () => {
+            document.removeEventListener('click', unlock);
+            document.removeEventListener('touchstart', unlock);
+            document.removeEventListener('keydown', unlock);
+        };
+    }, []);
+
+    // Show idle notifications after 8 seconds — sound fires exactly with visual pop
     useEffect(() => {
         if (isOpen) { setShowIdle(false); return; }
-        const t = setTimeout(() => setShowIdle(true), 8000);
+        const t = setTimeout(() => {
+            setShowIdle(true);   // visual pop-in
+            playNotifSound();    // sound fires simultaneously
+        }, 8000);
         return () => clearTimeout(t);
     }, [isOpen]);
 

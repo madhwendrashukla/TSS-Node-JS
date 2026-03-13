@@ -38,7 +38,7 @@ export function Programs() {
                                 </div>
                             </div>
                         </div>
-                        <Link href="/workshop" className="w-full text-center bg-white/5 hover:bg-white text-white hover:text-black border border-white/10 font-bold py-4 rounded-xl transition duration-300 backdrop-blur-md">
+                        <Link href="/#contact" className="w-full text-center bg-white/5 hover:bg-white text-white hover:text-black border border-white/10 font-bold py-4 rounded-xl transition duration-300 backdrop-blur-md">
                             Show your interest
                         </Link>
                     </div>

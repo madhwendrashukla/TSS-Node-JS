@@ -80,16 +80,6 @@ export function Gallery() {
                 <PhotoMarquee photos={row2} reverse />
             </div>
 
-            {/* CTA */}
-            <div className="text-center relative z-10">
-                <Link
-                    href="/events"
-                    className="group inline-flex items-center text-accent-blue hover:text-white font-bold text-base transition duration-300"
-                >
-                    View Full Gallery
-                    <i className="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform"></i>
-                </Link>
-            </div>
         </section>
     );
 }

@@ -44,14 +44,26 @@ export function Contact() {
                 <div className="text-center mb-12 flex flex-col items-center justify-center">
                     <span className="text-text-secondary text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase mb-6 block">APPLY NOW</span>
                     <div className="flex flex-col items-center justify-center gap-1 md:gap-2">
-                        <span className={`${kalam.className} text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))] pb-1 drop-shadow-sm`}>HAI KEEDA ?</span>
-                        <span className={`${kalam.className} text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-violet),var(--color-accent-blue))] pb-1 drop-shadow-sm`}>HAI HIMMAT ?</span>
-                        <span className={`${kalam.className} text-2xl md:text-4xl font-bold text-white/90 pt-2`}>TO KAR</span>
-                        <span className={`${kalam.className} text-2xl md:text-4xl font-bold text-white pb-1`}>STARTUP !</span>
+                        <span className={`${kalam.className} text-3xl md:text-5xl font-bold`}>
+                            <span className="text-white">HAI </span>
+                            <span className="text-[#a855f7]">KEEDA ?</span>
+                        </span>
+                        <span className={`${kalam.className} text-3xl md:text-5xl font-bold`}>
+                            <span className="text-white">HAI </span>
+                            <span className="text-[#a855f7]">HIMMAT ?</span>
+                        </span>
+                        <span className={`${kalam.className} text-2xl md:text-4xl font-bold pt-2`}>
+                            <span className="text-white/90">TO KAR </span>
+                            <span className="text-[#a855f7]">STARTUP !</span>
+                        </span>
                     </div>
                 </div>
 
                 <div className="glass-card rounded-[2rem] p-6 sm:p-10 md:p-14 border border-white/5 relative overflow-hidden shadow-2xl">
+                    <div className="mb-8 text-center">
+                        <h3 className="text-lg md:text-xl font-bold text-white mb-2">To know more about our programs, drop your details below</h3>
+                        <div className="h-1 w-20 bg-accent-blue mx-auto rounded-full"></div>
+                    </div>
                     <form id="inquiry-form" onSubmit={handleFormSubmit} className="space-y-8 relative z-10">
                         <div className="grid md:grid-cols-2 gap-8">
                             <div>
@@ -118,14 +130,6 @@ export function Contact() {
                     </form>
                 </div>
             </div>
-
-            <footer className="mt-32 pt-10 text-center text-text-secondary text-sm font-medium tracking-wide border-t border-white/5 mx-6">
-                <p>&copy; {new Date().getFullYear()} The Startup School. All rights reserved.</p>
-                <div className="mt-4 flex justify-center gap-6 text-xs text-text-tertiary">
-                    <a href="/privacy-policy" className="hover:text-accent-blue transition-colors">Privacy Policy</a>
-                    <a href="/terms-of-use" className="hover:text-accent-violet transition-colors">Terms of Use</a>
-                </div>
-            </footer>
         </section>
     );
 }

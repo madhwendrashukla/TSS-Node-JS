@@ -3,11 +3,11 @@
 import { useState } from 'react';
 
 const ShayariBlock = () => (
-    <div className="relative mb-10 w-full max-w-4xl px-4 md:px-0 mx-auto text-center md:text-left">
-        <h3 className="text-xl md:text-3xl font-bold text-white leading-[1.5] tracking-[-0.01em] relative z-10 italic">
+    <div className="relative mb-10">
+        <h3 className="text-2xl md:text-4xl font-bold text-white leading-[1.4] tracking-tight relative z-10">
             “दिल में हो आग तो जलती रहनी चाहिए,<br />
             तेरा हो चाहे मेरा,<br />
-            <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">सपना ज़िंदा रहना चाहिए!</span>”
+            <span className="text-[#a855f7]">सपना ज़िंदा रहना चाहिए!</span>”
         </h3>
     </div>
 );
@@ -87,14 +87,14 @@ const AchievementsList = () => {
 
 function EnglishTextComponent() {
     return (
-        <div className="manifesto-font text-xl md:text-2xl text-[#A1A1A6] leading-[1.8] space-y-8 font-light relative z-10">
-            <p>Startups in India aren't built in garages; they are built at <strong className="text-white font-medium">kitchen tables</strong> amidst family debates, silent sacrifices, and financial anxiety.</p>
+        <div className="text-lg md:text-xl text-[#A1A1A6] leading-[1.6] space-y-6 font-light relative z-10 opacity-90">
+            <p>Startups in India aren't built in garages; they are built at <strong className="text-white font-semibold">kitchen tables</strong> amidst family debates, silent sacrifices, and financial anxiety.</p>
 
-            <p>In a country like <strong className="text-white font-medium">BHARAT</strong>, the “Opportunity Cost” isn't just a line on a spreadsheet — it is a weight on a founder’s soul.</p>
+            <p>In a country like <strong className="text-white font-semibold uppercase tracking-wider">BHARAT</strong>, the “Opportunity Cost” isn't just a line on a spreadsheet — it is a weight on a founder’s soul.</p>
 
             <p>For the middle-class dreamer, choosing a startup over a steady paycheck is an act of war against social security.</p>
 
-            <p>A startup’s greatest enemy isn't competition — it’s the <strong className="text-white font-medium">“Initial Days Vacuum”</strong>. We talk about “funding”, but we forget about “foundation”.</p>
+            <p>A startup’s greatest enemy isn't competition — it’s the <strong className="text-white font-semibold">“Initial Days Vacuum”</strong>. We talk about “funding”, but we forget about “foundation”.</p>
 
             <p>Many have the <em className="text-white italic">‘Keeda’</em> (the itch) and the <em className="text-white italic">‘Himmat’</em> (the courage), but courage without a compass is just a slow way to get lost.</p>
 
@@ -102,13 +102,15 @@ function EnglishTextComponent() {
 
             <p>If you don't hold the hand that is trying to build, that hand will eventually reach for a corporate cubicle just to survive.</p>
 
-            <p className="text-2xl md:text-3xl text-white font-medium tracking-tight">I believe tactical, hands-on support in the first 100 days is more valuable than a seed check in the first 300.</p>
+            <p className="text-xl md:text-2xl text-white font-medium tracking-tight">I believe tactical, hands-on support in the first 100 days is more valuable than a seed check in the first 300.</p>
 
             <p>Outliers don’t die because they lack talent — they die because they lack a map.</p>
 
             <p>If we provide the right scaffolding to the aspiring founder, we won't just see more startups — we will unlock an era of <strong className="text-white font-bold">unstoppable builders.</strong></p>
 
-            <p>It doesn’t matter whose hand holds the torch, as long as the darkness is defeated. I am not here to just invest; I am here to ensure the fire doesn't go out before the sun rises.</p>
+            <p>It doesn’t matter whose hand holds the torch, as long as the darkness is defeated.</p>
+
+            <p>I am not here to just invest; I am here to ensure the fire doesn't go out before the sun rises.</p>
         </div>
     );
 }
@@ -118,28 +120,36 @@ export function FounderManifesto() {
         <section id="manifesto" className="py-16 md:py-32 bg-bg-main relative w-full border-t border-white/5">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent opacity-50 blur-[100px] pointer-events-none" />
 
-            {/* Profile Intro */}
-            <div className="max-w-4xl mx-auto px-6 relative z-10 flex flex-col mb-16 md:mb-20 items-center justify-center text-center">
-                <div className="mb-6 p-1 rounded-full bg-gradient-to-b from-white/20 to-transparent shadow-lg shadow-white/5">
-                    <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden bg-bg-main p-1 border border-white/10">
-                        <img
-                            src="/gaurav.jpg"
-                            alt="Gaurav Bansal"
-                            className="w-full h-full rounded-full object-cover filter grayscale hover:grayscale-0 transition duration-700"
-                        />
+            {/* Main Content Area */}
+            <div className="max-w-4xl mx-auto px-6 relative z-10">
+                {/* Header Section */}
+                <div className="mb-12">
+                    <div className="inline-block mb-8">
+                        <span className="text-[10px] md:text-xs font-black tracking-[0.2em] uppercase px-4 py-1.5 rounded-full border border-[#a855f7]/20 bg-[#a855f7]/5 text-[#a855f7]">THE FOUNDER’S MANIFESTO</span>
+                    </div>
+
+                    <div className="flex items-center gap-5">
+                        <div className="w-16 h-16 md:w-20 md:h-20 rounded-full p-1 bg-gradient-to-b from-white/10 to-transparent">
+                            <img
+                                src="/gaurav.jpg"
+                                alt="Gaurav Bansal"
+                                className="w-full h-full rounded-full object-cover filter grayscale"
+                            />
+                        </div>
+                        <div>
+                            <h4 className="text-2xl md:text-3xl font-bold text-white tracking-tight">Gaurav Bansal</h4>
+                            <a href="https://www.linkedin.com/in/gauravbansal2/" target="_blank" rel="noopener noreferrer" className="text-accent-violet hover:text-white transition inline-flex items-center gap-1.5 mt-1 text-sm">
+                                <i className="fab fa-linkedin"></i> Connect on LinkedIn
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <span className="text-text-secondary text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase mb-3 text-accent-blue/80">THE FOUNDER’S MANIFESTO</span>
-                <h4 className="text-2xl md:text-4xl font-bold text-white tracking-tight">Gaurav Bansal</h4>
-                <a href="https://www.linkedin.com/in/gauravbansal2/" target="_blank" rel="noopener noreferrer" className="text-accent-violet hover:text-white transition inline-flex items-center gap-2 mt-4 text-sm font-medium bg-white/5 px-4 py-2 rounded-full border border-white/5 hover:bg-white/10 hover:border-accent-violet/50">
-                    Connect on LinkedIn <i className="fab fa-linkedin"></i>
-                </a>
-            </div>
 
-            {/* Manifesto Content (Shayari -> English Text) */}
-            <div className="max-w-4xl mx-auto px-6 relative z-10 flex flex-col mb-24">
-                <ShayariBlock />
-                <EnglishTextComponent />
+                {/* Manifesto Text with Side Border */}
+                <div className="border-l-[3px] md:border-l-[4px] border-[#a855f7] pl-8 md:pl-12 py-3">
+                    <ShayariBlock />
+                    <EnglishTextComponent />
+                </div>
             </div>
 
             {/* Achievements Grid */}
