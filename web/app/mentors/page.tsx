@@ -1,4 +1,4 @@
-import { Mentors as MentorsSection } from "@/components/sections/Mentors";
+import { MentorsPreview } from "@/components/sections/MentorsPreview";
 
 export const metadata = {
     title: 'Mentors | The Startup School',
@@ -17,7 +17,7 @@ export default function MentorsPage() {
                 </p>
             </div>
 
-            <MentorsSection />
+            <MentorsPreview />
         </div>
     );
 }

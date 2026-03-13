@@ -1,6 +1,4 @@
-import { Manifesto } from "@/components/sections/Manifesto";
-import { FounderProof } from "@/components/sections/FounderProof";
-import { Features } from "@/components/sections/Features";
+import { FounderManifesto } from "@/components/sections/FounderManifesto";
 
 export const metadata = {
     title: 'About | The Startup School',
@@ -20,9 +18,7 @@ export default function AboutPage() {
                 </p>
             </div>
 
-            <Features />
-            <Manifesto />
-            <FounderProof />
+            <FounderManifesto />
         </div>
     );
 }
