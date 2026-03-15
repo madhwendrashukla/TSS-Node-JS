@@ -20,11 +20,13 @@ export function Navbar() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center h-14 md:h-16">
                         <div className="flex items-center flex-shrink-0">
-                            <Link href="/" className="text-xl md:text-2xl font-black text-white tracking-tighter whitespace-nowrap hidden md:block">
-                                THE <span className="text-accent-blue">STARTUP</span> SCHOOL
+                            <Link href="/" className="text-xl md:text-2xl font-black text-white tracking-tighter whitespace-nowrap hidden md:flex items-center gap-3">
+                                <img src="/logo.png" alt="Setup School Logo" className="w-8 h-8 rounded-lg shadow-[0_0_15px_rgba(139,92,246,0.3)] object-cover bg-white p-[1px]" />
+                                <span>THE <span className="bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] bg-clip-text text-transparent">STARTUP</span> SCHOOL</span>
                             </Link>
-                            <Link href="/" className="text-xl font-black text-white tracking-tighter whitespace-nowrap md:hidden">
-                                <span className="text-accent-blue">TSS</span>
+                            <Link href="/" className="text-lg sm:text-xl font-black text-white tracking-tighter whitespace-nowrap md:hidden flex items-center gap-2.5">
+                                <img src="/logo.png" alt="TSS" className="w-7 h-7 rounded-lg shadow-[0_0_15px_rgba(139,92,246,0.3)] object-cover bg-white p-[1px]" />
+                                <span>THE <span className="bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] bg-clip-text text-transparent">STARTUP</span> SCHOOL</span>
                             </Link>
                         </div>
                         {/* Desktop Menu - High contrast, small text, dense tracking */}

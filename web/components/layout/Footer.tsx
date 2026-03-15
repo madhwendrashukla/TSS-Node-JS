@@ -3,13 +3,13 @@ import Link from 'next/link';
 const SOCIAL_LINKS = [
     {
         name: 'LinkedIn',
-        href: 'https://www.linkedin.com/company/the-startup-school-india',
+        href: 'https://www.linkedin.com/company/the-startup-school-2026/',
         icon: 'fa-brands fa-linkedin-in',
         color: 'hover:bg-[#0077B5] hover:border-[#0077B5]',
     },
     {
         name: 'Instagram',
-        href: 'https://www.instagram.com/thestartupschool.in/',
+        href: 'https://www.instagram.com/the__startup__school',
         icon: 'fa-brands fa-instagram',
         color: 'hover:bg-gradient-to-br hover:from-[#f09433] hover:via-[#e6683c] hover:to-[#bc1888] hover:border-[#e6683c]',
     },
@@ -21,7 +21,7 @@ const SOCIAL_LINKS = [
     },
     {
         name: 'Twitter / X',
-        href: 'https://twitter.com/thestartupschool',
+        href: 'https://x.com/The_startup_sch',
         icon: null,
         svgIcon: (
             <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5">
@@ -32,7 +32,7 @@ const SOCIAL_LINKS = [
     },
     {
         name: 'YouTube',
-        href: 'https://www.youtube.com/@thestartupschool',
+        href: 'https://www.youtube.com/@The_Startup_School',
         icon: 'fa-brands fa-youtube',
         color: 'hover:bg-[#FF0000] hover:border-[#FF0000]',
     },
@@ -43,7 +43,7 @@ const NAV_LINKS = [
     { label: 'Mentors', href: '/mentors' },
     { label: 'Events', href: '/events' },
     { label: 'Tools', href: '/tools' },
-    { label: 'Workshop', href: '/workshop' },
+    { label: 'Workshop', href: '/fundraising-workshop-15apr' },
     { label: 'Contact', href: '/#contact' },
 ];
 
@@ -57,7 +57,7 @@ export function Footer() {
         <footer className="bg-[#0a0d1a] border-t border-white/5 text-white py-14">
             <div className="max-w-7xl mx-auto px-6 md:px-12">
                 {/* Top row: Brand + Tagline */}
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-10">
+                <div className="flex flex-col md:flex-row justify-between items-center md:items-start text-center md:text-left gap-6 md:gap-8 mb-10">
                     <div>
                         <Link href="/" className="text-xl md:text-2xl font-black tracking-tight block mb-1">
                             THE <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8b5cf6] to-[#d946ef]">STARTUP</span> SCHOOL
@@ -86,12 +86,12 @@ export function Footer() {
                 </div>
 
                 {/* Nav Links */}
-                <div className="flex flex-wrap gap-x-6 gap-y-2 mb-8 border-t border-white/5 pt-8">
+                <div className="flex flex-wrap justify-center md:justify-start gap-x-6 gap-y-3 mb-8 border-t border-white/5 pt-8">
                     {NAV_LINKS.map((link) => (
                         <Link
                             key={link.href}
                             href={link.href}
-                            className="text-sm text-white/40 hover:text-white transition-colors font-medium"
+                            className="text-sm text-white/40 hover:text-white transition-colors font-medium text-center"
                         >
                             {link.label}
                         </Link>

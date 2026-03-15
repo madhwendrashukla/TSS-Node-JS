@@ -22,6 +22,10 @@ export const metadata: Metadata = {
   description: "An alternate B-School for all Aspiring Founders. Bridging the 4 deadly gaps of Learning, Access, Mentoring, and Community.",
   keywords: ["Startup School", "Founder", "Incubator", "Entrepreneurship", "Business School", "Startups India", "Mentorship"],
   authors: [{ name: "Gaurav Bansal" }],
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     title: "The Startup School | An Alternate B-School",
     description: "An alternate B-School for all Aspiring Founders. Bridging the 4 deadly gaps of Learning, Access, Mentoring, and Community.",
@@ -42,6 +46,10 @@ export const metadata: Metadata = {
     title: "The Startup School | An Alternate B-School",
     description: "An alternate B-School for all Aspiring Founders.",
     creator: "@TheStartupSchool",
+  },
+  icons: {
+    icon: '/logo.png',
+    apple: '/logo.png',
   },
 };
 

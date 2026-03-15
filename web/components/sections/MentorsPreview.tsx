@@ -9,7 +9,7 @@ const MentorCard = ({ mentor }: { mentor: MentorProfile }) => (
             <img
                 src={mentor.image}
                 alt={mentor.name}
-                className="w-full h-full rounded-full object-cover filter grayscale group-hover:grayscale-0 transition duration-700"
+                className="w-full h-full rounded-full object-cover group-hover:scale-110 group-hover:brightness-110 transition duration-700"
                 onError={(e) => { e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(mentor.name)}&background=1E293B&color=8B5CF6&size=200&font-size=0.33`; }}
             />
         </div>
@@ -42,10 +42,10 @@ export function MentorsPreview() {
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <div className="text-center mb-10 md:mb-20">
 
-                    <h2 className="text-3xl md:text-5xl font-black text-white tracking-[-0.04em] mb-6">
+                    <h2 className="text-2xl md:text-5xl font-black text-white tracking-[-0.04em] mb-4 md:mb-6">
                         Learn from <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">Masters.</span>
                     </h2>
-                    <p className="text-lg md:text-2xl text-text-secondary font-light max-w-2xl mx-auto">
+                    <p className="text-base md:text-2xl text-text-secondary font-light max-w-2xl mx-auto">
                         Get mentored by industry titans
                     </p>
                 </div>

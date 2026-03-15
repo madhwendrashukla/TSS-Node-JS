@@ -63,20 +63,7 @@ export const mentorsData: MentorProfile[] = [
         image: "/akash.jpeg",
         linkedinUrl: "https://www.linkedin.com/in/akashkansal/"
     },
-    {
-        name: "Upyukt Prakash",
-        title: "Senior Principal Consultant",
-        credentials: ["Senior Principal Consultant at Oracle with 18+ years of experience in project management, process transformation, and Lean Six Sigma, previously contributing at Tata Consultancy Services and Thales Avionics USA."],
-        image: "/upkyut.png",
-        linkedinUrl: "https://www.linkedin.com/in/upyukt-prakash-mater-black-belt-six-sigma-0b821514/"
-    },
-    {
-        name: "Pawan Mishra",
-        title: "Ex-Co-founder",
-        credentials: ["Software Engineer at PhonePe, previously SDE-2 at Blinkit and Co-Founder of Fashn.me, with a strong foundation in building scalable consumer tech products. Combines startup experience with high-growth product engineering expertise."],
-        image: "/pawan.jpg",
-        linkedinUrl: "https://www.linkedin.com/in/pawan-mishra-2910/"
-    },
+
     {
         name: "Deric Karunesudas",
         title: "Cybersecurity Leader & Investor",

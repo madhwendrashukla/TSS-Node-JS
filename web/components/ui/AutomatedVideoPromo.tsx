@@ -141,7 +141,7 @@ export function AutomatedVideoPromo() {
                     {/* Scene 1: The Hook */}
                     {currentScene === 0 && (
                         <div className="flex flex-col items-center animate-in fade-in zoom-in duration-700">
-                            <h1 className="text-4xl sm:text-5xl md:text-5xl font-black tracking-[-0.04em] text-white leading-[1.1] md:leading-[0.9] mb-6 md:mb-8">
+                            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-[-0.04em] text-white leading-[1.1] md:leading-[0.9] mb-4 md:mb-8">
                                 Stop <span className="text-white/40">Ideating.</span><br />
                                 Start <span className="gradient-text">Building.</span>
                             </h1>
@@ -155,7 +155,7 @@ export function AutomatedVideoPromo() {
                     {currentScene === 1 && (
                         <div className="flex flex-col items-center max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-8 duration-700">
                             <div className="text-accent-blue text-sm font-bold tracking-[0.2em] uppercase mb-4">The Bridge</div>
-                            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-6 md:mb-8 leading-tight text-center">
+                            <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-white tracking-tight mb-4 md:mb-8 leading-tight text-center">
                                 The 0 &rarr; 1 Bridge <br />
                                 <span className="text-white/40">Where Founders Are Built.</span>
                             </h2>
@@ -169,9 +169,9 @@ export function AutomatedVideoPromo() {
                     {currentScene === 2 && (
                         <div className="flex flex-col items-center max-w-4xl mx-auto px-4 w-full animate-in fade-in slide-in-from-bottom-8 duration-700">
                             <div className="text-accent-violet text-xs md:text-sm font-bold tracking-[0.2em] uppercase mb-4 text-center">The Roadmap</div>
-                            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-8 md:mb-10 leading-snug md:leading-tight text-center">
+                            <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-white tracking-tight mb-6 md:mb-10 leading-snug md:leading-tight text-center">
                                 3 days of ignition sprint <br />
-                                <span className="text-white/40 text-xl md:text-3xl block my-3 md:my-5">to</span>
+                                <span className="text-white/40 text-lg md:text-3xl block my-2 md:my-5">to</span>
                                 <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">100 days of Deep Dive Immersion cohorts</span>
                             </h2>
                             <p className="text-xl md:text-2xl text-text-secondary font-light italic">
@@ -192,28 +192,28 @@ export function AutomatedVideoPromo() {
                                     <div className="w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-xl md:rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center mb-3 md:mb-5 text-accent-blue">
                                         <BookOpen size={20} className="md:w-6 md:h-6 lg:w-7 lg:h-7" />
                                     </div>
-                                    <h4 className="text-white font-bold text-sm md:text-lg lg:text-xl text-center leading-tight">Learn Frameworks</h4>
+                                    <h4 className="text-white font-bold text-xs sm:text-sm md:text-lg lg:text-xl text-center leading-tight">Learn Frameworks</h4>
                                 </div>
 
                                 <div className="glass-card flex flex-col items-center justify-center p-4 md:p-6 lg:p-8 rounded-2xl md:rounded-3xl border border-accent-violet/30 bg-accent-violet/5 backdrop-blur-md shadow-[0_0_30px_rgba(168,85,247,0.1)] hover:bg-accent-violet/10 transition-colors">
                                     <div className="w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-xl md:rounded-2xl bg-accent-violet/20 border border-accent-violet/20 flex items-center justify-center mb-3 md:mb-5 text-accent-violet">
                                         <Users size={20} className="md:w-6 md:h-6 lg:w-7 lg:h-7" />
                                     </div>
-                                    <h4 className="text-white font-bold text-sm md:text-lg lg:text-xl text-center leading-tight">Find Mentors</h4>
+                                    <h4 className="text-white font-bold text-xs sm:text-sm md:text-lg lg:text-xl text-center leading-tight">Find Mentors</h4>
                                 </div>
 
                                 <div className="glass-card flex flex-col items-center justify-center p-4 md:p-6 lg:p-8 rounded-2xl md:rounded-3xl border border-white/10 bg-bg-main/40 backdrop-blur-md hover:bg-white/5 transition-colors">
                                     <div className="w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-xl md:rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center mb-3 md:mb-5 text-amber-400">
                                         <Wrench size={20} className="md:w-6 md:h-6 lg:w-7 lg:h-7" />
                                     </div>
-                                    <h4 className="text-white font-bold text-sm md:text-lg lg:text-xl text-center leading-tight">Explore Tools</h4>
+                                    <h4 className="text-white font-bold text-xs sm:text-sm md:text-lg lg:text-xl text-center leading-tight">Explore Tools</h4>
                                 </div>
 
                                 <div className="glass-card flex flex-col items-center justify-center p-4 md:p-6 lg:p-8 rounded-2xl md:rounded-3xl border border-white/10 bg-bg-main/40 backdrop-blur-md hover:bg-white/5 transition-colors">
                                     <div className="w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-xl md:rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center mb-3 md:mb-5 text-green-400">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-blocks md:w-6 md:h-6 lg:w-7 lg:h-7"><rect width="7" height="7" x="14" y="3" rx="1" /><path d="M10 21V8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1H3" /></svg>
                                     </div>
-                                    <h4 className="text-white font-bold text-sm md:text-lg lg:text-xl text-center leading-tight">Build Together</h4>
+                                    <h4 className="text-white font-bold text-xs sm:text-sm md:text-lg lg:text-xl text-center leading-tight">Build Together</h4>
                                 </div>
                             </div>
 

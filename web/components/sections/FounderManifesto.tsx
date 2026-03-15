@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 const ShayariBlock = () => (
     <div className="relative mb-10">
-        <h3 className="text-2xl md:text-4xl font-bold text-white leading-[1.4] tracking-tight relative z-10">
+        <h3 className="text-xl md:text-4xl font-bold text-white leading-[1.4] tracking-tight relative z-10">
             “दिल में हो आग तो जलती रहनी चाहिए,<br />
             तेरा हो चाहे मेरा,<br />
             <span className="text-[#a855f7]">सपना ज़िंदा रहना चाहिए!</span>”
@@ -34,10 +34,10 @@ const AchievementsList = () => {
             {/* Block 2: IIM Rohtak */}
             <div className="bg-bg-surface border border-white/5 rounded-2xl p-6 hover:border-accent-violet/50 transition duration-500 group flex flex-col shadow-lg shadow-black/20">
                 <h3 className="text-base font-bold text-white mb-4 text-center tracking-tight">IIM ROHTAK: JUDGE & MENTOR</h3>
-                <div className="aspect-video bg-bg-main rounded-xl mb-5 flex items-center justify-center border border-white/5 group-hover:border-accent-violet/50 transition relative overflow-hidden">
+                <div className="aspect-video bg-bg-main rounded-xl mb-3 md:mb-5 flex items-center justify-center border border-white/5 group-hover:border-accent-violet/50 transition relative overflow-hidden">
                     <img src="/iimrohtak.jpg" alt="Judge and Mentor at IIM Rohtak" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition duration-700" />
                 </div>
-                <p className="text-text-secondary text-xs mb-5 leading-relaxed font-light flex-grow">
+                <p className="text-text-secondary text-xs mb-4 md:mb-5 leading-relaxed font-light flex-grow">
                     Invited as a Judge and Mentor at IIM Rohtak. Evaluating innovative startups, providing critical feedback on pitches, and guiding aspiring founders on their journey from concept to scale.
                 </p>
                 <a href="https://www.linkedin.com/in/gauravbansal2/details/featured/" target="_blank" rel="noopener noreferrer" className="block w-full text-center bg-white/5 border border-white/10 text-text-primary text-sm font-semibold py-3 rounded-xl hover:bg-white hover:text-black transition duration-300 mt-auto">
@@ -87,7 +87,7 @@ const AchievementsList = () => {
 
 function EnglishTextComponent() {
     return (
-        <div className="text-lg md:text-xl text-[#A1A1A6] leading-[1.6] space-y-6 font-light relative z-10 opacity-90">
+        <div className="text-base md:text-xl text-[#A1A1A6] leading-[1.6] space-y-4 md:space-y-6 font-light relative z-10 opacity-90">
             <p>Startups in India aren't built in garages; they are built at <strong className="text-white font-semibold">kitchen tables</strong> amidst family debates, silent sacrifices, and financial anxiety.</p>
 
             <p>In a country like <strong className="text-white font-semibold uppercase tracking-wider">BHARAT</strong>, the “Opportunity Cost” isn't just a line on a spreadsheet — it is a weight on a founder’s soul.</p>
@@ -124,7 +124,7 @@ export function FounderManifesto() {
             <div className="max-w-4xl mx-auto px-6 relative z-10">
                 {/* Header Section */}
                 <div className="mb-12">
-                    <div className="inline-block mb-8">
+                    <div className="text-center flex justify-center w-full mb-10">
                         <span className="text-[10px] md:text-xs font-black tracking-[0.2em] uppercase px-4 py-1.5 rounded-full border border-[#a855f7]/20 bg-[#a855f7]/5 text-[#a855f7]">THE FOUNDER’S MANIFESTO</span>
                     </div>
 
@@ -133,8 +133,7 @@ export function FounderManifesto() {
                             <img
                                 src="/gaurav.jpg"
                                 alt="Gaurav Bansal"
-                                className="w-full h-full rounded-full object-cover filter grayscale"
-                            />
+                                className="w-full h-full rounded-full object-cover group-hover:scale-110 group-hover:brightness-110 transition duration-700"                            />
                         </div>
                         <div>
                             <h4 className="text-2xl md:text-3xl font-bold text-white tracking-tight">Gaurav Bansal</h4>
@@ -146,14 +145,14 @@ export function FounderManifesto() {
                 </div>
 
                 {/* Manifesto Text with Side Border */}
-                <div className="border-l-[3px] md:border-l-[4px] border-[#a855f7] pl-8 md:pl-12 py-3">
+                <div className="border-l-[3px] md:border-l-[4px] border-[#a855f7] pl-5 md:pl-12 py-3 pb-16">
                     <ShayariBlock />
                     <EnglishTextComponent />
                 </div>
             </div>
 
             {/* Achievements Grid */}
-            <div className="max-w-7xl mx-auto px-6 relative z-10 w-full pt-10 border-t border-white/5">
+            <div className="max-w-7xl mx-auto px-6 relative z-10 w-full mt-10 pt-10 border-t border-white/5">
                 <div className="text-center mb-16">
                     <p className="text-text-secondary max-w-3xl mx-auto text-lg mt-4">
                         This school is not built on theory. It is built on lived experience, scars, and lessons earned the hard way.

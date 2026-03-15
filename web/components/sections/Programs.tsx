@@ -10,7 +10,7 @@ export function Programs() {
                     <span className="text-accent-violet text-xs font-bold tracking-[0.2em] uppercase mb-4 block">
                         Now Accepting Applications
                     </span>
-                    <h2 className="text-3xl md:text-4xl font-black text-white tracking-[-0.04em] mb-5">
+                    <h2 className="text-2xl md:text-4xl font-black text-white tracking-[-0.04em] mb-3 md:mb-5">
                         Programs <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">Launching Soon.</span>
                     </h2>
                 </div>
@@ -19,7 +19,7 @@ export function Programs() {
                 <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 mb-20 items-stretch">
 
                     {/* Program 1 */}
-                    <div className="glass-card hover-glow rounded-[2rem] p-8 sm:p-10 lg:p-14 border border-white/5 flex flex-col justify-between group h-full">
+                    <div className="glass-card hover-glow rounded-[2rem] p-6 sm:p-10 lg:p-14 border border-white/5 flex flex-col justify-between group h-full">
                         <div>
                             <div className="text-accent-blue text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase mb-8">PROGRAM I</div>
                             <h3 className="text-2xl md:text-3xl font-black text-white tracking-[-0.04em] mb-6 leading-tight">The Spark:<br />3-Day Ignition Sprint</h3>
@@ -44,7 +44,7 @@ export function Programs() {
                     </div>
 
                     {/* Program 2 */}
-                    <div className="glass-card hover-glow rounded-[2rem] p-8 sm:p-10 lg:p-14 border border-accent-violet/30 flex flex-col justify-between group h-full relative overflow-hidden">
+                    <div className="glass-card hover-glow rounded-[2rem] p-6 sm:p-10 lg:p-14 border border-accent-violet/30 flex flex-col justify-between group h-full relative overflow-hidden">
                         <div className="absolute inset-0 bg-gradient-to-br from-accent-violet/5 to-transparent z-0 pointer-events-none"></div>
                         <div className="relative z-10 flex flex-col h-full">
                             <div>

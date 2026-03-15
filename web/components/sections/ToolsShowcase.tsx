@@ -40,7 +40,7 @@ function PitchDeckCard({ item }: { item: GlobalPitchDeck }) {
     }
 
     return (
-        <a href={item.fileUrl} target="_blank" rel="noopener noreferrer" className="flex flex-col flex-shrink-0 w-[85vw] sm:w-[280px] md:w-[320px] h-[280px] mx-2 md:mx-3 glass-card rounded-2xl p-6 bg-bg-surface border border-white/5 hover:border-accent-blue/30 hover:shadow-[0_0_30px_rgba(100,150,255,0.15)] hover:-translate-y-2 transition-all duration-300 ease-out cursor-pointer relative overflow-hidden group">
+        <a href={item.fileUrl} target="_blank" rel="noopener noreferrer" className="flex flex-col flex-shrink-0 w-[85vw] sm:w-[280px] md:w-[320px] min-h-[280px] h-auto mx-2 md:mx-3 glass-card rounded-2xl p-6 bg-bg-surface border border-white/5 hover:border-accent-blue/30 hover:shadow-[0_0_30px_rgba(100,150,255,0.15)] hover:-translate-y-2 transition-all duration-300 ease-out cursor-pointer relative overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-tr from-accent-blue/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
             <div className="flex flex-col h-full relative z-10">
                 <div className="flex items-center gap-3 mb-4 shrink-0">
@@ -90,7 +90,7 @@ function PitchDeckCard({ item }: { item: GlobalPitchDeck }) {
 // ─── 2. Event Cards ─────────────────────────────────────────────────
 function EventCard({ item }: { item: FounderEvent }) {
     return (
-        <a href={"/tools/founder-calendar"} className="flex flex-col flex-shrink-0 w-[85vw] sm:w-[300px] md:w-[340px] h-[360px] mx-2 md:mx-3 glass-card rounded-2xl p-6 bg-bg-surface border border-white/5 hover:border-accent-violet/30 hover:shadow-[0_0_30px_rgba(139,92,246,0.15)] hover:-translate-y-2 transition-all duration-300 ease-out cursor-pointer relative overflow-hidden group">
+        <a href={"/tools/founder-calendar"} className="flex flex-col flex-shrink-0 w-[85vw] sm:w-[300px] md:w-[340px] min-h-[360px] h-auto mx-2 md:mx-3 glass-card rounded-2xl p-6 bg-bg-surface border border-white/5 hover:border-accent-violet/30 hover:shadow-[0_0_30px_rgba(139,92,246,0.15)] hover:-translate-y-2 transition-all duration-300 ease-out cursor-pointer relative overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-br from-accent-violet/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
             <div className="flex flex-col h-full relative z-10">
                 <div className="flex items-center gap-3 mb-4 shrink-0">
@@ -159,7 +159,7 @@ const ALL_TOOLS = [
 
 function BasicToolCard({ item }: { item: typeof ALL_TOOLS[0] }) {
     return (
-        <div className={`flex flex-col justify-between flex-shrink-0 w-[85vw] sm:w-[300px] md:w-[360px] h-[180px] mx-2 md:mx-4 glass-card rounded-2xl p-6 border transition-all duration-300 relative overflow-hidden group ${item.active ? 'bg-bg-main/60 border-white/5 hover:border-accent-blue/30 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(100,150,255,0.15)]' : 'bg-[#0F111A] border-green-500/20 cursor-not-allowed border-dashed opacity-80 hover:border-green-500/40'}`}>
+        <div className={`flex flex-col justify-between flex-shrink-0 w-[85vw] sm:w-[300px] md:w-[360px] min-h-[180px] h-auto mx-2 md:mx-4 glass-card rounded-2xl p-6 border transition-all duration-300 relative overflow-hidden group ${item.active ? 'bg-bg-main/60 border-white/5 hover:border-accent-blue/30 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(100,150,255,0.15)]' : 'bg-[#0F111A] border-green-500/20 cursor-not-allowed border-dashed opacity-80 hover:border-green-500/40'}`}>
             {item.active ? (
                 <Link href={item.href} className="absolute inset-0 z-20" />
             ) : null}

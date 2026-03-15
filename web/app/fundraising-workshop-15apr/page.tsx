@@ -10,7 +10,7 @@ import { WorkshopPricing } from './WorkshopPricing';
 import { WorkshopFinal } from './WorkshopFinal';
 
 export const metadata: Metadata = {
-    title: 'The Startup School | Raise Capital With Clarity',
+    title: 'Fundraising Workshop 15 Apr | The Startup School',
     description: 'Stop guessing what investors want. Join the live, cohort-based program that transforms passionate builders into investable founders.',
 };
 
@@ -53,22 +53,7 @@ export default function WorkshopPage() {
             <WorkshopPricing />
             <WorkshopFinal />
 
-            {/* Footer */}
-            <footer className="bg-[#0f172a] py-10 md:py-12 border-t border-white/5 text-center relative z-10">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex items-center justify-center gap-2 md:gap-3 mb-4 md:mb-6">
-                        <img src="/logo.png" alt="The Startup School Logo" className="w-6 h-6 md:w-8 md:h-8 rounded-md opacity-80 object-cover" />
-                        <span className="text-white font-bold tracking-widest uppercase text-base md:text-lg">The <span className="bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] bg-clip-text text-transparent">Startup</span> School</span>
-                    </div>
-                    <p className="text-slate-500 text-xs md:text-sm font-medium mb-4 md:mb-0">
-                        &copy; 2026 The Startup School. All rights reserved.
-                    </p>
-                    <div className="mt-2 md:mt-6 flex justify-center gap-4 md:gap-6 text-xs md:text-sm text-slate-500 font-medium">
-                        <Link href="/privacy-policy" className="hover:text-[#d946ef] transition-colors">Privacy Policy</Link>
-                        <Link href="/terms-of-use" className="hover:text-[#8b5cf6] transition-colors">Terms of Service</Link>
-                    </div>
-                </div>
-            </footer>
+
         </div>
     );
 }

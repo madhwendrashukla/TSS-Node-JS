@@ -5,7 +5,7 @@ import { X, MessageSquare, Bot, ExternalLink } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 const WHATSAPP_LINK = 'https://chat.whatsapp.com/BJ5RIXujFJG7ceB06nVqa4';
-const WORKSHOP_LINK = '/workshop'; // redirect to workshop page
+const WORKSHOP_LINK = '/fundraising-workshop-15apr'; // redirect to workshop page
 
 import { BookOpen, CalendarDays } from 'lucide-react';
 
@@ -43,7 +43,7 @@ function IdleNotifications({ onDismiss }: { onDismiss: (id: string) => void }) {
                 <span className="text-lg">🎤</span>
                 <div className="flex-1 min-w-0">
                     <p className="text-white text-xs font-semibold truncate group-hover:text-accent-violet transition-colors">Fundraising Workshop</p>
-                    <p className="text-text-tertiary text-[10px] truncate">Upcoming · Register free</p>
+                    <p className="text-text-tertiary text-[10px] truncate">Upcoming · Register Now</p>
                 </div>
                 <button
                     onClick={(e) => { e.stopPropagation(); onDismiss('workshop'); }}
@@ -266,7 +266,7 @@ export default function DirectoryAdvisorBot() {
                                 <span className="text-xl shrink-0">🎤</span>
                                 <div>
                                     <p className="text-accent-violet text-sm font-bold leading-tight">Fundraising Workshop</p>
-                                    <p className="text-text-tertiary text-[10px]">Upcoming · Free to attend</p>
+                                    <p className="text-text-tertiary text-[10px]">Upcoming · Register Now</p>
                                 </div>
                                 <ExternalLink size={13} className="ml-auto text-accent-violet/50 group-hover:text-accent-violet" />
                             </button>

@@ -1,6 +1,6 @@
 'use client';
 
-import { JargonsWordCloud } from './JargonsWordCloud';
+
 
 export function WorkshopWhyUs() {
     const items = [
@@ -22,8 +22,12 @@ export function WorkshopWhyUs() {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
                 <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
-                    <div className="relative animate-[float_6s_ease-in-out_infinite]">
-                        <JargonsWordCloud />
+                    <div className="relative animate-[float_6s_ease-in-out_infinite] px-4 md:px-0 flex justify-center items-center w-full">
+                        <div className="w-full max-w-[500px] rounded-2xl md:rounded-3xl p-[3px] bg-gradient-to-br from-[#8b5cf6] to-[#d946ef] shadow-[0_0_30px_rgba(217,70,239,0.15)]">
+                            <div className="bg-[#0f172a] rounded-[13px] md:rounded-[21px] w-full h-full flex justify-center items-center p-2 md:p-4">
+                                <img src="/jargons.png" alt="Startup Jargons" className="w-full h-auto object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500" />
+                            </div>
+                        </div>
                     </div>
 
                     <div className="text-center md:text-left">

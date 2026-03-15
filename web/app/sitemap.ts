@@ -3,30 +3,29 @@ import { MetadataRoute } from 'next';
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://thestartupschool.in';
 
-    return [
-        {
-            url: baseUrl,
-            lastModified: new Date(),
-            changeFrequency: 'yearly',
-            priority: 1,
-        },
-        {
-            url: `${baseUrl}/events`,
-            lastModified: new Date(),
-            changeFrequency: 'monthly',
-            priority: 0.8,
-        },
-        {
-            url: `${baseUrl}/tools`,
-            lastModified: new Date(),
-            changeFrequency: 'monthly',
-            priority: 0.8,
-        },
-        {
-            url: `${baseUrl}/workshop`,
-            lastModified: new Date(),
-            changeFrequency: 'weekly',
-            priority: 0.9,
-        },
+    const routes = [
+        '',
+        '/about',
+        '/events',
+        '/mentors',
+        '/programs',
+        '/tools',
+        '/tools/cap-table-simulator',
+        '/tools/financial-modeler',
+        '/tools/founder-calendar',
+        '/tools/pitch-decks',
+        '/tools/incubators-accelerators',
+        '/tools/incubator-search',
+        '/tools/incubator-search/investors',
+        '/tools/incubator-search/grants',
+        '/privacy-policy',
+        '/terms-of-use',
     ];
+
+    return routes.map((route) => ({
+        url: `${baseUrl}${route}`,
+        lastModified: new Date(),
+        changeFrequency: route === '' ? 'yearly' : 'monthly',
+        priority: route === '' ? 1 : route.startsWith('/tools/') ? 0.8 : route.startsWith('/privacy') || route.startsWith('/terms') ? 0.5 : 0.9,
+    }));
 }

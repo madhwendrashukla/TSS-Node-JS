@@ -47,7 +47,7 @@ export default function EventsPage() {
                                         <i className="fas fa-map-marker-alt text-accent-blue w-6"></i> Live Cohort (Online)
                                     </div>
                                 </div>
-                                <Link href="/workshop" className="w-full sm:w-auto bg-white hover:bg-gray-200 text-black px-8 py-3 rounded-full font-bold transition duration-300 text-center">
+                                <Link href="/fundraising-workshop-15apr" className="w-full sm:w-auto bg-white hover:bg-gray-200 text-black px-8 py-3 rounded-full font-bold transition duration-300 text-center">
                                     RSVP Now
                                 </Link>
                             </div>

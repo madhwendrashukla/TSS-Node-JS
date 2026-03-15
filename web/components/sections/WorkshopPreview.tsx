@@ -6,7 +6,7 @@ export function WorkshopPreview() {
 
     return (
         <a 
-            href="/workshop" 
+            href="/fundraising-workshop-15apr" 
             className="block w-full mx-auto rounded-[32px] md:rounded-[48px] overflow-hidden border border-white/5 shadow-[0_0_80px_rgba(139,92,246,0.15)] hover:shadow-[0_0_120px_rgba(168,85,247,0.25)] bg-[#0B0F19] transition-all duration-700 hover:scale-[1.02] cursor-pointer group mt-10 relative isolate"
         >
             {/* Background Grid */}

@@ -45,16 +45,16 @@ export function Contact() {
                     <span className="text-text-secondary text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase mb-6 block">APPLY NOW</span>
                     <div className="flex flex-col items-center justify-center gap-1 md:gap-2">
                         <span className={`${kalam.className} text-3xl md:text-5xl font-bold`}>
-                            <span className="text-white">HAI </span>
-                            <span className="text-[#a855f7]">KEEDA ?</span>
+                            <span className="text-white">HAI</span>
+                            <span className="ml-2 bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] bg-clip-text text-transparent">KEEDA?</span>
                         </span>
                         <span className={`${kalam.className} text-3xl md:text-5xl font-bold`}>
-                            <span className="text-white">HAI </span>
-                            <span className="text-[#a855f7]">HIMMAT ?</span>
+                            <span className="text-white">HAI</span>
+                            <span className="ml-2 bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] bg-clip-text text-transparent">HIMMAT?</span>
                         </span>
                         <span className={`${kalam.className} text-2xl md:text-4xl font-bold pt-2`}>
-                            <span className="text-white/90">TO KAR </span>
-                            <span className="text-[#a855f7]">STARTUP !</span>
+                            <span className="text-white/90">TO KAR</span>
+                            <span className="ml-2 bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] bg-clip-text text-transparent">STARTUP!</span>
                         </span>
                     </div>
                 </div>
