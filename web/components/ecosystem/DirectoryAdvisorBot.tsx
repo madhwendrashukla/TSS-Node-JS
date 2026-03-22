@@ -17,39 +17,43 @@ const TOOLS = [
 /* ── Idle notification bubbles shown near FAB when chat is closed ──────────── */
 function IdleNotifications({ onDismiss }: { onDismiss: (id: string) => void }) {
     return (
-        <div className="flex flex-col items-end gap-2 mb-3">
+        <div className="flex flex-col items-end gap-3 mb-4">
             {/* WhatsApp community */}
-            <div className="flex items-center gap-2 bg-bg-surface/95 backdrop-blur border border-[#25D366]/40 rounded-2xl px-4 py-2.5 shadow-xl max-w-[260px] group animate-in slide-in-from-right-4 fade-in duration-300 cursor-pointer hover:border-[#25D366]/70 transition-colors">
-                <span className="text-lg">💬</span>
+            <div className="flex items-center gap-3 bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-2xl px-5 py-4 shadow-[0_20px_50px_rgba(0,0,0,0.3)] max-w-[280px] group animate-in slide-in-from-right-8 fade-in duration-500 cursor-pointer hover:bg-white/[0.06] hover:border-[#25D366]/30 transition-all">
+                <div className="w-10 h-10 rounded-full bg-[#25D366]/10 flex items-center justify-center shrink-0 border border-[#25D366]/20">
+                    <span className="text-lg">💬</span>
+                </div>
                 <div 
                     onClick={() => window.open(WHATSAPP_LINK, '_blank')}
                     className="flex-1 min-w-0"
                 >
-                    <p className="text-white text-xs font-semibold truncate">Join Founder Community</p>
-                    <p className="text-text-tertiary text-[10px] truncate">Connect on WhatsApp</p>
+                    <p className="text-white text-sm font-bold truncate tracking-tight">Join Founder Community</p>
+                    <p className="text-[#25D366] text-[11px] font-medium opacity-80 truncate">Connect on WhatsApp</p>
                 </div>
                 <button
-                    onClick={() => onDismiss('whatsapp')}
-                    className="text-white/30 hover:text-white transition-colors shrink-0"
+                    onClick={(e) => { e.stopPropagation(); onDismiss('whatsapp'); }}
+                    className="p-1.5 rounded-full hover:bg-white/10 text-white/30 hover:text-white transition-all shrink-0"
                 >
-                    <X size={12} />
+                    <X size={14} />
                 </button>
             </div>
             {/* Workshop notification */}
             <div 
                 onClick={() => { onDismiss('workshop'); window.location.href = WORKSHOP_LINK; }}
-                className="flex items-center gap-2 bg-bg-surface/95 backdrop-blur border border-accent-violet/40 rounded-2xl px-4 py-2.5 shadow-xl max-w-[260px] animate-in slide-in-from-right-4 fade-in duration-500 cursor-pointer hover:border-accent-violet/70 transition-colors group"
+                className="flex items-center gap-3 bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-2xl px-5 py-4 shadow-[0_20px_50px_rgba(0,0,0,0.3)] max-w-[280px] animate-in slide-in-from-right-8 fade-in duration-700 delay-150 cursor-pointer hover:bg-white/[0.06] hover:border-accent-violet/30 transition-all group"
             >
-                <span className="text-lg">🎤</span>
+                <div className="w-10 h-10 rounded-full bg-accent-violet/10 flex items-center justify-center shrink-0 border border-accent-violet/20">
+                    <span className="text-lg">🎤</span>
+                </div>
                 <div className="flex-1 min-w-0">
-                    <p className="text-white text-xs font-semibold truncate group-hover:text-accent-violet transition-colors">Fundraising Workshop</p>
-                    <p className="text-text-tertiary text-[10px] truncate">Upcoming · Register Now</p>
+                    <p className="text-white text-sm font-bold truncate group-hover:text-accent-violet transition-colors tracking-tight">Fundraising Workshop</p>
+                    <p className="text-accent-violet text-[11px] font-medium opacity-80 truncate">Upcoming · Register Now</p>
                 </div>
                 <button
                     onClick={(e) => { e.stopPropagation(); onDismiss('workshop'); }}
-                    className="text-white/30 hover:text-white transition-colors shrink-0"
+                    className="p-1.5 rounded-full hover:bg-white/10 text-white/30 hover:text-white transition-all shrink-0"
                 >
-                    <X size={12} />
+                    <X size={14} />
                 </button>
             </div>
         </div>

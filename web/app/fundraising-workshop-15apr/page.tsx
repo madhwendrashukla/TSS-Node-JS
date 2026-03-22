@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
+import Script from 'next/script';
 import { WorkshopHero } from './WorkshopHero';
 import { WorkshopOutcome } from './WorkshopOutcome';
 import { WorkshopWhyUs } from './WorkshopWhyUs';
@@ -53,6 +54,14 @@ export default function WorkshopPage() {
             <WorkshopPricing />
             <WorkshopFinal />
 
+            {/* Kickkers AI Chatbot - specific to this page */}
+            <Script
+                src="https://staging.kickkers.com/embed.js"
+                data-agent="the-startup-school"
+                data-org="kickkers"
+                data-key="pk_live_ECitqFT5llOT1FLlcqVpbLxwENZJXHxo"
+                strategy="lazyOnload"
+            />
 
         </div>
     );

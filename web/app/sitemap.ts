@@ -9,6 +9,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/events',
         '/mentors',
         '/programs',
+        '/gaurav-bansal',
+        '/fundraising-workshop-15apr',
+        '/founders-dating-14feb26',
         '/tools',
         '/tools/cap-table-simulator',
         '/tools/financial-modeler',
@@ -26,6 +29,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url: `${baseUrl}${route}`,
         lastModified: new Date(),
         changeFrequency: route === '' ? 'yearly' : 'monthly',
-        priority: route === '' ? 1 : route.startsWith('/tools/') ? 0.8 : route.startsWith('/privacy') || route.startsWith('/terms') ? 0.5 : 0.9,
+        priority:
+            route === '' ? 1 :
+            route === '/about' || route === '/programs' || route === '/mentors' ? 0.9 :
+            route === '/gaurav-bansal' || route === '/events' ? 0.8 :
+            route === '/fundraising-workshop-15apr' || route === '/founders-dating-14feb26' ? 0.7 :
+            route.startsWith('/tools/') ? 0.8 :
+            route.startsWith('/privacy') || route.startsWith('/terms') ? 0.5 : 0.9,
     }));
 }
+

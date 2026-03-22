@@ -7,9 +7,9 @@ export function Programs() {
                 
                 {/* Header */}
                 <div className="text-center mb-16">
-                    <span className="text-accent-violet text-xs font-bold tracking-[0.2em] uppercase mb-4 block">
-                        Now Accepting Applications
-                    </span>
+                    <div className="mb-4 text-lg md:text-xl font-bold tracking-tight text-white/90">
+                        For all those who have <span className="bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] bg-clip-text text-transparent">"KEEDA"</span> and <span className="bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] bg-clip-text text-transparent">"HIMMAT"</span> :
+                    </div>
                     <h2 className="text-2xl md:text-4xl font-black text-white tracking-[-0.04em] mb-3 md:mb-5">
                         Programs <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))]">Launching Soon.</span>
                     </h2>

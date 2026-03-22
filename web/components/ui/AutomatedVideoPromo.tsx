@@ -81,14 +81,14 @@ export function AutomatedVideoPromo() {
     const [currentScene, setCurrentScene] = useState(0);
     const [isFadingOut, setIsFadingOut] = useState(false);
     const totalScenes = 4;
-    const sceneDurationMs = 5000;
+    const sceneDurationMs = 3000;
 
     const [currentBg, setCurrentBg] = useState(0);
 
     useEffect(() => {
         const bgInterval = setInterval(() => {
             setCurrentBg((prev) => (prev + 1) % HERO_IMAGES.length);
-        }, 5000);
+        }, 3000);
 
         const sceneInterval = setInterval(() => {
             setIsFadingOut(true);

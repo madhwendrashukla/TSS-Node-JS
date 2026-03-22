@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 const ShayariBlock = () => (
     <div className="relative mb-10">
-        <h3 className="text-xl md:text-4xl font-bold text-white leading-[1.4] tracking-tight relative z-10">
+        <h3 className="text-xl md:text-3xl font-bold text-white leading-[1.4] tracking-tight relative z-10">
             “दिल में हो आग तो जलती रहनी चाहिए,<br />
             तेरा हो चाहे मेरा,<br />
             <span className="text-[#a855f7]">सपना ज़िंदा रहना चाहिए!</span>”

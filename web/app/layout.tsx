@@ -3,7 +3,7 @@ import { Inter, Merriweather } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import DirectoryAdvisorBot from "@/components/ecosystem/DirectoryAdvisorBot";
+import ChatBotGate from "@/components/layout/ChatBotGate";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -18,24 +18,25 @@ const merriweather = Merriweather({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://thestartupschool.in"),
-  title: "The Startup School | An Alternate B-School",
+  title: "The Startup School | An Alternate B-School for Aspiring Founders",
   description: "An alternate B-School for all Aspiring Founders. Bridging the 4 deadly gaps of Learning, Access, Mentoring, and Community.",
-  keywords: ["Startup School", "Founder", "Incubator", "Entrepreneurship", "Business School", "Startups India", "Mentorship"],
+  keywords: ["Startup School India", "Entrepreneurship Program India", "Founder Community", "Startup Mentorship", "B-School for Founders", "Startup Incubator India", "Learn Fundraising", "Angel Investors India", "Startup Education", "The Startup School", "Aspiring Founders", "Startup Cohort India", "Business School Alternative"],
   authors: [{ name: "Gaurav Bansal" }],
   robots: {
     index: true,
     follow: true,
   },
   openGraph: {
-    title: "The Startup School | An Alternate B-School",
+    title: "The Startup School | An Alternate B-School for Aspiring Founders",
     description: "An alternate B-School for all Aspiring Founders. Bridging the 4 deadly gaps of Learning, Access, Mentoring, and Community.",
     url: "https://thestartupschool.in",
     siteName: "The Startup School",
     images: [
       {
-        url: "/gaurav.jpg", // Update with an actual OG image later
-        width: 800,
-        height: 600,
+        url: "/icon.png",
+        width: 512,
+        height: 512,
+        alt: "The Startup School Logo",
       },
     ],
     locale: "en_IN",
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "The Startup School | An Alternate B-School",
+    title: "The Startup School | An Alternate B-School for Aspiring Founders",
     description: "An alternate B-School for all Aspiring Founders.",
     creator: "@TheStartupSchool",
   },
@@ -75,7 +76,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <DirectoryAdvisorBot />
+        <ChatBotGate />
       </body>
     </html>
   );
