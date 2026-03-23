@@ -73,6 +73,1518 @@ export function parseEventStringDates(event: FounderEvent): { start: string, end
 export const eventsData: FounderEvent[] = [
   {
     tag: "B2B",
+    eventName: "International Machine Tools Fair 2026",
+    exhibitionCentre: "Chennai Trade Centre",
+    location: "Chennai",
+    startDate: "2-6 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "International Plastics & Polymers 2026",
+    exhibitionCentre: "Chennai Citicentre",
+    location: "Chennai",
+    startDate: "2-6 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "PPEX - International Plastics & Polymers Exhibition",
+    exhibitionCentre: "Chennai Trade Centre",
+    location: "Chennai",
+    startDate: "2-6 Apr",
+    month: "Apr",
+    weblink: "https://ippex.in/"
+  },
+  {
+    tag: "B2B",
+    eventName: "CMAI FAB Show 2026",
+    exhibitionCentre: "Bombay Exhibition Centre",
+    location: "Mumbai",
+    startDate: "2-4 Apr",
+    month: "Apr",
+    weblink: "https://cmai.in/"
+  },
+  {
+    tag: "B2B",
+    eventName: "Eventex Startup Expo 2026",
+    exhibitionCentre: "NIMHANS Convention Centre",
+    location: "Bangalore",
+    startDate: "3-4 Apr",
+    month: "Apr",
+    weblink: "https://10times.com/e1d0-75r0-ghhf-r"
+  },
+  {
+    tag: "B2B",
+    eventName: "India International Fire and Security Expo 2026",
+    exhibitionCentre: "Karnataka Trade Promotion Organisation",
+    location: "Bangalore",
+    startDate: "3-5 Apr",
+    month: "Apr",
+    weblink: "https://10times.com/e1hk-442p-5kps-h-india-international-fire-security-expo"
+  },
+  {
+    tag: "B2B",
+    eventName: "Architecture Building Construction Expo 2026",
+    exhibitionCentre: "Karnataka Trade Promotion Organisation",
+    location: "Bangalore",
+    startDate: "3-5 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Sutraa - The Indian Fashion Exhibition 2026",
+    exhibitionCentre: "Royal Bengal Room",
+    location: "Kolkata",
+    startDate: "3-5 Apr",
+    month: "Apr",
+    weblink: "https://10times.com/sutraa"
+  },
+  {
+    tag: "B2B",
+    eventName: "Kolkata Shopping Expo 2026",
+    exhibitionCentre: "Taltala Ground",
+    location: "Kolkata",
+    startDate: "3-13 Apr",
+    month: "Apr",
+    weblink: "https://10times.com/e1hh-sd01-1r1g-s"
+  },
+  {
+    tag: "B2B",
+    eventName: "United Property Expo Mumbai 2026",
+    exhibitionCentre: "Hotel Sahara Star",
+    location: "Mumbai",
+    startDate: "3-4 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "International Job Fair Bengaluru 2026",
+    exhibitionCentre: "Bangalore Palace",
+    location: "Bangalore",
+    startDate: "4-5 Apr",
+    month: "Apr",
+    weblink: "https://10times.com/e10h-xxph-g0k2-8-international-job-fair-bengaluru"
+  },
+  {
+    tag: "B2B",
+    eventName: "Medicall",
+    exhibitionCentre: "Hitex Exhibition Centre",
+    location: "Hyderabad",
+    startDate: "4-6 Apr",
+    month: "Apr",
+    weblink: "https://www.medicall.in/"
+  },
+  {
+    tag: "B2B",
+    eventName: "ECAMEX 2026",
+    exhibitionCentre: "Bombay Exhibition Centre",
+    location: "Mumbai",
+    startDate: "4-6 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "India Gem & Jewellery Show 2026",
+    exhibitionCentre: "Jio World Convention Centre",
+    location: "Mumbai",
+    startDate: "4-7 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Mobialive Expo 2026",
+    exhibitionCentre: "Bharat Mandapam",
+    location: "Delhi",
+    startDate: "5-6 Apr",
+    month: "Apr",
+    weblink: "https://10times.com/e1hx-241g-d2dd-d-mobialive-expo"
+  },
+  {
+    tag: "B2B",
+    eventName: "India Cyber Security Expo 2026",
+    exhibitionCentre: "Bangalore International Exhibition Centre",
+    location: "Bangalore",
+    startDate: "6-8 Apr",
+    month: "Apr",
+    weblink: "https://www.cybersecindiaexpo.com/"
+  },
+  {
+    tag: "B2B",
+    eventName: "Warehouse Logistics & Material Handling Expo 2026",
+    exhibitionCentre: "Bangalore International Exhibition Centre",
+    location: "Bangalore",
+    startDate: "6-8 Apr",
+    month: "Apr",
+    weblink: "https://www.wlmhexpo.com/"
+  },
+  {
+    tag: "B2B",
+    eventName: "India Automation & Robotics Expo 2026",
+    exhibitionCentre: "Bangalore International Exhibition Centre",
+    location: "Bangalore",
+    startDate: "6-8 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "India Information Technology Expo 2026",
+    exhibitionCentre: "Bangalore International Exhibition Centre",
+    location: "Bangalore",
+    startDate: "6-8 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Interior and Decor Expo 2026",
+    exhibitionCentre: "Bangalore International Exhibition Centre",
+    location: "Bangalore",
+    startDate: "6-8 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "The India Cable and Wire Expo 2026",
+    exhibitionCentre: "Bangalore International Exhibition Centre",
+    location: "Bangalore",
+    startDate: "6-8 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Smart Home & Office Expo 2026",
+    exhibitionCentre: "Bangalore International Exhibition Centre",
+    location: "Bangalore",
+    startDate: "6-8 Apr",
+    month: "Apr",
+    weblink: "https://www.smarthomeandofficeexpo.com/"
+  },
+  {
+    tag: "B2B",
+    eventName: "Professional Beauty Kolkata 2026",
+    exhibitionCentre: "Biswa Bangla Mela Prangan",
+    location: "Kolkata",
+    startDate: "6-7 Apr",
+    month: "Apr",
+    weblink: "https://10times.com/professional-beauty-india-kolkata"
+  },
+  {
+    tag: "B2B",
+    eventName: "Sutraa The Indian Fashion Exhibition Chennai 2026",
+    exhibitionCentre: "Taj Coromandel",
+    location: "Chennai",
+    startDate: "7-8 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "India Rubber Expo 2026",
+    exhibitionCentre: "Bharat Mandapam",
+    location: "Delhi",
+    startDate: "7-10 Apr",
+    month: "Apr",
+    weblink: "https://indiarubberexpo.com/"
+  },
+  {
+    tag: "B2B",
+    eventName: "Pharma Live Expo & Summit 2026",
+    exhibitionCentre: "Nesco Center",
+    location: "Mumbai",
+    startDate: "7-9 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "IBEX India 2026",
+    exhibitionCentre: "Jio World Convention Centre",
+    location: "Mumbai",
+    startDate: "7-8 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "SmartTech Asia 2026",
+    exhibitionCentre: "Jio World Convention Centre",
+    location: "Mumbai",
+    startDate: "7-8 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "GH2 India Exhibition and Conference 2026",
+    exhibitionCentre: "Yashobhoomi",
+    location: "Delhi",
+    startDate: "8-10 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "India Energy Transition Summit & Expo 2026",
+    exhibitionCentre: "Yashobhoomi",
+    location: "Delhi",
+    startDate: "8-10 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Plant Machinery & Technology Expo 2026",
+    exhibitionCentre: "Yashobhoomi",
+    location: "Delhi",
+    startDate: "8-10 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Tank Storage & Terminal Technology Expo 2026",
+    exhibitionCentre: "Yashobhoomi",
+    location: "Delhi",
+    startDate: "8-10 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "International Stainless Steel Expo 2026",
+    exhibitionCentre: "Yashobhoomi",
+    location: "Delhi",
+    startDate: "8-10 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Drone Manufacturing Expo 2026",
+    exhibitionCentre: "Yashobhoomi",
+    location: "Delhi",
+    startDate: "8-10 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "India Process Expo 2026",
+    exhibitionCentre: "Yashobhoomi",
+    location: "Delhi",
+    startDate: "8-10 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "AeroDef India Manufacturing Expo 2026",
+    exhibitionCentre: "Yashobhoomi",
+    location: "Delhi",
+    startDate: "8-10 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Warship Submarine Manufacturing Expo 2026",
+    exhibitionCentre: "Yashobhoomi",
+    location: "Delhi",
+    startDate: "8-10 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "DMME Defence Mobility Manufacturing Expo 2026",
+    exhibitionCentre: "Yashobhoomi",
+    location: "Delhi",
+    startDate: "8-10 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "SmallArms Manufacturing Expo 2026",
+    exhibitionCentre: "Yashobhoomi",
+    location: "Delhi",
+    startDate: "8-10 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Productronica India 2026",
+    exhibitionCentre: "INDIA EXPO CENTRE & MART",
+    location: "Noida",
+    startDate: "8-10 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "electronica India 2026",
+    exhibitionCentre: "INDIA EXPO CENTRE & MART",
+    location: "Noida",
+    startDate: "8-10 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "GRI Offices & Parks India 2026",
+    exhibitionCentre: "JW Marriot Hotel",
+    location: "Bangalore",
+    startDate: "9 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "PHARMATECH & LABTECH EXPO 2026",
+    exhibitionCentre: "Parade Ground",
+    location: "Chandigarh",
+    startDate: "9-11 Apr",
+    month: "Apr",
+    weblink: "https://www.pharmatechexpo.com/"
+  },
+  {
+    tag: "B2B",
+    eventName: "Garment Technology Expo (GTE) New Delhi",
+    exhibitionCentre: "NSIC",
+    location: "Delhi",
+    startDate: "9-10 Apr",
+    month: "Apr",
+    weblink: "https://exhibitionglobe.com/trade-shows-in-india/"
+  },
+  {
+    tag: "B2B",
+    eventName: "Farida Gupta Kolkata Exhibition 2026",
+    exhibitionCentre: "Bela Events & Studio",
+    location: "Kolkata",
+    startDate: "9-11 Apr",
+    month: "Apr",
+    weblink: "https://10times.com/fg-kolkata-exhibition"
+  },
+  {
+    tag: "B2B",
+    eventName: "Gartex Texprocess India 2026",
+    exhibitionCentre: "Bombay Exhibition Centre",
+    location: "Mumbai",
+    startDate: "9-11 Apr",
+    month: "Apr",
+    weblink: "https://www.gartexindia.com/"
+  },
+  {
+    tag: "B2B",
+    eventName: "Denim Show 2026",
+    exhibitionCentre: "Bombay Exhibition Centre",
+    location: "Mumbai",
+    startDate: "9-11 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Media Expo 2026",
+    exhibitionCentre: "Bombay Exhibition Centre",
+    location: "Mumbai",
+    startDate: "9-11 Apr",
+    month: "Apr",
+    weblink: "https://media-expo-mumbai.in.messefrankfurt.com/"
+  },
+  {
+    tag: "B2B",
+    eventName: "Screen Print India Expo 2026",
+    exhibitionCentre: "Bombay Exhibition Centre",
+    location: "Mumbai",
+    startDate: "9-11 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Fabrics & Trims Show 2026",
+    exhibitionCentre: "Bombay Exhibition Centre",
+    location: "Mumbai",
+    startDate: "9-11 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Media Expo Mumbai 2026",
+    exhibitionCentre: "Bombay Exhibition Centre",
+    location: "Mumbai",
+    startDate: "9-11 Apr",
+    month: "Apr",
+    weblink: "https://media-expo-mumbai.in.messefrankfurt.com/"
+  },
+  {
+    tag: "B2B",
+    eventName: "Road X India 2026",
+    exhibitionCentre: "INDIA EXPO CENTRE & MART",
+    location: "Noida",
+    startDate: "9-10 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Water Expo Pune 2026",
+    exhibitionCentre: "TBA",
+    location: "Pune",
+    startDate: "9-11 Apr",
+    month: "Apr",
+    weblink: "https://exhibitionglobe.com/trade-shows-in-india/"
+  },
+  {
+    tag: "B2B",
+    eventName: "Metal Forming Expo 2026",
+    exhibitionCentre: "PIECC",
+    location: "Pune",
+    startDate: "9-11 Apr",
+    month: "Apr",
+    weblink: "https://metalformingexpo.com/"
+  },
+  {
+    tag: "B2B",
+    eventName: "HYROX - Fitness Shaping Event 2026",
+    exhibitionCentre: "Bangalore International Exhibition Centre",
+    location: "Bangalore",
+    startDate: "10-12 Apr",
+    month: "Apr",
+    weblink: "https://www.biec.in/Calendar_event/2k26/hyrox-fitness-shaping-event.php"
+  },
+  {
+    tag: "B2B",
+    eventName: "Zak Jewels Expo 2026",
+    exhibitionCentre: "Taj Coromandel",
+    location: "Chennai",
+    startDate: "10-12 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Pro Wave Expo 2026",
+    exhibitionCentre: "Chennai Trade Centre",
+    location: "Chennai",
+    startDate: "10-12 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Plastic Packaging Printing Expo 2026",
+    exhibitionCentre: "Chennai Citicentre",
+    location: "Chennai",
+    startDate: "10-13 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "P3 Expo (Plastic, Packaging Printing)",
+    exhibitionCentre: "Chennai Trade Centre",
+    location: "Chennai",
+    startDate: "10-13 Apr",
+    month: "Apr",
+    weblink: "https://p3exhibitions.in/"
+  },
+  {
+    tag: "B2B",
+    eventName: "India Frame Expo 2026",
+    exhibitionCentre: "Bharat Mandapam",
+    location: "Delhi",
+    startDate: "10-12 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Digital Print & Sign Expo 2026",
+    exhibitionCentre: "Bharat Mandapam",
+    location: "Delhi",
+    startDate: "10-12 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Image Today Asia Delhi 2026",
+    exhibitionCentre: "Bharat Mandapam",
+    location: "Delhi",
+    startDate: "10-12 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Surface Engineering and Coating Tech Expo 2026",
+    exhibitionCentre: "HUDA Grounds",
+    location: "Gurgaon",
+    startDate: "10-13 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "India International Boilers and Burners Expo 2026",
+    exhibitionCentre: "HUDA Grounds",
+    location: "Gurgaon",
+    startDate: "10-13 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "India International Pumps Valves and Compressor Expo 2026",
+    exhibitionCentre: "HUDA Grounds",
+    location: "Gurgaon",
+    startDate: "10-13 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "India International The Tyre and Alloy Wheel Expo 2026",
+    exhibitionCentre: "HUDA Grounds",
+    location: "Gurgaon",
+    startDate: "10-13 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "India International Autocompo Expo 2026",
+    exhibitionCentre: "HUDA Grounds",
+    location: "Gurgaon",
+    startDate: "10-13 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "India International Commercial Vehicle Expo 2026",
+    exhibitionCentre: "HUDA Grounds",
+    location: "Gurgaon",
+    startDate: "10-13 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Transport Vehicle Expo 2026",
+    exhibitionCentre: "HUDA Grounds",
+    location: "Gurgaon",
+    startDate: "10-13 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Quest Asia - Gifts and Stationery India Expo 2026",
+    exhibitionCentre: "TBA",
+    location: "Kolkata",
+    startDate: "10-12 Apr",
+    month: "Apr",
+    weblink: "https://10times.com/e1d1-81p8-kfgx-z"
+  },
+  {
+    tag: "B2B",
+    eventName: "SIAL Mumbai 2026",
+    exhibitionCentre: "Jio World Convention Centre",
+    location: "Mumbai",
+    startDate: "10-12 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "India Carpet Expo 2026",
+    exhibitionCentre: "NSIC",
+    location: "Delhi",
+    startDate: "11-14 Apr",
+    month: "Apr",
+    weblink: "https://www.indiacarpetexpo.com/"
+  },
+  {
+    tag: "B2B",
+    eventName: "Wedding Syrup Fashion, Jewellery & Lifestyle Exhibition 2026",
+    exhibitionCentre: "The Leela Ambience Convention ",
+    location: "Delhi",
+    startDate: "11-12 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Adaah Contemporary Fashion & Lifestyle Exhibition 2026",
+    exhibitionCentre: "Apparel House",
+    location: "Gurgaon",
+    startDate: "11-13 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Expodent Mumbai 2026",
+    exhibitionCentre: "Bombay Exhibition Centre",
+    location: "Mumbai",
+    startDate: "11-12 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "International Citizenship Expo 2026",
+    exhibitionCentre: "Novotel Mumbai International Airport",
+    location: "Mumbai",
+    startDate: "11 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "NATIONAL TECHNO-EXHIBITION 2026",
+    exhibitionCentre: "TBA",
+    location: "Bangalore",
+    startDate: "13 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "India Paint & Coating Expo 2026",
+    exhibitionCentre: "Bangalore International Exhibition Centre",
+    location: "Bangalore",
+    startDate: "13-15 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Doors, Windows and Facades Expo 2026",
+    exhibitionCentre: "Bangalore International Exhibition Centre",
+    location: "Bangalore",
+    startDate: "13-15 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Print & Packaging Expo 2026",
+    exhibitionCentre: "Bangalore International Exhibition Centre",
+    location: "Bangalore",
+    startDate: "13-15 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Label and Barcode Expo 2026",
+    exhibitionCentre: "Bangalore International Exhibition Centre",
+    location: "Bangalore",
+    startDate: "13-15 Apr",
+    month: "Apr",
+    weblink: "https://www.labelnbarcodeexpo.com/"
+  },
+  {
+    tag: "B2B",
+    eventName: "Paper India Expo 2026",
+    exhibitionCentre: "Bangalore International Exhibition Centre",
+    location: "Bangalore",
+    startDate: "13-15 Apr",
+    month: "Apr",
+    weblink: "https://www.paperindiaexpo.com/"
+  },
+  {
+    tag: "B2B",
+    eventName: "Advanced Building Materials Expo 2026",
+    exhibitionCentre: "Bangalore International Exhibition Centre",
+    location: "Bangalore",
+    startDate: "13-15 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Wall Floor & Ceiling Expo 2026",
+    exhibitionCentre: "Bangalore International Exhibition Centre",
+    location: "Bangalore",
+    startDate: "13-15 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Hair & Beauty Show India 2026",
+    exhibitionCentre: "Bombay Exhibition Centre",
+    location: "Mumbai",
+    startDate: "13-14 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Restaurant India 2026",
+    exhibitionCentre: "Sheraton Grand Bangalore Hotel at Brigade Gateway",
+    location: "Bangalore",
+    startDate: "14 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Transport & Infrastructure India Exhibition & Summit 2026",
+    exhibitionCentre: "Bharat Mandapam",
+    location: "Delhi",
+    startDate: "15-17 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Power and Utilities India 2026",
+    exhibitionCentre: "Bharat Mandapam",
+    location: "Delhi",
+    startDate: "15-17 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Manufacturing and Logistics India Summit and Exhibition 2026",
+    exhibitionCentre: "Bharat Mandapam",
+    location: "Delhi",
+    startDate: "15-17 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Inter Passenger Terminal Show 2026",
+    exhibitionCentre: "Bombay Exhibition Centre",
+    location: "Mumbai",
+    startDate: "15-16 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Tech & Innovation Summit 2026",
+    exhibitionCentre: "Bangalore International Exhibition Centre",
+    location: "Bangalore",
+    startDate: "16-17 Apr",
+    month: "Apr",
+    weblink: "https://www.biec.in/Calendar_event/2k26/tech-and-innovation-summit.php"
+  },
+  {
+    tag: "B2B",
+    eventName: "Plumbex India 2026",
+    exhibitionCentre: "Bangalore International Exhibition Centre",
+    location: "Bangalore",
+    startDate: "16-18 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "World Future Fuel Summit & Expo 2026",
+    exhibitionCentre: "NDMC Convention Centre",
+    location: "Delhi",
+    startDate: "16-17 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Disaster Risk Reduction Expo 2026",
+    exhibitionCentre: "Bharat Mandapam",
+    location: "Delhi",
+    startDate: "16-18 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Bharat Steel 2026",
+    exhibitionCentre: "Bharat Mandapam",
+    location: "Delhi",
+    startDate: "16-17 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "GCCI Annual Trade Expo 2026",
+    exhibitionCentre: "HEC Exhibition Centre",
+    location: "Gandhinagar",
+    startDate: "16-18 Apr",
+    month: "Apr",
+    weblink: "https://10times.com/e1hx-s061-d5dx-d-gccci-annual-trade-expo"
+  },
+  {
+    tag: "B2B",
+    eventName: "Fibers N Yarns Expo 2026",
+    exhibitionCentre: "Jio World Convention Centre",
+    location: "Mumbai",
+    startDate: "16-18 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Fabtex Expo 2026",
+    exhibitionCentre: "Jio World Convention Centre",
+    location: "Mumbai",
+    startDate: "16-18 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Fresh Produce India 2026",
+    exhibitionCentre: "Trident Hotel, Nariman Point",
+    location: "Mumbai",
+    startDate: "16-17 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Zak World of Façades Ahmedabad 2026",
+    exhibitionCentre: "TBA",
+    location: "Ahmedabad",
+    startDate: "17 Apr",
+    month: "Apr",
+    weblink: "https://10times.com/e1hk-r27d-5h6g-g-zak-world-facades-ahmedabad"
+  },
+  {
+    tag: "B2B",
+    eventName: "Drone Expo 2026",
+    exhibitionCentre: "Bangalore International Exhibition Centre",
+    location: "Bangalore",
+    startDate: "17-18 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Secure Nation Expo 2026",
+    exhibitionCentre: "Bangalore International Exhibition Centre",
+    location: "Bangalore",
+    startDate: "17-18 Apr",
+    month: "Apr",
+    weblink: "https://www.securenationexpo.in/"
+  },
+  {
+    tag: "B2B",
+    eventName: "RCRB Property Expo 2026",
+    exhibitionCentre: "J K GRAND ARENA",
+    location: "Bangalore",
+    startDate: "17-19 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "India Gaming Show 2026",
+    exhibitionCentre: "Chennai Trade Centre",
+    location: "Chennai",
+    startDate: "17-19 Apr",
+    month: "Apr",
+    weblink: "https://www.indiagamingshow.com/"
+  },
+  {
+    tag: "B2B",
+    eventName: "AutoTech Asia 2026",
+    exhibitionCentre: "Bharat Mandapam",
+    location: "Delhi",
+    startDate: "17-19 Apr",
+    month: "Apr",
+    weblink: "https://10times.com/e1h5-4s5h-6rkr-x"
+  },
+  {
+    tag: "B2B",
+    eventName: "EVTech India Expo 2026",
+    exhibitionCentre: "Bharat Mandapam",
+    location: "Delhi",
+    startDate: "17-19 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Battery Tech India 2026",
+    exhibitionCentre: "Bharat Mandapam",
+    location: "Delhi",
+    startDate: "17-19 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "India International Fire and Security Expo 2026",
+    exhibitionCentre: "HUDA Grounds",
+    location: "Gurgaon",
+    startDate: "17-20 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "India International Roof And Cladding Expo 2026",
+    exhibitionCentre: "HUDA Grounds",
+    location: "Gurgaon",
+    startDate: "17-20 Apr",
+    month: "Apr",
+    weblink: "https://10times.com/e1hx-f16s-gh5z-0-india-international-roof-cladding-expo"
+  },
+  {
+    tag: "B2B",
+    eventName: "International Real Estate Expo 2026",
+    exhibitionCentre: "The St. Regis",
+    location: "Mumbai",
+    startDate: "17-18 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Land & Leisure Homes Expo 2026",
+    exhibitionCentre: "Nehru Centre",
+    location: "Mumbai",
+    startDate: "17-19 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "EV TECH INDIA EXPO 2026",
+    exhibitionCentre: "Pragati Maidan",
+    location: "New Delhi",
+    startDate: "17-19 Apr",
+    month: "Apr",
+    weblink: "https://www.evtechindiaexpo.com/"
+  },
+  {
+    tag: "B2B",
+    eventName: "Auto Tech Asia 2026",
+    exhibitionCentre: "Pragati Maidan",
+    location: "New Delhi",
+    startDate: "17-19 Apr",
+    month: "Apr",
+    weblink: "https://www.autotechasia.com/"
+  },
+  {
+    tag: "B2B",
+    eventName: "Expodent Chennai 2026",
+    exhibitionCentre: "Chennai Trade Centre",
+    location: "Chennai",
+    startDate: "18-19 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Educatus Expo 2026",
+    exhibitionCentre: "Bharat Mandapam",
+    location: "Delhi",
+    startDate: "18-19 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Trading & Investing Expo 2026",
+    exhibitionCentre: "Bombay Exhibition Centre",
+    location: "Mumbai",
+    startDate: "18-19 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "India-Korea Yashobhoomi Global Business Summit 2026",
+    exhibitionCentre: "Yashobhoomi",
+    location: "Delhi",
+    startDate: "21-23 Apr",
+    month: "Apr",
+    weblink: "https://10times.com/e1h1-x0x5-f0kx-f-india-korea-global-business-summit"
+  },
+  {
+    tag: "B2B",
+    eventName: "Die & Mould India International Exhibition 2026",
+    exhibitionCentre: "Bombay Exhibition Centre",
+    location: "Mumbai",
+    startDate: "21-24 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "analytica India 2026",
+    exhibitionCentre: "Bangalore International Exhibition Centre",
+    location: "Bangalore",
+    startDate: "22-24 Apr",
+    month: "Apr",
+    weblink: "https://www.analyticalabindia.com/"
+  },
+  {
+    tag: "B2B",
+    eventName: "IFAT Delhi 2026",
+    exhibitionCentre: "Bharat Mandapam",
+    location: "Delhi",
+    startDate: "22-24 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Anuga FoodTec India Dairy 2026",
+    exhibitionCentre: "Bharat Mandapam",
+    location: "Delhi",
+    startDate: "22-24 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "VIV SELECT INDIA 2026",
+    exhibitionCentre: "Yashobhoomi",
+    location: "Delhi",
+    startDate: "22-24 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "PharmaCore Trade Fair 2026",
+    exhibitionCentre: "Jio World Convention Centre",
+    location: "Mumbai",
+    startDate: "22-24 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "analytica Lab India 2026",
+    exhibitionCentre: "Jio World Convention Centre",
+    location: "Mumbai",
+    startDate: "22-24 Apr",
+    month: "Apr",
+    weblink: "https://www.analyticalabindia.com/"
+  },
+  {
+    tag: "B2B",
+    eventName: "Steel Day India 2026",
+    exhibitionCentre: "The Lalit",
+    location: "Mumbai",
+    startDate: "22-23 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Roof India Exhibition 2026",
+    exhibitionCentre: "Bangalore International Exhibition Centre",
+    location: "Bangalore",
+    startDate: "23-25 Apr",
+    month: "Apr",
+    weblink: "https://roofindia.com/"
+  },
+  {
+    tag: "B2B",
+    eventName: "Herbalife Extravaganza 2026",
+    exhibitionCentre: "Bangalore International Exhibition Centre",
+    location: "Bangalore",
+    startDate: "23-25 Apr",
+    month: "Apr",
+    weblink: "https://www.biec.in/Calendar_event/2k26/herbalife-extravaganza.php"
+  },
+  {
+    tag: "B2B",
+    eventName: "Master Franchise Conclave 2026",
+    exhibitionCentre: "Sheraton Grand Bengaluru Whitefield Hotel & Convention Center",
+    location: "Bangalore",
+    startDate: "23-24 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Licensing Expo 2026",
+    exhibitionCentre: "Sheraton Grand Bengaluru Whitefield Hotel & Convention Center",
+    location: "Bangalore",
+    startDate: "23-24 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "RenewX 2026",
+    exhibitionCentre: "Chennai Trade Centre",
+    location: "Chennai",
+    startDate: "23-24 Apr",
+    month: "Apr",
+    weblink: "https://www.renewx.in/"
+  },
+  {
+    tag: "B2B",
+    eventName: "Indian DefSpace Symposium 2026",
+    exhibitionCentre: "Manekshaw Centre Auditorium",
+    location: "Delhi",
+    startDate: "23-24 Apr",
+    month: "Apr",
+    weblink: "https://10times.com/e12g-fg7f-rx1d-9-indian-defspace-symposium"
+  },
+  {
+    tag: "B2B",
+    eventName: "WAPTEMA WATER EXPO 2026",
+    exhibitionCentre: "Bharat Mandapam",
+    location: "Delhi",
+    startDate: "23-25 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "India Pharma Expo 2026",
+    exhibitionCentre: "Hitex Exhibition Centre",
+    location: "Hyderabad",
+    startDate: "23-25 Apr",
+    month: "Apr",
+    weblink: "https://hitex.co.in/events/upcoming.html"
+  },
+  {
+    tag: "B2B",
+    eventName: "Airport360 Expo 2026",
+    exhibitionCentre: "Bombay Exhibition Centre",
+    location: "Mumbai",
+    startDate: "23-24 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Rail & Metro Technology Conclave 2026",
+    exhibitionCentre: "Pragati Maidan",
+    location: "New Delhi",
+    startDate: "23-25 Apr",
+    month: "Apr",
+    weblink: "https://www.railmetrotech.com/"
+  },
+  {
+    tag: "B2B",
+    eventName: "Bharat Shiksha Expo 2026",
+    exhibitionCentre: "INDIA EXPO CENTRE & MART",
+    location: "Noida",
+    startDate: "23-25 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Medical Expo Gujarat 2026",
+    exhibitionCentre: "Gujarat University Convention and Exhibition Centre",
+    location: "Ahmedabad",
+    startDate: "24-26 Apr",
+    month: "Apr",
+    weblink: "https://10times.com/e1d2-r9x2-p6xp-f"
+  },
+  {
+    tag: "B2B",
+    eventName: "RideAsia- EV 2026",
+    exhibitionCentre: "Pragati Maidan",
+    location: "Delhi",
+    startDate: "24-26 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "India International Anaesthesia Tech Expo 2026",
+    exhibitionCentre: "HUDA Grounds",
+    location: "Gurgaon",
+    startDate: "24-27 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "India International Radiology & Magnini Expo 2026",
+    exhibitionCentre: "HUDA Grounds",
+    location: "Gurgaon",
+    startDate: "24-27 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "India International Neuro Tech Expo 2026",
+    exhibitionCentre: "HUDA Grounds",
+    location: "Gurgaon",
+    startDate: "24-27 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "India International Healthcare and Medical Diagnostics Expo",
+    exhibitionCentre: "HUDA Grounds",
+    location: "Gurgaon",
+    startDate: "24-27 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "India International Obstetrics and Gynaecology Expo 2026",
+    exhibitionCentre: "HUDA Grounds",
+    location: "Gurgaon",
+    startDate: "24-27 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "INDUS-Tech Expo 2026",
+    exhibitionCentre: "Biswa Bangla Convention Centre",
+    location: "Kolkata",
+    startDate: "24-27 Apr",
+    month: "Apr",
+    weblink: "https://10times.com/e1dr-zg10-rkk4-8"
+  },
+  {
+    tag: "B2B",
+    eventName: "Chocolate & Bakery Expo 2026",
+    exhibitionCentre: "Bombay Exhibition Centre",
+    location: "Mumbai",
+    startDate: "24-26 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "India International Motor Show 2026",
+    exhibitionCentre: "CIDCO Exhibition Centre",
+    location: "Mumbai",
+    startDate: "24-26 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Sustainable Fashion & Lifestyle Exhibition 2026",
+    exhibitionCentre: "Kishanchand Valecha Sabhagruha",
+    location: "Mumbai",
+    startDate: "24-25 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "AyurYog Expo 2026",
+    exhibitionCentre: "INDIA EXPO CENTRE & MART",
+    location: "Noida",
+    startDate: "24-26 Apr",
+    month: "Apr",
+    weblink: "https://ayuryogexpo.com/"
+  },
+  {
+    tag: "B2B",
+    eventName: "Wellfest India 2026",
+    exhibitionCentre: "INDIA EXPO CENTRE & MART",
+    location: "Noida",
+    startDate: "24-26 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Money Alpha 360 Summit",
+    exhibitionCentre: "INDIA EXPO CENTRE & MART",
+    location: "Noida",
+    startDate: "24-25 Apr",
+    month: "Apr",
+    weblink: "https://indiaexpomart.com/upcoming-events/"
+  },
+  {
+    tag: "B2B",
+    eventName: "GAMX 2026",
+    exhibitionCentre: "yutori spaces, infantry road",
+    location: "Bangalore",
+    startDate: "25-26 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Procurement & Supply Chain Summit - Mumbai Edition 2026",
+    exhibitionCentre: "TBA",
+    location: "Mumbai",
+    startDate: "25 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Kidz World Expo 2026",
+    exhibitionCentre: "World Trade Centre",
+    location: "Mumbai",
+    startDate: "25-26 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Kidz World Expo Mumbai 2026",
+    exhibitionCentre: "Jio World",
+    location: "Mumbai",
+    startDate: "25-26 Apr",
+    month: "Apr",
+    weblink: "https://www.kidzworldexpo.com/"
+  },
+  {
+    tag: "B2B",
+    eventName: "Bharat Print Expo 2026",
+    exhibitionCentre: "Chennai Trade Centre",
+    location: "Chennai",
+    startDate: "27-29 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Zak Fenestration India Expo 2026",
+    exhibitionCentre: "Bangalore International Exhibition Centre",
+    location: "Bangalore",
+    startDate: "28-30 Apr",
+    month: "Apr",
+    weblink: "https://www.biec.in/Calendar_event/2k26/zak-fenestration-india-expo.php"
+  },
+  {
+    tag: "B2B",
+    eventName: "SChainXPO 2026",
+    exhibitionCentre: "Hall No. 5, Nesco Center",
+    location: "Mumbai",
+    startDate: "28-29 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Smart Home Expo 2026",
+    exhibitionCentre: "Jio World Convention Centre",
+    location: "Mumbai",
+    startDate: "28-30 Apr",
+    month: "Apr",
+    weblink: "https://www.smarthomeexpo.in/"
+  },
+  {
+    tag: "B2B",
+    eventName: "USACI India Automotive Sound Competition 2026",
+    exhibitionCentre: "INDIA EXPO CENTRE & MART",
+    location: "Noida",
+    startDate: "28-29 Apr",
+    month: "Apr",
+    weblink: "https://indiaexpomart.com/upcoming-events/"
+  },
+  {
+    tag: "B2B",
+    eventName: "Recommerce Expo 2026",
+    exhibitionCentre: "The Lalit",
+    location: "Bangalore",
+    startDate: "29-30 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Bharat Buildcon 2026",
+    exhibitionCentre: "Yashobhoomi",
+    location: "Delhi",
+    startDate: "29-30 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "India International STEM Education Fest 2026",
+    exhibitionCentre: "Yashobhoomi",
+    location: "Delhi",
+    startDate: "29-30 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "ChemExpo India 2026",
+    exhibitionCentre: "Bombay Exhibition Centre",
+    location: "Mumbai",
+    startDate: "29-30 Apr",
+    month: "Apr",
+    weblink: "https://www.chemexpoindia.com/"
+  },
+  {
+    tag: "B2B",
+    eventName: "ChemProTech India 2026",
+    exhibitionCentre: "Bombay Exhibition Centre",
+    location: "Mumbai",
+    startDate: "29-30 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "ChemLogistics India 2026",
+    exhibitionCentre: "Bombay Exhibition Centre",
+    location: "Mumbai",
+    startDate: "29-30 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Connecting India to the world 2026",
+    exhibitionCentre: "Bombay Exhibition Centre",
+    location: "Mumbai",
+    startDate: "29-30 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Rex Fuels Global Expo & Conference 2026",
+    exhibitionCentre: "Hotel Sahara Star",
+    location: "Mumbai",
+    startDate: "29 Apr",
+    month: "Apr",
+    weblink: ""
+  },
+  {
+    tag: "B2B",
+    eventName: "Vibrant Buildcon 2026",
+    exhibitionCentre: "TBA",
+    location: "New Delhi",
+    startDate: "29-2 May",
+    month: "Apr",
+    weblink: "https://vibrantbuildcon.com/"
+  },
+  {
+    tag: "B2B",
     eventName: "Glass Aluminium & Architectural Hardware Expo 2026",
     exhibitionCentre: "EKA Club",
     location: "Ahmedabad",

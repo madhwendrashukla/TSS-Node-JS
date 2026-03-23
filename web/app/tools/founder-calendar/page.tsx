@@ -70,6 +70,7 @@ function parseEventSortDate(event: FounderEvent): Date {
 export default function FounderCalendar() {
     const [selectedLocation, setSelectedLocation] = useState<string>('All Locations');
     const [selectedSector, setSelectedSector] = useState<string>('All Sectors');
+    const [selectedMonth, setSelectedMonth] = useState<string>('All Months');
 
     const mappedEvents = useMemo(() => {
         return eventsData.map(ev => ({
@@ -89,6 +90,14 @@ export default function FounderCalendar() {
         return ['All Sectors', ...secs];
     }, [mappedEvents]);
 
+    const uniqueMonths = useMemo(() => {
+        const months = Array.from(new Set(eventsData.map(e => e.month))).filter(Boolean);
+        // Create an ordered list of months to properly sort them
+        const monthOrder = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        const sortedMonths = months.sort((a, b) => monthOrder.indexOf(a) - monthOrder.indexOf(b));
+        return ['All Months', ...sortedMonths];
+    }, []);
+
     const filteredAndSortedEvents = useMemo(() => {
         // 1. Filter
         let filtered = mappedEvents;
@@ -98,26 +107,28 @@ export default function FounderCalendar() {
         if (selectedSector !== 'All Sectors') {
             filtered = filtered.filter(e => e.sector === selectedSector);
         }
+        if (selectedMonth !== 'All Months') {
+            filtered = filtered.filter(e => (e.month || '').toLowerCase() === selectedMonth.toLowerCase());
+        }
 
         // 2. Sort by date proximity
-        // Instead of hardcoding "today", let's use current time or 1st March 2026 as a baseline
-        // For demonstration, let's treat anything before Date.now() as "past". 
-        // We will sort upcoming features closest to now first, and past features furthest from now last.
+        // Use actual true current date
+        const now = Date.now();
 
-        const now = new Date('2026-03-01T00:00:00Z').getTime(); // Roughly start of march
-
+        // Upcoming events closest to now first
         const upcoming = filtered.filter(e => e.parsedDate.getTime() >= now).sort((a, b) => a.parsedDate.getTime() - b.parsedDate.getTime());
+        // Past events furthest from now last (so oldest at the very bottom)
         const past = filtered.filter(e => e.parsedDate.getTime() < now).sort((a, b) => b.parsedDate.getTime() - a.parsedDate.getTime());
 
         return { upcoming, past };
-    }, [mappedEvents, selectedLocation, selectedSector]);
+    }, [mappedEvents, selectedLocation, selectedSector, selectedMonth]);
 
     const EventCard = ({ event, isPast }: { event: ReturnType<typeof getSectorFromEvent> & FounderEvent & { sector: string }, isPast?: boolean }) => (
         <div className={`glass-card p-6 md:p-8 rounded-3xl border border-white/10 hover:border-accent-blue/40 transition-all group flex flex-col bg-bg-surface ${isPast ? 'opacity-60 saturate-50' : ''}`}>
             <div className="flex justify-between items-start mb-6">
                 <span className="bg-white/5 border border-white/10 text-text-secondary text-xs px-3 py-1 rounded-full">{event.sector}</span>
                 <span className={`font-bold text-sm px-3 py-1 rounded-full whitespace-nowrap ${isPast ? 'text-gray-400 bg-gray-500/10 border border-gray-500/20' : 'text-accent-blue bg-accent-blue/10 border border-accent-blue/20'}`}>
-                    {event.startDate} {event.month}
+                    {event.startDate}{String(event.startDate).includes(event.month) ? '' : ` ${event.month}`}
                 </span>
             </div>
 
@@ -217,6 +228,16 @@ export default function FounderCalendar() {
                                 {uniqueSectors.map(sec => <option key={sec} value={sec} className="bg-bg-surface">{sec}</option>)}
                             </select>
                         </div>
+                        <div className="flex-1 w-full">
+                            <label className="text-[10px] uppercase tracking-widest text-text-secondary font-bold mb-2 block px-1">Month</label>
+                            <select
+                                value={selectedMonth}
+                                onChange={(e) => setSelectedMonth(e.target.value)}
+                                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accent-blue/50 focus:bg-white/10 transition-all font-light appearance-none cursor-pointer"
+                            >
+                                {uniqueMonths.map(m => <option key={m} value={m} className="bg-bg-surface">{m}</option>)}
+                            </select>
+                        </div>
                     </div>
                 </div>
 
@@ -225,7 +246,7 @@ export default function FounderCalendar() {
                         <h3 className="text-2xl text-white font-bold mb-2">No events found</h3>
                         <p className="text-text-secondary font-light">Try adjusting your filters to see more results.</p>
                         <button
-                            onClick={() => { setSelectedLocation('All Locations'); setSelectedSector('All Sectors'); }}
+                            onClick={() => { setSelectedLocation('All Locations'); setSelectedSector('All Sectors'); setSelectedMonth('All Months'); }}
                             className="mt-6 text-accent-blue font-bold tracking-widest uppercase text-sm px-6 py-2 border border-accent-blue/20 rounded-full hover:bg-accent-blue/10 transition-colors"
                         >
                             Reset Filters
