@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Script from 'next/script';
 
 export default function PaymentSuccessB() {
     const [scrolled, setScrolled] = useState(false);
@@ -31,6 +32,15 @@ export default function PaymentSuccessB() {
 
     return (
         <>
+            <Script id="conversion-tracker-b" strategy="afterInteractive">
+              {`
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-18024116278/4LT-COHiyI4cELbgyJJD',
+                    'value': 390.0,
+                    'currency': 'INR'
+                });
+              `}
+            </Script>
 
             {/* Scoped Styling matching HTML explicitly */}
             <style dangerouslySetInnerHTML={{
