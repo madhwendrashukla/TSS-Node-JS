@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Founder Calendar April Update Poster</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9; /* Professional soft gray background, not too dark */
+            color: #0f172a;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .poster-container {
+            width: 1000px;
+            background: #ffffff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08); /* Professional drop shadow */
+            border: 1px solid #e2e8f0;
+        }
+
+        .hero-banner {
+            background: #0f172a; /* Slate 900 */
+            color: white;
+            padding: 4rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            text-decoration: none;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="poster-container">
+        
+        <!-- Header / Banner -->
+        <div class="hero-banner flex items-center justify-between">
+            <div class="max-w-xl">
+                <div class="inline-block px-3 py-1 rounded-md bg-white/10 text-xs font-bold tracking-widest uppercase text-white mb-4 border border-white/20">
+                    Product Update
+                </div>
+                <h1 class="text-5xl font-bold mb-4 leading-tight">
+                    The April Update: <br> Founder Events Calendar
+                </h1>
+                <p class="text-xl text-slate-300 font-normal leading-relaxed">
+                    We've added all B2B opportunities for April and shipped a highly requested sorting feature to help you navigate your schedule faster.
+                </p>
+            </div>
+            <!-- Quick stats or simple badge -->
+            <div class="hidden md:flex flex-col items-end opacity-90">
+                <div class="text-right mb-2">
+                    <span class="block text-4xl font-bold text-white">160+</span>
+                    <span class="text-sm font-medium uppercase tracking-widest text-slate-400">New Events Added</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="p-10">
+            
+            <p class="text-xl font-medium text-slate-600 mb-8 border-l-4 border-blue-500 pl-4">
+                The Founder Calendar has been fully updated for April. Here is what has changed:
+            </p>
+
+            <div class="grid grid-cols-2 gap-8 mb-10">
+                
+                <!-- Feature 1 -->
+                <div class="feature-card flex flex-col">
+                    <div class="flex items-center gap-3 mb-4">
+                        <h3 class="text-2xl font-bold text-slate-800">New Month Filter</h3>
+                    </div>
+                    <p class="text-slate-600 mb-6 text-lg">Easily toggle between March and April to isolate and focus heavily on what's immediately relevant to your GTM strategy right now.</p>
+                    <div class="bg-white border border-slate-200 rounded-lg p-2 shadow-sm mt-auto">
+                        <img src="/poster-filters.png" class="w-full rounded border border-slate-100 object-cover" alt="Filter UI">
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card flex flex-col">
+                    <div class="flex items-center gap-3 mb-4">
+                        <h3 class="text-2xl font-bold text-slate-800">1-Click Integration</h3>
+                    </div>
+                    <p class="text-slate-600 mb-6 text-lg">Found an event? Click <b>Google Calendar</b> to sync all details to your agenda instantly, or click <b>Details</b> to snag early-bird tickets directly from the official portal.</p>
+                    <div class="bg-white border border-slate-200 rounded-lg p-2 shadow-sm mt-auto flex justify-center pb-0">
+                        <!-- Use poster card, cropped to show the button effectively -->
+                        <img src="/poster-card.png" class="w-full rounded border border-slate-100 object-top object-cover" alt="Event Action Buttons" style="max-height: 120px;">
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Summary Footer Box -->
+            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 text-center shadow-sm">
+                <h4 class="text-2xl font-bold text-slate-800 mb-1">Ready to plan your month?</h4>
+                <p class="text-slate-500 text-lg">Jump in and discover new opportunities across India via the Founder Calendar.</p>
+            </div>
+
+            <!-- Footer -->
+            <div class="text-center mt-8 pt-6 border-t border-slate-100 text-slate-400 text-sm font-medium tracking-wide uppercase">
+                The Startup School • Tools Ecosystem
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
