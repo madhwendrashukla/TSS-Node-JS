@@ -9,6 +9,7 @@ import { WorkshopCurriculum } from './WorkshopCurriculum';
 import { WorkshopMentor, WorkshopProof } from './WorkshopMentor';
 import { WorkshopPricing } from './WorkshopPricing';
 import { WorkshopFinal } from './WorkshopFinal';
+import { BottomSheetCTA } from './BottomSheetCTA';
 
 export const metadata: Metadata = {
     title: 'Fundraising Workshop 15 Apr | The Startup School',
@@ -63,6 +64,8 @@ export default function WorkshopPage() {
                 strategy="lazyOnload"
             />
 
+            {/* WhatsApp CTA Bottom Sheet */}
+            <BottomSheetCTA />
         </div>
     );
 }
