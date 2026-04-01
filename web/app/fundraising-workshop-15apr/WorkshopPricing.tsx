@@ -56,10 +56,10 @@ export function WorkshopPricing() {
                             ) : (
                                 <div className="flex flex-col items-center animate-[pop-in_0.5s_cubic-bezier(0.175,0.885,0.32,1.275)_forwards]">
                                     <a href="https://rzp.io/rzp/bUPzmgpV" target="_blank" rel="noopener noreferrer" className="w-full block text-center px-4 py-4 rounded-xl bg-[#8b5cf6] hover:bg-[#d946ef] border border-white/10 text-white font-bold transition-colors text-base md:text-lg shadow-[0_0_20px_rgba(139,92,246,0.4)]">
-                                        Early Bird Offer – ₹390<br />
+                                        Early Bird Offer – ₹499<br />
                                         <span className="text-sm font-medium text-white/90">Click here to Avail Today!!</span>
                                     </a>
-                                    <p className="text-xs text-slate-400 mt-3 text-center">*Early bird valid only till 20th March</p>
+                                    <p className="text-xs text-slate-400 mt-3 text-center">*Early bird valid only till 5th April</p>
                                 </div>
                             )}
                         </div>
@@ -128,7 +128,7 @@ export function WorkshopPricing() {
                                         Early Bird Offer – ₹1499 <br />
                                         <span className="text-sm font-medium text-white/90">Click here to Avail Today!!</span>
                                     </a>
-                                    <p className="text-xs text-slate-400 mt-3 text-center">*Early bird valid only till 20th March</p>
+                                    <p className="text-xs text-slate-400 mt-3 text-center">*Early bird valid only till 5th April</p>
                                 </div>
                             )}
                         </div>

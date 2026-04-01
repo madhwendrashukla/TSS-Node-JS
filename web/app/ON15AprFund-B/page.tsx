@@ -36,7 +36,7 @@ export default function PaymentSuccessB() {
               {`
                 gtag('event', 'conversion', {
                     'send_to': 'AW-18024116278/4LT-COHiyI4cELbgyJJD',
-                    'value': 390.0,
+                    'value': 499.0,
                     'currency': 'INR'
                 });
               `}
