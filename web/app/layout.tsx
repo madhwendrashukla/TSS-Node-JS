@@ -96,22 +96,15 @@ export default function RootLayout({
             src="https://www.facebook.com/tr?id=4461458980751382&ev=PageView&noscript=1"
           />
         </noscript>
-        <link
-          rel="preload"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-          as="style"
-        />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-          crossOrigin="anonymous"
-          media="print"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `document.querySelectorAll('link[media="print"]').forEach(function(l) { l.media = 'all'; });`
-          }}
-        />
+        <Script id="load-fontawesome" strategy="afterInteractive">
+          {`
+            const faLink = document.createElement('link');
+            faLink.rel = 'stylesheet';
+            faLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+            faLink.crossOrigin = 'anonymous';
+            document.head.appendChild(faLink);
+          `}
+        </Script>
       </head>
       <body
         className={`${inter.variable} ${merriweather.variable} antialiased bg-bg-main text-text-primary selection:bg-accent-blue selection:text-white overflow-x-hidden`}

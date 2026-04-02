@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Script from 'next/script';
 import { WorkshopHero } from './WorkshopHero';
+import { KickkersGate } from './KickkersGate';
 import dynamic from 'next/dynamic';
 
 const WorkshopOutcome = dynamic(() => import('./WorkshopOutcome').then((mod) => mod.WorkshopOutcome));
@@ -59,13 +60,7 @@ export default function WorkshopPage() {
             <WorkshopFinal />
 
             {/* Kickkers AI Chatbot - specific to this page */}
-            <Script
-                src="https://staging.kickkers.com/embed.js"
-                data-agent="the-startup-school"
-                data-org="kickkers"
-                data-key="pk_live_ECitqFT5llOT1FLlcqVpbLxwENZJXHxo"
-                strategy="lazyOnload"
-            />
+            <KickkersGate />
 
             {/* WhatsApp CTA Bottom Sheet */}
             <BottomSheetCTA />
