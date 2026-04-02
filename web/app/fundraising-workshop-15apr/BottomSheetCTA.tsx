@@ -7,12 +7,15 @@ export function BottomSheetCTA() {
     const [isClosing, setIsClosing] = useState(false);
 
     useEffect(() => {
-        // Show after 4 seconds
-        const timer = setTimeout(() => {
-            setIsVisible(true);
-        }, 4000);
+        const handleScroll = () => {
+            if (window.scrollY > 300) {
+                setIsVisible(true);
+                window.removeEventListener('scroll', handleScroll);
+            }
+        };
 
-        return () => clearTimeout(timer);
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     const handleClose = () => {
