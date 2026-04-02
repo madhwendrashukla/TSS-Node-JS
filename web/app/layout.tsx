@@ -63,8 +63,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <Script src="https://www.googletagmanager.com/gtag/js?id=AW-18024116278" strategy="afterInteractive" />
-        <Script id="google-ads-tag" strategy="afterInteractive">
+        <Script src="https://www.googletagmanager.com/gtag/js?id=AW-18024116278" strategy="lazyOnload" />
+        <Script id="google-ads-tag" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -73,7 +73,7 @@ export default function RootLayout({
             gtag('config', 'AW-18024116278');
           `}
         </Script>
-        <Script id="facebook-pixel" strategy="afterInteractive">
+        <Script id="facebook-pixel" strategy="lazyOnload">
           {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -92,13 +92,23 @@ export default function RootLayout({
             height="1" 
             width="1" 
             style={{ display: 'none' }}
+            alt=""
             src="https://www.facebook.com/tr?id=4461458980751382&ev=PageView&noscript=1"
           />
         </noscript>
         <link
+          rel="preload"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          as="style"
+        />
+        <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
           crossOrigin="anonymous"
+          media="print"
+          onLoad={(e) => {
+            (e.target as HTMLLinkElement).media = 'all';
+          }}
         />
       </head>
       <body

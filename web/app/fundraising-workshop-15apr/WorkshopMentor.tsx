@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 
 export function WorkshopMentor() {
     return (
@@ -45,7 +46,7 @@ export function WorkshopProof() {
                             <div className="absolute inset-0 flex items-center justify-center text-[#8b5cf6]/20">
                                 <i className="fa-solid fa-graduation-cap text-6xl" />
                             </div>
-                            <img src="/bootcamp.jpeg" alt="Mentor Panel at IIT Madras" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-300 relative z-10" onError={(e) => { e.currentTarget.style.opacity = '0'; }} />
+                            <Image src="/bootcamp.jpeg" alt="Mentor Panel at IIT Madras" width={640} height={360} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-300 relative z-10" loading="lazy" />
                         </div>
                         <p className="text-slate-400 text-sm mb-6 flex-grow font-light">Invited as a Mentor at E-Cell IIT Madras. Mentoring early-stage founders, reviewing startup ideas, and providing practical guidance on execution and validation.</p>
                         <a href="https://www.linkedin.com/posts/gauravbansal2_mentor-iit-startup-activity-7404790908174450688-P0G5?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADU8MA4Bu-Z-EZKMZRNCs9TMRf6ND89yVds" target="_blank" rel="noopener noreferrer" className="block w-full text-center border border-white/10 text-white font-bold py-3 rounded-lg hover:bg-white/5 hover:text-[#8b5cf6] transition-colors">
@@ -59,7 +60,7 @@ export function WorkshopProof() {
                             <div className="absolute inset-0 flex items-center justify-center text-[#d946ef]/20">
                                 <i className="fa-solid fa-gavel text-6xl" />
                             </div>
-                            <img src="/iimrohtak.jpg" alt="Judge and Mentor at IIM Rohtak" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-300 relative z-10" onError={(e) => { e.currentTarget.style.opacity = '0'; }} />
+                            <Image src="/iimrohtak.jpg" alt="Judge and Mentor at IIM Rohtak" width={640} height={360} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-300 relative z-10" loading="lazy" />
                         </div>
                         <p className="text-slate-400 text-sm mb-6 flex-grow font-light">Invited as a Judge and Mentor at IIM Rohtak. Evaluating innovative startups, providing critical feedback on pitches, and guiding aspiring founders on their journey from concept to scale.</p>
                         <a href="https://www.linkedin.com/in/gauravbansal2/details/featured/" target="_blank" rel="noopener noreferrer" className="block w-full text-center border border-white/10 text-white font-bold py-3 rounded-lg hover:bg-white/5 hover:text-[#d946ef] transition-colors">
@@ -100,7 +101,7 @@ function VideoThumbnail({ videoId }: { videoId: string }) {
                 el.innerHTML = '';
                 el.appendChild(iframe);
             }}>
-            <img src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`} alt="Session Thumbnail" className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-300" />
+            <img src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`} alt="Session Thumbnail" width={640} height={360} loading="lazy" className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-300" />
             <div className="absolute inset-0 flex items-center justify-center z-10">
                 <div className="w-14 h-14 bg-red-600 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition duration-300">
                     <i className="fa-solid fa-play text-white ml-1 text-lg" />
