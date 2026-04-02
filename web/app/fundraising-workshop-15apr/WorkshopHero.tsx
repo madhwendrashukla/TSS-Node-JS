@@ -3,9 +3,9 @@
 export function WorkshopHero() {
     return (
         <header className="relative pt-32 pb-16 md:pt-40 md:pb-24 lg:pt-56 lg:pb-32 overflow-hidden">
-            <div className="absolute top-0 -left-4 w-64 h-64 md:w-96 md:h-96 bg-[#8b5cf6] rounded-full mix-blend-screen filter blur-[90px] md:blur-[128px] opacity-30 pointer-events-none animate-[blob_7s_infinite]" />
-            <div className="absolute top-0 -right-4 w-64 h-64 md:w-96 md:h-96 bg-[#d946ef] rounded-full mix-blend-screen filter blur-[90px] md:blur-[128px] opacity-30 pointer-events-none" />
-            <div className="absolute -bottom-8 left-20 w-64 h-64 md:w-96 md:h-96 bg-[#8b5cf6] rounded-full mix-blend-screen filter blur-[90px] md:blur-[128px] opacity-20 pointer-events-none" />
+            <div className="absolute top-0 -left-4 w-64 h-64 md:w-96 md:h-96 rounded-full mix-blend-screen pointer-events-none animate-[blob_7s_infinite]" style={{ background: 'radial-gradient(circle, rgba(139,92,246,0.3) 0%, rgba(139,92,246,0) 70%)' }} />
+            <div className="absolute top-0 -right-4 w-64 h-64 md:w-96 md:h-96 rounded-full mix-blend-screen pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(217,70,239,0.3) 0%, rgba(217,70,239,0) 70%)' }} />
+            <div className="absolute -bottom-8 left-20 w-64 h-64 md:w-96 md:h-96 rounded-full mix-blend-screen pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(139,92,246,0.2) 0%, rgba(139,92,246,0) 70%)' }} />
 
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-1.5 rounded-full bg-white/5 border border-white/10 text-xs md:text-sm text-[#d946ef] mb-6 md:mb-8 backdrop-blur-md">
