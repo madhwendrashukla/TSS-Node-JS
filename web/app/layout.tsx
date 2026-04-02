@@ -106,8 +106,10 @@ export default function RootLayout({
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
           crossOrigin="anonymous"
           media="print"
-          onLoad={(e) => {
-            (e.target as HTMLLinkElement).media = 'all';
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.querySelectorAll('link[media="print"]').forEach(function(l) { l.media = 'all'; });`
           }}
         />
       </head>

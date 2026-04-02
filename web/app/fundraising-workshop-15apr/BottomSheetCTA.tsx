@@ -7,15 +7,33 @@ export function BottomSheetCTA() {
     const [isClosing, setIsClosing] = useState(false);
 
     useEffect(() => {
+        let hasInteracted = false;
+        
+        const markInteraction = () => {
+            hasInteracted = true;
+            ['touchstart', 'mousemove', 'keydown', 'wheel'].forEach(evt => 
+                window.removeEventListener(evt, markInteraction)
+            );
+        };
+        
+        ['touchstart', 'mousemove', 'keydown', 'wheel'].forEach(evt => 
+            window.addEventListener(evt, markInteraction, { passive: true })
+        );
+
         const handleScroll = () => {
-            if (window.scrollY > 300) {
+            if (hasInteracted && window.scrollY > 150) {
                 setIsVisible(true);
                 window.removeEventListener('scroll', handleScroll);
             }
         };
 
         window.addEventListener('scroll', handleScroll, { passive: true });
-        return () => window.removeEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            ['touchstart', 'mousemove', 'keydown', 'wheel'].forEach(evt => 
+                window.removeEventListener(evt, markInteraction)
+            );
+        };
     }, []);
 
     const handleClose = () => {
