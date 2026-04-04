@@ -9,11 +9,19 @@ import { Contact } from "@/components/sections/Contact";
 import { Programs } from "@/components/sections/Programs";
 import { Gallery } from "@/components/sections/Gallery";
 import { WorkshopPopup } from "@/components/sections/WorkshopPopup";
+import Script from "next/script";
 
 export default function Home() {
   return (
     <>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+      {/* counter.dev analytics */}
+      <Script 
+        src="https://cdn.counter.dev/script.js" 
+        data-id="2806e04d-b124-48cb-82a3-35ecd0d92aa8" 
+        data-utcoffset="6" 
+        strategy="afterInteractive"
+      />
 
       <main className="flex min-h-screen flex-col items-center justify-between">
         <Hero />
