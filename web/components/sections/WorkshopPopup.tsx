@@ -66,8 +66,8 @@ export function WorkshopPopup() {
                 <div className="px-5 sm:px-6 pb-10 pt-10 sm:pt-12 flex flex-col items-center text-center relative z-10">
                     {/* NEW TAG - Next Cohort */}
                     <div className="mb-6 bg-[#8b5cf6]/20 px-4 py-2 rounded-full border border-[#8b5cf6]/40 shadow-[0_0_15px_rgba(139,92,246,0.2)]">
-                        <span className="text-[10px] md:text-xs font-black text-[#a78bfa] uppercase tracking-widest leading-none italic">
-                            "Next Cohort - 15 Apr"
+                        <span className="text-[10px] md:text-xs font-black text-[#a78bfa] uppercase tracking-widest leading-none">
+                            Next Cohort - 15 Apr
                         </span>
                     </div>
 
@@ -78,7 +78,7 @@ export function WorkshopPopup() {
                     </div>
 
                     {/* Text content - Optimized font sizes for mobile */}
-                    <h3 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 sm:mb-6 tracking-tighter leading-[1.05] px-2">
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-4 sm:mb-6 tracking-tight leading-[1.1] px-2">
                         Fund Raising<br />
                         Hacks<br />
                         for Startups
