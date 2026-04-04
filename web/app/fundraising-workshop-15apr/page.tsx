@@ -54,9 +54,9 @@ export default function WorkshopPage() {
             <WorkshopOutcome />
             <WorkshopWhyUs />
             <WorkshopCurriculum />
+            <WorkshopPricing />
             <WorkshopMentor />
             <WorkshopProof />
-            <WorkshopPricing />
             <WorkshopFinal />
 
             {/* Kickkers AI Chatbot - specific to this page */}
