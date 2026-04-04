@@ -89,7 +89,7 @@ export function WorkshopPopup() {
 
                     {/* CTA - Adjusted padding for mobile */}
                     <Link 
-                        href="/fundraising-workshop-15apr"
+                        href="/fundraising-workshop-15apr?from=home"
                         className="group/btn relative w-full sm:w-[90%] bg-white text-slate-950 font-black py-4 sm:py-5 px-6 rounded-2xl transition-all duration-300 flex items-center justify-center gap-3 overflow-hidden shadow-[0_10px_40px_rgba(255,255,255,0.1)] hover:shadow-[0_15px_50px_rgba(255,255,255,0.2)]"
                         onClick={handleClose}
                     >

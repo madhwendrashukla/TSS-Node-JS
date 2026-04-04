@@ -1,11 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 export function BottomSheetCTA() {
     const [isVisible, setIsVisible] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
     const [isStickyVisible, setIsStickyVisible] = useState(false);
+    const searchParams = useSearchParams();
 
     useEffect(() => {
         let hasInteracted = false;
@@ -22,7 +24,10 @@ export function BottomSheetCTA() {
         );
 
         const handleScroll = () => {
-            if (hasInteracted && window.scrollY > 150) {
+            const isFromHome = searchParams.get('from') === 'home';
+            const threshold = isFromHome ? 300 : 150; // 2x threshold if from home
+
+            if (hasInteracted && window.scrollY > threshold) {
                 setIsVisible(true);
                 window.removeEventListener('scroll', handleScroll);
             }
@@ -35,7 +40,7 @@ export function BottomSheetCTA() {
                 window.removeEventListener(evt, markInteraction)
             );
         };
-    }, []);
+    }, [searchParams]);
 
     const handleClose = () => {
         setIsClosing(true);
