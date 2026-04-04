@@ -8,6 +8,7 @@ import { VideoAndGallery } from "@/components/sections/VideoAndGallery";
 import { Contact } from "@/components/sections/Contact";
 import { Programs } from "@/components/sections/Programs";
 import { Gallery } from "@/components/sections/Gallery";
+import { WorkshopPopup } from "@/components/sections/WorkshopPopup";
 
 export default function Home() {
   return (
@@ -24,6 +25,9 @@ export default function Home() {
         <Gallery />
         <Contact />
       </main>
+
+      {/* Fundraising Workshop Promotion Popup */}
+      <WorkshopPopup />
     </>
   );
 }
