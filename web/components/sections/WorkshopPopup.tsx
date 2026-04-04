@@ -46,16 +46,16 @@ export function WorkshopPopup() {
                 aria-hidden="true"
             />
             
-            {/* Modal */}
+            {/* Modal - Adjusted mobile width and scale */}
             <div 
-                className={`relative w-full sm:max-w-md bg-[#0A0F1C] border border-white/20 rounded-t-3xl sm:rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden transition-transform duration-300 transform ${isClosing ? 'translate-y-full sm:translate-y-10 sm:scale-95 sm:opacity-0' : 'translate-y-0 sm:scale-100 sm:opacity-100'}`}
+                className={`relative w-full sm:max-w-md max-w-[92%] sm:mx-0 mx-auto bg-[#0A0F1C] border border-white/20 rounded-2xl sm:rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden transition-transform duration-300 transform ${isClosing ? 'translate-y-full sm:translate-y-10 sm:scale-95 sm:opacity-0' : 'translate-y-0 sm:scale-100 sm:opacity-100'} mb-4 sm:mb-0`}
                 role="dialog"
                 aria-modal="true"
             >
                 {/* Close Button */}
                 <button 
                     onClick={handleClose}
-                    className="absolute top-4 right-4 p-2 bg-white/5 hover:bg-white/10 text-slate-400 rounded-full transition-colors z-20"
+                    className="absolute top-4 right-4 p-1.5 bg-white/5 hover:bg-white/10 text-slate-400 rounded-full transition-colors z-20"
                     aria-label="Close"
                 >
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -63,28 +63,35 @@ export function WorkshopPopup() {
                     </svg>
                 </button>
 
-                <div className="px-6 pb-12 pt-12 flex flex-col items-center text-center relative z-10">
-                    {/* ICON - Rupee/Fundraising Representaiton */}
-                    <div className="w-24 h-24 mb-6 rounded-3xl bg-gradient-to-br from-[#8b5cf6] to-[#d946ef] flex items-center justify-center relative shadow-[0_0_30px_rgba(139,92,246,0.6)] group">
-                        <div className="absolute inset-0 bg-[#8b5cf6] rounded-3xl animate-pulse opacity-20"></div>
-                        <i className="fa-solid fa-indian-rupee-sign text-white text-4xl" />
+                <div className="px-5 sm:px-6 pb-10 pt-10 sm:pt-12 flex flex-col items-center text-center relative z-10">
+                    {/* NEW TAG - Our Upcoming Workshop */}
+                    <div className="mb-6 bg-white/10 px-3 py-1.5 rounded-full border border-white/10">
+                        <span className="text-[10px] md:text-xs font-black text-white/90 uppercase tracking-widest leading-none">
+                            Our Upcoming Workshop
+                        </span>
                     </div>
 
-                    {/* Text content */}
-                    <h3 className="text-3xl md:text-4xl font-extrabold text-white mb-4 tracking-tight leading-[1.1] px-2">
+                    {/* ICON - Reduced size for mobile */}
+                    <div className="w-20 h-20 sm:w-24 sm:h-24 mb-6 rounded-3xl bg-gradient-to-br from-[#8b5cf6] to-[#d946ef] flex items-center justify-center relative shadow-[0_0_30px_rgba(139,92,246,0.6)] group">
+                        <div className="absolute inset-0 bg-[#8b5cf6] rounded-3xl animate-pulse opacity-20"></div>
+                        <i className="fa-solid fa-indian-rupee-sign text-white text-3xl sm:text-4xl" />
+                    </div>
+
+                    {/* Text content - Optimized font sizes for mobile */}
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-3 sm:mb-4 tracking-tight leading-[1.1] px-2">
                         Fund Raising Hacks for Startups
                     </h3>
-                    <p className="text-slate-300 mb-10 text-base md:text-lg leading-relaxed max-w-sm font-medium px-4">
-                        Master cap table, term sheets & SHA with <span className="text-white font-bold opacity-100">IIT/IIM mentor</span>—Limited seats!
+                    <p className="text-slate-300 mb-8 sm:mb-10 text-sm sm:text-base md:text-lg leading-relaxed max-w-sm font-medium px-4">
+                        Master cap table, term sheets & SHA with <span className="text-white font-bold">IIT/IIM mentor</span>—Limited seats!
                     </p>
 
-                    {/* CTA */}
+                    {/* CTA - Adjusted padding for mobile */}
                     <Link 
                         href="/fundraising-workshop-15apr"
-                        className="group/btn relative w-full sm:w-[90%] bg-white text-slate-950 font-black py-5 px-8 rounded-2xl transition-all duration-300 flex items-center justify-center gap-3 overflow-hidden shadow-[0_10px_40px_rgba(255,255,255,0.1)] hover:shadow-[0_15px_50px_rgba(255,255,255,0.2)]"
+                        className="group/btn relative w-full sm:w-[90%] bg-white text-slate-950 font-black py-4 sm:py-5 px-6 rounded-2xl transition-all duration-300 flex items-center justify-center gap-3 overflow-hidden shadow-[0_10px_40px_rgba(255,255,255,0.1)] hover:shadow-[0_15px_50px_rgba(255,255,255,0.2)]"
                         onClick={handleClose}
                     >
-                        <span className="text-xl">Learn More</span>
+                        <span className="text-lg">Learn More</span>
                         <i className="fa-solid fa-arrow-right text-lg group-hover/btn:translate-x-1.5 transition-transform" />
                     </Link>
                 </div>

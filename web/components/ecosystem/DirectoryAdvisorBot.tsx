@@ -101,7 +101,7 @@ function playNotifSound() {
 }
 
 /* ── Main Component ─────────────────────────────────────────────────────────── */
-export default function DirectoryAdvisorBot() {
+export default function DirectoryAdvisorBot({ isHome }: { isHome?: boolean }) {
     const [isOpen, setIsOpen] = useState(false);
     const [dismissed, setDismissed] = useState<Set<string>>(new Set());
     const [showIdle, setShowIdle] = useState(false);
@@ -140,13 +140,13 @@ export default function DirectoryAdvisorBot() {
 
     // Show idle notifications after 8 seconds — sound fires exactly with visual pop
     useEffect(() => {
-        if (isOpen) { setShowIdle(false); return; }
+        if (isOpen || isHome) { setShowIdle(false); return; }
         const t = setTimeout(() => {
             setShowIdle(true);   // visual pop-in
             playNotifSound();    // sound fires simultaneously
         }, 8000);
         return () => clearTimeout(t);
-    }, [isOpen]);
+    }, [isOpen, isHome]);
 
     const dismissNotif = (id: string) => {
         setDismissed(prev => new Set(prev).add(id));
