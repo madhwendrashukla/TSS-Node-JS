@@ -7,7 +7,6 @@ const guestMentors = [
         name: 'Ashish Kulkarni',
         title: "Founder, Founders' Psyche | Former Research Assistant, INSEAD",
         description: "An MBA graduate from IE Business School, Spain, Ashish brings deep expertise in fundraising and entrepreneurship. As an ex-cofounder of Fundenable and a former VC scout, he has operated on both sides of the fundraising ecosystem.",
-        achievements: ['MBA from IE Business School', 'Former VC Scout', 'Ex-cofounder, Fundenable'],
         image: '/guest-mentors/ashish.png',
         linkedin: 'https://www.linkedin.com/in/ashishkul/'
     },
@@ -15,7 +14,6 @@ const guestMentors = [
         name: 'Poornima Goel',
         title: 'Corporate Lawyer | Specializing in M&A & Private Equity',
         description: "Poornima specializes in General Corporate, M&A, and Private Equity, with a focus on helping businesses navigate legal frameworks and structuring agreements, ensuring regulatory readiness.",
-        achievements: ['Deal Structuring Specialist', 'Expert in Investor Agreements', 'Compliance & Regulatory Guide'],
         image: '/guest-mentors/poornima.png',
         linkedin: 'https://www.linkedin.com/in/poornima-goel-720947245/'
     },
@@ -23,7 +21,6 @@ const guestMentors = [
         name: 'Gaurav Mishra',
         title: 'FRM Professional | MDI-Gurgaon Alumnus | Finance Expert',
         description: "A certified FRM professional and MBA graduate from MDI-Gurgaon, Gaurav brings strong expertise in startup valuation and financial forecasting. His experience at Ernst & Young adds significant corporate depth.",
-        achievements: ['Certified FRM Professional', 'Ex-Ernst & Young', 'Expert in Startup Valuation'],
         image: '/guest-mentors/gaurav.png',
         linkedin: 'https://www.linkedin.com/in/gauravkumar100/'
     }
@@ -80,18 +77,9 @@ export function WorkshopGuestMentors() {
                                 <p className="text-[#8b5cf6] text-xs md:text-sm font-bold mb-4 tracking-wide leading-snug">
                                     {mentor.title}
                                 </p>
-                                <p className="text-slate-400 text-xs md:text-sm font-light leading-relaxed mb-6">
+                                <p className="text-slate-400 text-xs md:text-sm font-light leading-relaxed font-medium">
                                     {mentor.description}
                                 </p>
-                            </div>
-
-                            <div className="space-y-2.5 mt-auto">
-                                {mentor.achievements.map((item, j) => (
-                                    <div key={j} className="flex items-center gap-3 text-[10px] md:text-xs text-slate-300 font-medium bg-white/5 p-2 rounded-lg border border-white/5 group-hover:border-white/10 transition-colors">
-                                        <i className="fa-solid fa-circle-check text-green-500 text-[10px]" />
-                                        <span>{item}</span>
-                                    </div>
-                                ))}
                             </div>
                         </div>
                     ))}
