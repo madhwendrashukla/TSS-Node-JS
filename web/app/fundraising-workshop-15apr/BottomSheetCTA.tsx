@@ -10,36 +10,14 @@ export function BottomSheetCTA() {
     const searchParams = useSearchParams();
 
     useEffect(() => {
-        let hasInteracted = false;
-        
-        const markInteraction = () => {
-            hasInteracted = true;
-            ['touchstart', 'mousemove', 'keydown', 'wheel'].forEach(evt => 
-                window.removeEventListener(evt, markInteraction)
-            );
-        };
-        
-        ['touchstart', 'mousemove', 'keydown', 'wheel'].forEach(evt => 
-            window.addEventListener(evt, markInteraction, { passive: true })
-        );
+        const isFromHome = searchParams.get('from') === 'home';
+        const delay = isFromHome ? 8000 : 4000;
 
-        const handleScroll = () => {
-            const isFromHome = searchParams.get('from') === 'home';
-            const threshold = isFromHome ? 300 : 150; // 2x threshold if from home
+        const timer = setTimeout(() => {
+            setIsVisible(true);
+        }, delay);
 
-            if (hasInteracted && window.scrollY > threshold) {
-                setIsVisible(true);
-                window.removeEventListener('scroll', handleScroll);
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-            ['touchstart', 'mousemove', 'keydown', 'wheel'].forEach(evt => 
-                window.removeEventListener(evt, markInteraction)
-            );
-        };
+        return () => clearTimeout(timer);
     }, [searchParams]);
 
     const handleClose = () => {

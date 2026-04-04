@@ -8,24 +8,11 @@ export function WorkshopPopup() {
     const [isClosing, setIsClosing] = useState(false);
 
     useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 100) {
-                setIsVisible(true);
-                window.removeEventListener('scroll', handleScroll);
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        
         const timer = setTimeout(() => {
             setIsVisible(true);
-            window.removeEventListener('scroll', handleScroll);
-        }, 6000);
+        }, 5000);
 
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-            clearTimeout(timer);
-        };
+        return () => clearTimeout(timer);
     }, []);
 
     const handleClose = () => {
