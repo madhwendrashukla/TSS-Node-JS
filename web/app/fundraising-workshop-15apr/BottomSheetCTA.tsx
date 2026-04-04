@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 
-export function BottomSheetCTA() {
+function BottomSheetCTAContent() {
     const [isVisible, setIsVisible] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
     const [isStickyVisible, setIsStickyVisible] = useState(false);
@@ -111,5 +111,13 @@ export function BottomSheetCTA() {
                 </div>
             )}
         </>
+    );
+}
+
+export function BottomSheetCTA() {
+    return (
+        <Suspense fallback={null}>
+            <BottomSheetCTAContent />
+        </Suspense>
     );
 }
