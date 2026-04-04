@@ -53,12 +53,12 @@ export function WorkshopGuestMentors() {
                         >
                             <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-[#8b5cf6] to-[#d946ef] rounded-full mix-blend-screen filter blur-[40px] opacity-0 group-hover:opacity-20 transition-opacity" />
                             
-                            <div className="mb-6 relative h-48 md:h-56 w-full rounded-xl overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500 border border-white/10 group-hover:border-[#8b5cf6]/40">
+                            <div className="mb-6 relative h-64 md:h-72 w-full rounded-2xl overflow-hidden shadow-lg border border-white/10 group-hover:border-[#8b5cf6]/40 transition-all duration-500">
                                 <Image 
                                     src={mentor.image} 
                                     alt={mentor.name} 
                                     fill 
-                                    className="object-cover group-hover:scale-110 transition-transform duration-700" 
+                                    className="object-cover object-top group-hover:scale-105 transition-transform duration-700" 
                                 />
                             </div>
 
