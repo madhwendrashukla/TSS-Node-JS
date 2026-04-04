@@ -114,23 +114,13 @@ export function BottomSheetCTA() {
             {/* Sticky Bottom CTA Bar (Appears after dismissal) */}
             {isStickyVisible && (
                 <div className="fixed bottom-0 left-0 right-0 z-[90] animate-in slide-in-from-bottom-full duration-500">
-                    <div className="bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] p-4 md:p-5 shadow-[0_-10px_40px_rgba(139,92,246,0.3)]">
-                        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-                            <div className="text-center sm:text-left">
-                                <p className="text-white font-extrabold text-lg md:text-xl tracking-tight">
-                                    Ready to master your fundraising?
-                                </p>
-                                <p className="text-white/80 text-xs md:text-sm font-medium">
-                                    Limited seats available for the April 15th Cohort.
-                                </p>
-                            </div>
-                            <a 
-                                href="#pricing" 
-                                className="bg-white text-slate-900 font-black px-10 py-3 rounded-xl hover:scale-105 active:scale-95 transition-all text-sm md:text-base shadow-xl"
-                            >
-                                Secure Your Spot
-                            </a>
-                        </div>
+                    <div className="bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] p-4 flex items-center justify-center shadow-[0_-10px_40px_rgba(139,92,246,0.5)]">
+                        <a 
+                            href="#pricing" 
+                            className="bg-white text-slate-900 font-extrabold px-12 py-3 rounded-full hover:scale-105 active:scale-95 transition-all text-lg md:text-xl shadow-[0_0_20px_rgba(255,255,255,0.3)] animate-pulse"
+                        >
+                            Secure Your Spot
+                        </a>
                     </div>
                 </div>
             )}
