@@ -13,6 +13,7 @@ const WorkshopMentor = dynamic(() => import('./WorkshopMentor').then((mod) => mo
 const WorkshopProof = dynamic(() => import('./WorkshopMentor').then((mod) => mod.WorkshopProof));
 const WorkshopPricing = dynamic(() => import('./WorkshopPricing').then((mod) => mod.WorkshopPricing));
 const WorkshopFinal = dynamic(() => import('./WorkshopFinal').then((mod) => mod.WorkshopFinal));
+const WorkshopGuestMentors = dynamic(() => import('./WorkshopGuestMentors').then((mod) => mod.WorkshopGuestMentors));
 const BottomSheetCTA = dynamic(() => import('./BottomSheetCTA').then((mod) => mod.BottomSheetCTA));
 
 export const metadata: Metadata = {
@@ -57,6 +58,7 @@ export default function WorkshopPage() {
             <WorkshopPricing />
             <WorkshopMentor />
             <WorkshopProof />
+            <WorkshopGuestMentors />
             <WorkshopFinal />
 
             {/* Kickkers AI Chatbot - specific to this page */}
