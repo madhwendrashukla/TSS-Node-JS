@@ -86,12 +86,9 @@ export function BottomSheetCTA() {
                     </div>
 
                     {/* Text */}
-                    <h3 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3 tracking-tight">
-                        Got Workshop Doubts?
+                    <h3 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-8 tracking-tight">
+                        Any questions about our fundraising workshop?
                     </h3>
-                    <p className="text-gray-500 mb-8 text-base md:text-lg leading-relaxed max-w-sm">
-                        Join our exclusive <b>Workshop Support Group</b> to get all your queries about the Fundraising Workshop answered instantly.
-                    </p>
 
                     {/* CTA */}
                     <a 
@@ -101,7 +98,7 @@ export function BottomSheetCTA() {
                         className="w-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold py-4 px-6 rounded-2xl transition-all duration-300 flex items-center justify-center gap-3 shadow-[0_10px_20px_-10px_rgba(37,211,102,0.5)] hover:shadow-[0_15px_25px_-10px_rgba(37,211,102,0.6)] hover:-translate-y-0.5"
                         onClick={handleClose}
                     >
-                        <span className="text-lg">Join Workshop Group</span>
+                        <span className="text-lg">Chat with us on WhatsApp</span>
                         <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                         </svg>
