@@ -20,7 +20,7 @@ export function WorkshopPopup() {
         const timer = setTimeout(() => {
             setIsVisible(true);
             window.removeEventListener('scroll', handleScroll);
-        }, 5000);
+        }, 6000);
 
         return () => {
             window.removeEventListener('scroll', handleScroll);
@@ -64,10 +64,10 @@ export function WorkshopPopup() {
                 </button>
 
                 <div className="px-5 sm:px-6 pb-10 pt-10 sm:pt-12 flex flex-col items-center text-center relative z-10">
-                    {/* NEW TAG - Our Upcoming Workshop */}
-                    <div className="mb-6 bg-white/10 px-3 py-1.5 rounded-full border border-white/10">
-                        <span className="text-[10px] md:text-xs font-black text-white/90 uppercase tracking-widest leading-none">
-                            Our Upcoming Workshop
+                    {/* NEW TAG - Next Cohort */}
+                    <div className="mb-6 bg-[#8b5cf6]/20 px-4 py-2 rounded-full border border-[#8b5cf6]/40 shadow-[0_0_15px_rgba(139,92,246,0.2)]">
+                        <span className="text-[10px] md:text-xs font-black text-[#a78bfa] uppercase tracking-widest leading-none italic">
+                            "Next Cohort - 15 Apr"
                         </span>
                     </div>
 
@@ -78,8 +78,10 @@ export function WorkshopPopup() {
                     </div>
 
                     {/* Text content - Optimized font sizes for mobile */}
-                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-3 sm:mb-4 tracking-tight leading-[1.1] px-2">
-                        Fund Raising Hacks for Startups
+                    <h3 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 sm:mb-6 tracking-tighter leading-[1.05] px-2">
+                        Fund Raising<br />
+                        Hacks<br />
+                        for Startups
                     </h3>
                     <p className="text-slate-300 mb-8 sm:mb-10 text-sm sm:text-base md:text-lg leading-relaxed max-w-sm font-medium px-4">
                         Master cap table, term sheets & SHA with <span className="text-white font-bold">IIT/IIM mentor</span>—Limited seats!
