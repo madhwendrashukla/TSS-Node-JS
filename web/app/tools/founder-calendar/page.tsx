@@ -131,10 +131,10 @@ export default function FounderCalendar() {
         filtered = filtered.filter(e => {
             const isTBA = e.parsedDate.getFullYear() === 2099;
             if (isTBA) {
-                const eventMonth = (e.month || '').toLowerCase();
-                const eventMonthIdx = monthOrder.indexOf(eventMonth);
+                const eventMonth = (e.month || '').toLowerCase().trim();
+                // Match "feb", "feb.", "february" etc.
+                const eventMonthIdx = monthOrder.findIndex(m => eventMonth.startsWith(m));
                 
-                // If it's a TBA event for a month that has already passed in 2026
                 if (eventMonthIdx !== -1 && eventMonthIdx < currentMonthIdx) {
                     return false;
                 }

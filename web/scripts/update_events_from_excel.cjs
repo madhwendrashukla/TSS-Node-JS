@@ -17,7 +17,7 @@ function extractMonth(dateVal) {
     if (typeof dateVal === 'number') {
         const d = xlsx.SSF.parse_date_code(dateVal);
         const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-        return months[d.m - 1];
+        return months[d.m - 1].substring(0, 3);
     }
 
     const str = String(dateVal).toLowerCase();
@@ -102,3 +102,4 @@ function updateEvents() {
 }
 
 updateEvents();
+
