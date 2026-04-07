@@ -140,13 +140,26 @@ export default function FounderCalendar() {
                 return queries.every(q => combinedText.includes(q));
             });
         }
-
         // 2. Sort by date proximity
         const now = Date.now();
-        const upcoming = filtered.filter(e => e.parsedDate.getTime() >= now).sort((a, b) => a.parsedDate.getTime() - b.parsedDate.getTime());
-        const past = filtered.filter(e => e.parsedDate.getTime() < now).sort((a, b) => b.parsedDate.getTime() - a.parsedDate.getTime());
+        
+        // Identify TBA events (year 2099)
+        const tbaThreshold = new Date(2098, 0, 1).getTime();
+        
+        const allUpcoming = filtered.filter(e => e.parsedDate.getTime() >= now);
+        
+        const upcomingDated = allUpcoming
+            .filter(e => e.parsedDate.getTime() < tbaThreshold)
+            .sort((a, b) => a.parsedDate.getTime() - b.parsedDate.getTime());
+            
+        const upcomingTBA = allUpcoming
+            .filter(e => e.parsedDate.getTime() >= tbaThreshold)
+            .sort((a, b) => a.eventName.localeCompare(b.eventName));
 
-        return { upcoming, past };
+        const past = filtered.filter(e => e.parsedDate.getTime() < now)
+            .sort((a, b) => b.parsedDate.getTime() - a.parsedDate.getTime());
+
+        return { upcoming: [...upcomingDated, ...upcomingTBA], past };
     }, [mappedEvents, selectedLocation, selectedSector, selectedMonth, searchQuery, showMustAttendOnly]);
 
     const EventCard = ({ event, isPast }: { event: ReturnType<typeof getSectorFromEvent> & FounderEvent & { sector: string }, isPast?: boolean }) => {
@@ -347,7 +360,7 @@ export default function FounderCalendar() {
                                 {selectedMonth === 'All Months' ? (
                                     <div className="space-y-16">
                                         {(() => {
-                                            const monthOrder = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                                            const monthOrder = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "TBA"];
                                             const grouped = filteredAndSortedEvents.upcoming.reduce((acc, event) => {
                                                 const m = event.month || 'TBA';
                                                 if (!acc[m]) acc[m] = [];
@@ -361,7 +374,9 @@ export default function FounderCalendar() {
                                                     <div key={m}>
                                                         <div className="flex items-center gap-4 mb-8">
                                                             <div className="h-px flex-1 bg-white/5"></div>
-                                                            <h3 className="text-xl font-bold text-accent-blue uppercase tracking-[0.3em] px-4">{m} 2026</h3>
+                                                            <h3 className="text-xl font-bold text-accent-blue uppercase tracking-[0.3em] px-4">
+                                                                {m === 'TBA' ? 'Dates To Be Announced' : `${m} 2026`}
+                                                            </h3>
                                                             <div className="h-px flex-1 bg-white/5"></div>
                                                         </div>
                                                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
