@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { CalendarPlus, MapPin, ExternalLink, Filter } from 'lucide-react';
+import { CalendarPlus, MapPin, ExternalLink, Filter, Search, Star, Info, X } from 'lucide-react';
 import { eventsData, FounderEvent, parseEventStringDates } from '@/lib/data/events';
 import { IcsDownloadButton } from '@/components/ecosystem/IcsDownloadButton';
 
@@ -71,6 +71,8 @@ export default function FounderCalendar() {
     const [selectedLocation, setSelectedLocation] = useState<string>('All Locations');
     const [selectedSector, setSelectedSector] = useState<string>('All Sectors');
     const [selectedMonth, setSelectedMonth] = useState<string>('All Months');
+    const [searchQuery, setSearchQuery] = useState<string>('');
+    const [showMustAttendOnly, setShowMustAttendOnly] = useState<boolean>(false);
 
     const mappedEvents = useMemo(() => {
         return eventsData.map(ev => ({
@@ -101,6 +103,7 @@ export default function FounderCalendar() {
     const filteredAndSortedEvents = useMemo(() => {
         // 1. Filter
         let filtered = mappedEvents;
+        
         if (selectedLocation !== 'All Locations') {
             filtered = filtered.filter(e => e.location === selectedLocation);
         }
@@ -110,68 +113,94 @@ export default function FounderCalendar() {
         if (selectedMonth !== 'All Months') {
             filtered = filtered.filter(e => (e.month || '').toLowerCase() === selectedMonth.toLowerCase());
         }
+        if (showMustAttendOnly) {
+            filtered = filtered.filter(e => e.priority?.toLowerCase().includes('must attend'));
+        }
+        if (searchQuery.trim()) {
+            const query = searchQuery.toLowerCase();
+            filtered = filtered.filter(e => 
+                e.eventName.toLowerCase().includes(query) || 
+                e.location.toLowerCase().includes(query) || 
+                e.sector.toLowerCase().includes(query) ||
+                (e.description || '').toLowerCase().includes(query)
+            );
+        }
 
         // 2. Sort by date proximity
-        // Use actual true current date
         const now = Date.now();
-
-        // Upcoming events closest to now first
         const upcoming = filtered.filter(e => e.parsedDate.getTime() >= now).sort((a, b) => a.parsedDate.getTime() - b.parsedDate.getTime());
-        // Past events furthest from now last (so oldest at the very bottom)
         const past = filtered.filter(e => e.parsedDate.getTime() < now).sort((a, b) => b.parsedDate.getTime() - a.parsedDate.getTime());
 
         return { upcoming, past };
-    }, [mappedEvents, selectedLocation, selectedSector, selectedMonth]);
+    }, [mappedEvents, selectedLocation, selectedSector, selectedMonth, searchQuery, showMustAttendOnly]);
 
-    const EventCard = ({ event, isPast }: { event: ReturnType<typeof getSectorFromEvent> & FounderEvent & { sector: string }, isPast?: boolean }) => (
-        <div className={`glass-card p-6 md:p-8 rounded-3xl border border-white/10 hover:border-accent-blue/40 transition-all group flex flex-col bg-bg-surface ${isPast ? 'opacity-60 saturate-50' : ''}`}>
-            <div className="flex justify-between items-start mb-6">
-                <span className="bg-white/5 border border-white/10 text-text-secondary text-xs px-3 py-1 rounded-full">{event.sector}</span>
-                <span className={`font-bold text-sm px-3 py-1 rounded-full whitespace-nowrap ${isPast ? 'text-gray-400 bg-gray-500/10 border border-gray-500/20' : 'text-accent-blue bg-accent-blue/10 border border-accent-blue/20'}`}>
-                    {event.startDate}{String(event.startDate).includes(event.month) ? '' : ` ${event.month}`}
-                </span>
-            </div>
-
-            <h3 className="text-2xl font-bold text-white mb-4 leading-tight group-hover:text-accent-blue transition-colors line-clamp-3">{event.eventName}</h3>
-
-            <div className="space-y-3 mb-8 flex-1 text-sm text-text-secondary font-light">
-                <div className="flex items-start gap-2">
-                    <MapPin className="w-5 h-5 text-accent-violet shrink-0 mt-0.5" />
-                    <span>{event.exhibitionCentre}<br /><span className="text-white/40">{event.location}</span></span>
+    const EventCard = ({ event, isPast }: { event: ReturnType<typeof getSectorFromEvent> & FounderEvent & { sector: string }, isPast?: boolean }) => {
+        const isMustAttend = event.priority?.toLowerCase().includes('must attend');
+        
+        return (
+            <div className={`glass-card p-6 md:p-8 rounded-3xl border border-white/10 hover:border-accent-blue/40 transition-all group flex flex-col bg-bg-surface ${isPast ? 'opacity-60 saturate-50' : ''}`}>
+                <div className="flex justify-between items-start mb-6">
+                    <div className="flex flex-wrap gap-2">
+                        <span className="bg-white/5 border border-white/10 text-text-secondary text-[10px] px-3 py-1 rounded-full uppercase tracking-widest">{event.sector}</span>
+                        {isMustAttend && (
+                            <span className="bg-red-500/20 border border-red-500/30 text-red-400 text-[10px] px-3 py-1 rounded-full uppercase tracking-widest flex items-center gap-1">
+                                <Star className="w-3 h-3 fill-current" />
+                                MUST ATTEND
+                            </span>
+                        )}
+                    </div>
+                    <span className={`font-bold text-sm px-3 py-1 rounded-full whitespace-nowrap ${isPast ? 'text-gray-400 bg-gray-500/10 border border-gray-500/20' : 'text-accent-blue bg-accent-blue/10 border border-accent-blue/20'}`}>
+                        {event.startDate}{String(event.startDate).includes(event.month) ? '' : ` ${event.month}`}
+                    </span>
                 </div>
-            </div>
 
-            <div className="flex flex-col gap-3 pt-4 border-t border-white/5">
-                <a
-                    href={generateGoogleCalendarUrl(event)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full flex items-center justify-center gap-2 bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))] hover:opacity-90 text-white py-3 px-4 rounded-xl text-sm font-bold transition-opacity"
-                >
-                    <CalendarPlus className="w-4 h-4" />
-                    Google Calendar
-                </a>
-                <div className="grid grid-cols-2 gap-3">
-                    <IcsDownloadButton event={event} />
-                    {event.weblink && !event.weblink.includes('gtm.whr.ai') ? (
-                        <a
-                            href={event.weblink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-white py-2.5 px-4 rounded-xl text-sm font-medium transition-colors border border-white/5 hover:border-white/10"
-                        >
-                            <ExternalLink className="w-4 h-4" />
-                            Details
-                        </a>
-                    ) : (
-                        <div className="flex items-center justify-center gap-2 bg-white/5 opacity-50 text-white py-2.5 px-4 rounded-xl text-sm font-medium border border-white/5 cursor-not-allowed">
-                            No Link
+                <h3 className="text-2xl font-bold text-white mb-4 leading-tight group-hover:text-accent-blue transition-colors line-clamp-3">{event.eventName}</h3>
+
+                <div className="space-y-4 mb-8 flex-1">
+                    <div className="flex items-start gap-2 text-sm text-text-secondary font-light">
+                        <MapPin className="w-5 h-5 text-accent-violet shrink-0 mt-0.5" />
+                        <span>{event.exhibitionCentre}<br /><span className="text-white/40">{event.location}</span></span>
+                    </div>
+
+                    {event.description && (
+                        <div className="bg-white/5 border border-white/5 p-4 rounded-xl text-xs text-text-secondary leading-relaxed italic">
+                            {event.description}
                         </div>
                     )}
                 </div>
+
+                <div className="flex flex-col gap-3 pt-4 border-t border-white/5">
+                    <a
+                        href={generateGoogleCalendarUrl(event)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full flex items-center justify-center gap-2 bg-[linear-gradient(to_right,var(--color-accent-blue),var(--color-accent-violet))] hover:opacity-90 text-white py-3 px-4 rounded-xl text-sm font-bold transition-opacity"
+                    >
+                        <CalendarPlus className="w-4 h-4" />
+                        Google Calendar
+                    </a>
+                    <div className="grid grid-cols-2 gap-3">
+                        <IcsDownloadButton event={event} />
+                        {event.weblink && event.weblink.length > 5 ? (
+                            <a
+                                href={event.weblink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-white py-2.5 px-4 rounded-xl text-sm font-medium transition-colors border border-white/5 hover:border-white/10"
+                            >
+                                <ExternalLink className="w-4 h-4" />
+                                Details
+                            </a>
+                        ) : (
+                            <div className="flex items-center justify-center gap-2 bg-white/5 opacity-50 text-white py-2.5 px-4 rounded-xl text-sm font-medium border border-white/5 cursor-not-allowed">
+                                No Link
+                            </div>
+                        )}
+                    </div>
+                </div>
             </div>
-        </div>
-    );
+        );
+    };
 
     const hasEvents = filteredAndSortedEvents.upcoming.length > 0 || filteredAndSortedEvents.past.length > 0;
 
@@ -200,14 +229,45 @@ export default function FounderCalendar() {
                 </div>
 
                 {/* Filters */}
-                <div className="glass-card p-4 md:p-6 mb-12 rounded-2xl border border-white/10 flex flex-col md:flex-row gap-4 items-center bg-bg-surface/80 backdrop-blur-md sticky top-24 z-20">
-                    <div className="flex items-center gap-3 text-text-secondary hidden md:flex min-w-fit">
-                        <Filter className="w-5 h-5 text-accent-blue" />
-                        <span className="font-bold uppercase tracking-widest text-xs">Filter Events</span>
-                        <div className="h-6 w-px bg-white/10 mx-2"></div>
+                <div className="glass-card p-4 md:p-6 mb-12 rounded-2xl border border-white/10 flex flex-col gap-6 bg-bg-surface/80 backdrop-blur-md sticky top-24 z-20">
+                    <div className="flex flex-col md:flex-row gap-4 items-center w-full">
+                        <div className="flex items-center gap-3 text-text-secondary hidden md:flex min-w-fit">
+                            <Filter className="w-5 h-5 text-accent-blue" />
+                            <span className="font-bold uppercase tracking-widest text-xs">Search & Filter</span>
+                            <div className="h-6 w-px bg-white/10 mx-2"></div>
+                        </div>
+
+                        {/* Search Bar */}
+                        <div className="relative w-full">
+                            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
+                            <input 
+                                type="text"
+                                placeholder="Search events, locations, keywords..."
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                className="w-full bg-white/5 border border-white/10 rounded-xl pl-12 pr-4 py-3 text-white focus:outline-none focus:border-accent-blue/50 focus:bg-white/10 transition-all font-light"
+                            />
+                            {searchQuery && (
+                                <button 
+                                    onClick={() => setSearchQuery('')}
+                                    className="absolute right-4 top-1/2 -translate-y-1/2 hover:text-white text-white/30 transition-colors"
+                                >
+                                    <X className="w-4 h-4" />
+                                </button>
+                            )}
+                        </div>
+
+                        {/* Must Attend Toggle */}
+                        <button 
+                            onClick={() => setShowMustAttendOnly(!showMustAttendOnly)}
+                            className={`flex items-center gap-2 px-6 py-3 rounded-xl border transition-all whitespace-nowrap w-full md:w-auto justify-center ${showMustAttendOnly ? 'bg-red-500/20 border-red-500/50 text-red-400' : 'bg-white/5 border-white/10 text-white/50 hover:bg-white/10'}`}
+                        >
+                            <Star className={`w-4 h-4 ${showMustAttendOnly ? 'fill-current' : ''}`} />
+                            <span className="text-xs font-bold uppercase tracking-widest">Must Attend</span>
+                        </button>
                     </div>
 
-                    <div className="flex flex-col md:flex-row gap-4 w-full">
+                    <div className="flex flex-col md:flex-row gap-4 w-full pt-4 border-t border-white/5">
                         <div className="flex-1 w-full">
                             <label className="text-[10px] uppercase tracking-widest text-text-secondary font-bold mb-2 block px-1">Location</label>
                             <select
@@ -246,7 +306,7 @@ export default function FounderCalendar() {
                         <h3 className="text-2xl text-white font-bold mb-2">No events found</h3>
                         <p className="text-text-secondary font-light">Try adjusting your filters to see more results.</p>
                         <button
-                            onClick={() => { setSelectedLocation('All Locations'); setSelectedSector('All Sectors'); setSelectedMonth('All Months'); }}
+                            onClick={() => { setSelectedLocation('All Locations'); setSelectedSector('All Sectors'); setSelectedMonth('All Months'); setSearchQuery(''); setShowMustAttendOnly(false); }}
                             className="mt-6 text-accent-blue font-bold tracking-widest uppercase text-sm px-6 py-2 border border-accent-blue/20 rounded-full hover:bg-accent-blue/10 transition-colors"
                         >
                             Reset Filters
@@ -259,15 +319,52 @@ export default function FounderCalendar() {
                         {/* Upcoming Events */}
                         {filteredAndSortedEvents.upcoming.length > 0 && (
                             <div>
-                                <h2 className="text-3xl font-black text-white mb-6 flex items-center gap-4">
-                                    Upcoming Events
-                                    <span className="bg-white/10 text-white/50 text-xs px-3 py-1 rounded-full font-medium">{filteredAndSortedEvents.upcoming.length}</span>
-                                </h2>
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                    {filteredAndSortedEvents.upcoming.map((event, idx) => (
-                                        <EventCard key={`up-${idx}`} event={event as any} />
-                                    ))}
+                                <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                                    <h2 className="text-3xl font-black text-white flex items-center gap-4">
+                                        Upcoming Events
+                                        <span className="bg-white/10 text-white/50 text-xs px-3 py-1 rounded-full font-medium">{filteredAndSortedEvents.upcoming.length}</span>
+                                    </h2>
+                                    {selectedMonth === 'All Months' && (
+                                        <p className="text-text-secondary text-sm font-light">Sorted by date proximity</p>
+                                    )}
                                 </div>
+
+                                {selectedMonth === 'All Months' ? (
+                                    <div className="space-y-16">
+                                        {(() => {
+                                            const monthOrder = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                                            const grouped = filteredAndSortedEvents.upcoming.reduce((acc, event) => {
+                                                const m = event.month || 'TBA';
+                                                if (!acc[m]) acc[m] = [];
+                                                acc[m].push(event);
+                                                return acc;
+                                            }, {} as Record<string, typeof filteredAndSortedEvents.upcoming>);
+
+                                            return monthOrder
+                                                .filter(m => grouped[m] && grouped[m].length > 0)
+                                                .map(m => (
+                                                    <div key={m}>
+                                                        <div className="flex items-center gap-4 mb-8">
+                                                            <div className="h-px flex-1 bg-white/5"></div>
+                                                            <h3 className="text-xl font-bold text-accent-blue uppercase tracking-[0.3em] px-4">{m} 2026</h3>
+                                                            <div className="h-px flex-1 bg-white/5"></div>
+                                                        </div>
+                                                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                                            {grouped[m].map((event, idx) => (
+                                                                <EventCard key={`up-${m}-${idx}`} event={event as any} />
+                                                            ))}
+                                                        </div>
+                                                    </div>
+                                                ));
+                                        })()}
+                                    </div>
+                                ) : (
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                        {filteredAndSortedEvents.upcoming.map((event, idx) => (
+                                            <EventCard key={`up-${idx}`} event={event as any} />
+                                        ))}
+                                    </div>
+                                )}
                             </div>
                         )}
 

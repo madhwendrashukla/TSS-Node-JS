@@ -64,6 +64,54 @@ export default function EventsPage() {
                     </div>
                 </section>
 
+                {/* B2B & Industry Events */}
+                <section className="mb-32">
+                    <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-4 border-b border-white/10 gap-4">
+                        <div>
+                            <h2 className="text-2xl font-bold text-white tracking-tight mb-2">B2B & Industry Events</h2>
+                            <p className="text-text-secondary">Comprehensive database of trade shows, exhibitions, and networking hubs.</p>
+                        </div>
+                        <Link href="/tools/founder-calendar" className="text-accent-blue font-bold text-sm tracking-widest uppercase hover:text-white transition-colors flex items-center gap-2">
+                            Open Full Calendar &rarr;
+                        </Link>
+                    </div>
+
+                    <div className="grid lg:grid-cols-3 gap-6">
+                        <div className="glass-card p-8 rounded-3xl border border-white/5 bg-bg-surface/50 backdrop-blur-sm">
+                            <div className="w-12 h-12 rounded-2xl bg-accent-blue/10 border border-accent-blue/20 flex items-center justify-center text-accent-blue mb-6">
+                                <i className="fas fa-calendar-check"></i>
+                            </div>
+                            <h3 className="text-xl font-bold text-white mb-3 tracking-tight">650+ Hand-picked Events</h3>
+                            <p className="text-text-secondary text-sm leading-relaxed mb-6">We've mapped out the highest-leverage B2B exhibitions and networking hubs for Founders.</p>
+                            <Link href="/tools/founder-calendar" className="text-white/60 hover:text-white text-xs font-bold uppercase tracking-widest border-b border-white/10 hover:border-white transition-all pb-1">
+                                Explore Database
+                            </Link>
+                        </div>
+
+                        <div className="glass-card p-8 rounded-3xl border border-white/5 bg-bg-surface/50 backdrop-blur-sm">
+                            <div className="w-12 h-12 rounded-2xl bg-accent-violet/10 border border-accent-violet/20 flex items-center justify-center text-accent-violet mb-6">
+                                <i className="fas fa-filter"></i>
+                            </div>
+                            <h3 className="text-xl font-bold text-white mb-3 tracking-tight">Smart Filters</h3>
+                            <p className="text-text-secondary text-sm leading-relaxed mb-6">Filter by Sector (Tech, Manufacturing, Retail), City, or Month to find exactly where you need to be.</p>
+                            <Link href="/tools/founder-calendar" className="text-white/60 hover:text-white text-xs font-bold uppercase tracking-widest border-b border-white/10 hover:border-white transition-all pb-1">
+                                View Categories
+                            </Link>
+                        </div>
+
+                        <div className="glass-card p-8 rounded-3xl border border-white/5 bg-bg-surface/50 backdrop-blur-sm">
+                            <div className="w-12 h-12 rounded-2xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-500 mb-6">
+                                <i className="fas fa-star"></i>
+                            </div>
+                            <h3 className="text-xl font-bold text-white mb-3 tracking-tight">Must Attend List</h3>
+                            <p className="text-text-secondary text-sm leading-relaxed mb-6">Shortlisted priority events that are absolutely crucial for founders looking to build momentum.</p>
+                            <Link href="/tools/founder-calendar" className="text-white/60 hover:text-white text-xs font-bold uppercase tracking-widest border-b border-white/10 hover:border-white transition-all pb-1">
+                                See Priority List
+                            </Link>
+                        </div>
+                    </div>
+                </section>
+
                 {/* Past Events */}
                 <section className="mb-32">
                     <h2 className="text-2xl font-bold text-white mb-10 tracking-tight pb-4 border-b border-white/10">Past Events</h2>
