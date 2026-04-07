@@ -5,41 +5,57 @@ const path = require('path');
 const EXCEL_PATH = 'd:/tss v2/India_Events_2026_COMPLETE.xlsx';
 const TS_PATH = path.join(__dirname, '../lib/data/events.ts');
 
-function formatMonth(dateStr) {
-    if (!dateStr) return 'TBA';
-    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    const d = new Date(dateStr);
-    if (isNaN(d.getTime())) {
-        const match = dateStr.match(/[a-zA-Z]+/);
-        if (match) return match[0].substring(0, 3);
-        return 'TBA';
+const MONTHS_MAP = {
+    'jan': 'Jan', 'feb': 'Feb', 'mar': 'Mar', 'apr': 'Apr', 'may': 'May', 'jun': 'Jun',
+    'jul': 'Jul', 'aug': 'Aug', 'sep': 'Sep', 'oct': 'Oct', 'nov': 'Nov', 'dec': 'Dec'
+};
+
+function extractMonth(dateVal) {
+    if (!dateVal) return 'TBA';
+    
+    // If it's an Excel date (number)
+    if (typeof dateVal === 'number') {
+        const d = xlsx.SSF.parse_date_code(dateVal);
+        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        return months[d.m - 1];
     }
-    return months[d.getMonth()];
+
+    const str = String(dateVal).toLowerCase();
+    for (const [key, val] of Object.entries(MONTHS_MAP)) {
+        if (str.includes(key)) return val;
+    }
+    
+    return 'TBA';
 }
 
-function formatStartDateRange(startStr, endStr) {
-    if (!startStr) return 'TBA';
-    const s = new Date(startStr);
-    if (isNaN(s.getTime())) return startStr;
+function formatDisplayDate(dateVal) {
+    if (!dateVal) return 'TBA';
+    if (typeof dateVal === 'number') {
+        const d = xlsx.SSF.parse_date_code(dateVal);
+        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        return `${d.d} ${months[d.m - 1]}`;
+    }
+    return String(dateVal).trim();
+}
 
-    const dayS = s.getDate();
-    const monthS = formatMonth(startStr);
+function formatStartDateRange(start, end) {
+    if (!start) return 'TBA';
+    
+    const startStr = formatDisplayDate(start);
+    const endStr = formatDisplayDate(end);
 
-    if (!endStr || endStr === startStr) {
-        return `${dayS} ${monthS}`;
+    if (startStr === endStr || !end) return startStr;
+    
+    // If start is like "14 Oct 2026" and end is like "16 Oct 2026"
+    // We want "14-16 Oct"
+    const startParts = startStr.split(' ');
+    const endParts = endStr.split(' ');
+
+    if (startParts.length >= 2 && endParts.length >= 2 && startParts[1] === endParts[1]) {
+        return `${startParts[0]}-${endParts[0]} ${startParts[1]}`;
     }
 
-    const e = new Date(endStr);
-    if (isNaN(e.getTime())) return `${dayS} ${monthS}`;
-
-    const dayE = e.getDate();
-    const monthE = formatMonth(endStr);
-
-    if (monthS === monthE) {
-        return `${dayS}-${dayE} ${monthS}`;
-    } else {
-        return `${dayS} ${monthS}-${dayE} ${monthE}`;
-    }
+    return `${startStr} - ${endStr}`;
 }
 
 function updateEvents() {
@@ -57,7 +73,7 @@ function updateEvents() {
             exhibitionCentre: row['Venue'] || 'TBA',
             location: row['City'] || 'TBA',
             startDate: formatStartDateRange(start, end),
-            month: formatMonth(start),
+            month: extractMonth(start),
             weblink: row['Official Website'] || '',
             priority: row['Founder Priority'] || '',
             description: row['Description / Why Attend'] || ''
@@ -82,7 +98,7 @@ function updateEvents() {
                          '\n' + tsContent.substring(lastIndex);
 
     fs.writeFileSync(TS_PATH, newTsContent, 'utf8');
-    console.log(`Successfully updated ${newEvents.length} events with priority and description.`);
+    console.log(`Successfully updated ${newEvents.length} events with standardized dates/months.`);
 }
 
 updateEvents();

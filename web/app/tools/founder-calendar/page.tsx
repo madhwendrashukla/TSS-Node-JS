@@ -46,9 +46,15 @@ function getSectorFromEvent(event: FounderEvent): string {
 function parseEventSortDate(event: FounderEvent): Date {
     const year = 2026;
     let day = 1;
-    let monthIdx = 2; // March is 2 in JS (0-indexed)
+    let monthIdx = 2; // Default March
 
     const str = `${event.startDate}`.toLowerCase().trim();
+    const monthStr = (event.month || '').toLowerCase();
+
+    // If TBA/TBD, return a date far in the future to keep it in "Upcoming"
+    if (str.includes('tba') || str.includes('tbd') || monthStr === 'tba') {
+        return new Date(2099, 11, 31);
+    }
 
     // Extract first number found
     const match = str.match(/\d+/);
@@ -56,13 +62,25 @@ function parseEventSortDate(event: FounderEvent): Date {
         day = parseInt(match[0], 10);
     }
 
-    if (str.includes('feb')) monthIdx = 1;
-    if (str.includes('jan')) monthIdx = 0;
-    if (str.includes('apr')) monthIdx = 3;
+    const monthOrder = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+    
+    // Check in startDate string first
+    for (let i = 0; i < monthOrder.length; i++) {
+        if (str.includes(monthOrder[i])) {
+            monthIdx = i;
+            break;
+        }
+    }
 
-    // Fallback to the explicit month property if previous string checks failed
-    if (monthIdx === 2 && event.month.toLowerCase().includes('feb')) monthIdx = 1;
-    if (monthIdx === 2 && event.month.toLowerCase().includes('apr')) monthIdx = 3;
+    // Fallback to explicit month property
+    if (monthIdx === 2 && !str.includes('mar')) {
+        for (let i = 0; i < monthOrder.length; i++) {
+            if (monthStr.includes(monthOrder[i])) {
+                monthIdx = i;
+                break;
+            }
+        }
+    }
 
     return new Date(year, monthIdx, day);
 }
@@ -93,10 +111,9 @@ export default function FounderCalendar() {
     }, [mappedEvents]);
 
     const uniqueMonths = useMemo(() => {
-        const months = Array.from(new Set(eventsData.map(e => e.month))).filter(Boolean);
-        // Create an ordered list of months to properly sort them
         const monthOrder = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-        const sortedMonths = months.sort((a, b) => monthOrder.indexOf(a) - monthOrder.indexOf(b));
+        const months = Array.from(new Set(eventsData.map(e => e.month))).filter(m => monthOrder.includes(m as string));
+        const sortedMonths = months.sort((a, b) => monthOrder.indexOf(a as string) - monthOrder.indexOf(b as string));
         return ['All Months', ...sortedMonths];
     }, []);
 
@@ -117,13 +134,11 @@ export default function FounderCalendar() {
             filtered = filtered.filter(e => e.priority?.toLowerCase().includes('must attend'));
         }
         if (searchQuery.trim()) {
-            const query = searchQuery.toLowerCase();
-            filtered = filtered.filter(e => 
-                e.eventName.toLowerCase().includes(query) || 
-                e.location.toLowerCase().includes(query) || 
-                e.sector.toLowerCase().includes(query) ||
-                (e.description || '').toLowerCase().includes(query)
-            );
+            const queries = searchQuery.toLowerCase().split(/\s+/).filter(Boolean);
+            filtered = filtered.filter(e => {
+                const combinedText = `${e.eventName} ${e.location} ${e.sector} ${e.description} ${e.exhibitionCentre} ${e.tag}`.toLowerCase();
+                return queries.every(q => combinedText.includes(q));
+            });
         }
 
         // 2. Sort by date proximity
