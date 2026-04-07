@@ -44,27 +44,45 @@ function getSectorFromEvent(event: FounderEvent): string {
 // Basic date parser for formats like "13-15 Mar", "29-Mar", "27 Feb To 1 Mar"
 // Defaults to March 2026 if parsing fails so it doesn't break
 function parseEventSortDate(event: FounderEvent): Date {
-    const year = 2026;
+    let year = 2026;
+    let monthIdx = 2; // Default Mar
     let day = 1;
-    let monthIdx = 2; // Default March
 
     const str = `${event.startDate}`.toLowerCase().trim();
     const monthStr = (event.month || '').toLowerCase();
 
-    // If TBA/TBD, return a date far in the future to keep it in "Upcoming"
-    if (str.includes('tba') || str.includes('tbd') || monthStr === 'tba') {
-        return new Date(2099, 11, 31);
+    // Try to extract year (2024-2027)
+    const yearMatch = str.match(/\b(202[4567])\b/);
+    if (yearMatch) {
+        year = parseInt(yearMatch[1], 10);
     }
 
-    // Extract first number found
-    const match = str.match(/\d+/);
-    if (match) {
-        day = parseInt(match[0], 10);
+    // Identify if it's a "TBA-style" event (no specific day)
+    const isExplicitTBA = str.includes('tba') || str.includes('tbd') || monthStr === 'tba';
+    
+    // Check if there's a day mentioned (ignore the year)
+    const allNumbers = str.match(/\d+/g) || [];
+    const hasSpecificDay = allNumbers.some(n => n !== year.toString() && n.length <= 2);
+
+    if (isExplicitTBA || !hasSpecificDay) {
+        // Use 2099 for sorting but keep month info for filtering
+        const monthOrder = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+        for (let i = 0; i < monthOrder.length; i++) {
+            if (str.includes(monthOrder[i]) || monthStr.includes(monthOrder[i])) {
+                monthIdx = i;
+                break;
+            }
+        }
+        return new Date(2099, monthIdx, 31);
+    }
+
+    // Extract day
+    const dayMatch = allNumbers.find(n => n !== year.toString() && n.length <= 2);
+    if (dayMatch) {
+        day = parseInt(dayMatch, 10);
     }
 
     const monthOrder = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
-    
-    // Check in startDate string first
     for (let i = 0; i < monthOrder.length; i++) {
         if (str.includes(monthOrder[i])) {
             monthIdx = i;
@@ -72,7 +90,6 @@ function parseEventSortDate(event: FounderEvent): Date {
         }
     }
 
-    // Fallback to explicit month property
     if (monthIdx === 2 && !str.includes('mar')) {
         for (let i = 0; i < monthOrder.length; i++) {
             if (monthStr.includes(monthOrder[i])) {
@@ -127,17 +144,25 @@ export default function FounderCalendar() {
 
         const monthOrder = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
 
-        // Remove stale TBA events (TBA events from passed months of the current year)
+        // Remove stale events (passed dates or stale TBA)
         filtered = filtered.filter(e => {
-            const isTBA = e.parsedDate.getFullYear() === 2099;
+            const evYear = e.parsedDate.getFullYear();
+            const evMonth = e.parsedDate.getMonth();
+            const isTBA = evYear === 2099;
+
             if (isTBA) {
-                const eventMonth = (e.month || '').toLowerCase().trim();
-                // Match "feb", "feb.", "february" etc.
-                const eventMonthIdx = monthOrder.findIndex(m => eventMonth.startsWith(m));
-                
-                if (eventMonthIdx !== -1 && eventMonthIdx < currentMonthIdx) {
-                    return false;
-                }
+                const str = `${e.startDate}`.toLowerCase();
+                const yearMatch = str.match(/\b(202\d)\b/);
+                const tbaYear = yearMatch ? parseInt(yearMatch[1], 10) : 2026;
+
+                if (tbaYear < currentYear) return false;
+                if (tbaYear === currentYear && evMonth < currentMonthIdx) return false;
+            } else {
+                // If the event year is in the past, remove it
+                if (evYear < currentYear) return false;
+                // If it's the current year but a past month, it should be in 'past' 
+                // but the user wants them gone if they are confusing.
+                // For safety, let's just make sure they don't show on top.
             }
             return true;
         });
