@@ -120,6 +120,27 @@ export default function FounderCalendar() {
     const filteredAndSortedEvents = useMemo(() => {
         // 1. Filter
         let filtered = mappedEvents;
+
+        const now = new Date();
+        const currentYear = now.getFullYear();
+        const currentMonthIdx = now.getMonth(); // 0-indexed
+
+        const monthOrder = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+
+        // Remove stale TBA events (TBA events from passed months of the current year)
+        filtered = filtered.filter(e => {
+            const isTBA = e.parsedDate.getFullYear() === 2099;
+            if (isTBA) {
+                const eventMonth = (e.month || '').toLowerCase();
+                const eventMonthIdx = monthOrder.indexOf(eventMonth);
+                
+                // If it's a TBA event for a month that has already passed in 2026
+                if (eventMonthIdx !== -1 && eventMonthIdx < currentMonthIdx) {
+                    return false;
+                }
+            }
+            return true;
+        });
         
         if (selectedLocation !== 'All Locations') {
             filtered = filtered.filter(e => e.location === selectedLocation);
@@ -141,12 +162,12 @@ export default function FounderCalendar() {
             });
         }
         // 2. Sort by date proximity
-        const now = Date.now();
+        const nowTime = now.getTime();
         
         // Identify TBA events (year 2099)
         const tbaThreshold = new Date(2098, 0, 1).getTime();
         
-        const allUpcoming = filtered.filter(e => e.parsedDate.getTime() >= now);
+        const allUpcoming = filtered.filter(e => e.parsedDate.getTime() >= nowTime);
         
         const upcomingDated = allUpcoming
             .filter(e => e.parsedDate.getTime() < tbaThreshold)
@@ -156,7 +177,7 @@ export default function FounderCalendar() {
             .filter(e => e.parsedDate.getTime() >= tbaThreshold)
             .sort((a, b) => a.eventName.localeCompare(b.eventName));
 
-        const past = filtered.filter(e => e.parsedDate.getTime() < now)
+        const past = filtered.filter(e => e.parsedDate.getTime() < nowTime)
             .sort((a, b) => b.parsedDate.getTime() - a.parsedDate.getTime());
 
         return { upcoming: [...upcomingDated, ...upcomingTBA], past };
