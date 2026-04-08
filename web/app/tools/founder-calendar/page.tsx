@@ -44,6 +44,10 @@ function getSectorFromEvent(event: FounderEvent): string {
 // Basic date parser for formats like "13-15 Mar", "29-Mar", "27 Feb To 1 Mar"
 // Defaults to March 2026 if parsing fails so it doesn't break
 function parseEventSortDate(event: FounderEvent): Date {
+    const now = new Date();
+    const currentYear = now.getFullYear();
+    const currentMonthIdx = now.getMonth();
+
     let year = 2026;
     let monthIdx = 2; // Default Mar
     let day = 1;
@@ -65,7 +69,7 @@ function parseEventSortDate(event: FounderEvent): Date {
     const hasSpecificDay = allNumbers.some(n => n !== year.toString() && n.length <= 2);
 
     if (isExplicitTBA || !hasSpecificDay) {
-        // Use 2099 for sorting but keep month info for filtering
+        // Find month index
         const monthOrder = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
         for (let i = 0; i < monthOrder.length; i++) {
             if (str.includes(monthOrder[i]) || monthStr.includes(monthOrder[i])) {
@@ -73,6 +77,13 @@ function parseEventSortDate(event: FounderEvent): Date {
                 break;
             }
         }
+
+        // If it's the current year and the month has passed, it's a past TBA
+        if (year === currentYear && monthIdx < currentMonthIdx) {
+            return new Date(year, monthIdx, 1);
+        }
+        
+        // Otherwise, it's a future TBA
         return new Date(2099, monthIdx, 31);
     }
 
@@ -144,7 +155,7 @@ export default function FounderCalendar() {
 
         const monthOrder = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
 
-        // Remove stale events (passed dates or stale TBA)
+        // Remove truly stale events (from years before the current year)
         filtered = filtered.filter(e => {
             const evYear = e.parsedDate.getFullYear();
             const evMonth = e.parsedDate.getMonth();
@@ -155,14 +166,11 @@ export default function FounderCalendar() {
                 const yearMatch = str.match(/\b(202\d)\b/);
                 const tbaYear = yearMatch ? parseInt(yearMatch[1], 10) : 2026;
 
+                // Keep all events from the current year onwards
                 if (tbaYear < currentYear) return false;
-                if (tbaYear === currentYear && evMonth < currentMonthIdx) return false;
             } else {
-                // If the event year is in the past, remove it
+                // If it's a dated event from a past year, remove it
                 if (evYear < currentYear) return false;
-                // If it's the current year but a past month, it should be in 'past' 
-                // but the user wants them gone if they are confusing.
-                // For safety, let's just make sure they don't show on top.
             }
             return true;
         });
@@ -188,11 +196,13 @@ export default function FounderCalendar() {
         }
         // 2. Sort by date proximity
         const nowTime = now.getTime();
+        const startOfCurrentMonth = new Date(currentYear, currentMonthIdx, 1).getTime();
         
         // Identify TBA events (year 2099)
         const tbaThreshold = new Date(2098, 0, 1).getTime();
         
-        const allUpcoming = filtered.filter(e => e.parsedDate.getTime() >= nowTime);
+        // "Upcoming" includes everything from the start of the current month
+        const allUpcoming = filtered.filter(e => e.parsedDate.getTime() >= startOfCurrentMonth);
         
         const upcomingDated = allUpcoming
             .filter(e => e.parsedDate.getTime() < tbaThreshold)
@@ -202,17 +212,21 @@ export default function FounderCalendar() {
             .filter(e => e.parsedDate.getTime() >= tbaThreshold)
             .sort((a, b) => a.eventName.localeCompare(b.eventName));
 
-        const past = filtered.filter(e => e.parsedDate.getTime() < nowTime)
+        // "Past" is strictly earlier than the current month
+        const past = filtered.filter(e => e.parsedDate.getTime() < startOfCurrentMonth)
             .sort((a, b) => b.parsedDate.getTime() - a.parsedDate.getTime());
 
         return { upcoming: [...upcomingDated, ...upcomingTBA], past };
     }, [mappedEvents, selectedLocation, selectedSector, selectedMonth, searchQuery, showMustAttendOnly]);
 
-    const EventCard = ({ event, isPast }: { event: ReturnType<typeof getSectorFromEvent> & FounderEvent & { sector: string }, isPast?: boolean }) => {
+    const EventCard = ({ event, isPast: isPastProp }: { event: any, isPast?: boolean }) => {
         const isMustAttend = event.priority?.toLowerCase().includes('must attend');
+        const now = new Date();
+        // An event is past if it's explicitly marked OR if its date is before now and it's not a future TBA (2099)
+        const isActuallyPast = isPastProp || (event.parsedDate && event.parsedDate.getTime() < now.getTime() && event.parsedDate.getFullYear() !== 2099);
         
         return (
-            <div className={`glass-card p-6 md:p-8 rounded-3xl border border-white/10 hover:border-accent-blue/40 transition-all group flex flex-col bg-bg-surface ${isPast ? 'opacity-60 saturate-50' : ''}`}>
+            <div className={`glass-card p-6 md:p-8 rounded-3xl border border-white/10 hover:border-accent-blue/40 transition-all group flex flex-col bg-bg-surface ${isActuallyPast ? 'opacity-40 saturate-50' : ''}`}>
                 <div className="flex justify-between items-start mb-6">
                     <div className="flex flex-wrap gap-2">
                         <span className="bg-white/5 border border-white/10 text-text-secondary text-[10px] px-3 py-1 rounded-full uppercase tracking-widest">{event.sector}</span>
@@ -223,7 +237,7 @@ export default function FounderCalendar() {
                             </span>
                         )}
                     </div>
-                    <span className={`font-bold text-sm px-3 py-1 rounded-full whitespace-nowrap ${isPast ? 'text-gray-400 bg-gray-500/10 border border-gray-500/20' : 'text-accent-blue bg-accent-blue/10 border border-accent-blue/20'}`}>
+                    <span className={`font-bold text-sm px-3 py-1 rounded-full whitespace-nowrap ${isActuallyPast ? 'text-gray-400 bg-gray-500/10 border border-gray-500/20' : 'text-accent-blue bg-accent-blue/10 border border-accent-blue/20'}`}>
                         {event.startDate}{String(event.startDate).includes(event.month) ? '' : ` ${event.month}`}
                     </span>
                 </div>
@@ -406,7 +420,17 @@ export default function FounderCalendar() {
                                 {selectedMonth === 'All Months' ? (
                                     <div className="space-y-16">
                                         {(() => {
-                                            const monthOrder = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "TBA"];
+                                            const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                                            const now = new Date();
+                                            const currentMonthIdx = now.getMonth();
+                                            
+                                            // Start grouping from the current month for a better logical flow
+                                            const dynamicMonthOrder = [
+                                                ...monthNames.slice(currentMonthIdx),
+                                                ...monthNames.slice(0, currentMonthIdx),
+                                                "TBA"
+                                            ];
+
                                             const grouped = filteredAndSortedEvents.upcoming.reduce((acc, event) => {
                                                 const m = event.month || 'TBA';
                                                 if (!acc[m]) acc[m] = [];
@@ -414,7 +438,7 @@ export default function FounderCalendar() {
                                                 return acc;
                                             }, {} as Record<string, typeof filteredAndSortedEvents.upcoming>);
 
-                                            return monthOrder
+                                            return dynamicMonthOrder
                                                 .filter(m => grouped[m] && grouped[m].length > 0)
                                                 .map(m => (
                                                     <div key={m}>
