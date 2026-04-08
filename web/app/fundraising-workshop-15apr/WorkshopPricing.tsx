@@ -51,15 +51,15 @@ export function WorkshopPricing() {
                         <div className="mt-auto w-full">
                             {!revealedBasic ? (
                                 <button onClick={() => setRevealedBasic(true)} className="w-full py-4 rounded-xl bg-slate-800 text-white font-bold border border-white/10 hover:bg-slate-700 transition-all flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(139,92,246,0.2)]">
-                                    <i className="fa-solid fa-gift text-[#8b5cf6]" /> Reveal Early Bird Offer
+                                    <i className="fa-solid fa-gift text-[#8b5cf6]" /> Reveal Limited Offer
                                 </button>
                             ) : (
                                 <div className="flex flex-col items-center animate-[pop-in_0.5s_cubic-bezier(0.175,0.885,0.32,1.275)_forwards]">
                                     <a href="https://rzp.io/rzp/bUPzmgpV" target="_blank" rel="noopener noreferrer" className="w-full block text-center px-4 py-4 rounded-xl bg-[#8b5cf6] hover:bg-[#d946ef] border border-white/10 text-white font-bold transition-colors text-base md:text-lg shadow-[0_0_20px_rgba(139,92,246,0.4)]">
-                                        Early Bird Offer – ₹499<br />
+                                        Special Price – ₹499<br />
                                         <span className="text-sm font-medium text-white/90">Click here to Avail Today!!</span>
                                     </a>
-                                    <p className="text-xs text-slate-400 mt-3 text-center">*Early bird valid only till 5th April</p>
+                                    <p className="text-xs text-slate-400 mt-3 text-center">*Offer valid while seats last</p>
                                 </div>
                             )}
                         </div>
@@ -118,17 +118,17 @@ export function WorkshopPricing() {
                                 <div className="relative group w-full cursor-pointer" onClick={() => setRevealedAdvanced(true)}>
                                     <div className="absolute -inset-1 bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] rounded-xl blur opacity-50 group-hover:opacity-80 transition duration-300" />
                                     <button className="relative w-full py-4 rounded-xl bg-[#0f172a] text-white font-bold border border-white/20 transition-all flex items-center justify-center gap-2">
-                                        <i className="fa-solid fa-gift text-[#d946ef]" /> Reveal Early Bird Offer
+                                        <i className="fa-solid fa-gift text-[#d946ef]" /> Reveal Limited Offer
                                     </button>
                                 </div>
                             ) : (
                                 <div className="relative group w-full animate-[pop-in_0.5s_cubic-bezier(0.175,0.885,0.32,1.275)_forwards]">
                                     <div className="absolute -inset-1 bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] rounded-xl blur opacity-60 group-hover:opacity-100 transition duration-300" />
                                     <a href="https://rzp.io/rzp/3pi8IF3F" target="_blank" rel="noopener noreferrer" className="relative w-full block text-center px-4 py-4 rounded-xl bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] text-white font-bold transition-all transform group-hover:-translate-y-1 text-base md:text-lg">
-                                        Early Bird Offer – ₹1749 <br />
+                                        Special Price – ₹1749 <br />
                                         <span className="text-sm font-medium text-white/90">Click here to Avail Today!!</span>
                                     </a>
-                                    <p className="text-xs text-slate-400 mt-3 text-center">*Early bird valid only till 5th April</p>
+                                    <p className="text-xs text-slate-400 mt-3 text-center">*Offer valid while seats last</p>
                                 </div>
                             )}
                         </div>
