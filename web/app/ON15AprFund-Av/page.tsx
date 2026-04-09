@@ -32,16 +32,6 @@ export default function PaymentSuccessAv() {
 
     return (
         <>
-            <Script id="conversion-tracker-advance" strategy="afterInteractive">
-              {`
-                gtag('event', 'conversion', {
-                    'send_to': 'AW-18024116278/4LT-COHiyI4cELbgyJJD',
-                    'value': 1499.0,
-                    'currency': 'INR'
-                });
-              `}
-            </Script>
-
             {/* Scoped Styling matching HTML explicitly */}
             <style dangerouslySetInnerHTML={{
                 __html: `
