@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Merriweather } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
+import FooterGate from "@/components/layout/FooterGate";
 import ChatBotGate from "@/components/layout/ChatBotGate";
 import Script from "next/script";
 
@@ -101,7 +101,7 @@ export default function RootLayout({
         <main className="min-h-screen overflow-x-hidden w-full">
           {children}
         </main>
-        <Footer />
+        <FooterGate />
         <ChatBotGate />
       </body>
     </html>

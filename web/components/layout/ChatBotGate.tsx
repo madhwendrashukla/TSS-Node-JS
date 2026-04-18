@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation';
 import DirectoryAdvisorBot from '@/components/ecosystem/DirectoryAdvisorBot';
 
 // Pages where the default DirectoryAdvisorBot should NOT be shown
-const EXCLUDED_PATHS = ['/fundraising-workshop-15apr'];
+const EXCLUDED_PATHS = ['/fundraising-workshop-15apr', '/AI-workshop-15may'];
 
 export default function ChatBotGate() {
   const pathname = usePathname();

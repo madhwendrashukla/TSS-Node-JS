@@ -5,6 +5,8 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 
+const EXCLUDED_NAV_PATHS = ['/fundraising-workshop-15apr', '/AI-workshop-15may'];
+
 export function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
@@ -13,6 +15,8 @@ export function Navbar() {
     const closeMenu = () => setIsOpen(false);
 
     const isActive = (path: string) => pathname === path;
+
+    if (EXCLUDED_NAV_PATHS.includes(pathname)) return null;
 
     return (
         <>
