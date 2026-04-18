@@ -54,15 +54,15 @@ export default function AIWorkshopPage() {
             </nav>
 
             {/* All Sections — Conversion-optimised order */}
-            <AIWorkshopHero />          {/* 1. Hook: promise */}
-            <AIWorkshopStoryline />     {/* 2. Agitate: emotional connection */}
-            <AIWorkshopCurriculum />    {/* 3. Solution: what they'll learn */}
-            <AIWorkshopMentors />       {/* 4. Trust: who delivers it */}
-            <AIWorkshopOutcomes />      {/* 5. Desire: what they walk away with */}
-            <AIWorkshopTestimonials />  {/* 6. Proof: social proof before price */}
-            <AIWorkshopPricing />       {/* 7. Action: price after value is proven */}
-            <AIWorkshopSchedule />      {/* 7. Logistics: for those almost sold */}
-            <AIWorkshopFinal />         {/* 8. FAQ + final CTA */}
+            <AIWorkshopHero />          {/* 1. Hook */}
+            <AIWorkshopStoryline />     {/* 2. Emotional connection */}
+            <AIWorkshopCurriculum />    {/* 3. What they'll learn */}
+            <AIWorkshopPricing />       {/* 4. Price while intent is highest */}
+            <AIWorkshopMentors />       {/* 5. Who delivers it */}
+            <AIWorkshopOutcomes />      {/* 6. What they walk away with */}
+            <AIWorkshopTestimonials />  {/* 7. Social proof */}
+            <AIWorkshopSchedule />      {/* 8. Logistics */}
+            <AIWorkshopFinal />         {/* 9. FAQ + final CTA */}
 
             {/* Footer */}
             <footer className="border-t border-white/5 py-10 bg-[#0A0F1C]">

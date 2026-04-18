@@ -121,43 +121,73 @@ export function AIWorkshopFinal() {
                     </div>
                 </div>
 
-                {/* Final CTA */}
-                <div className="text-center pb-10">
-                    <div className="max-w-4xl mx-auto relative overflow-hidden">
-                        <div className="absolute -inset-1 bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] rounded-3xl blur-xl opacity-25" />
-                        <div className="relative bg-[rgba(15,23,42,0.8)] backdrop-blur-[16px] border border-[#8b5cf6]/40 rounded-3xl p-8 md:p-14 shadow-[0_0_40px_rgba(139,92,246,0.12)]">
-                            {/* Ambient orbs */}
-                            <div className="absolute top-0 left-0 w-40 h-40 bg-[#8b5cf6] rounded-full mix-blend-screen filter blur-[80px] opacity-20 pointer-events-none" />
-                            <div className="absolute bottom-0 right-0 w-40 h-40 bg-[#d946ef] rounded-full mix-blend-screen filter blur-[80px] opacity-20 pointer-events-none" />
+                {/* Final CTA — Premium */}
+                <div className="pb-10">
+                    <div className="relative max-w-5xl mx-auto">
+                        {/* Subtle background glow — not loud */}
+                        <div className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none">
+                            <div className="absolute -top-1/2 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-gradient-to-b from-[#8b5cf6]/20 to-transparent rounded-full blur-[100px]" />
+                        </div>
 
-                            <p className="text-[#d946ef] font-bold tracking-widest uppercase text-xs md:text-sm mb-4 relative z-10">Don&apos;t let another idea fade away</p>
+                        <div className="relative border border-white/8 rounded-3xl overflow-hidden" style={{ background: 'linear-gradient(160deg, rgba(139,92,246,0.06) 0%, rgba(15,23,42,0.95) 40%, rgba(217,70,239,0.04) 100%)' }}>
+                            {/* Top accent line */}
+                            <div className="h-px w-full bg-gradient-to-r from-transparent via-[#8b5cf6]/60 to-transparent" />
 
-                            <h3 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-3 relative z-10">
-                                Stop watching.
-                            </h3>
-                            <h3 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-6 relative z-10">
-                                <span className="bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] bg-clip-text text-transparent">Start building.</span>
-                            </h3>
-                            <p className="text-slate-400 text-base md:text-lg font-light mb-10 relative z-10 max-w-xl mx-auto">
-                                3 days. 5 live sessions. Your validated startup idea, AI-powered MVP, and first marketing film — all done.
-                            </p>
+                            <div className="px-8 py-16 md:px-20 md:py-20 text-center">
+                                {/* Eyebrow */}
+                                <p className="text-slate-500 text-xs font-semibold tracking-[0.2em] uppercase mb-8">
+                                    May 15 – 17, 2026 &nbsp;·&nbsp; Live on Zoom
+                                </p>
 
-                            {/* Big CTA */}
-                            <div className="relative group inline-block w-full sm:w-auto z-10">
-                                <div className="absolute -inset-1.5 bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] rounded-2xl blur-lg opacity-80 group-hover:opacity-100 transition duration-300 animate-pulse" />
-                                <a
-                                    href="#pricing"
-                                    className="relative flex sm:inline-flex items-center justify-center gap-3 px-10 py-5 md:px-16 md:py-6 text-xl md:text-2xl font-extrabold rounded-2xl text-white bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] shadow-[0_0_40px_rgba(217,70,239,0.4)] transition-all duration-300 transform group-hover:-translate-y-1 group-hover:scale-105 border border-white/20 w-full"
-                                >
-                                    <i className="fa-solid fa-lock-open text-lg" />
-                                    Secure Your Seat
-                                    <i className="fa-solid fa-arrow-right group-hover:translate-x-2 transition-transform" />
-                                </a>
+                                {/* Headline — large, clean, two-tone */}
+                                <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05] mb-8">
+                                    <span className="text-white">Your startup idea</span>
+                                    <br />
+                                    <span className="bg-gradient-to-r from-[#8b5cf6] via-[#a78bfa] to-[#d946ef] bg-clip-text text-transparent">
+                                        deserves 3 days.
+                                    </span>
+                                </h2>
+
+                                {/* Supporting line */}
+                                <p className="text-slate-400 text-lg md:text-xl font-light max-w-lg mx-auto mb-12 leading-relaxed">
+                                    Validate it. Build it. Market it.
+                                    <br className="hidden md:block" /> All in one weekend — with experts who&apos;ve done it.
+                                </p>
+
+                                {/* CTA — refined, not loud */}
+                                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                                    <a
+                                        href="#pricing"
+                                        className="relative group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-10 py-4 md:px-12 md:py-5 rounded-2xl font-bold text-base md:text-lg text-white overflow-hidden transition-all duration-300 hover:-translate-y-0.5"
+                                        style={{ background: 'linear-gradient(135deg, #8b5cf6 0%, #a855f7 50%, #d946ef 100%)' }}
+                                    >
+                                        {/* Shine sweep on hover */}
+                                        <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out" />
+                                        <span className="relative">Secure Your Seat</span>
+                                        <i className="fa-solid fa-arrow-right relative text-sm group-hover:translate-x-1 transition-transform duration-200" />
+                                    </a>
+                                    <a
+                                        href="https://chat.whatsapp.com/DsWZ7dyfz4C5bB4QydtNqH"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl font-semibold text-sm text-slate-300 border border-white/10 hover:border-white/25 hover:text-white transition-all duration-300"
+                                    >
+                                        <i className="fa-brands fa-whatsapp text-green-400" /> Have questions?
+                                    </a>
+                                </div>
+
+                                {/* Trust tokens */}
+                                <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-slate-600 font-medium">
+                                    <span className="flex items-center gap-1.5"><i className="fa-solid fa-shield-halved text-[#8b5cf6]" /> Secure via Razorpay</span>
+                                    <span className="text-white/10">|</span>
+                                    <span className="flex items-center gap-1.5"><i className="fa-solid fa-rotate-left text-[#8b5cf6]" /> Seat transfer if needed</span>
+                                    <span className="text-white/10">|</span>
+                                    <span className="flex items-center gap-1.5"><i className="fa-solid fa-certificate text-[#8b5cf6]" /> Certificate on completion</span>
+                                </div>
                             </div>
 
-                            <p className="mt-5 text-xs text-slate-600 relative z-10">
-                                <i className="fa-solid fa-shield-halved text-[#8b5cf6] mr-1" /> Secure checkout via Razorpay · Early bird ends soon
-                            </p>
+                            {/* Bottom accent line */}
+                            <div className="h-px w-full bg-gradient-to-r from-transparent via-[#d946ef]/40 to-transparent" />
                         </div>
                     </div>
                 </div>
