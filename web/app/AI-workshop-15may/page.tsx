@@ -43,8 +43,8 @@ export default function AIWorkshopPage() {
                         <div>
                             <div className="relative group">
                                 <div className="absolute -inset-0.5 bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] rounded-lg blur opacity-30 group-hover:opacity-70 transition duration-300" />
-                                <a href="#pricing" className="relative inline-flex items-center justify-center px-4 py-2 md:px-5 md:py-2.5 text-xs md:text-sm font-semibold rounded-lg text-white bg-[#0f172a] border border-white/10 hover:bg-transparent transition-all">
-                                    Choose Your Workshop
+                                <a href="#pricing" className="relative inline-flex items-center justify-center px-3 py-1.5 md:px-5 md:py-2.5 text-[11px] md:text-sm font-semibold rounded-lg text-white bg-[#0f172a] border border-white/10 hover:bg-transparent transition-all whitespace-nowrap">
+                                    Secure Your Seat
                                 </a>
                             </div>
                         </div>
@@ -55,8 +55,8 @@ export default function AIWorkshopPage() {
             {/* All Sections — Conversion-optimised order */}
             <AIWorkshopHero />          {/* 1. Hook: promise */}
             <AIWorkshopStoryline />     {/* 2. Agitate: emotional connection */}
-            <AIWorkshopMentors />       {/* 3. Trust: who will guide them */}
-            <AIWorkshopCurriculum />    {/* 4. Solution: what they'll learn */}
+            <AIWorkshopCurriculum />    {/* 3. Solution: what they'll learn */}
+            <AIWorkshopMentors />       {/* 4. Trust: who delivers it */}
             <AIWorkshopOutcomes />      {/* 5. Desire: what they walk away with */}
             <AIWorkshopPricing />       {/* 6. Action: price after value is proven */}
             <AIWorkshopSchedule />      {/* 7. Logistics: for those almost sold */}

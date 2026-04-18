@@ -27,7 +27,7 @@ const story = [
 export function AIWorkshopStoryline() {
     return (
         <section className="py-16 md:py-24 relative z-10 border-t border-white/5" id="story">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl h-72 bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] rounded-full mix-blend-screen filter blur-[180px] opacity-8 pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl h-72 bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] rounded-full mix-blend-screen filter blur-[180px] opacity-[0.08] pointer-events-none" />
 
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
                 {/* Section label */}
@@ -40,51 +40,60 @@ export function AIWorkshopStoryline() {
                     </h2>
                 </div>
 
-                {/* Story cards — alternating left/right with center timeline */}
+                {/* Story cards — alternating left/right on ALL screen sizes */}
                 <div className="relative">
-                    {/* Timeline line */}
-                    <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#8b5cf6]/40 via-[#d946ef]/40 to-transparent hidden sm:block" style={{ transform: 'translateX(-0.5px)' }} />
+                    {/* Center timeline line — desktop only */}
+                    <div
+                        className="absolute top-0 bottom-0 w-px bg-gradient-to-b from-[#8b5cf6]/40 via-[#d946ef]/40 to-transparent hidden sm:block"
+                        style={{ left: '50%', transform: 'translateX(-0.5px)' }}
+                    />
+                    {/* Left timeline line — mobile only */}
+                    <div
+                        className="absolute top-0 bottom-0 w-px bg-gradient-to-b from-[#8b5cf6]/40 via-[#d946ef]/30 to-transparent sm:hidden"
+                        style={{ left: '50%', transform: 'translateX(-0.5px)' }}
+                    />
 
-                    <div className="space-y-8 md:space-y-10">
-                        {story.map((s, i) => (
-                            <div
-                                key={i}
-                                className={`relative flex flex-col sm:flex-row items-start gap-5 md:gap-8 ${i % 2 === 1 ? 'sm:flex-row-reverse' : ''}`}
-                            >
-                                {/* Timeline dot — clean colored circle, no emoji */}
-                                <div
-                                    className="hidden sm:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full z-10 border-2 border-[#0f172a]"
-                                    style={{
-                                        background: `linear-gradient(135deg, #8b5cf6, ${s.color})`,
-                                        boxShadow: `0 0 12px ${s.color}60`,
-                                        top: '28px',
-                                    }}
-                                />
+                    <div className="space-y-6 md:space-y-10">
+                        {story.map((s, i) => {
+                            const isRight = i % 2 === 1;
+                            return (
+                                <div key={i} className="relative flex items-start">
+                                    {/* Timeline dot — centered on the line */}
+                                    <div
+                                        className="absolute w-3 h-3 rounded-full z-10 border-2 border-[#0f172a]"
+                                        style={{
+                                            background: `linear-gradient(135deg, #8b5cf6, ${s.color})`,
+                                            boxShadow: `0 0 10px ${s.color}60`,
+                                            left: '50%',
+                                            top: '28px',
+                                            transform: 'translateX(-50%)',
+                                        }}
+                                    />
 
-                                {/* Card */}
-                                <div className={`w-full sm:w-[calc(50%-3rem)] ${i % 2 === 1 ? 'sm:text-right' : ''}`}>
-                                    <div className={`relative bg-[rgba(15,23,42,0.7)] backdrop-blur-[16px] border rounded-2xl p-6 md:p-8 transition-all duration-300 hover:-translate-y-1 ${s.highlight ? 'border-[#8b5cf6]/50 shadow-[0_0_30px_rgba(139,92,246,0.15)]' : 'border-white/10 hover:border-white/20'}`}>
-                                        {s.highlight && (
-                                            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#8b5cf6]/5 to-[#d946ef]/5 pointer-events-none" />
-                                        )}
-                                        <h3 className={`text-lg md:text-xl font-extrabold mb-3 ${s.highlight ? 'bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] bg-clip-text text-transparent' : 'text-white'}`}>
-                                            {s.heading}
-                                        </h3>
-                                        <p className="text-sm md:text-base text-slate-400 font-light leading-relaxed">
-                                            {s.body}
-                                        </p>
-                                        {s.highlight && (
-                                            <a href="#pricing" className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] text-white text-sm font-bold hover:opacity-90 transition-opacity">
-                                                Break the loop — Register Now <i className="fa-solid fa-arrow-right" />
-                                            </a>
-                                        )}
+                                    {/* Card — alternates left/right using width + margin */}
+                                    <div
+                                        className={`w-[46%] ${isRight ? 'ml-auto' : 'mr-auto'}`}
+                                    >
+                                        <div className={`relative bg-[rgba(15,23,42,0.7)] backdrop-blur-[16px] border rounded-2xl p-4 md:p-8 transition-all duration-300 hover:-translate-y-1 ${s.highlight ? 'border-[#8b5cf6]/50 shadow-[0_0_30px_rgba(139,92,246,0.15)]' : 'border-white/10 hover:border-white/20'}`}>
+                                            {s.highlight && (
+                                                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#8b5cf6]/5 to-[#d946ef]/5 pointer-events-none" />
+                                            )}
+                                            <h3 className={`text-sm md:text-xl font-extrabold mb-2 md:mb-3 leading-snug ${s.highlight ? 'bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] bg-clip-text text-transparent' : 'text-white'}`}>
+                                                {s.heading}
+                                            </h3>
+                                            <p className="text-xs md:text-base text-slate-400 font-light leading-relaxed">
+                                                {s.body}
+                                            </p>
+                                            {s.highlight && (
+                                                <a href="#pricing" className="mt-4 inline-flex items-center gap-1.5 px-3 py-2 md:px-5 md:py-2.5 rounded-xl bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] text-white text-xs md:text-sm font-bold hover:opacity-90 transition-opacity">
+                                                    Register Now <i className="fa-solid fa-arrow-right text-xs" />
+                                                </a>
+                                            )}
+                                        </div>
                                     </div>
                                 </div>
-
-                                {/* Spacer for the other side */}
-                                <div className="hidden sm:block w-[calc(50%-3rem)]" />
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
                 </div>
 
