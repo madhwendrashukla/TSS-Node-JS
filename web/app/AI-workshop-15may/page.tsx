@@ -8,6 +8,7 @@ const AIWorkshopStoryline = dynamic(() => import('./AIWorkshopStoryline').then(m
 const AIWorkshopMentors = dynamic(() => import('./AIWorkshopMentors').then(m => m.AIWorkshopMentors));
 const AIWorkshopCurriculum = dynamic(() => import('./AIWorkshopCurriculum').then(m => m.AIWorkshopCurriculum));
 const AIWorkshopOutcomes = dynamic(() => import('./AIWorkshopOutcomes').then(m => m.AIWorkshopOutcomes));
+const AIWorkshopTestimonials = dynamic(() => import('./AIWorkshopTestimonials').then(m => m.AIWorkshopTestimonials));
 const AIWorkshopPricing = dynamic(() => import('./AIWorkshopPricing').then(m => m.AIWorkshopPricing));
 const AIWorkshopSchedule = dynamic(() => import('./AIWorkshopSchedule').then(m => m.AIWorkshopSchedule));
 const AIWorkshopFinal = dynamic(() => import('./AIWorkshopFinal').then(m => m.AIWorkshopFinal));
@@ -58,7 +59,8 @@ export default function AIWorkshopPage() {
             <AIWorkshopCurriculum />    {/* 3. Solution: what they'll learn */}
             <AIWorkshopMentors />       {/* 4. Trust: who delivers it */}
             <AIWorkshopOutcomes />      {/* 5. Desire: what they walk away with */}
-            <AIWorkshopPricing />       {/* 6. Action: price after value is proven */}
+            <AIWorkshopTestimonials />  {/* 6. Proof: social proof before price */}
+            <AIWorkshopPricing />       {/* 7. Action: price after value is proven */}
             <AIWorkshopSchedule />      {/* 7. Logistics: for those almost sold */}
             <AIWorkshopFinal />         {/* 8. FAQ + final CTA */}
 
