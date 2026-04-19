@@ -31,19 +31,18 @@ export function AIWorkshopHero() {
                 </p>
 
                 {/* Stats */}
-                <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 md:gap-14 mb-10 md:mb-14">
-                    {[
-                        { num: '3', label: 'Mentors' },
-                        { num: '3', label: 'Days' },
-                        { num: '5', label: 'Sessions' },
-                        { num: '12+', label: 'Hours Live' },
-                        { num: 'Live', label: 'On Zoom' },
-                    ].map((stat, i) => (
-                        <div key={i} className="text-center bg-white/5 border border-white/10 rounded-2xl px-6 py-4 backdrop-blur-md hover:border-white/20 transition-all shadow-lg">
-                            <div className="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] bg-clip-text text-transparent">{stat.num}</div>
-                            <div className="text-xs md:text-sm text-slate-400 font-medium mt-1 uppercase tracking-wider">{stat.label}</div>
-                        </div>
-                    ))}
+                <div className="w-full flex justify-center mb-10 md:mb-14 px-2">
+                    <div className="inline-flex flex-nowrap items-center justify-center gap-1.5 min-[380px]:gap-2 sm:gap-3 md:gap-5 text-[9px] min-[360px]:text-[10px] sm:text-xs md:text-lg text-slate-200 font-semibold tracking-wide whitespace-nowrap bg-[rgba(15,23,42,0.4)] backdrop-blur-md border border-white/10 rounded-full px-3 py-2 md:px-8 md:py-3.5 shadow-lg">
+                        <span>3 Mentors</span>
+                        <span className="text-[#a855f7] font-extrabold text-[11px] min-[360px]:text-xs sm:text-sm md:text-xl">;</span>
+                        <span>3 Days</span>
+                        <span className="text-[#a855f7] font-extrabold text-[11px] min-[360px]:text-xs sm:text-sm md:text-xl">;</span>
+                        <span>5 Sessions</span>
+                        <span className="text-[#a855f7] font-extrabold text-[11px] min-[360px]:text-xs sm:text-sm md:text-xl">;</span>
+                        <span>12+ Hr</span>
+                        <span className="text-[#a855f7] font-extrabold text-[11px] min-[360px]:text-xs sm:text-sm md:text-xl">;</span>
+                        <span>Live on Zoom</span>
+                    </div>
                 </div>
 
                 {/* CTA */}
