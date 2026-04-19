@@ -18,32 +18,29 @@ export function AIWorkshopHero() {
                     Live Workshop Series • May 15–17, 2026
                 </div>
 
-                <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-4 md:mb-6 leading-[1.15] md:leading-[1.1]">
-                    Build, Validate &amp; <br />
-                    <span className="bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] bg-clip-text text-transparent relative inline-block">
-                        Launch
-                        <svg className="absolute w-full h-2 md:h-3 -bottom-1 md:-bottom-2 left-0 text-[#8b5cf6] opacity-70" viewBox="0 0 100 10" preserveAspectRatio="none">
-                            <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="2" fill="none" />
-                        </svg>
-                    </span>{' '}Your Startup in 3 Days
+                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-2 md:mb-4 leading-[1.1] text-white">
+                    AI Startup Bootcamp
                 </h1>
 
-                <p className="mt-6 md:mt-8 max-w-2xl mx-auto text-lg sm:text-xl md:text-2xl text-slate-400 mb-10 md:mb-14 leading-relaxed font-light px-2">
-                    From idea to AI-powered MVP — live on Zoom with <span className="text-white font-medium">India&apos;s top mentors.</span>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 md:mb-8 text-slate-300">
+                    From idea to <span className="bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] bg-clip-text text-transparent">AI-powered MVP</span>
+                </h2>
+
+                <p className="mt-6 max-w-2xl mx-auto text-lg md:text-2xl text-white font-medium mb-8 leading-relaxed px-2">
+                    Build Validate and Launch your Startup in 3 days
                 </p>
 
                 {/* Stats */}
-                <div className="flex items-center justify-center gap-8 md:gap-14 mb-10 md:mb-14">
-                    {[
-                        { num: '3', label: 'Days' },
-                        { num: '5', label: 'Sessions' },
-                        { num: '13', label: 'Hours Live' },
-                    ].map((stat, i) => (
-                        <div key={i} className="text-center">
-                            <div className="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] bg-clip-text text-transparent">{stat.num}</div>
-                            <div className="text-xs md:text-sm text-slate-500 font-medium mt-1">{stat.label}</div>
-                        </div>
-                    ))}
+                <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 mb-10 md:mb-14 text-sm md:text-lg text-slate-300 font-medium">
+                    <span>3 Mentors</span>
+                    <span className="text-[#8b5cf6] font-extrabold">;</span>
+                    <span>3 Days</span>
+                    <span className="text-[#8b5cf6] font-extrabold">;</span>
+                    <span>5 Sessions</span>
+                    <span className="text-[#8b5cf6] font-extrabold">;</span>
+                    <span>12+ Hr</span>
+                    <span className="text-[#8b5cf6] font-extrabold">;</span>
+                    <span>Live on Zoom</span>
                 </div>
 
                 {/* CTA */}
