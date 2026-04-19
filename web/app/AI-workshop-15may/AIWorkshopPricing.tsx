@@ -21,7 +21,7 @@ const plans = [
     },
     {
         level: 'WORKSHOP 2',
-        name: 'Mastering AI with Claude',
+        name: 'Zero-to-MVP using Claude AI',
         mentor: 'Atul Pandey',
         originalPrice: '₹4,500',
         earlyBird: '₹1,490',
@@ -56,8 +56,8 @@ const plans = [
         color: '#8b5cf6',
     },
     {
-        level: '⭐ BEST VALUE',
-        name: 'Complete Bundle',
+        level: '⭐ EARLY BIRD OFFER',
+        name: 'Complete AI Bootcamp',
         mentor: 'All 3 Mentors',
         originalPrice: '₹7,000',
         earlyBird: '₹1,750',
@@ -95,7 +95,7 @@ export function AIWorkshopPricing() {
                             className={`bg-[rgba(15,23,42,0.6)] backdrop-blur-[16px] rounded-2xl md:rounded-3xl p-6 flex flex-col transition-all duration-300 relative overflow-hidden ${plan.isFeatured ? 'border-2 border-[#8b5cf6]/50 shadow-[0_0_40px_rgba(217,70,239,0.15)] hover:shadow-[0_0_50px_rgba(217,70,239,0.25)]' : 'border border-white/10 hover:border-white/25'}`}
                         >
                             {plan.isFeatured && (
-                                <div className="absolute top-0 right-0 bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] text-white text-[10px] font-bold px-4 py-1.5 rounded-bl-xl uppercase tracking-widest shadow-lg">Best Value</div>
+                                <div className="absolute top-0 right-0 bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] text-white text-[10px] font-bold px-4 py-1.5 rounded-bl-xl uppercase tracking-widest shadow-lg">Early Bird Offer</div>
                             )}
                             {plan.saveBadge && (
                                 <div className="mb-3 inline-flex">

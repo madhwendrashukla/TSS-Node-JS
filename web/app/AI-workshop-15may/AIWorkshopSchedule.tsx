@@ -6,23 +6,23 @@ export function AIWorkshopSchedule() {
             day: 'DAY 1',
             date: 'May 15 (Thursday)',
             sessions: [
-                { time: '6:00 PM – 9:00 PM', title: 'Startup Ideation & Validation', mentor: 'Gaurav Bansal', icon: 'fa-lightbulb', color: '#8b5cf6' },
+                { time: '6:00 PM – 9:00 PM IST', title: 'Startup Ideation & Validation', mentor: 'Gaurav Bansal', icon: 'fa-lightbulb', color: '#8b5cf6' },
             ],
         },
         {
             day: 'DAY 2',
             date: 'May 16 (Friday)',
             sessions: [
-                { time: '10:00 AM – 12:30 PM', title: 'Mastering AI with Claude – Session 1', mentor: 'Atul Pandey', icon: 'fa-robot', color: '#d946ef' },
-                { time: '6:00 PM – 8:30 PM', title: 'Mastering AI with Claude – Session 2', mentor: 'Atul Pandey', icon: 'fa-robot', color: '#d946ef' },
+                { time: '10:00 AM – 12:30 PM IST', title: 'Mastering AI with Claude – Session 1', mentor: 'Atul Pandey', icon: 'fa-robot', color: '#d946ef' },
+                { time: '6:00 PM – 8:30 PM IST', title: 'Mastering AI with Claude – Session 2', mentor: 'Atul Pandey', icon: 'fa-robot', color: '#d946ef' },
             ],
         },
         {
             day: 'DAY 3',
             date: 'May 17 (Saturday)',
             sessions: [
-                { time: '10:00 AM – 12:30 PM', title: 'AI Filmmaking & Video Marketing', mentor: 'Amey Asuti', icon: 'fa-film', color: '#8b5cf6' },
-                { time: '6:00 PM – 8:30 PM', title: 'Mastering AI with Claude – Session 3', mentor: 'Atul Pandey', icon: 'fa-robot', color: '#d946ef' },
+                { time: '10:00 AM – 12:30 PM IST', title: 'AI Filmmaking & Video Marketing', mentor: 'Amey Asuti', icon: 'fa-film', color: '#8b5cf6' },
+                { time: '6:00 PM – 8:30 PM IST', title: 'Mastering AI with Claude – Session 3', mentor: 'Atul Pandey', icon: 'fa-robot', color: '#d946ef' },
             ],
         },
     ];
@@ -41,8 +41,8 @@ export function AIWorkshopSchedule() {
                     {schedule.map((day, di) => (
                         <div key={di} className="bg-[rgba(15,23,42,0.6)] backdrop-blur-[16px] border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-all duration-300">
                             <div className="px-6 md:px-8 py-4 border-b border-white/5 flex items-center gap-4">
-                                <span className="inline-block px-3 py-1 bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] text-white text-xs font-bold rounded-lg uppercase tracking-widest">{day.day}</span>
-                                <span className="text-white font-bold text-sm md:text-base">{day.date}</span>
+                                <span className="inline-block px-4 py-1.5 bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] text-white text-sm font-extrabold rounded-lg uppercase tracking-widest">{day.day}</span>
+                                <span className="text-white font-extrabold text-lg md:text-xl">{day.date}</span>
                             </div>
                             <div className="divide-y divide-white/5">
                                 {day.sessions.map((session, si) => (
@@ -51,10 +51,10 @@ export function AIWorkshopSchedule() {
                                             <i className={`fa-solid ${session.icon} text-sm`} style={{ color: session.color }} />
                                         </div>
                                         <div className="flex-1 min-w-0">
-                                            <div className="flex flex-wrap items-center gap-2 mb-1">
-                                                <span className="text-xs font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded">{session.time}</span>
-                                                <span className="hidden sm:inline text-slate-600">·</span>
-                                                <span className="text-xs text-slate-500">Live on Zoom</span>
+                                            <div className="flex flex-wrap items-center gap-2 mb-2">
+                                                <span className="text-sm font-bold font-mono text-white bg-white/10 px-2.5 py-1 rounded shadow-sm">{session.time}</span>
+                                                <span className="hidden sm:inline text-slate-500">·</span>
+                                                <span className="text-xs text-slate-400">Live on Zoom</span>
                                             </div>
                                             <p className="text-sm md:text-base font-bold text-white">{session.title}</p>
                                             <p className="text-xs md:text-sm text-slate-400 font-light mt-0.5">by {session.mentor}</p>

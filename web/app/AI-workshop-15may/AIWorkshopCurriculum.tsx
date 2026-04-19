@@ -7,7 +7,7 @@ const workshops = [
         badge: 'WORKSHOP 1',
         title: 'Startup Ideation & Validation',
         mentor: 'Gaurav Bansal',
-        date: 'May 15, 2026  •  6:00 PM – 9:00 PM',
+        date: 'May 15, 2026 (Thursday)  •  6:00 PM – 9:00 PM IST',
         duration: '3 hours',
         icon: 'fa-lightbulb',
         color: '#8b5cf6',
@@ -29,7 +29,7 @@ const workshops = [
         badge: 'WORKSHOP 2',
         title: 'Mastering AI with Claude for Startups',
         mentor: 'Atul Pandey',
-        date: 'May 16 (2 sessions) + May 17 (1 session)',
+        date: 'May 16 (Friday, 2 sessions) + May 17 (Saturday, 1 session)',
         duration: '7.5 hours across 3 sessions',
         icon: 'fa-robot',
         color: '#d946ef',
@@ -59,7 +59,7 @@ const workshops = [
         badge: 'WORKSHOP 3',
         title: 'AI Filmmaking & Video Marketing Masterclass',
         mentor: 'Amey Asuti',
-        date: 'May 17, 2026  •  10:00 AM – 12:30 PM',
+        date: 'May 17, 2026 (Saturday)  •  10:00 AM – 12:30 PM IST',
         duration: '2.5–3 hours',
         icon: 'fa-film',
         color: '#8b5cf6',
@@ -103,13 +103,32 @@ export function AIWorkshopCurriculum() {
                                     <i className={`fa-solid ${ws.icon} text-base md:text-lg`} style={{ color: ws.color }} />
                                 </div>
                                 <div className="flex-1 min-w-0">
-                                    <div className="flex flex-wrap items-center gap-2 mb-1">
-                                        <span className="inline-block px-2.5 py-0.5 text-[10px] font-bold rounded uppercase tracking-widest text-white" style={{ background: `linear-gradient(135deg, #8b5cf6, #d946ef)` }}>{ws.badge}</span>
-                                        <span className="text-xs text-slate-500">{ws.date}</span>
+                                    <div className="flex flex-wrap items-center gap-3 mb-2">
+                                        <span className="inline-block px-3 py-1 text-xs font-extrabold rounded uppercase tracking-widest text-white shadow-sm" style={{ background: `linear-gradient(135deg, #8b5cf6, #d946ef)` }}>{ws.badge}</span>
+                                        <span className="text-sm md:text-base font-semibold text-white">{ws.date}</span>
                                     </div>
                                     <h3 className="text-xl md:text-2xl font-bold text-white mb-1">{ws.title}</h3>
                                     <p className="text-sm text-slate-400 font-light">by <span className="text-white font-medium">{ws.mentor}</span> · {ws.duration}</p>
                                     <p className="text-xs md:text-sm mt-2 font-medium" style={{ color: ws.color }}>{ws.tagline}</p>
+                                    
+                                    {/* Google Calendar buttons - moved up for visibility */}
+                                    <div className="mt-4 flex flex-wrap gap-2">
+                                        {ws.calendarLinks.map((cl, ci) => (
+                                            <a
+                                                key={ci}
+                                                href={cl.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                onClick={(e) => e.stopPropagation()}
+                                                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#ffffff0a] border border-white/10 text-[11px] md:text-xs text-slate-300 font-medium hover:bg-white/15 hover:border-[#4285F4]/50 hover:text-white transition-all group"
+                                            >
+                                                <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M12.545 10.239v3.821h5.445c-.712 2.315-2.647 3.972-5.445 3.972a6.033 6.033 0 110-12.064c1.498 0 2.866.549 3.921 1.453l2.814-2.814A9.969 9.969 0 0012.545 2C7.021 2 2.543 6.477 2.543 12s4.478 10 10.002 10c8.396 0 10.249-7.85 9.426-11.748l-9.426-.013z" fill="#4285F4"/>
+                                                </svg>
+                                                {cl.label}
+                                            </a>
+                                        ))}
+                                    </div>
                                 </div>
                                 <div className={`shrink-0 mt-2 transition-transform duration-300 ${open === wi ? 'rotate-180' : ''}`}>
                                     <i className="fa-solid fa-chevron-down text-slate-400" />
@@ -158,25 +177,7 @@ export function AIWorkshopCurriculum() {
                                                 </ul>
                                             </div>
 
-                                            {/* Google Calendar buttons */}
-                                            <div className="mt-5 flex flex-wrap gap-2">
-                                                {ws.calendarLinks.map((cl, ci) => (
-                                                    <a
-                                                        key={ci}
-                                                        href={cl.url}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-white/5 border border-white/10 text-xs text-slate-300 font-medium hover:bg-white/10 hover:border-[#4285F4]/50 hover:text-white transition-all group"
-                                                    >
-                                                        <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor">
-                                                            <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 5.523 4.477 10 10 10s10-4.477 10-10z" fill="#fff" opacity="0"/>
-                                                            <path d="M12.545 10.239v3.821h5.445c-.712 2.315-2.647 3.972-5.445 3.972a6.033 6.033 0 110-12.064c1.498 0 2.866.549 3.921 1.453l2.814-2.814A9.969 9.969 0 0012.545 2C7.021 2 2.543 6.477 2.543 12s4.478 10 10.002 10c8.396 0 10.249-7.85 9.426-11.748l-9.426-.013z" fill="#4285F4"/>
-                                                        </svg>
-                                                        <i className="fa-regular fa-calendar-plus text-[#4285F4] group-hover:scale-110 transition-transform" />
-                                                        {cl.label}
-                                                    </a>
-                                                ))}
-                                            </div>
+                                            {/* Google Calendar links moved to header */}
 
                                             <a href="#pricing" className="mt-5 w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-bold text-white transition-all hover:opacity-90" style={{ background: `linear-gradient(135deg, #8b5cf6, #d946ef)` }}>
                                                 Register for This Workshop <i className="fa-solid fa-arrow-right" />

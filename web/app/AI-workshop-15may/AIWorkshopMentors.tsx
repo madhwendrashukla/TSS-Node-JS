@@ -8,10 +8,10 @@ const mentors = [
         bio: 'Gaurav Bansal is the founder of The Startup School, an alternate B-school for aspiring entrepreneurs. With extensive experience mentoring at premier institutions, Gaurav has guided hundreds of founders from ideation to execution.',
         quote: '"To master fundraising, you must speak three languages: The Narrative, The Numbers, and The Law."',
         credentials: [
-            { icon: 'fa-graduation-cap', text: 'Mentor at E-Cell IIT Madras' },
-            { icon: 'fa-gavel', text: 'Judge & Mentor at IIM Rohtak' },
-            { icon: 'fa-chalkboard-user', text: 'Guest Speaker at Doon Business School' },
-            { icon: 'fa-handshake', text: 'Expert in fundraising & startup validation' },
+            { icon: 'fa-graduation-cap', text: 'Mentor at e-cell IIT Madras' },
+            { icon: 'fa-gavel', text: 'Ex-Mentor – IIM-R, IIT-D, DU, AIM' },
+            { icon: 'fa-chalkboard-user', text: 'Guest speaker at 10+ B-schools' },
+            { icon: 'fa-handshake', text: 'Expert in strategy & startup building' },
         ],
         links: [
             { label: 'LinkedIn', icon: 'fa-brands fa-linkedin', href: 'https://www.linkedin.com/in/gauravbansal2/' },
@@ -32,7 +32,7 @@ const mentors = [
             { icon: 'fa-layer-group', text: 'Product prototyping with AI' },
         ],
         links: [
-            { label: 'LinkedIn', icon: 'fa-brands fa-linkedin', href: 'https://www.linkedin.com/in/atulpandey/' },
+            { label: 'LinkedIn', icon: 'fa-brands fa-linkedin', href: 'https://www.linkedin.com/in/atulpandey-iift' },
         ],
         color: '#d946ef',
         initials: 'AP',
@@ -44,10 +44,10 @@ const mentors = [
         bio: 'Amey Asuti is a pioneer in AI-powered content creation, helping entrepreneurs and creators produce professional-quality video content using cutting-edge AI tools.',
         quote: '"From consumer to creator — the future of content is AI-powered."',
         credentials: [
-            { icon: 'fa-film', text: 'Conducted AI Masterclass in Mumbai' },
-            { icon: 'fa-clapperboard', text: 'Led "Make Your First Film with AI" workshop' },
-            { icon: 'fa-wand-magic-sparkles', text: 'Expert in Remotion, ElevenLabs & video AI' },
-            { icon: 'fa-video', text: 'Visual storytelling for brands' },
+            { icon: 'fa-graduation-cap', text: 'IIM-A alum with 19+ yrs of work experience' },
+            { icon: 'fa-film', text: 'Master in Audio, Video creation using AI tools' },
+            { icon: 'fa-microphone', text: 'Podcast Host, marketing & branding expert, Entrepreneur' },
+            { icon: 'fa-eye', text: 'Expert visual story telling for brands' },
         ],
         links: [
             { label: 'LinkedIn', icon: 'fa-brands fa-linkedin', href: 'https://linkedin.com/in/ameyasuti/' },

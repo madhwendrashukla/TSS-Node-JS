@@ -103,13 +103,13 @@ export function AIWorkshopStoryline() {
                         <div className="absolute -inset-1 bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] rounded-2xl blur-xl opacity-15" />
                         <div className="relative bg-[rgba(15,23,42,0.8)] backdrop-blur-[16px] border border-[#8b5cf6]/30 rounded-2xl px-6 py-8 md:p-12">
                             <p className="text-xl md:text-2xl lg:text-3xl font-bold text-white leading-snug mb-2">
-                                You don&apos;t need more knowledge.
+                                More than Knowledge,
                             </p>
                             <p className="text-xl md:text-2xl lg:text-3xl font-bold leading-snug">
                                 You need <span className="bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] bg-clip-text text-transparent">a system, a deadline, and a mentor.</span>
                             </p>
                             <p className="mt-5 text-slate-400 text-base md:text-lg font-light">
-                                That&apos;s exactly what this 3-day workshop gives you.
+                                This is exactly what this 3-day workshop gives you.
                             </p>
                         </div>
                     </div>
