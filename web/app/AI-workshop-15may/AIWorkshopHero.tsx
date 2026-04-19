@@ -31,15 +31,15 @@ export function AIWorkshopHero() {
                 </p>
 
                 {/* Stats */}
-                <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 mb-10 md:mb-14 text-sm md:text-lg text-slate-300 font-medium">
+                <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-3 mb-10 md:mb-14 text-base md:text-xl text-slate-200 font-semibold tracking-wide">
                     <span>3 Mentors</span>
-                    <span className="text-[#8b5cf6] font-extrabold">;</span>
+                    <span className="text-[#a855f7] font-bold text-lg md:text-2xl mt-[-2px]">;</span>
                     <span>3 Days</span>
-                    <span className="text-[#8b5cf6] font-extrabold">;</span>
+                    <span className="text-[#a855f7] font-bold text-lg md:text-2xl mt-[-2px]">;</span>
                     <span>5 Sessions</span>
-                    <span className="text-[#8b5cf6] font-extrabold">;</span>
+                    <span className="text-[#a855f7] font-bold text-lg md:text-2xl mt-[-2px]">;</span>
                     <span>12+ Hr</span>
-                    <span className="text-[#8b5cf6] font-extrabold">;</span>
+                    <span className="text-[#a855f7] font-bold text-lg md:text-2xl mt-[-2px]">;</span>
                     <span>Live on Zoom</span>
                 </div>
 
