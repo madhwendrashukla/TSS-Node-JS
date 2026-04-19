@@ -34,13 +34,13 @@ export function AIWorkshopHero() {
                 <div className="w-full flex justify-center mb-10 md:mb-14 px-2">
                     <div className="inline-flex flex-nowrap items-center justify-center gap-1.5 min-[380px]:gap-2 sm:gap-3 md:gap-5 text-[9px] min-[360px]:text-[10px] sm:text-xs md:text-lg text-slate-200 font-semibold tracking-wide whitespace-nowrap bg-[rgba(15,23,42,0.4)] backdrop-blur-md border border-white/10 rounded-full px-3 py-2 md:px-8 md:py-3.5 shadow-lg">
                         <span>3 Mentors</span>
-                        <span className="text-[#a855f7] font-extrabold text-[11px] min-[360px]:text-xs sm:text-sm md:text-xl">;</span>
+                        <span className="text-[#a855f7] font-extrabold text-[11px] min-[360px]:text-xs sm:text-sm md:text-xl">•</span>
                         <span>3 Days</span>
-                        <span className="text-[#a855f7] font-extrabold text-[11px] min-[360px]:text-xs sm:text-sm md:text-xl">;</span>
+                        <span className="text-[#a855f7] font-extrabold text-[11px] min-[360px]:text-xs sm:text-sm md:text-xl">•</span>
                         <span>5 Sessions</span>
-                        <span className="text-[#a855f7] font-extrabold text-[11px] min-[360px]:text-xs sm:text-sm md:text-xl">;</span>
+                        <span className="text-[#a855f7] font-extrabold text-[11px] min-[360px]:text-xs sm:text-sm md:text-xl">•</span>
                         <span>12+ Hr</span>
-                        <span className="text-[#a855f7] font-extrabold text-[11px] min-[360px]:text-xs sm:text-sm md:text-xl">;</span>
+                        <span className="text-[#a855f7] font-extrabold text-[11px] min-[360px]:text-xs sm:text-sm md:text-xl">•</span>
                         <span>Live on Zoom</span>
                     </div>
                 </div>
