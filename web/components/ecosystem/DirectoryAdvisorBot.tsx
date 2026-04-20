@@ -5,7 +5,7 @@ import { X, MessageSquare, Bot, ExternalLink } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 const WHATSAPP_LINK = 'https://chat.whatsapp.com/BJ5RIXujFJG7ceB06nVqa4';
-const WORKSHOP_LINK = '/fundraising-workshop-15apr'; // redirect to workshop page
+const WORKSHOP_LINK = '/AI-workshop-15may'; // AI Startup Bootcamp May 15–17
 
 import { BookOpen, CalendarDays } from 'lucide-react';
 
@@ -46,8 +46,8 @@ function IdleNotifications({ onDismiss }: { onDismiss: (id: string) => void }) {
                     <span className="text-lg">🎤</span>
                 </div>
                 <div className="flex-1 min-w-0">
-                    <p className="text-white text-sm font-bold truncate group-hover:text-accent-violet transition-colors tracking-tight">Fundraising Workshop</p>
-                    <p className="text-accent-violet text-[11px] font-medium opacity-80 truncate">Upcoming · Register Now</p>
+                    <p className="text-white text-sm font-bold truncate group-hover:text-accent-violet transition-colors tracking-tight">AI Startup Bootcamp</p>
+                    <p className="text-accent-violet text-[11px] font-medium opacity-80 truncate">May 15–17 · Register Now</p>
                 </div>
                 <button
                     onClick={(e) => { e.stopPropagation(); onDismiss('workshop'); }}
@@ -267,10 +267,10 @@ export default function DirectoryAdvisorBot({ isHome }: { isHome?: boolean }) {
                                 onClick={() => { window.location.href = WORKSHOP_LINK; setIsOpen(false); }}
                                 className="flex items-center gap-3 w-full bg-accent-violet/10 border border-accent-violet/30 hover:border-accent-violet/60 hover:bg-accent-violet/15 rounded-xl px-4 py-3 transition-all group text-left"
                             >
-                                <span className="text-xl shrink-0">🎤</span>
+                                <span className="text-xl shrink-0">🚀</span>
                                 <div>
-                                    <p className="text-accent-violet text-sm font-bold leading-tight">Fundraising Workshop</p>
-                                    <p className="text-text-tertiary text-[10px]">Upcoming · Register Now</p>
+                                    <p className="text-accent-violet text-sm font-bold leading-tight">AI Startup Bootcamp</p>
+                                    <p className="text-text-tertiary text-[10px]">May 15–17 · Register Now</p>
                                 </div>
                                 <ExternalLink size={13} className="ml-auto text-accent-violet/50 group-hover:text-accent-violet" />
                             </button>

@@ -129,6 +129,13 @@ export function AIWorkshopCurriculum() {
                                             </a>
                                         ))}
                                     </div>
+
+                                    {/* Brand watermark - always visible in header */}
+                                    <div className="mt-4 flex justify-center sm:justify-end">
+                                        <span className="text-sm md:text-base font-black tracking-[0.14em] select-none" style={{ letterSpacing: '0.12em' }}>
+                                            <span className="text-white">THE </span><span className="bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] bg-clip-text text-transparent">STARTUP</span><span className="text-white"> SCHOOL.in</span>
+                                        </span>
+                                    </div>
                                 </div>
                                 <div className={`shrink-0 mt-2 transition-transform duration-300 ${open === wi ? 'rotate-180' : ''}`}>
                                     <i className="fa-solid fa-chevron-down text-slate-400" />
@@ -179,8 +186,9 @@ export function AIWorkshopCurriculum() {
 
                                             {/* Google Calendar links moved to header */}
 
+
                                             <a href="#pricing" className="mt-5 w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-bold text-white transition-all hover:opacity-90" style={{ background: `linear-gradient(135deg, #8b5cf6, #d946ef)` }}>
-                                                Register for This Workshop <i className="fa-solid fa-arrow-right" />
+                                                Book Seat Now for this workshop <i className="fa-solid fa-arrow-right" />
                                             </a>
                                         </div>
                                     </div>

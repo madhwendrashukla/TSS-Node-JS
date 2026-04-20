@@ -7,7 +7,7 @@ const plans = [
         mentor: 'Gaurav Bansal',
         originalPrice: '₹1,000',
         earlyBird: '₹290',
-        razorpayLink: '#', // replace with actual link
+        razorpayLink: 'https://rzp.io/rzp/CCyfuJ7',
         isFeatured: false,
         sessions: '1 Session (3 hours)',
         date: 'May 15  •  6–9 PM',
@@ -25,7 +25,7 @@ const plans = [
         mentor: 'Atul Pandey',
         originalPrice: '₹4,500',
         earlyBird: '₹1,490',
-        razorpayLink: '#', // replace with actual link
+        razorpayLink: 'https://rzp.io/rzp/AgknNVq',
         isFeatured: false,
         sessions: '3 Sessions (7.5 hours)',
         date: 'May 16–17',
@@ -43,7 +43,7 @@ const plans = [
         mentor: 'Amey Asuti',
         originalPrice: '₹1,500',
         earlyBird: '₹490',
-        razorpayLink: '#', // replace with actual link
+        razorpayLink: 'https://rzp.io/rzp/5SMdwth',
         isFeatured: false,
         sessions: '1 Session (2.5 hours)',
         date: 'May 17  •  10 AM–12:30 PM',
@@ -61,7 +61,7 @@ const plans = [
         mentor: 'All 3 Mentors',
         originalPrice: '₹7,000',
         earlyBird: '₹1,750',
-        razorpayLink: '#', // replace with actual link
+        razorpayLink: 'https://rzp.io/rzp/ZyLUYd62',
         isFeatured: true,
         sessions: 'All 5 Sessions (13 hours)',
         date: 'May 15–17, 2026',
@@ -69,7 +69,6 @@ const plans = [
             'Complete startup toolkit',
             'All deliverables from 3 workshops',
             '3 Certificates of Participation',
-            'SAVE ₹530 vs buying individually!',
         ],
         color: '#d946ef',
         saveBadge: 'SAVE ₹530',
@@ -83,9 +82,15 @@ export function AIWorkshopPricing() {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="text-center mb-12 md:mb-16">
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4">Choose Your Learning Path</h2>
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4">We Offer Customised Learning Path</h2>
                     <div className="w-24 h-1 bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] mx-auto rounded-full mb-6" />
                     <p className="text-slate-400 text-base md:text-lg font-light max-w-xl mx-auto">Individual workshops or the complete entrepreneurship bundle — you decide.</p>
+
+                    {/* FOMO Early Bird Banner */}
+                    <div className="mt-6 inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-[#d946ef]/40 bg-[#d946ef]/10 text-sm font-semibold text-[#f0abfc] animate-pulse">
+                        <i className="fa-solid fa-bolt text-[#d946ef]" />
+                        Early Bird Offer expiring soon — grab your spot before prices go up!
+                    </div>
                 </div>
 
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 max-w-7xl mx-auto">
@@ -146,13 +151,13 @@ export function AIWorkshopPricing() {
                                     <div className="relative group w-full">
                                         <div className="absolute -inset-1 bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] rounded-xl blur opacity-60 group-hover:opacity-100 transition duration-300" />
                                         <a
-                                            href={plan.razorpayLink}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="relative w-full block text-center px-4 py-4 rounded-xl bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] text-white font-bold transition-all transform group-hover:-translate-y-1 text-base shadow-[0_0_20px_rgba(139,92,246,0.4)]"
-                                        >
-                                            Register Now — {plan.earlyBird}
-                                        </a>
+                                             href={plan.razorpayLink}
+                                             target="_blank"
+                                             rel="noopener noreferrer"
+                                             className="relative w-full block text-center px-4 py-4 rounded-xl bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] text-white font-bold transition-all transform group-hover:-translate-y-1 text-base shadow-[0_0_20px_rgba(139,92,246,0.4)]"
+                                         >
+                                             Book Now
+                                         </a>
                                     </div>
                                 ) : (
                                     <a
@@ -161,7 +166,7 @@ export function AIWorkshopPricing() {
                                         rel="noopener noreferrer"
                                         className="w-full block text-center px-4 py-3.5 rounded-xl text-white font-bold transition-all text-sm border border-white/10 hover:border-white/30 bg-slate-800 hover:bg-slate-700"
                                     >
-                                        Register Now — {plan.earlyBird}
+                                        Book Now
                                     </a>
                                 )}
                                 <p className="text-[10px] text-slate-500 mt-2 text-center">Secure checkout via Razorpay</p>

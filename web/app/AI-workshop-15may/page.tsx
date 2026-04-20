@@ -21,6 +21,14 @@ export const metadata: Metadata = {
         title: 'AI Entrepreneurship Workshop Series – May 15–17, 2026',
         description: 'From billion-dollar ideas to AI-powered MVPs in 3 days. Live on Zoom.',
         type: 'website',
+        images: [
+            {
+                url: 'https://thestartupschool.in/ai-workshop-banner.png',
+                width: 1200,
+                height: 630,
+                alt: 'AI Startup Bootcamp – May 15–17, 2026 | The Startup School',
+            },
+        ],
     },
 };
 

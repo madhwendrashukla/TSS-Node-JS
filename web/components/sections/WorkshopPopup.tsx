@@ -51,36 +51,36 @@ export function WorkshopPopup() {
                 </button>
 
                 <div className="px-5 sm:px-6 pb-10 pt-10 sm:pt-12 flex flex-col items-center text-center relative z-10">
-                    {/* NEW TAG - Next Cohort */}
+                    {/* NEW TAG */}
                     <div className="mb-6 bg-[#8b5cf6]/20 px-4 py-2 rounded-full border border-[#8b5cf6]/40 shadow-[0_0_15px_rgba(139,92,246,0.2)]">
                         <span className="text-[10px] md:text-xs font-black text-[#a78bfa] uppercase tracking-widest leading-none">
-                            Next Cohort - 15 Apr
+                            Live Workshop • May 15–17, 2026
                         </span>
                     </div>
 
-                    {/* ICON - Reduced size for mobile */}
+                    {/* ICON */}
                     <div className="w-20 h-20 sm:w-24 sm:h-24 mb-6 rounded-3xl bg-gradient-to-br from-[#8b5cf6] to-[#d946ef] flex items-center justify-center relative shadow-[0_0_30px_rgba(139,92,246,0.6)] group">
                         <div className="absolute inset-0 bg-[#8b5cf6] rounded-3xl animate-pulse opacity-20"></div>
-                        <i className="fa-solid fa-indian-rupee-sign text-white text-3xl sm:text-4xl" />
+                        <i className="fa-solid fa-rocket text-white text-3xl sm:text-4xl" />
                     </div>
 
-                    {/* Text content - Optimized font sizes for mobile */}
+                    {/* Text content */}
                     <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-4 sm:mb-6 tracking-tight leading-[1.1] px-2">
-                        Fund Raising<br />
-                        Hacks<br />
-                        for Startups
+                        AI Startup<br />
+                        Bootcamp<br />
+                        2026
                     </h3>
                     <p className="text-slate-300 mb-8 sm:mb-10 text-sm sm:text-base md:text-lg leading-relaxed max-w-sm font-medium px-4">
-                        Master cap table, term sheets & SHA with <span className="text-white font-bold">IIT/IIM mentor</span>—Limited seats!
+                        From idea to AI-powered MVP in 3 days. Live on Zoom with <span className="text-white font-bold">India&apos;s top mentors</span> — Limited seats!
                     </p>
 
-                    {/* CTA - Adjusted padding for mobile */}
+                    {/* CTA */}
                     <Link 
-                        href="/fundraising-workshop-15apr?from=home"
+                        href="/AI-workshop-15may"
                         className="group/btn relative w-full sm:w-[90%] bg-white text-slate-950 font-black py-4 sm:py-5 px-6 rounded-2xl transition-all duration-300 flex items-center justify-center gap-3 overflow-hidden shadow-[0_10px_40px_rgba(255,255,255,0.1)] hover:shadow-[0_15px_50px_rgba(255,255,255,0.2)]"
                         onClick={handleClose}
                     >
-                        <span className="text-lg">Learn More</span>
+                        <span className="text-lg">Register Now</span>
                         <i className="fa-solid fa-arrow-right text-lg group-hover/btn:translate-x-1.5 transition-transform" />
                     </Link>
                 </div>

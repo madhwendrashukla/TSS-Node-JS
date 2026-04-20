@@ -6,13 +6,13 @@ const faqs = [
     { q: 'Are the sessions live or recorded?', a: 'All sessions are 100% live and interactive on Zoom. We believe deep learning happens when you can ask questions in real-time. Recordings will NOT be provided, but if you miss a session, you can attend it in the next cohort.' },
     { q: 'Do I need technical skills for the Claude workshop?', a: 'No! The workshops are designed for non-technical founders. Atul will guide you step-by-step through everything. If you can browse the internet, you can do this.' },
     { q: 'Do I need prior AI or filmmaking experience?', a: 'Absolutely not. These workshops start from basics and take you to building actual outputs. Beginners are welcome and encouraged.' },
-    { q: 'Can I attend just one workshop instead of all three?', a: 'Yes! You can choose individual workshops based on your needs. However, the Complete Bundle gives you the full toolkit and saves you ₹530.' },
+    { q: 'Can I attend just one workshop instead of all three?', a: 'Yes! You can choose individual workshops based on your needs. However, the Complete Bundle gives you the full toolkit at the best price.' },
     { q: 'What if I\'m at the idea stage?', a: 'Perfect! This is exactly when you should attend. Starting with the right frameworks prevents costly mistakes later.' },
     { q: 'Will I get support after the workshop?', a: 'Yes, you\'ll get access to our community group where you can ask questions and connect with fellow entrepreneurs.' },
     { q: 'What\'s the time commitment?', a: 'Total: 13 hours across 3 days (5 sessions). Each session is 2.5–3 hours. The schedule is designed to fit working professionals.' },
     { q: 'Is there a refund policy?', a: 'Due to the live nature of workshops, refunds aren\'t available once registered. However, we can transfer your seat to the next batch if needed.' },
-    { q: 'What tools or software do I need?', a: 'A laptop/computer with stable internet, Zoom installed, and optionally a Claude AI account (free tier works). Specific tool lists will be shared before each session.' },
-    { q: 'Can I get just the certificates without attending?', a: 'No. Certificates are only provided to participants who attend the live sessions.' },
+    { q: 'What tools or software do I need?', a: 'A laptop/computer with stable internet, Zoom installed, and a Claude AI account (preferably the Paid version for Atul Pandey\'s sessions for the best experience). Specific tool lists will be shared before each session.' },
+    { q: 'Can I get just the certificates without attending?', a: 'No. Certificates are only provided to participants who attend the live sessions. Attendance shall be recorded on a daily basis — it is compulsory to attend all sessions of the workshop you choose.' },
 ];
 
 export function AIWorkshopFinal() {
@@ -31,6 +31,13 @@ export function AIWorkshopFinal() {
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[400px] md:w-[800px] h-[150px] md:h-[300px] bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] rounded-[100%] filter blur-[80px] md:blur-[120px] opacity-10 pointer-events-none" />
 
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-24">
+            {/* Secure Your Seat CTA — above FAQ */}
+            <div className="flex justify-center">
+                <a href="#pricing" className="inline-flex items-center gap-3 px-12 py-5 rounded-xl font-extrabold text-white text-lg bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] hover:opacity-90 transition-all hover:-translate-y-0.5 shadow-[0_0_30px_rgba(139,92,246,0.4)]">
+                    Secure Your Seat <i className="fa-solid fa-arrow-right" />
+                </a>
+            </div>
+
                 {/* FAQs */}
                 <div>
                     <div className="text-center mb-10">
@@ -89,9 +96,21 @@ export function AIWorkshopFinal() {
                         {/* Email form */}
                         <div className="bg-[rgba(15,23,42,0.6)] backdrop-blur-[16px] border border-white/10 rounded-2xl p-6 md:p-8 relative overflow-hidden">
                             <div className="relative z-10">
-                                <div className="mb-6 text-center">
-                                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">Or Drop a Message</h3>
-                                </div>
+                        {/* Punchy taglines */}
+                        <div className="text-center mb-8">
+                            <p className="text-4xl md:text-5xl font-black text-white leading-tight">
+                                HAI <span className="bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] bg-clip-text text-transparent">KEEDA?</span>
+                            </p>
+                            <p className="text-4xl md:text-5xl font-black text-white leading-tight">
+                                HAI <span className="bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] bg-clip-text text-transparent">HIMMAT?</span>
+                            </p>
+                            <p className="text-4xl md:text-5xl font-black text-white leading-tight">
+                                TO KAR <span className="bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] bg-clip-text text-transparent">STARTUP!</span>
+                            </p>
+                        </div>
+                        <div className="mb-6 text-center">
+                            <h3 className="text-xl md:text-2xl font-bold text-white mb-2">To know more about our programs, drop your details below</h3>
+                        </div>
                                 <form className="space-y-4" onSubmit={handleQuerySubmit}>
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                         <div className="space-y-1.5">

@@ -1,4 +1,6 @@
-'use client';
+﻿'use client';
+
+import Image from 'next/image';
 
 const mentors = [
     {
@@ -18,6 +20,8 @@ const mentors = [
         ],
         color: '#8b5cf6',
         initials: 'GB',
+        image: '/gaurav.jpg',
+        imagePosition: '50% 25%',
     },
     {
         name: 'Atul Pandey',
@@ -36,6 +40,8 @@ const mentors = [
         ],
         color: '#d946ef',
         initials: 'AP',
+        image: '/atul_pandey.jpeg',
+        imagePosition: '50% 15%',
     },
     {
         name: 'Amey Asuti',
@@ -54,6 +60,8 @@ const mentors = [
         ],
         color: '#8b5cf6',
         initials: 'AA',
+        image: '/amey_Astuti.jpeg',
+        imagePosition: '50% 20%',
     },
 ];
 
@@ -71,13 +79,24 @@ export function AIWorkshopMentors() {
 
                 <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
                     {mentors.map((mentor, mi) => (
-                        <div key={mi} className="bg-[rgba(15,23,42,0.6)] backdrop-blur-[16px] border rounded-2xl md:rounded-3xl p-6 md:p-8 flex flex-col hover:shadow-[0_10px_30px_-10px_rgba(139,92,246,0.25)] transition-all duration-300 group hover:-translate-y-1" style={{ borderColor: `${mentor.color}40` }}>
-                            {/* Avatar */}
-                            <div className="shrink-0 mb-5">
-                                <div className="w-16 h-16 rounded-2xl flex items-center justify-center text-2xl font-extrabold text-white shadow-lg" style={{ background: `linear-gradient(135deg, #8b5cf6, #d946ef)` }}>
-                                    {mentor.initials}
-                                </div>
+                        <div key={mi} className="bg-[rgba(15,23,42,0.6)] backdrop-blur-[16px] border rounded-2xl md:rounded-3xl overflow-hidden flex flex-col hover:shadow-[0_10px_30px_-10px_rgba(139,92,246,0.25)] transition-all duration-300 group hover:-translate-y-1" style={{ borderColor: `${mentor.color}40` }}>
+                            {/* Full-width photo */}
+                            <div className="relative w-full h-64 md:h-72 shrink-0">
+                                <Image
+                                    src={mentor.image}
+                                    alt={mentor.name}
+                                    fill
+                                    className="object-cover"
+                                    style={{ objectPosition: mentor.imagePosition }}
+                                />
+                                {/* Gradient fade into card */}
+                                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[rgba(15,23,42,0.95)]" />
+                                {/* Color accent stripe */}
+                                <div className="absolute bottom-0 left-0 right-0 h-0.5" style={{ background: `linear-gradient(90deg, transparent, ${mentor.color}, transparent)` }} />
                             </div>
+
+                            {/* Card body */}
+                            <div className="p-6 md:p-8 flex flex-col flex-1">
 
                             {/* Badge */}
                             <div className="inline-block px-2.5 py-0.5 text-[10px] font-bold rounded uppercase tracking-widest text-white mb-3 w-fit" style={{ background: `linear-gradient(135deg, ${mentor.color}50, ${mentor.color}30)`, border: `1px solid ${mentor.color}40` }}>
@@ -103,17 +122,7 @@ export function AIWorkshopMentors() {
                                 {mentor.quote}
                             </div>
 
-                            {/* LinkedIn Link */}
-                            <div className="mt-auto">
-                                <a
-                                    href={mentor.links[0]?.href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-white/10 text-xs font-bold text-slate-300 hover:text-[#0077B5] hover:border-[#0077B5]/50 transition-all"
-                                >
-                                    <i className="fa-brands fa-linkedin" /> LinkedIn
-                                </a>
-                            </div>
+                            </div>{/* end card body */}
                         </div>
                     ))}
                 </div>
