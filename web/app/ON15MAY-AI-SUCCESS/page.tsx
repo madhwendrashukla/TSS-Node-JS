@@ -37,7 +37,7 @@ const WORKSHOPS: Record<string, {
         subtitle: 'Workshop 3 of the AI Startup Bootcamp',
         mentor: 'Amey Asuti',
         date: 'May 17, 2026  •  10 AM–12:30 PM IST',
-        whatsappLink: 'https://chat.whatsapp.com/BEPC1SJ9oZgCSchybnalah?mode=gi_t', // 🔁 Replace with actual group link
+        whatsappLink: 'https://chat.whatsapp.com/BEPC1SJ9oZgCSchybnaIah?mode=gi_t', // 🔁 Replace with actual group link
         color: '#8b5cf6',
         icon: 'fa-film',
     },
