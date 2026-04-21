@@ -88,7 +88,7 @@ export function AIWorkshopFinal() {
                             </div>
                             <h4 className="text-white font-bold text-xl mb-2 relative z-10">WhatsApp Us</h4>
                             <p className="text-sm text-slate-400 mb-6 font-light relative z-10">Get instant replies for your queries directly from our team.</p>
-                            <a href="https://chat.whatsapp.com/DsWZ7dyfz4C5bB4QydtNqH?mode=gi_t" target="_blank" rel="noopener noreferrer" className="inline-block px-8 py-3 rounded-lg bg-green-500/10 border border-green-500/30 text-sm font-bold text-green-400 hover:bg-green-500 hover:text-white transition-all relative z-10">
+                            <a href="https://chat.whatsapp.com/JzVfrG7FXhIHHlFXtQCj2C?mode=gi_t" target="_blank" rel="noopener noreferrer" className="inline-block px-8 py-3 rounded-lg bg-green-500/10 border border-green-500/30 text-sm font-bold text-green-400 hover:bg-green-500 hover:text-white transition-all relative z-10">
                                 Message Now <i className="fa-solid fa-arrow-up-right-from-square ml-1 text-xs" />
                             </a>
                         </div>
@@ -186,7 +186,7 @@ export function AIWorkshopFinal() {
                                         <i className="fa-solid fa-arrow-right relative text-sm group-hover:translate-x-1 transition-transform duration-200" />
                                     </a>
                                     <a
-                                        href="https://chat.whatsapp.com/DsWZ7dyfz4C5bB4QydtNqH"
+                                        href="https://chat.whatsapp.com/JzVfrG7FXhIHHlFXtQCj2C?mode=gi_t"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl font-semibold text-sm text-slate-300 border border-white/10 hover:border-white/25 hover:text-white transition-all duration-300"
