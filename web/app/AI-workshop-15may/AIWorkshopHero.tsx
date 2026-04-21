@@ -25,12 +25,11 @@ export function AIWorkshopHero() {
                 {/* Brand attribution */}
                 <div className="flex items-center justify-center gap-3 mb-4">
                     <div className="h-px w-12 bg-gradient-to-r from-transparent to-[#8b5cf6]/60" />
-                    <p className="text-base md:text-lg font-semibold tracking-wide text-slate-300">
-                        by{' '}
-                        <span className="font-extrabold text-white">THE </span>
-                        <span className="font-extrabold bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] bg-clip-text text-transparent">STARTUP</span>
-                        <span className="font-extrabold text-white"> SCHOOL</span>
-                        <span className="font-extrabold bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] bg-clip-text text-transparent">.in</span>
+                    <p className="text-base md:text-2xl lg:text-3xl font-semibold tracking-wide text-slate-300 flex flex-nowrap items-center whitespace-nowrap gap-1.5 md:gap-2">
+                        <span className="text-sm md:text-lg shrink-0">by</span>
+                        <span className="font-extrabold text-white shrink-0">THE</span>
+                        <span className="font-extrabold bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] bg-clip-text text-transparent shrink-0">STARTUP</span>
+                        <span className="font-extrabold text-white shrink-0">SCHOOL</span>
                     </p>
                     <div className="h-px w-12 bg-gradient-to-l from-transparent to-[#d946ef]/60" />
                 </div>

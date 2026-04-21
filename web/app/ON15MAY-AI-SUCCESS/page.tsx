@@ -19,7 +19,7 @@ const WORKSHOPS: Record<string, {
         subtitle: 'Workshop 1 of the AI Startup Bootcamp',
         mentor: 'Gaurav Bansal',
         date: 'May 15, 2026  •  6–9 PM IST',
-        whatsappLink: 'https://chat.whatsapp.com/REPLACE_LINK_1', // 🔁 Replace with actual group link
+        whatsappLink: 'https://chat.whatsapp.com/Cu042iW5LeHJ9tqkROkkn7?mode=gi_t', // 🔁 Replace with actual group link
         color: '#8b5cf6',
         icon: 'fa-lightbulb',
     },
@@ -28,7 +28,7 @@ const WORKSHOPS: Record<string, {
         subtitle: 'Workshop 2 of the AI Startup Bootcamp',
         mentor: 'Atul Pandey',
         date: 'May 16–17, 2026  •  3 Live Sessions',
-        whatsappLink: 'https://chat.whatsapp.com/REPLACE_LINK_2', // 🔁 Replace with actual group link
+        whatsappLink: 'https://chat.whatsapp.com/JyOBZrgImfeI19AP6AXR7R?mode=gi_t', // 🔁 Replace with actual group link
         color: '#d946ef',
         icon: 'fa-robot',
     },
@@ -37,7 +37,7 @@ const WORKSHOPS: Record<string, {
         subtitle: 'Workshop 3 of the AI Startup Bootcamp',
         mentor: 'Amey Asuti',
         date: 'May 17, 2026  •  10 AM–12:30 PM IST',
-        whatsappLink: 'https://chat.whatsapp.com/REPLACE_LINK_3', // 🔁 Replace with actual group link
+        whatsappLink: 'https://chat.whatsapp.com/BEPC1SJ9oZgCSchybnalah?mode=gi_t', // 🔁 Replace with actual group link
         color: '#8b5cf6',
         icon: 'fa-film',
     },
@@ -46,7 +46,7 @@ const WORKSHOPS: Record<string, {
         subtitle: '⭐ All 3 Workshops — Early Bird',
         mentor: 'Gaurav Bansal, Atul Pandey & Amey Asuti',
         date: 'May 15–17, 2026  •  All 5 Sessions',
-        whatsappLink: 'https://chat.whatsapp.com/REPLACE_LINK_4', // 🔁 Replace with actual group link
+        whatsappLink: 'https://chat.whatsapp.com/Hbgn7u3fkozDTFyCOOZt8p?mode=gi_t', // 🔁 Replace with actual group link
         color: '#d946ef',
         icon: 'fa-rocket',
     },

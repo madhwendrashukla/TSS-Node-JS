@@ -132,7 +132,7 @@ export function AIWorkshopCurriculum() {
 
                                     {/* Brand watermark - always visible in header */}
                                     <div className="mt-4 flex justify-center sm:justify-end">
-                                        <span className="text-sm md:text-base font-black tracking-[0.14em] select-none" style={{ letterSpacing: '0.12em' }}>
+                                        <span className="whitespace-nowrap text-sm md:text-base font-black tracking-[0.14em] select-none" style={{ letterSpacing: '0.12em' }}>
                                             <span className="text-white">THE </span><span className="bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] bg-clip-text text-transparent">STARTUP</span><span className="text-white"> SCHOOL.in</span>
                                         </span>
                                     </div>
