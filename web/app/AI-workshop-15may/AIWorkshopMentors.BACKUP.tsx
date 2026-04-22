@@ -1,5 +1,6 @@
-'use client';
+﻿'use client';
 
+import Image from 'next/image';
 
 const mentors = [
     {
@@ -79,23 +80,23 @@ export function AIWorkshopMentors() {
                 <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
                     {mentors.map((mentor, mi) => (
                         <div key={mi} className="bg-[rgba(15,23,42,0.6)] backdrop-blur-[16px] border rounded-2xl md:rounded-3xl overflow-hidden flex flex-col hover:shadow-[0_10px_30px_-10px_rgba(139,92,246,0.25)] transition-all duration-300 group hover:-translate-y-1" style={{ borderColor: `${mentor.color}40` }}>
+                            {/* Full-width photo */}
+                            <div className="relative w-full h-64 md:h-72 shrink-0">
+                                <Image
+                                    src={mentor.image}
+                                    alt={mentor.name}
+                                    fill
+                                    className="object-cover"
+                                    style={{ objectPosition: mentor.imagePosition }}
+                                />
+                                {/* Gradient fade into card */}
+                                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[rgba(15,23,42,0.95)]" />
+                                {/* Color accent stripe */}
+                                <div className="absolute bottom-0 left-0 right-0 h-0.5" style={{ background: `linear-gradient(90deg, transparent, ${mentor.color}, transparent)` }} />
+                            </div>
 
                             {/* Card body */}
                             <div className="p-6 md:p-8 flex flex-col flex-1">
-
-                            {/* Initials avatar */}
-                            <div
-                                className="w-20 h-20 rounded-2xl flex items-center justify-center text-xl font-black text-white mb-4"
-                                style={{
-                                    background: `linear-gradient(135deg, ${mentor.color}99, ${mentor.color})`,
-                                    boxShadow: `0 4px 20px ${mentor.color}55`,
-                                    border: `3px solid ${mentor.color}`,
-                                    outline: `3px solid ${mentor.color}44`,
-                                    outlineOffset: '3px',
-                                }}
-                            >
-                                {mentor.initials}
-                            </div>
 
                             {/* Badge */}
                             <div className="inline-block px-2.5 py-0.5 text-[10px] font-bold rounded uppercase tracking-widest text-white mb-3 w-fit" style={{ background: `linear-gradient(135deg, ${mentor.color}50, ${mentor.color}30)`, border: `1px solid ${mentor.color}40` }}>
