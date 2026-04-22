@@ -94,7 +94,7 @@ export function AIWorkshopCurriculum() {
                 <div className="space-y-6">
                     {workshops.map((ws, wi) => (
                         <div key={wi} className={`bg-[rgba(15,23,42,0.6)] backdrop-blur-[16px] rounded-2xl md:rounded-3xl border overflow-hidden transition-all duration-500 ${open === wi ? 'border-[#8b5cf6]/40 shadow-[0_0_30px_rgba(139,92,246,0.13)]' : 'border-white/10 hover:border-white/20'}`}>
-                            {/* Header */}
+                            {/* Header — clicking anywhere toggles */}
                             <button
                                 className="w-full text-left px-6 md:px-10 py-6 md:py-8 flex items-start gap-4 md:gap-6 group"
                                 onClick={() => setOpen(open === wi ? -1 : wi)}
@@ -110,8 +110,8 @@ export function AIWorkshopCurriculum() {
                                     <h3 className="text-xl md:text-2xl font-bold text-white mb-1">{ws.title}</h3>
                                     <p className="text-sm text-slate-400 font-light">by <span className="text-white font-medium">{ws.mentor}</span> · {ws.duration}</p>
                                     <p className="text-xs md:text-sm mt-2 font-medium" style={{ color: ws.color }}>{ws.tagline}</p>
-                                    
-                                    {/* Google Calendar buttons - moved up for visibility */}
+
+                                    {/* Google Calendar buttons */}
                                     <div className="mt-4 flex flex-wrap gap-2">
                                         {ws.calendarLinks.map((cl, ci) => (
                                             <a
@@ -120,7 +120,7 @@ export function AIWorkshopCurriculum() {
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 onClick={(e) => e.stopPropagation()}
-                                                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#ffffff0a] border border-white/10 text-[11px] md:text-xs text-slate-300 font-medium hover:bg-white/15 hover:border-[#4285F4]/50 hover:text-white transition-all group"
+                                                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#ffffff0a] border border-white/10 text-[11px] md:text-xs text-slate-300 font-medium hover:bg-white/15 hover:border-[#4285F4]/50 hover:text-white transition-all"
                                             >
                                                 <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor">
                                                     <path d="M12.545 10.239v3.821h5.445c-.712 2.315-2.647 3.972-5.445 3.972a6.033 6.033 0 110-12.064c1.498 0 2.866.549 3.921 1.453l2.814-2.814A9.969 9.969 0 0012.545 2C7.021 2 2.543 6.477 2.543 12s4.478 10 10.002 10c8.396 0 10.249-7.85 9.426-11.748l-9.426-.013z" fill="#4285F4"/>
@@ -130,13 +130,30 @@ export function AIWorkshopCurriculum() {
                                         ))}
                                     </div>
 
-                                    {/* Brand watermark - always visible in header */}
-                                    <div className="mt-4 flex justify-center sm:justify-end">
-                                        <span className="whitespace-nowrap text-sm md:text-base font-black tracking-[0.14em] select-none" style={{ letterSpacing: '0.12em' }}>
+                                    {/* Know More + brand — stacked on mobile, side-by-side on desktop */}
+                                    <div className="mt-4 flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-4">
+                                        <button
+                                            type="button"
+                                            onClick={(e) => { e.stopPropagation(); setOpen(open === wi ? -1 : wi); }}
+                                            className="self-start whitespace-nowrap inline-flex items-center gap-1.5 px-4 py-2 md:px-5 md:py-2.5 rounded md:rounded-lg text-xs md:text-sm font-extrabold transition-all duration-200 hover:scale-105 active:scale-95 shadow-md hover:shadow-lg text-white"
+                                            style={open === wi
+                                                ? { background: `linear-gradient(135deg, ${ws.color}cc, ${ws.color})`, boxShadow: `0 4px 18px ${ws.color}55` }
+                                                : { background: 'linear-gradient(135deg, #8b5cf6, #d946ef)', boxShadow: '0 4px 18px rgba(139,92,246,0.4)' }
+                                            }
+                                        >
+                                            {open === wi
+                                                ? <><span>Show Less</span><i className="fa-solid fa-arrow-up text-[9px] md:text-xs" /></>
+                                                : <><span>Know More</span><i className="fa-solid fa-arrow-right text-[9px] md:text-xs" /></>}
+                                        </button>
+
+                                        {/* Brand watermark */}
+                                        <span className="whitespace-nowrap text-sm md:text-base font-black select-none md:text-right" style={{ letterSpacing: '0.08em' }}>
                                             <span className="text-white">THE </span><span className="bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] bg-clip-text text-transparent">STARTUP</span><span className="text-white"> SCHOOL.in</span>
                                         </span>
                                     </div>
                                 </div>
+
+                                {/* Chevron — top-right, all screens */}
                                 <div className={`shrink-0 mt-2 transition-transform duration-300 ${open === wi ? 'rotate-180' : ''}`}>
                                     <i className="fa-solid fa-chevron-down text-slate-400" />
                                 </div>

@@ -57,7 +57,7 @@ const plans = [
     },
     {
         level: '⭐ EARLY BIRD OFFER',
-        name: 'Complete AI Bootcamp',
+        name: 'Complete AI Launchpad',
         mentor: 'All 3 Mentors',
         originalPrice: '₹7,000',
         earlyBird: '₹1,750',

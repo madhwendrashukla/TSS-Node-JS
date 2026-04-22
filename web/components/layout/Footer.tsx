@@ -63,6 +63,7 @@ export function Footer() {
                             THE <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8b5cf6] to-[#d946ef]">STARTUP</span> SCHOOL
                         </Link>
                         <p className="text-white/40 text-sm font-light">An Alternate B-School for Aspiring Founders</p>
+                        <p className="text-white text-xs md:text-sm font-medium mt-1.5 tracking-widest uppercase">RAMSETU ALTERNATE EDUCATION SOLUTIONS PVT LTD</p>
                     </div>
 
                     {/* Social Icons */}

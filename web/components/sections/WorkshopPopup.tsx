@@ -67,7 +67,7 @@ export function WorkshopPopup() {
                     {/* Text content */}
                     <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-4 sm:mb-6 tracking-tight leading-[1.1] px-2">
                         AI Startup<br />
-                        Bootcamp<br />
+                        Launchpad<br />
                         2026
                     </h3>
                     <p className="text-slate-300 mb-8 sm:mb-10 text-sm sm:text-base md:text-lg leading-relaxed max-w-sm font-medium px-4">

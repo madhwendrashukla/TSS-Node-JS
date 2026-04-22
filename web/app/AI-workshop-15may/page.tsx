@@ -12,6 +12,7 @@ const AIWorkshopTestimonials = dynamic(() => import('./AIWorkshopTestimonials').
 const AIWorkshopPricing = dynamic(() => import('./AIWorkshopPricing').then(m => m.AIWorkshopPricing));
 const AIWorkshopSchedule = dynamic(() => import('./AIWorkshopSchedule').then(m => m.AIWorkshopSchedule));
 const AIWorkshopFinal = dynamic(() => import('./AIWorkshopFinal').then(m => m.AIWorkshopFinal));
+import { BottomSheetCTA } from './BottomSheetCTA';
 
 export const metadata: Metadata = {
     title: 'AI Entrepreneurship Workshop Series – May 15–17, 2026 | The Startup School',
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
                 url: 'https://thestartupschool.in/ai-workshop-banner.png',
                 width: 1200,
                 height: 630,
-                alt: 'AI Startup Bootcamp – May 15–17, 2026 | The Startup School',
+                alt: 'AI Startup Launchpad – May 15–17, 2026 | The Startup School',
             },
         ],
     },
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
 
 export default function AIWorkshopPage() {
     return (
-        <div className="antialiased relative" style={{ backgroundColor: '#0f172a', color: '#f8fafc', overflowX: 'hidden' }}>
+        <div className="antialiased relative pb-16" style={{ backgroundColor: '#0f172a', color: '#f8fafc', overflowX: 'hidden' }}>
             {/* Grid Background */}
             <div className="fixed inset-0 pointer-events-none z-0" style={{
                 backgroundImage: 'linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)',
@@ -76,10 +77,13 @@ export default function AIWorkshopPage() {
             <footer className="border-t border-white/5 py-10 bg-[#0A0F1C]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-                        <Link href="/" className="flex items-center gap-2 font-bold text-lg hover:opacity-80 transition-opacity">
-                            <Image src="/logo.png" alt="The Startup School" width={32} height={32} className="w-8 h-8 rounded-lg object-cover" />
-                            <span>The <span className="bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] bg-clip-text text-transparent">Startup</span> School</span>
-                        </Link>
+                        <div className="flex flex-col items-center md:items-start gap-0.5">
+                            <Link href="/" className="flex items-center gap-2 font-bold text-lg hover:opacity-80 transition-opacity">
+                                <Image src="/logo.png" alt="The Startup School" width={32} height={32} className="w-8 h-8 rounded-lg object-cover" />
+                                <span>The <span className="bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] bg-clip-text text-transparent">Startup</span> School</span>
+                            </Link>
+                            <p className="text-[9px] text-white tracking-wide uppercase pl-10">RAMSETU ALTERNATE EDUCATION SOLUTIONS PVT LTD</p>
+                        </div>
                         <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-slate-500">
                             <Link href="/privacy-policy" className="hover:text-slate-300 transition-colors">Privacy Policy</Link>
                             <Link href="/terms-of-use" className="hover:text-slate-300 transition-colors">Terms of Use</Link>
@@ -89,6 +93,8 @@ export default function AIWorkshopPage() {
                     </div>
                 </div>
             </footer>
+            {/* Fixed CTA — appears after 5s */}
+            <BottomSheetCTA />
         </div>
     );
 }

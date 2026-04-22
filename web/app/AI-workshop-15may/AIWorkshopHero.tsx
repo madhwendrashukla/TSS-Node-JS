@@ -19,7 +19,7 @@ export function AIWorkshopHero() {
                 </div>
 
                 <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-2 md:mb-4 leading-[1.1] text-white">
-                    AI Startup Bootcamp
+                    AI Startup Launchpad
                 </h1>
 
                 {/* Brand attribution */}
