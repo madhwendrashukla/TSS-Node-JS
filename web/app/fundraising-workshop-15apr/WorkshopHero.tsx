@@ -13,7 +13,7 @@ export function WorkshopHero() {
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#8b5cf6] opacity-75" />
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-[#d946ef]" />
                     </span>
-                    <span className="font-medium tracking-wide">Live Cohort Starts April 15th</span>
+                    <span className="font-medium tracking-wide">Past Workshop - April 15th</span>
                 </div>
 
                 <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-4 md:mb-6 leading-[1.15] md:leading-[1.1]">
@@ -33,14 +33,9 @@ export function WorkshopHero() {
 
                 <div className="flex flex-col items-center justify-center gap-4 md:gap-6 w-full max-w-md mx-auto sm:max-w-none">
                     <div className="relative group w-full sm:w-auto">
-                        <div className="absolute -inset-1 bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] rounded-xl blur-lg opacity-60 group-hover:opacity-100 transition duration-300" />
-                        <a href="#pricing" className="relative w-full sm:w-auto px-6 py-4 md:px-8 md:py-5 text-base md:text-lg font-bold rounded-xl text-white bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] flex items-center justify-center transform group-hover:-translate-y-1 transition-all duration-300">
-                            Secure Your Seat in the Cohort
-                            <i className="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform" />
-                        </a>
-                    </div>
-                    <div className="flex items-center gap-2 text-xs md:text-sm text-slate-500 font-medium">
-                        <i className="fa-solid fa-shield-halved text-[#8b5cf6]" /> Secure Checkout via Razorpay
+                        <button disabled className="relative w-full sm:w-auto px-6 py-4 md:px-8 md:py-5 text-base md:text-lg font-bold rounded-xl text-white bg-slate-800 border border-white/20 cursor-not-allowed flex items-center justify-center">
+                            <i className="fa-solid fa-lock mr-2" /> Registrations Closed
+                        </button>
                     </div>
                 </div>
             </div>

@@ -126,11 +126,9 @@ export function WorkshopFinal() {
                         </h3>
                     </div>
                     <div className="relative group inline-block w-full sm:w-auto px-4 sm:px-0 mt-4">
-                        <div className="absolute -inset-1.5 bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] rounded-2xl blur-lg opacity-80 group-hover:opacity-100 transition duration-500 animate-pulse" />
-                        <a href="#pricing" className="relative flex sm:inline-flex items-center justify-center px-10 py-5 md:px-14 md:py-6 text-xl md:text-2xl font-extrabold rounded-2xl text-white bg-gradient-to-r from-[#8b5cf6] to-[#d946ef] shadow-[0_0_40px_rgba(217,70,239,0.5)] transition-all duration-300 transform group-hover:-translate-y-2 group-hover:scale-105 w-full border border-white/30">
-                            Avail Today&apos;s Offer
-                            <i className="fa-solid fa-arrow-right ml-3 group-hover:translate-x-2 transition-transform" />
-                        </a>
+                        <button disabled className="relative flex sm:inline-flex items-center justify-center px-10 py-5 md:px-14 md:py-6 text-xl md:text-2xl font-extrabold rounded-2xl text-slate-400 bg-slate-800/50 border border-white/10 cursor-not-allowed w-full">
+                            <i className="fa-solid fa-lock mr-3" /> Registrations Closed
+                        </button>
                     </div>
                 </div>
             </div>
