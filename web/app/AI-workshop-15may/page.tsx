@@ -16,8 +16,8 @@ import { BottomSheetCTA } from './BottomSheetCTA';
 
 export const metadata: Metadata = {
     title: 'AI Entrepreneurship Workshop Series – May 15–17, 2026 | The Startup School',
-    description: 'Build, Validate & Launch Your Startup in 3 Days. Master 12 ideation methods, build AI-powered MVPs with Claude, and create marketing films — live on Zoom with India\'s top mentors.',
-    keywords: 'AI workshop, startup workshop, entrepreneurship, Claude AI, MVP, startup ideation, AI filmmaking, Gaurav Bansal, Atul Pandey, Amey Asuti',
+    description: 'Build, Validate & Launch Your Startup in 3 Days. Master 12 ideation methods, build AI-powered MVPs with Claude Pro, and create marketing films — live on Zoom with India\'s top mentors.',
+    keywords: 'AI workshop, startup workshop, entrepreneurship, Claude Pro, MVP, startup ideation, AI filmmaking, Gaurav Bansal, Atul Pandey, Amey Asuti',
     openGraph: {
         title: 'AI Entrepreneurship Workshop Series – May 15–17, 2026',
         description: 'From billion-dollar ideas to AI-powered MVPs in 3 days. Live on Zoom.',

@@ -4,14 +4,14 @@ import { useState } from 'react';
 
 const faqs = [
     { q: 'Are the sessions live or recorded?', a: 'All sessions are 100% live and interactive on Zoom. We believe deep learning happens when you can ask questions in real-time. Recordings will NOT be provided, but if you miss a session, you can attend it in the next cohort.' },
-    { q: 'Do I need technical skills for the Claude workshop?', a: 'No! The workshops are designed for non-technical founders. Atul will guide you step-by-step through everything. If you can browse the internet, you can do this.' },
+    { q: 'Do I need technical skills for the Claude Pro workshop?', a: 'No! The workshops are designed for non-technical founders. Atul will guide you step-by-step through everything. If you can browse the internet, you can do this.' },
     { q: 'Do I need prior AI or filmmaking experience?', a: 'Absolutely not. These workshops start from basics and take you to building actual outputs. Beginners are welcome and encouraged.' },
     { q: 'Can I attend just one workshop instead of all three?', a: 'Yes! You can choose individual workshops based on your needs. However, the Complete Bundle gives you the full toolkit at the best price.' },
     { q: 'What if I\'m at the idea stage?', a: 'Perfect! This is exactly when you should attend. Starting with the right frameworks prevents costly mistakes later.' },
     { q: 'Will I get support after the workshop?', a: 'Yes, you\'ll get access to our community group where you can ask questions and connect with fellow entrepreneurs.' },
     { q: 'What\'s the time commitment?', a: 'Total: 13 hours across 3 days (5 sessions). Each session is 2.5–3 hours. The schedule is designed to fit working professionals.' },
     { q: 'Is there a refund policy?', a: 'Due to the live nature of workshops, refunds aren\'t available once registered. However, we can transfer your seat to the next batch if needed.' },
-    { q: 'What tools or software do I need?', a: 'A laptop/computer with stable internet, Zoom installed, and a Claude AI account (preferably the Paid version for Atul Pandey\'s sessions for the best experience). Specific tool lists will be shared before each session.' },
+    { q: 'What tools or software do I need?', a: 'A laptop/computer with stable internet, Zoom installed, and a Claude Pro account (preferably the Paid version for Atul Pandey\'s sessions for the best experience). Specific tool lists will be shared before each session.' },
     { q: 'Can I get just the certificates without attending?', a: 'No. Certificates are only provided to participants who attend the live sessions. Attendance shall be recorded on a daily basis — it is compulsory to attend all sessions of the workshop you choose.' },
 ];
 

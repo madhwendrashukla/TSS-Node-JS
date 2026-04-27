@@ -21,7 +21,7 @@ const plans = [
     },
     {
         level: 'WORKSHOP 2',
-        name: 'Zero-to-MVP using Claude AI',
+        name: 'Zero-to-MVP using Claude Pro',
         mentor: 'Atul Pandey',
         originalPrice: '₹4,500',
         earlyBird: '₹1,490',
@@ -57,7 +57,7 @@ const plans = [
     },
     {
         level: '⭐ EARLY BIRD OFFER',
-        name: 'Complete AI Launchpad',
+        name: 'Complete AI Launchpad (All 3 Workshops)',
         mentor: 'All 3 Mentors',
         originalPrice: '₹7,000',
         earlyBird: '₹1,750',
@@ -66,8 +66,9 @@ const plans = [
         sessions: 'All 5 Sessions (13 hours)',
         date: 'May 15–17, 2026',
         includes: [
-            'Complete startup toolkit',
-            'All deliverables from 3 workshops',
+            'Full Access: Workshop-1 + Workshop-2 + Workshop-3',
+            'Core Offering: The Complete AI Startup Toolkit',
+            'All deliverables, templates & prompts',
             '3 Certificates of Participation',
         ],
         color: '#d946ef',

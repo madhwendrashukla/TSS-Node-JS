@@ -25,11 +25,11 @@ const mentors = [
     {
         name: 'Atul Pandey',
         role: 'AI & Startup Technology Expert',
-        workshop: 'Workshop 2: Mastering AI with Claude',
+        workshop: 'Workshop 2: Mastering AI with Claude Pro',
         bio: 'Atul Pandey specializes in helping non-technical founders leverage AI tools to build and scale their startups. He bridges the gap between entrepreneurship and technology, making AI accessible for everyone.',
         quote: '"Hands-on, practical, and immediately actionable. No theoretical fluff."',
         credentials: [
-            { icon: 'fa-robot', text: 'Claude AI implementation for business' },
+            { icon: 'fa-robot', text: 'Claude Pro implementation for business' },
             { icon: 'fa-code', text: 'No-code/low-code MVP development' },
             { icon: 'fa-magnifying-glass-chart', text: 'AI-powered market research' },
             { icon: 'fa-layer-group', text: 'Product prototyping with AI' },

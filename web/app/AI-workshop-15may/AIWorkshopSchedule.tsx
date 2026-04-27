@@ -4,25 +4,25 @@ export function AIWorkshopSchedule() {
     const schedule = [
         {
             day: 'DAY 1',
-            date: 'May 15 (Thursday)',
+            date: 'May 15 (Friday)',
             sessions: [
                 { time: '6:00 PM – 9:00 PM IST', title: 'Startup Ideation & Validation', mentor: 'Gaurav Bansal', icon: 'fa-lightbulb', color: '#8b5cf6' },
             ],
         },
         {
             day: 'DAY 2',
-            date: 'May 16 (Friday)',
+            date: 'May 16 (Saturday)',
             sessions: [
-                { time: '10:00 AM – 12:30 PM IST', title: 'Mastering AI with Claude – Session 1', mentor: 'Atul Pandey', icon: 'fa-robot', color: '#d946ef' },
-                { time: '6:00 PM – 8:30 PM IST', title: 'Mastering AI with Claude – Session 2', mentor: 'Atul Pandey', icon: 'fa-robot', color: '#d946ef' },
+                { time: '10:00 AM – 12:30 PM IST', title: 'Mastering AI with Claude Pro – Session 1', mentor: 'Atul Pandey', icon: 'fa-robot', color: '#d946ef' },
+                { time: '3:00 PM – 5:30 PM IST', title: 'Mastering AI with Claude Pro – Session 2', mentor: 'Atul Pandey', icon: 'fa-robot', color: '#d946ef' },
             ],
         },
         {
             day: 'DAY 3',
-            date: 'May 17 (Saturday)',
+            date: 'May 17 (Sunday)',
             sessions: [
                 { time: '10:00 AM – 12:30 PM IST', title: 'AI Filmmaking & Video Marketing', mentor: 'Amey Asuti', icon: 'fa-film', color: '#8b5cf6' },
-                { time: '6:00 PM – 8:30 PM IST', title: 'Mastering AI with Claude – Session 3', mentor: 'Atul Pandey', icon: 'fa-robot', color: '#d946ef' },
+                { time: '3:00 PM – 5:30 PM IST', title: 'Mastering AI with Claude Pro – Session 3', mentor: 'Atul Pandey', icon: 'fa-robot', color: '#d946ef' },
             ],
         },
     ];
