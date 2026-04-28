@@ -5,61 +5,68 @@ import { useState } from 'react';
 // Video testimonial data — 2 from Startup Ideation, 2 from Fundraising Masterclass
 const testimonials = [
     {
-        name: 'Priya Sharma',
-        role: 'Early-Stage Founder',
-        location: 'Bengaluru',
-        workshop: 'Startup Ideation & Validation',
-        workshopTag: 'Startup Ideation',
-        tagColor: '#8b5cf6',
-        quote: '"I came in with 3 vague ideas. By the end of Day 1, I had one validated concept with a real target market. Gaurav\'s ideation framework is unlike anything I\'ve seen in MBA courses — it\'s raw, practical, and it works."',
-        avatar: 'PS',
-        rating: 5,
-        // Placeholder YouTube-style thumbnail using a gradient
-        thumbGradient: 'from-[#8b5cf6] to-[#6d28d9]',
-        thumbIcon: 'fa-lightbulb',
-        videoLabel: 'Startup Ideation Workshop — Priya\'s Story',
-    },
-    {
-        name: 'Rohit Mehta',
-        role: 'Product Manager turned Founder',
-        location: 'Pune',
-        workshop: 'Startup Ideation & Validation',
-        workshopTag: 'Startup Ideation',
-        tagColor: '#8b5cf6',
-        quote: '"The validation framework saved me from building a product nobody wanted. I tested my idea in 48 hours and realized the pivot I needed before spending a single rupee. Worth every second."',
-        avatar: 'RM',
-        rating: 5,
-        thumbGradient: 'from-[#7c3aed] to-[#5b21b6]',
-        thumbIcon: 'fa-rocket',
-        videoLabel: 'Startup Ideation Workshop — Rohit\'s Story',
-    },
-    {
-        name: 'Ananya Krishnan',
-        role: 'Solopreneur',
-        location: 'Chennai',
+        name: 'Loyan Dsouza',
+        role: 'CSPO, Elevate',
+        location: 'United Arab Emirates',
         workshop: 'Fundraising Masterclass',
         workshopTag: 'Fundraising Masterclass',
         tagColor: '#d946ef',
-        quote: '"I walked in terrified of investor conversations. After the session on The Narrative, The Numbers, and The Law — I finally understood why my previous pitches failed. I pitch differently now."',
-        avatar: 'AK',
+        quote: '"The kind of detail and the depth that especially the startup school has given, I think I would rate it as 10 out of 10. It was practical and actionable."',
+        avatar: 'LD',
         rating: 5,
+        duration: '0:28',
+        youtubeId: '9Hl6C4UKbVE',
         thumbGradient: 'from-[#d946ef] to-[#a21caf]',
         thumbIcon: 'fa-indian-rupee-sign',
-        videoLabel: 'Fundraising Masterclass — Ananya\'s Story',
+        videoLabel: 'Fundraising Masterclass — Loyan\'s Story',
     },
     {
-        name: 'Karan Sethi',
-        role: 'Tech Startup Co-Founder',
-        location: 'Delhi',
+        name: 'Akanksha Bajaj',
+        role: 'Director Marketing, ResearchAyu',
+        location: 'Mumbai',
         workshop: 'Fundraising Masterclass',
         workshopTag: 'Fundraising Masterclass',
         tagColor: '#d946ef',
-        quote: '"Gaurav breaks down cap tables and term sheets like nobody else does. We used the pitch structure from this masterclass and got our first angel meeting within 2 weeks."',
-        avatar: 'KS',
+        quote: '"I really loved all the sessions because it felt like future planning for me. I\'m going to research more on the topics discussed. So yeah, really grateful for these sessions."',
+        avatar: 'AB',
         rating: 5,
+        duration: '0:39',
+        youtubeId: 'QA4fekV9LA8',
         thumbGradient: 'from-[#c026d3] to-[#86198f]',
         thumbIcon: 'fa-handshake',
-        videoLabel: 'Fundraising Masterclass — Karan\'s Story',
+        videoLabel: 'Fundraising Masterclass — Akanksha\'s Story',
+    },
+    {
+        name: 'Kush Bhatia',
+        role: 'CEO & Co-Founder, JobGen.AI',
+        location: 'Sydney',
+        workshop: 'Fundraising Masterclass',
+        workshopTag: 'Fundraising Masterclass',
+        tagColor: '#d946ef',
+        quote: '"From pitch deck to everything, I loved it. Your sessions have been very helpful in my journey. I really loved Ashish\'s session; it was one of my favorites."',
+        avatar: 'KB',
+        rating: 5,
+        duration: '1:31',
+        youtubeId: 'zqk2SOTdiAk',
+        thumbGradient: 'from-[#d946ef] to-[#a21caf]',
+        thumbIcon: 'fa-indian-rupee-sign',
+        videoLabel: 'Fundraising Masterclass — Kush\'s Story',
+    },
+    {
+        name: 'Shivay Shakti',
+        role: 'Founder, MayaAgent.AI',
+        location: 'New Delhi',
+        workshop: 'Fundraising Masterclass',
+        workshopTag: 'Fundraising Masterclass',
+        tagColor: '#d946ef',
+        quote: '"This is exceptional as you don\'t skip technical details that people struggle with. I really appreciate the depth. When I joined this session, it was beautiful. Thank you."',
+        avatar: 'SS',
+        rating: 5,
+        duration: '1:02',
+        youtubeId: 'CIUhf_k1bOw',
+        thumbGradient: 'from-[#c026d3] to-[#86198f]',
+        thumbIcon: 'fa-handshake',
+        videoLabel: 'Fundraising Masterclass — Shivay\'s Story',
     },
 ];
 
@@ -67,46 +74,57 @@ function VideoCard({ t, i }: { t: typeof testimonials[0]; i: number }) {
     const [played, setPlayed] = useState(false);
 
     return (
-        <div className="bg-[rgba(15,23,42,0.7)] backdrop-blur-[16px] border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-all duration-300 hover:-translate-y-1 group">
+        <div className="bg-[rgba(15,23,42,0.7)] backdrop-blur-[16px] border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-all duration-300 hover:-translate-y-1 group flex flex-col h-full">
             {/* Video Thumbnail */}
             <div
-                className={`relative h-44 bg-gradient-to-br ${t.thumbGradient} flex items-center justify-center cursor-pointer overflow-hidden`}
+                className={`relative h-44 bg-bg-main flex items-center justify-center cursor-pointer overflow-hidden group/thumb shrink-0`}
                 onClick={() => setPlayed(true)}
             >
-                {/* Ambient overlay */}
-                <div className="absolute inset-0 bg-black/30" />
-                {/* Icon watermark */}
-                <i className={`fa-solid ${t.thumbIcon} text-white/10 text-[80px] absolute -bottom-3 -right-3`} />
-
                 {!played ? (
                     <>
+                        {/* YouTube Thumbnail */}
+                        <img 
+                            src={`https://img.youtube.com/vi/${(t as any).youtubeId}/hqdefault.jpg`} 
+                            alt={t.name} 
+                            className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover/thumb:opacity-100 group-hover/thumb:scale-105 transition duration-700" 
+                        />
+                        {/* Ambient overlay */}
+                        <div className="absolute inset-0 bg-black/20" />
+                        
                         {/* Play button */}
                         <div className="relative z-10 flex flex-col items-center gap-3">
-                            <div className="w-14 h-14 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                            <div className="w-14 h-14 rounded-full bg-red-600/90 backdrop-blur-sm border border-white/20 flex items-center justify-center group-hover/thumb:scale-110 transition-transform shadow-[0_0_30px_rgba(220,38,38,0.4)]">
                                 <i className="fa-solid fa-play text-white text-lg ml-1" />
                             </div>
-                            <span className="text-white/80 text-xs font-medium px-3 text-center leading-tight max-w-[160px]">{t.videoLabel}</span>
                         </div>
                         {/* Duration badge */}
-                        <span className="absolute bottom-2 right-2 bg-black/70 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">2:14</span>
+                        <span className="absolute bottom-2 right-2 bg-black/70 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">{(t as any).duration}</span>
                     </>
                 ) : (
-                    <div className="relative z-10 flex flex-col items-center gap-2 text-white/70">
-                        <i className="fa-solid fa-video-slash text-3xl" />
-                        <span className="text-xs">Video coming soon</span>
-                    </div>
+                    <iframe
+                        width="100%"
+                        height="100%"
+                        src={`https://www.youtube-nocookie.com/embed/${(t as any).youtubeId}?autoplay=1&modestbranding=1&rel=0`}
+                        title={t.videoLabel}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                        className="relative z-10"
+                    ></iframe>
                 )}
             </div>
 
             {/* Content */}
-            <div className="p-5">
+            <div className="p-5 flex-grow flex flex-col">
                 {/* Workshop tag */}
-                <span
-                    className="inline-block px-2 py-0.5 text-[10px] font-bold rounded uppercase tracking-widest text-white mb-3"
-                    style={{ background: `${t.tagColor}30`, border: `1px solid ${t.tagColor}50`, color: t.tagColor }}
-                >
-                    {t.workshopTag}
-                </span>
+                <div>
+                    <span
+                        className="inline-block px-2 py-0.5 text-[10px] font-bold rounded uppercase tracking-widest text-white mb-3"
+                        style={{ background: `${t.tagColor}30`, border: `1px solid ${t.tagColor}50`, color: t.tagColor }}
+                    >
+                        {t.workshopTag}
+                    </span>
+                </div>
 
                 {/* Stars */}
                 <div className="flex gap-0.5 mb-3">
@@ -116,12 +134,12 @@ function VideoCard({ t, i }: { t: typeof testimonials[0]; i: number }) {
                 </div>
 
                 {/* Quote */}
-                <p className="text-sm text-slate-300 font-light leading-relaxed mb-4 italic">
+                <p className="text-sm text-slate-300 font-light leading-relaxed mb-6 italic flex-grow">
                     {t.quote}
                 </p>
 
                 {/* Person */}
-                <div className="flex items-center gap-3 border-t border-white/5 pt-4">
+                <div className="flex items-center gap-3 border-t border-white/5 pt-4 mt-auto">
                     <div
                         className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-extrabold text-white shrink-0"
                         style={{ background: `linear-gradient(135deg, ${t.tagColor}, ${t.tagColor}80)` }}
@@ -130,7 +148,7 @@ function VideoCard({ t, i }: { t: typeof testimonials[0]; i: number }) {
                     </div>
                     <div>
                         <p className="text-sm font-bold text-white">{t.name}</p>
-                        <p className="text-xs text-slate-500">{t.role} · {t.location}</p>
+                        <p className="text-[11px] text-slate-500 leading-tight">{t.role} <br/> {t.location}</p>
                     </div>
                 </div>
             </div>
@@ -168,8 +186,8 @@ export function AIWorkshopTestimonials() {
                 {/* Aggregate social proof bar */}
                 <div className="mt-10 md:mt-14 flex flex-wrap items-center justify-center gap-6 md:gap-12">
                     {[
-                        { num: '200+', label: 'Founders Trained' },
-                        { num: '4.9★', label: 'Average Rating' },
+                        { num: '150+', label: 'Founders Trained' },
+                        { num: '56+', label: 'NPS Score' },
                         { num: '3', label: 'Live Cohorts Done' },
                     ].map((s, i) => (
                         <div key={i} className="text-center">
