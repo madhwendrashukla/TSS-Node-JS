@@ -125,7 +125,9 @@ export function AutomatedVideoPromo() {
                             fill
                             className="object-cover object-center md:object-top lg:object-center"
                             priority={index === 0 || index === 1}
+                            fetchPriority={index === 0 ? "high" : "auto"}
                             quality={50}
+                            sizes="100vw"
                         />
                     </div>
                 );

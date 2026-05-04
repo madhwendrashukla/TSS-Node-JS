@@ -1,5 +1,3 @@
-"use client";
-
 import Link from 'next/link';
 import Image from 'next/image';
 import { mentorsData, MentorProfile } from '@/lib/mentors';
@@ -11,8 +9,9 @@ const MentorCard = ({ mentor }: { mentor: MentorProfile }) => (
                 src={mentor.image}
                 alt={mentor.name}
                 fill
+                sizes="80px"
+                loading="lazy"
                 className="w-full h-full rounded-full object-cover group-hover:scale-110 group-hover:brightness-110 transition duration-700"
-                onError={(e) => { (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(mentor.name)}&background=1E293B&color=8B5CF6&size=200&font-size=0.33`; }}
             />
         </div>
         <h4 className="text-base font-bold text-white mb-1 tracking-tight">{mentor.name}</h4>
@@ -24,7 +23,6 @@ const MentorCard = ({ mentor }: { mentor: MentorProfile }) => (
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-auto w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-text-secondary hover:bg-white hover:text-black hover:border-white transition-all duration-300 text-xs"
-                onClick={(e) => e.stopPropagation()}
             >
                 <i className="fab fa-linkedin-in"></i>
             </a>
@@ -60,7 +58,7 @@ export function MentorsPreview() {
                 {/* Right fade */}
                 <div className="absolute right-0 top-0 h-full w-32 z-10 pointer-events-none bg-gradient-to-l from-bg-main to-transparent" />
 
-                <div className="flex mentors-marquee">
+                <div className="flex w-max animate-mentors-scroll hover:[animation-play-state:paused] will-change-transform">
                     {track.map((mentor, idx) => (
                         <MentorCard key={`marquee-mentor-${idx}`} mentor={mentor} />
                     ))}
@@ -74,22 +72,6 @@ export function MentorsPreview() {
                     <i className="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform"></i>
                 </Link>
             </div>
-
-            <style jsx>{`
-                .mentors-marquee {
-                    display: flex;
-                    width: max-content;
-                    animation: mentors-scroll 50s linear infinite;
-                    will-change: transform;
-                }
-                .mentors-marquee:hover {
-                    animation-play-state: paused;
-                }
-                @keyframes mentors-scroll {
-                    0%   { transform: translateX(0); }
-                    100% { transform: translateX(-50%); }
-                }
-            `}</style>
         </section>
     );
 }

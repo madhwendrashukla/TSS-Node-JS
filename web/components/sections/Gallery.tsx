@@ -1,4 +1,4 @@
-"use client";
+
 
 import Image from "next/image";
 import Link from "next/link";
@@ -22,7 +22,7 @@ function PhotoMarquee({ photos, reverse = false }: { photos: string[]; reverse?:
             <div className="absolute left-0 top-0 h-full w-40 z-10 pointer-events-none bg-gradient-to-r from-bg-main to-transparent" />
             <div className="absolute right-0 top-0 h-full w-40 z-10 pointer-events-none bg-gradient-to-l from-bg-main to-transparent" />
             <div
-                className="photo-marquee-track"
+                className="flex w-max animate-photo-scroll hover:[animation-play-state:paused] will-change-transform"
                 style={{ animationDirection: reverse ? "reverse" : "normal" }}
             >
                 {[...photos, ...photos].map((src, i) => (
@@ -40,21 +40,6 @@ function PhotoMarquee({ photos, reverse = false }: { photos: string[]; reverse?:
                     </div>
                 ))}
             </div>
-            <style jsx>{`
-        .photo-marquee-track {
-          display: flex;
-          width: max-content;
-          animation: photo-scroll 30s linear infinite;
-          will-change: transform;
-        }
-        .photo-marquee-track:hover {
-          animation-play-state: paused;
-        }
-        @keyframes photo-scroll {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-      `}</style>
         </div>
     );
 }

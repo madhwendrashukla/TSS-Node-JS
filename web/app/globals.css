@@ -18,6 +18,8 @@
 
   --animate-scroll-left: scrollLeft 40s linear infinite;
   --animate-scroll-right: scrollRight 40s linear infinite;
+  --animate-photo-scroll: photo-scroll 30s linear infinite;
+  --animate-mentors-scroll: mentors-scroll 50s linear infinite;
 
   @keyframes scrollLeft {
     0% {
@@ -37,6 +39,16 @@
     100% {
       transform: translateX(0);
     }
+  }
+
+  @keyframes photo-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @keyframes mentors-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
   }
 }
 

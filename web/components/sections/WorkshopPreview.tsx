@@ -1,6 +1,4 @@
-"use client";
-
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 export function WorkshopPreview() {
 
@@ -10,7 +8,6 @@ export function WorkshopPreview() {
             className="block w-full mx-auto rounded-[32px] md:rounded-[48px] overflow-hidden border border-white/5 shadow-[0_0_80px_rgba(139,92,246,0.15)] hover:shadow-[0_0_120px_rgba(168,85,247,0.25)] bg-[#0B0F19] transition-all duration-700 hover:scale-[1.02] cursor-pointer group mt-10 relative isolate"
         >
             {/* Background Grid */}
-            <div className="absolute inset-0 bg-[url('https://transparenttextures.com/patterns/cubes.png')] opacity-[0.03] pointer-events-none mix-blend-overlay -z-10"></div>
             <div className="absolute inset-0 bg-gradient-to-b from-[#13112E] to-transparent opacity-80 pointer-events-none -z-10"></div>
             
             <div className="w-full px-4 md:px-12 py-12 md:py-16 flex flex-col justify-center relative z-10">
