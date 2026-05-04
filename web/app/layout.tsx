@@ -77,7 +77,7 @@ export default function RootLayout({
           `}
         </Script>
         {/* End Google Tag Manager */}
-        <Script id="load-fontawesome" strategy="afterInteractive">
+        <Script id="load-fontawesome" strategy="lazyOnload">
           {`
             const faLink = document.createElement('link');
             faLink.rel = 'stylesheet';

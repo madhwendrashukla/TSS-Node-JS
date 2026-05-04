@@ -106,23 +106,27 @@ export function AutomatedVideoPromo() {
     }, []);
 
     return (
-        <section className="relative w-full min-h-[100svh] flex flex-col justify-center overflow-hidden bg-bg-main">
-            {/* Background Images Slider - Optimized Rendering */}
+        <section className="relative w-full min-h-[100svh] flex flex-col justify-center overflow-hidden bg-[#0A0F1C]">
+            {/* Background Images Slider - Pre-fetching Transition Logic */}
             {HERO_IMAGES.map((src, index) => {
-                // Only render the current image to prevent bulk loading
-                if (index !== currentBg) return null;
+                const isCurrent = index === currentBg;
+                const isNext = index === (currentBg + 1) % HERO_IMAGES.length;
+                
+                // Only keep the current and next images to minimize DOM weight
+                if (!isCurrent && !isNext) return null;
 
                 return (
                     <div
                         key={src}
-                        className="absolute inset-0 z-0"
+                        className={`absolute inset-0 z-0 transition-opacity duration-1000 ease-in-out ${isCurrent ? 'opacity-40' : 'opacity-0'}`}
                     >
                         <Image
                             src={src}
                             alt="Hero Background"
                             fill
-                            className="object-cover object-center md:object-top lg:object-center opacity-40"
-                            priority={index === 0}
+                            className="object-cover object-center md:object-top lg:object-center"
+                            priority={index === 0 || index === 1}
+                            quality={50}
                         />
                     </div>
                 );
