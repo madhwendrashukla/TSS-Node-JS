@@ -10,7 +10,7 @@ export function WorkshopPopup() {
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsVisible(true);
-        }, 5000);
+        }, 10000);
 
         return () => clearTimeout(timer);
     }, []);
@@ -28,7 +28,7 @@ export function WorkshopPopup() {
         <div className="fixed inset-0 z-[9999] flex items-end justify-center sm:items-center p-0 sm:p-4">
             {/* Backdrop */}
             <div 
-                className={`fixed inset-0 bg-black/80 backdrop-blur-md transition-opacity duration-300 ${isClosing ? 'opacity-0' : 'opacity-100'}`}
+                className={`fixed inset-0 bg-black/80 sm:backdrop-blur-md transition-opacity duration-300 ${isClosing ? 'opacity-0' : 'opacity-100'}`}
                 onClick={handleClose}
                 aria-hidden="true"
             />
