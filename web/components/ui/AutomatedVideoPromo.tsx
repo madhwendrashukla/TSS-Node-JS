@@ -84,8 +84,10 @@ export function AutomatedVideoPromo() {
     const sceneDurationMs = 3000;
 
     const [currentBg, setCurrentBg] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
+        setIsMobile(window.innerWidth < 768);
         const bgInterval = setInterval(() => {
             setCurrentBg((prev) => (prev + 1) % HERO_IMAGES.length);
         }, 3000);
@@ -104,26 +106,37 @@ export function AutomatedVideoPromo() {
         };
     }, []);
 
-
+    // Filter images for mobile to save bandwidth
+    const activeImages = isMobile ? HERO_IMAGES.slice(0, 3) : HERO_IMAGES;
 
     return (
         <section className="relative w-full min-h-[100svh] flex flex-col justify-center overflow-hidden bg-bg-main">
-            {/* Background Images Slider */}
-            {HERO_IMAGES.map((src, index) => (
-                <div
-                    key={src}
-                    className={`absolute inset-0 z-0 transition-opacity duration-1000 ease-in-out ${index === currentBg ? 'opacity-40' : 'opacity-0'
-                        }`}
-                >
-                    <Image
-                        src={src}
-                        alt="Hero Background"
-                        fill
-                        className="object-cover object-center md:object-top lg:object-center"
-                        priority={index === 0}
-                    />
-                </div>
-            ))}
+            {/* Background Images Slider - Optimized Loading */}
+            {activeImages.map((src, index) => {
+                // Only render the current and the immediately next/previous to avoid loading all 5 at once
+                const isVisible = index === currentBg;
+                const isNext = index === (currentBg + 1) % activeImages.length;
+                
+                if (!isVisible && !isNext) return null;
+
+                return (
+                    <div
+                        key={src}
+                        className={`absolute inset-0 z-0 transition-opacity duration-1000 ease-in-out ${isVisible ? 'opacity-40' : 'opacity-0'
+                            }`}
+                    >
+                        <Image
+                            src={src}
+                            alt="Hero Background"
+                            fill
+                            className="object-cover object-center md:object-top lg:object-center"
+                            priority={index === 0}
+                            quality={60} // Reduced quality for performance
+                            sizes="100vw"
+                        />
+                    </div>
+                );
+            })}
             <div className="absolute inset-0 bg-[url('https://transparenttextures.com/patterns/cubes.png')] opacity-[0.03] mix-blend-overlay -z-10"></div>
 
             {/* Dark/Gradient Overlays for readability and blending */}

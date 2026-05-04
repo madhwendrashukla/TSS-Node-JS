@@ -14,7 +14,7 @@ import Script from "next/script";
 export default function Home() {
   return (
     <>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
       {/* counter.dev analytics */}
       <Script 
         src="https://cdn.counter.dev/script.js" 

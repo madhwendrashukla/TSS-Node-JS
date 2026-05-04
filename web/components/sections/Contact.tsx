@@ -1,12 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { Kalam } from 'next/font/google';
 
-const kalam = Kalam({
-    subsets: ['latin'],
-    weight: ['400', '700'],
-});
 
 export function Contact() {
     const [formData, setFormData] = useState({
