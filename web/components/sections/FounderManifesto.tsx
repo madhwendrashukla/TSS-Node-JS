@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 const ShayariBlock = () => (
     <div className="relative mb-10">
@@ -21,7 +22,7 @@ const AchievementsList = () => {
             <div className="bg-bg-surface border border-white/5 rounded-2xl p-6 hover:border-accent-blue/50 transition duration-500 group flex flex-col shadow-lg shadow-black/20">
                 <h3 className="text-base font-bold text-white mb-4 text-center tracking-tight">Mentor Panel: E-Cell IIT Madras</h3>
                 <div className="aspect-video bg-bg-main rounded-xl mb-5 flex items-center justify-center border border-white/5 group-hover:border-accent-blue/50 transition duration-500 relative overflow-hidden">
-                    <img src="/bootcamp.jpeg" alt="Mentor Panel at IIT Madras" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition duration-700" />
+                    <Image src="/bootcamp.webp" alt="Mentor Panel at IIT Madras" width={640} height={360} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition duration-700" loading="lazy" />
                 </div>
                 <p className="text-text-secondary text-xs mb-5 leading-relaxed font-light flex-grow">
                     Invited as a Mentor at E-Cell IIT Madras. Mentoring early-stage founders, reviewing startup ideas, and providing practical guidance on execution and validation.
@@ -35,7 +36,7 @@ const AchievementsList = () => {
             <div className="bg-bg-surface border border-white/5 rounded-2xl p-6 hover:border-accent-violet/50 transition duration-500 group flex flex-col shadow-lg shadow-black/20">
                 <h3 className="text-base font-bold text-white mb-4 text-center tracking-tight">IIM ROHTAK: JUDGE & MENTOR</h3>
                 <div className="aspect-video bg-bg-main rounded-xl mb-3 md:mb-5 flex items-center justify-center border border-white/5 group-hover:border-accent-violet/50 transition relative overflow-hidden">
-                    <img src="/iimrohtak.jpg" alt="Judge and Mentor at IIM Rohtak" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition duration-700" />
+                    <Image src="/iimrohtak.webp" alt="Judge and Mentor at IIM Rohtak" width={640} height={360} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition duration-700" loading="lazy" />
                 </div>
                 <p className="text-text-secondary text-xs mb-4 md:mb-5 leading-relaxed font-light flex-grow">
                     Invited as a Judge and Mentor at IIM Rohtak. Evaluating innovative startups, providing critical feedback on pitches, and guiding aspiring founders on their journey from concept to scale.
@@ -64,7 +65,7 @@ const AchievementsList = () => {
                         </iframe>
                     ) : (
                         <>
-                            <img src="https://img.youtube.com/vi/tt_PVE_A3wU/hqdefault.jpg" alt="Session Thumbnail" className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition duration-700" />
+                            <Image src={`https://img.youtube.com/vi/tt_PVE_A3wU/hqdefault.jpg`} alt="Session Thumbnail" width={640} height={360} className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition duration-700" loading="lazy" unoptimized />
                             <div className="absolute inset-0 flex items-center justify-center z-10">
                                 <div className="w-14 h-14 bg-red-600/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(220,38,38,0.5)] group-hover:scale-110 transition duration-300">
                                     <i className="fas fa-play text-white ml-1 text-lg"></i>
@@ -130,10 +131,14 @@ export function FounderManifesto() {
 
                     <div className="flex items-center gap-5">
                         <div className="w-16 h-16 md:w-20 md:h-20 rounded-full p-1 bg-gradient-to-b from-white/10 to-transparent">
-                            <img
-                                src="/gaurav.jpg"
+                            <Image
+                                src="/gaurav.webp"
                                 alt="Gaurav Bansal"
-                                className="w-full h-full rounded-full object-cover group-hover:scale-110 group-hover:brightness-110 transition duration-700"                            />
+                                width={80}
+                                height={80}
+                                className="w-full h-full rounded-full object-cover"
+                                loading="lazy"
+                            />
                         </div>
                         <div>
                             <h4 className="text-2xl md:text-3xl font-bold text-white tracking-tight">Gaurav Bansal</h4>

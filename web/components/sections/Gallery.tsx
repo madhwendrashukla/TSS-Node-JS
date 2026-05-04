@@ -5,14 +5,14 @@ import Link from "next/link";
 
 // ─── Gallery photos from /public/gallery/ ─────────────────────────────
 const GALLERY_PHOTOS = [
-    "/gallery/IMG_0845.JPG",
-    "/gallery/IMG_1280.JPG",
-    "/gallery/IMG_1318.JPG",
-    "/gallery/IMG_1319.JPG",
-    "/gallery/IMG_1342.JPG",
-    "/gallery/IMG_1371.JPG",
-    "/gallery/IMG_1378.JPG",
-    "/gallery/IMG_1380.JPG",
+    "/gallery/IMG_0845.webp",
+    "/gallery/IMG_1280.webp",
+    "/gallery/IMG_1318.webp",
+    "/gallery/IMG_1319.webp",
+    "/gallery/IMG_1342.webp",
+    "/gallery/IMG_1371.webp",
+    "/gallery/IMG_1378.webp",
+    "/gallery/IMG_1380.webp",
 ];
 
 // ─── Simple inline marquee ─────────────────────────────────────────────

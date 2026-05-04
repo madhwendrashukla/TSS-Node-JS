@@ -9,12 +9,16 @@ import Script from "next/script";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
+  preload: true,
 });
 
 const merriweather = Merriweather({
   weight: ["300", "400", "700"],
   subsets: ["latin"],
   variable: "--font-merriweather",
+  display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -77,15 +81,22 @@ export default function RootLayout({
           `}
         </Script>
         {/* End Google Tag Manager */}
-        <Script id="load-fontawesome" strategy="lazyOnload">
-          {`
-            const faLink = document.createElement('link');
-            faLink.rel = 'stylesheet';
-            faLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
-            faLink.crossOrigin = 'anonymous';
-            document.head.appendChild(faLink);
-          `}
-        </Script>
+        {/* Font Awesome — preload then swap to avoid TBT */}
+        <link
+          rel="preload"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          as="style"
+          crossOrigin="anonymous"
+          // @ts-expect-error onload is valid here
+          onLoad="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript>
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            crossOrigin="anonymous"
+          />
+        </noscript>
       </head>
       <body
         className={`${inter.variable} ${merriweather.variable} antialiased bg-bg-main text-text-primary selection:bg-accent-blue selection:text-white overflow-x-hidden`}

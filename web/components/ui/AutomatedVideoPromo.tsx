@@ -7,11 +7,11 @@ import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 
 const HERO_IMAGES = [
-    '/images/hero-bg/slide-2.png',
-    '/images/hero-bg/slide-3.png',
-    '/images/hero-bg/slide-4.png',
-    '/images/hero-bg/slide-6.png',
-    '/images/hero-bg/slide-7.png',
+    '/images/hero-bg/slide-2.webp',
+    '/images/hero-bg/slide-3.webp',
+    '/images/hero-bg/slide-4.webp',
+    '/images/hero-bg/slide-6.webp',
+    '/images/hero-bg/slide-7.webp',
 ];
 
 /* ── Compact Apply Now Form ─────────────────────────────────────────────── */
@@ -81,22 +81,21 @@ export function AutomatedVideoPromo() {
     const [currentScene, setCurrentScene] = useState(0);
     const [isFadingOut, setIsFadingOut] = useState(false);
     const totalScenes = 4;
-    const sceneDurationMs = 3000;
+    const sceneDurationMs = 3500;
 
     const [currentBg, setCurrentBg] = useState(0);
-    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
         const bgInterval = setInterval(() => {
             setCurrentBg((prev) => (prev + 1) % HERO_IMAGES.length);
-        }, 3000);
+        }, 4000);
 
         const sceneInterval = setInterval(() => {
             setIsFadingOut(true);
             setTimeout(() => {
                 setCurrentScene((prev) => (prev + 1) % totalScenes);
                 setIsFadingOut(false);
-            }, 600);
+            }, 500);
         }, sceneDurationMs);
 
         return () => {
@@ -131,7 +130,7 @@ export function AutomatedVideoPromo() {
                     </div>
                 );
             })}
-            <div className="absolute inset-0 bg-[url('https://transparenttextures.com/patterns/cubes.png')] opacity-[0.03] mix-blend-overlay -z-10"></div>
+
 
             {/* Dark/Gradient Overlays for readability and blending */}
             <div className="absolute inset-0 z-0 bg-bg-main/60"></div>

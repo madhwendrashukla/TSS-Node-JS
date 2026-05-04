@@ -1,5 +1,3 @@
-"use client";
-
 import dynamic from 'next/dynamic';
 import { Hero } from "@/components/sections/Hero";
 import Script from "next/script";
@@ -12,17 +10,16 @@ const FounderManifesto = dynamic(() => import("@/components/sections/FounderMani
 const Programs = dynamic(() => import("@/components/sections/Programs").then(mod => mod.Programs), { ssr: true });
 const Gallery = dynamic(() => import("@/components/sections/Gallery").then(mod => mod.Gallery), { ssr: true });
 const Contact = dynamic(() => import("@/components/sections/Contact").then(mod => mod.Contact), { ssr: true });
-const WorkshopPopup = dynamic(() => import("@/components/sections/WorkshopPopup").then(mod => mod.WorkshopPopup), { ssr: false });
+const WorkshopPopup = dynamic(() => import("@/components/sections/WorkshopPopup").then(mod => mod.WorkshopPopup));
 
 export default function Home() {
   return (
     <>
-
-      {/* counter.dev analytics - moved to lazyOnload */}
-      <Script 
-        src="https://cdn.counter.dev/script.js" 
-        data-id="2806e04d-b124-48cb-82a3-35ecd0d92aa8" 
-        data-utcoffset="6" 
+      {/* counter.dev analytics - lazyOnload so it never blocks */}
+      <Script
+        src="https://cdn.counter.dev/script.js"
+        data-id="2806e04d-b124-48cb-82a3-35ecd0d92aa8"
+        data-utcoffset="6"
         strategy="lazyOnload"
       />
 
