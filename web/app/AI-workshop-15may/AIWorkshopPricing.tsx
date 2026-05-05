@@ -48,7 +48,7 @@ const plans = [
         sessions: '1 Session (2.5 hours)',
         date: 'May 17  •  10 AM–12:30 PM',
         includes: [
-            'Create complete AI film',
+            'Create complete AI film using Claude Pro',
             'Script + prompts + all assets',
             'Repeatable production workflow',
             'Certificate of Participation',
