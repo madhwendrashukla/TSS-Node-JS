@@ -42,7 +42,7 @@ const WORKSHOPS: Record<string, {
         icon: 'fa-film',
     },
     '4': {
-        title: 'Complete AI Bootcamp Bundle',
+        title: 'Complete AI Launchpad Bundle (All mentors).',
         subtitle: '⭐ All 3 Workshops — Early Bird',
         mentor: 'Gaurav Bansal, Atul Pandey & Amey Asuti',
         date: 'May 15–17, 2026  •  All 5 Sessions',
@@ -52,15 +52,6 @@ const WORKSHOPS: Record<string, {
     },
 };
 
-const DEFAULT_WORKSHOP = {
-    title: 'AI Startup Bootcamp',
-    subtitle: 'May 15–17, 2026',
-    mentor: 'The Startup School',
-    date: 'May 15–17, 2026',
-    whatsappLink: 'https://chat.whatsapp.com/DsWZ7dyfz4C5bB4QydtNqH',
-    color: '#8b5cf6',
-    icon: 'fa-rocket',
-};
 
 function SuccessContent() {
     const searchParams = useSearchParams();
@@ -69,7 +60,73 @@ function SuccessContent() {
     // Detect ?1 ?2 ?3 ?4 — Next.js searchParams only captures key=value,
     // so Razorpay redirects like ?1 are read as key "1" with empty value
     const workshopKey = ['1', '2', '3', '4'].find(k => searchParams.has(k)) ?? null;
-    const workshop = workshopKey ? WORKSHOPS[workshopKey] : DEFAULT_WORKSHOP;
+
+    useEffect(() => {
+        if (!workshopKey) {
+            const timer = setTimeout(() => {
+                window.location.replace('https://thestartupschool.in/AI-workshop-15may');
+            }, 1000);
+            return () => clearTimeout(timer);
+        }
+    }, [workshopKey]);
+
+    if (!workshopKey) {
+        return (
+            <div className="min-h-screen bg-[#0f172a] text-[#f8fafc] flex items-center justify-center p-6 overflow-hidden relative" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                <style dangerouslySetInnerHTML={{ __html: `
+                    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+                    .bg-grid-pattern {
+                        background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                                          linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+                        background-size: 30px 30px;
+                    }
+                    .glass-card {
+                        background: rgba(15, 23, 42, 0.6);
+                        backdrop-filter: blur(16px);
+                        -webkit-backdrop-filter: blur(16px);
+                        border: 1px solid rgba(255, 255, 255, 0.05);
+                        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                    }
+                    @keyframes spin-slow {
+                        from { transform: rotate(0deg); }
+                        to { transform: rotate(360deg); }
+                    }
+                    .animate-spin-slow { animation: spin-slow 2s linear infinite; }
+                `}} />
+                
+                {/* Background Grid */}
+                <div className="fixed inset-0 bg-grid-pattern z-0 pointer-events-none" />
+                
+                <div className="glass-card rounded-3xl p-8 md:p-12 text-center max-w-md w-full relative z-10 border-b-4 border-violet-500 shadow-2xl">
+                    <div className="mb-8 relative inline-flex">
+                        <div className="absolute inset-0 bg-violet-500 blur-2xl opacity-20 animate-pulse" />
+                        <div className="relative w-16 h-16 rounded-full bg-violet-500/10 border border-violet-500/20 flex items-center justify-center">
+                            <svg className="w-8 h-8 text-violet-400 animate-spin-slow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <h1 className="text-2xl font-bold text-white mb-3 tracking-tight">Redirecting...</h1>
+                    <p className="text-slate-400 text-sm leading-relaxed mb-8">
+                        Taking you to the launchpad. If you are not redirected automatically, click the link below.
+                    </p>
+                    
+                    <a 
+                        href="https://thestartupschool.in/AI-workshop-15may"
+                        onClick={(e) => { e.preventDefault(); window.location.replace('https://thestartupschool.in/AI-workshop-15may'); }}
+                        className="inline-flex items-center text-violet-400 hover:text-violet-300 font-bold text-sm transition-all gap-2 group"
+                    >
+                        go to ai startup launchpad page
+                        <i className="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1" />
+                    </a>
+                </div>
+            </div>
+        );
+    }
+
+    const workshop = WORKSHOPS[workshopKey];
 
     useEffect(() => {
         window.history.pushState(null, '', window.location.href);
@@ -207,9 +264,14 @@ function SuccessContent() {
                             </div>
 
                             {/* Headline */}
-                            <div className="mb-2">
-                                <span className="text-xs font-black uppercase tracking-widest px-3 py-1 rounded-full border"
-                                    style={{ color: workshop.color, borderColor: `${workshop.color}40`, background: `${workshop.color}15` }}>
+                            <div className="mb-2 flex justify-center">
+                                <span className="inline-block text-[10px] sm:text-xs font-black uppercase tracking-widest px-4 py-1.5 rounded-lg border text-center leading-relaxed"
+                                    style={{ 
+                                        color: workshop.color, 
+                                        borderColor: `${workshop.color}40`, 
+                                        background: `${workshop.color}15`,
+                                        maxWidth: '100%' 
+                                    }}>
                                     {workshop.subtitle}
                                 </span>
                             </div>
