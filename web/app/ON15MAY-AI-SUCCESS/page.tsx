@@ -24,7 +24,7 @@ const WORKSHOPS: Record<string, {
         icon: 'fa-lightbulb',
     },
     '2': {
-        title: 'Zero-to-MVP using Claude AI',
+        title: 'Zero-to-MVP using Claude Pro AI',
         subtitle: 'Workshop 2 of the AI Startup Bootcamp',
         mentor: 'Atul Pandey',
         date: 'May 16–17, 2026  •  3 Live Sessions',
@@ -33,7 +33,7 @@ const WORKSHOPS: Record<string, {
         icon: 'fa-robot',
     },
     '3': {
-        title: 'AI Filmmaking & Video Marketing',
+        title: 'AI Filmmaking & Video Marketing using Claude Pro AI',
         subtitle: 'Workshop 3 of the AI Startup Bootcamp',
         mentor: 'Amey Asuti',
         date: 'May 17, 2026  •  10 AM–12:30 PM IST',
